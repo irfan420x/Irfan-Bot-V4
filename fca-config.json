@@ -1,0 +1,19 @@
+{
+  "autoUpdate": true,
+  "mqtt": {
+    "enabled": true,
+    "reconnectInterval": 5000
+  },
+  "autoLogin": true,
+  "apiServer": "https://fca-api.irfan-bot.workers.dev",
+  "antiGetInfo": {
+    "AntiGetThreadInfo": true,
+    "AntiGetUserInfo": true
+  },
+  "remoteControl": {
+    "enabled": false,
+    "url": "",
+    "token": "",
+    "autoReconnect": true
+  }
+}
