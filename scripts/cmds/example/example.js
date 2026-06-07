@@ -8,7 +8,7 @@ module.exports = {
   config: {
     name: "example",                 // 🔹 Command name
     version: "1.0.0",                // 🔸 Version
-    author: "Team NoobCore",          // 👨‍💻 Developer
+    author: "Irfan Ahmmed",          // 👨‍💻 Developer
     role: 3,                          // 🔐 0=User | 1=Admin | 2=Bot Admin | 3=Owner
     usePrefix: true,                  // ⛓️ Prefix required
     description: "Example command",   // 📝 Description
@@ -23,10 +23,10 @@ module.exports = {
   // =======================
   // 🚀 Prefix Command Start
   // =======================
-  ncStart: async function ({ api, event, args, message }) {
+  onStart: async function ({ api, event, args, message }) {
     return message.reply(
       "✅ Example command executed successfully!\n" +
-      "🧠 ncStart function running."
+      "🧠 onStart function running."
     );
   },
 

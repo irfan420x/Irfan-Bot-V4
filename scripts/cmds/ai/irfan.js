@@ -5,7 +5,7 @@ const path = require("path");
 const config = {
   name: "irfan",
   version: "3.0",
-  author: "irfan",
+  author: "Irfan Ahmmed",
   role: 0,
   shortDescription: "Irfan AI - Smart Memory Bot",
   category: "ai"
@@ -293,7 +293,7 @@ async function handleMessage(message, event, usersData, api, question) {
 
 // ========== Exports ==========
 
-async function ncStart(ctx) {
+async function onStart(ctx) {
 
   const question = ctx.args.join(" ");
 
@@ -323,6 +323,6 @@ async function ncReply(ctx) {
 
 module.exports = {
   config,
-  ncStart,
+  onStart,
   ncReply
 };

@@ -11,7 +11,7 @@ module.exports = {
 		name: "scramble",
 		aliases: ["wordgame", "ws"],
 		version: "1.1",
-		author: "Manus AI",
+		author: "Irfan Ahmmed",
 		countDown: 5,
 		role: 0,
 		description: {
@@ -25,7 +25,7 @@ module.exports = {
 		}
 	},
 
-	ncStart: async function ({ api, event }) {
+	onStart: async function ({ api, event }) {
 		try {
 			const words = [
 				"FACEBOOK", "MESSENGER", "JAVASCRIPT", "NODEJS", "COMPUTER",

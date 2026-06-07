@@ -7,7 +7,7 @@ module.exports = {
   config: {
     name: "gay",
     version: "1.1",
-    author: "NC-TOSHIRO",
+    author: "Irfan Ahmmed",
     countDown: 1,
     role: 0,
     shortDescription: "Apply rainbow gay effect",
@@ -17,7 +17,7 @@ module.exports = {
     atai: true
   },
 
-  ncStart: async function ({ event, message, usersData }) {
+  onStart: async function ({ event, message, usersData }) {
     try {
       let uid;
 

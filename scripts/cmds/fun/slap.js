@@ -8,7 +8,7 @@ module.exports = {
     name: "slap",
     aliases: ["botslap"],
     version: "1.2",
-    author: "NC-TOSHIRO",
+    author: "Irfan Ahmmed",
     countDown: 5,
     role: 0,
     shortDescription: "Batslap image",
@@ -26,7 +26,7 @@ module.exports = {
     }
   },
 
-  ncStart: async function ({ event, message, usersData, args, getLang }) {
+  onStart: async function ({ event, message, usersData, args, getLang }) {
     try {
       const senderID = event.senderID;
       const targetID = event.mentions && Object.keys(event.mentions)[0];

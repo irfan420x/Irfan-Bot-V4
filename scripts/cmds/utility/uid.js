@@ -34,7 +34,7 @@ module.exports = {
 		}
 	},
 
-	ncStart: async function ({ message, event, args, getLang }) {
+	onStart: async function ({ message, event, args, getLang }) {
 		if (event.messageReply)
 			return message.reply(`╭─── 𝐔𝐈𝐃 ───╮\n│ 🆔 ${event.messageReply.senderID}\n╰───────────╯`);
 		if (!args[0])

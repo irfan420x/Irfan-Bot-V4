@@ -67,7 +67,7 @@ module.exports = {
 		}
 	},
 
-	ncStart: async function ({ message, event, args, threadsData, getLang }) {
+	onStart: async function ({ message, event, args, threadsData, getLang }) {
 		if (!["on", "off"].includes(args[1]))
 			return message.SyntaxError();
 		const { threadID } = event;

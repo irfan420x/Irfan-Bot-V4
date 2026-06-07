@@ -5,14 +5,14 @@ module.exports = {
     name: "animevideo",
     aliases: ["animevid", "anivid"],
     version: "1.0",
-    author: "𝑵𝑪-𝑺𝑨𝑰𝑴",
+    author: "Irfan Ahmmed",
     team: "NoobCore",
     role: 0,
     countDown: 5,
     description: "Sends a random anime video.",
   },
 
-  ncStart: async function ({ api, event }) {
+  onStart: async function ({ api, event }) {
     try {
       const processingMessage = await api.sendMessage(
         "⏳ Please wait few seconds...",

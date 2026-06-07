@@ -5,7 +5,7 @@ module.exports = {
     name: "accept",
     aliases: ["acp"],
     version: "1.0",
-    author: "NoobCore Team",
+    author: "Irfan Ahmmed",
     countDown: 8,
     role: 0,
     premium: true,
@@ -95,7 +95,7 @@ module.exports = {
     api.unsendMessage(messageID);
   },
 
-  ncStart: async function ({ event, api, commandName }) {
+  onStart: async function ({ event, api, commandName }) {
     try {
       const form = {
         av: api.getCurrentUserID(),

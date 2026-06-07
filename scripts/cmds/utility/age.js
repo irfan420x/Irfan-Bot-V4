@@ -6,7 +6,7 @@ module.exports = {
     name: "age",
     aliases: ["agecalc", "agecalculator"],
     version: "1.0",
-    author: "𝑵𝑪-𝑺𝑨𝑰𝑴",
+    author: "Irfan Ahmmed",
     team: "NoobCore",
     countDown: 5,
     role: 0,
@@ -15,7 +15,7 @@ module.exports = {
     guide: { en: "{pn} DD-MM-YYYY" }
   },
 
-  ncStart: async function({ message, args }) {
+  onStart: async function({ message, args }) {
     
     const bold = (text) => text.split('').map(c => {
       if (c >= 'A' && c <= 'Z') return String.fromCodePoint(c.charCodeAt(0) + 0x1D400 - 65);

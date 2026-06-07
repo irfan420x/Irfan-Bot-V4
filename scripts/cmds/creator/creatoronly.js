@@ -8,7 +8,7 @@ module.exports = {
 		name: "creatoronly",
 		aliases: ["coonly", "onlyco", "onlycreator"],
 		version: "1.5",
-		author: "NoobCore Team",
+		author: "Irfan Ahmmed",
 		countDown: 5,
 		role: 3,
 		description: {
@@ -39,7 +39,7 @@ module.exports = {
 		}
 	},
 
-	ncStart: function ({ args, message, getLang }) {
+	onStart: function ({ args, message, getLang }) {
 		let isSetNoti = false;
 		let value;
 		let indexGetVal = 0;

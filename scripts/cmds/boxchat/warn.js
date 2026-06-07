@@ -89,7 +89,7 @@ module.exports = {
 		}
 	},
 
-	ncStart: async function ({ message, api, event, args, threadsData, usersData, prefix, role, getLang }) {
+	onStart: async function ({ message, api, event, args, threadsData, usersData, prefix, role, getLang }) {
 		if (!args[0])
 			return message.SyntaxError();
 		const { threadID, senderID } = event;
@@ -266,7 +266,7 @@ module.exports = {
 										const { onEvent } = global.noobCore;
 										onEvent.push({
 											messageID: info.messageID,
-											ncStart: async ({ event }) => {
+											onStart: async ({ event }) => {
 												if (event.logMessageType === "log:thread-admins" && event.logMessageData.ADMIN_EVENT == "add_admin") {
 													const { TARGET_ID } = event.logMessageData;
 													if (TARGET_ID == api.getCurrentUserID()) {
@@ -323,7 +323,7 @@ module.exports = {
 							const { onEvent } = global.noobCore;
 							onEvent.push({
 								messageID: info.messageID,
-								ncStart: async ({ event }) => {
+								onStart: async ({ event }) => {
 									if (
 										event.logMessageType === "log:thread-admins"
 										&& event.logMessageData.ADMIN_EVENT == "add_admin"

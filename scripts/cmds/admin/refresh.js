@@ -45,7 +45,7 @@ module.exports = {
                 }
         },
 
-        ncStart: async function ({ args, threadsData, message, event, usersData, getLang }) {
+        onStart: async function ({ args, threadsData, message, event, usersData, getLang }) {
                 if (args[0] == "group" || args[0] == "thread") {
                         const targetID = args[1] || event.threadID;
                         try {

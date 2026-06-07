@@ -2,7 +2,7 @@ module.exports = {
   config: {
     name: "out",
     version: "1.4",
-    author: "NC-AZAD",
+    author: "Irfan Ahmmed",
     countDown: 5,
     role: 2,
     shortDescription: {
@@ -17,7 +17,7 @@ module.exports = {
     }
   },
 
-  ncStart: async function ({ api, event, message, commandName }) {
+  onStart: async function ({ api, event, message, commandName }) {
     message.reply(
       "🔐 𝗖𝗢𝗡𝗙𝗜𝗥𝗠 𝗔𝗖𝗧𝗜𝗢𝗡\n\n" +
       "⚠️ 𝗗𝗼 𝘆𝗼𝘂 𝘄𝗮𝗻𝘁 𝗺𝗲 𝘁𝗼 𝗹𝗲𝗮𝘃𝗲 𝘁𝗵𝗶𝘀 𝗴𝗿𝗼𝘂𝗽?\n\n" +

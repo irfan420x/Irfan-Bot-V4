@@ -19,14 +19,14 @@ module.exports = {
     name: "amv",
     aliases: ["anieditz", "aniedit"],
     version: "5.6",
-    author: "💻𝑵𝑪-𝑻𝑶𝑺𝑯𝑰𝑹𝑶⚡",
+    author: "Irfan Ahmmed",
     role: 0,
     shortDescription: "Get anime edit",
     category: "anime",
     guide: "{pn} [query]"
   },
 
-  ncStart: async function ({ api, event, args, langs }) {
+  onStart: async function ({ api, event, args, langs }) {
 
 
     const l = langs?.en || {

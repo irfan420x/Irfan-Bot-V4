@@ -6,7 +6,7 @@ module.exports = {
 		category: "events"
 	},
 
-	ncStart: async ({ threadsData, event, api }) => {
+	onStart: async ({ threadsData, event, api }) => {
 		const types = ["log:subscribe", "log:unsubscribe", "log:thread-admins", "log:thread-name", "log:thread-image", "log:thread-icon", "log:thread-color", "log:user-nickname"];
 		if (!types.includes(event.logMessageType))
 			return;

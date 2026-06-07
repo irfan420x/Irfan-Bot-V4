@@ -76,7 +76,7 @@ module.exports = {
 		}
 	},
 
-	ncStart: async function ({ args, threadsData, message, event, commandName, getLang }) {
+	onStart: async function ({ args, threadsData, message, event, commandName, getLang }) {
 		const { threadID, senderID, body } = event;
 		const { data, settings } = await threadsData.get(threadID);
 

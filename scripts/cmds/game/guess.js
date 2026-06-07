@@ -8,7 +8,7 @@ module.exports = {
   config: {
     name: "guess",
     version: "1.4",
-    author: "XNil",
+    author: "Irfan Ahmmed",
     countDown: 5,
     role: 0,
     category: "game",
@@ -20,7 +20,7 @@ module.exports = {
     }
   },
 
-  ncStart: async function ({ args, event, message, usersData }) {
+  onStart: async function ({ args, event, message, usersData }) {
     const senderID = event.senderID;
 
     if (args[0] === "top") {

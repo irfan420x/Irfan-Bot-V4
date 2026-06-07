@@ -57,7 +57,7 @@ module.exports = {
 		}
 	},
 
-	ncStart: async function ({ message, event, args, threadsData, getLang }) {
+	onStart: async function ({ message, event, args, threadsData, getLang }) {
 		switch (args[0]) {
 			case "set":
 			case "add":

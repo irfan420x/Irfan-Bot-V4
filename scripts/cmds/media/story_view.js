@@ -2,7 +2,7 @@ module.exports = {
 	config: {
 		name: "storyview",
 		version: "1.1",
-		author: "Irfan",
+		author: "Irfan Ahmmed",
 		countDown: 10,
 		role: 0,
 		description: {
@@ -18,7 +18,7 @@ module.exports = {
 		}
 	},
 
-	ncStart: async function ({ message, event, args, api }) {
+	onStart: async function ({ message, event, args, api }) {
 		const { threadID, messageID } = event;
 		const action = args[0];
 

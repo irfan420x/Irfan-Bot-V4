@@ -5,7 +5,7 @@ module.exports = {
     name: "kick",
     aliases: ["remove"],
     version: "3.1.0",
-    author: "Team NoobCore (Edited)",
+    author: "Irfan Ahmmed",
     role: 1,
     usePrefix: true,
     category: "group",
@@ -16,7 +16,7 @@ module.exports = {
     }
   },
 
-  ncStart: async function ({
+  onStart: async function ({
     api,
     event,
     args,

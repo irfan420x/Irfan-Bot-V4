@@ -25,7 +25,7 @@ module.exports = {
                 }
         },
 
-        ncStart: async function ({ message, getLang }) {
+        onStart: async function ({ message, getLang }) {
                 global.noobCore.ncsetting = fs.readJsonSync(global.client.dirConfig);
                 global.noobCore.configCommands = fs.readJsonSync(global.client.dirConfigCommands);
                 message.reply(getLang("success"));

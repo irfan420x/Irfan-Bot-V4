@@ -5,7 +5,7 @@ module.exports = {
 	config: {
 		name: "adduser",
 		version: "2.0",
-		author: "NoobCore Team", // author NC-FAHAD
+		author: "Irfan Ahmmed", // author NC-FAHAD
        team: " NoobCore",
 		countDown: 5,
 		role: 1,
@@ -59,7 +59,7 @@ module.exports = {
 		}
 	},
 
-	ncStart: async function ({ message, api, event, args, threadsData, getLang }) {
+	onStart: async function ({ message, api, event, args, threadsData, getLang }) {
 		const { members, adminIDs, approvalMode } = await threadsData.get(event.threadID);
 		const botID = api.getCurrentUserID();
 		

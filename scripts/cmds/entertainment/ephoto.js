@@ -107,7 +107,7 @@ module.exports = {
  config: {
  name: "ephoto",
  version: "1.0",
- author: "Saimx69x",
+ author: "Irfan Ahmmed",
  countDown: 5,
  role: 0,
  shortDescription: "Create stylish Ephoto text effect or view template list",
@@ -118,7 +118,7 @@ module.exports = {
  }
  },
 
- ncStart: async function ({ event, message, args, api }) {
+ onStart: async function ({ event, message, args, api }) {
  const prefix =
  global.utils && typeof global.utils.getPrefix === "function"
  ? await global.utils.getPrefix(event.threadID)

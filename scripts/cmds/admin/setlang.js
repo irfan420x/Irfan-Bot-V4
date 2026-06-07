@@ -39,7 +39,7 @@ module.exports = {
                 }
         },
 
-        ncStart: async function ({ message, args, getLang, threadsData, role, event }) {
+        onStart: async function ({ message, args, getLang, threadsData, role, event }) {
                 if (!args[0])
                         return message.SyntaxError;
                 let langCode = args[0].toLowerCase();

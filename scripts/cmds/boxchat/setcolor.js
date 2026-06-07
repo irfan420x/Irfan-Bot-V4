@@ -3,7 +3,7 @@ module.exports = {
 		name: "setcolor",
 		aliases: ["changecolor", "color"],
 		version: "1.1",
-		author: "Manus",
+		author: "Irfan Ahmmed",
 		countDown: 5,
 		role: 1,
 		shortDescription: {
@@ -34,7 +34,7 @@ module.exports = {
 		}
 	},
 
-	ncStart: async function ({ api, args, message, event, getLang }) {
+	onStart: async function ({ api, args, message, event, getLang }) {
 		const color = args[0];
 		if (!color) return message.reply(getLang("missingColor"));
 

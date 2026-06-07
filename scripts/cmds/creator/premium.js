@@ -4,7 +4,7 @@ module.exports = {
   config: {
     name: "premium",
     version: "2.1",
-    author: "𝑵𝑪-𝑿𝑵𝑰𝑳",
+    author: "Irfan Ahmmed",
     countDown: 5,
     role: 3,
     description: {
@@ -76,7 +76,7 @@ module.exports = {
   },
 
   // ================= CORE =================
-  ncStart: async function ({ args, usersData, message, event, getLang }) {
+  onStart: async function ({ args, usersData, message, event, getLang }) {
 
     const type = args[0]?.toLowerCase();
 

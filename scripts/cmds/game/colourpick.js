@@ -32,7 +32,7 @@ module.exports = {
     name: "colorpick",
     aliases: ["cp"],
     version: "2.6.0",
-    author: "NC-Toshiro | xnil6x",
+    author: "Irfan Ahmmed",
     role: 0,
     category: "game",
     description: "🎨 Stylish Colorpick",
@@ -45,7 +45,7 @@ module.exports = {
     }
   },
 
-  ncStart: async function ({ api, event, usersData, args }) {
+  onStart: async function ({ api, event, usersData, args }) {
     const { senderID, threadID } = event;
     const sub = (args[0] || "").toLowerCase();
     const today = bdDate();

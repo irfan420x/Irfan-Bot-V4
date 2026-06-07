@@ -15,14 +15,14 @@ module.exports = {
   config: {
     name: "rbg",
     version: "1.0",
-    author: "NC-Saimx69x", //Api by Fahim
+    author: "Irfan Ahmmed", //Api by Fahim
     team: "NoobCore", 
     shortDescription: "Remove background from image",
     longDescription: "Removes background from replied  image",
     guide: "{pn} (reply to image)",
   },
 
-  ncStart: async function ({ api, event }) {
+  onStart: async function ({ api, event }) {
     let imageUrl = "";
     let processingMsg;
 

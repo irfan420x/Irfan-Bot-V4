@@ -5,7 +5,7 @@ const path = require("path");
 module.exports = {
   config: {
     name: "duck",
-    author: "𝑵𝑪-𝑺𝑨𝑰𝑴",
+    author: "Irfan Ahmmed",
     team: "NoobCore",
     version: "1.0",
     role: 0,
@@ -14,7 +14,7 @@ module.exports = {
     guide: { en: "{p}{n} — Shows a random duck image" }
   },
 
-  ncStart: async function({ api, event }) {
+  onStart: async function({ api, event }) {
     try {
       const noobcore = "https://raw.githubusercontent.com/noobcore404/NC-STORE/main/NCApiUrl.json";
       const rawRes = await axios.get(noobcore);

@@ -6,7 +6,7 @@ const path = require("path");
 module.exports = {
   config: {
     name: "hack",
-    author: "Azadx69x",// api by mahmud
+    author: "Irfan Ahmmed",// api by mahmud
     countDown: 5,
     role: 0,
     category: "fun",
@@ -20,7 +20,7 @@ module.exports = {
     return base.data.mahmud;
   },
 
-  ncStart: async function ({ api, event }) {
+  onStart: async function ({ api, event }) {
     try {
       const baseApi = await this.baseApi();
 

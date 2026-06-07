@@ -3,7 +3,7 @@ module.exports = {
     name: "botnickname",
     aliases: ["botnick"],
     version: "1.5",
-    author: "NC-AZAD | NC-XNIL",
+    author: "Irfan Ahmmed",
     countDown: 5,
     role: 2,
     shortDescription: {
@@ -40,7 +40,7 @@ module.exports = {
     }
   },
 
-  ncStart: async function ({ api, args, message, getLang }) {
+  onStart: async function ({ api, args, message, getLang }) {
     try {
       const newNickname = args.join(" ").trim();
       if (!newNickname)

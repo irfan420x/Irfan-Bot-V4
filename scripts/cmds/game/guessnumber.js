@@ -106,7 +106,7 @@ module.exports = {
 		}
 	},
 
-	ncStart: async function ({ message, event, getLang, commandName, args, globalData, usersData, role }) {
+	onStart: async function ({ message, event, getLang, commandName, args, globalData, usersData, role }) {
 		if (args[0] == "rank") {
 			const rankGuessNumber = await globalData.get("rankGuessNumber", "data", []);
 			if (!rankGuessNumber.length)

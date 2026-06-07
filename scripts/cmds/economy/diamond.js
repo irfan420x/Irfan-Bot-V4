@@ -8,7 +8,7 @@ module.exports = {
     name: "diamond",
     aliases: ["dm", "dia"],
     version: "1.7.0",
-    author: "T A N J I L 🎀",
+    author: "Irfan Ahmmed",
     role: 0,
     category: "game",
     description: "View, add, delete, transfer diamonds",
@@ -22,7 +22,7 @@ module.exports = {
     `}
   },
 
-  ncStart: async function ({ message, usersData, event, args }) {
+  onStart: async function ({ message, usersData, event, args }) {
     const senderID = event.senderID;
     const adminIDs = Array.isArray(config.adminBot)
       ? config.adminBot

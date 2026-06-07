@@ -5,7 +5,7 @@ module.exports = {
 		name: "notification",
 		aliases: ["notify", "noti"],
 		version: "3.0",
-		author: "𝑵𝑪-𝒀𝑬𝑨𝑺𝑰𝑵 | NC-XNIL (fixed)",
+		author: "Irfan Ahmmed",
 		countDown: 5,
 		role: 3,
 		category: "owner",
@@ -26,7 +26,7 @@ module.exports = {
 	},
 
 	// ================= MAIN =================
-	ncStart: async function ({
+	onStart: async function ({
 		message, api, event, args,
 		commandName, envCommands, threadsData, getLang
 	}) {

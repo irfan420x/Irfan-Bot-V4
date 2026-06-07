@@ -7,7 +7,7 @@ module.exports = {
     name: "qrcode",
     aliases: ["qr"],
     version: "2.0",
-    author: "𝑵𝑪-𝑺𝑨𝑰𝑴",
+    author: "Irfan Ahmmed",
     team: "NoobCore",
     countDown: 5,
     role: 0,
@@ -17,7 +17,7 @@ module.exports = {
     guide: { en: "{pn} make <text>\n{pn} scan <image_url or reply image>" }
   },
 
-  ncStart: async function ({ api, event, args }) {
+  onStart: async function ({ api, event, args }) {
     const { threadID, messageID, messageReply } = event;
     const action = args[0];
 

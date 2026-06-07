@@ -42,7 +42,7 @@ module.exports = {
     name: "sing",
     aliases: ["music", "play"],
     version: "0.0.1",
-    author: "NC-ArYAN",
+    author: "Irfan Ahmmed",
     team: "NoobCore", 
     countDown: 5,
     role: 0,
@@ -52,7 +52,7 @@ module.exports = {
     guide: "/play <song name or YouTube URL>"
   },
 
-  ncStart: async function ({ api: e, event: f, args: g, commandName: cmd }) {
+  onStart: async function ({ api: e, event: f, args: g, commandName: cmd }) {
     let baseApi;
     try {
       const configRes = await a.get(nix);

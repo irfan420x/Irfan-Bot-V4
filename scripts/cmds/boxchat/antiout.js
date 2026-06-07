@@ -2,7 +2,7 @@ module.exports = {
   config: {
     name: "antiout",
     version: "1.3",
-    author: "NC-AZAD",
+    author: "Irfan Ahmmed",
     countDown: 5,
     role: 1,
     shortDescription: {
@@ -81,7 +81,7 @@ Couldn't add %1 back`
     }
   },
 	
-  ncStart: async function ({ args, message, event, threadsData, usersData, getLang }) {
+  onStart: async function ({ args, message, event, threadsData, usersData, getLang }) {
     const option = args[0];
     const name = await usersData.getName(event.senderID);
     const time = new Date().toLocaleString();
@@ -122,7 +122,7 @@ Couldn't add %1 back`
   },
 	
   onStart: async function (ctx) {
-    return this.ncStart(ctx);
+    return this.onStart(ctx);
   },
 
   onEvent: async function ({ event, api, threadsData, usersData, getLang }) {

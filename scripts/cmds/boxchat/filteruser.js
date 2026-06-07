@@ -41,7 +41,7 @@ module.exports = {
     }
   },
 
-  ncStart: async function ({ api, args, threadsData, message, event, commandName, getLang }) {
+  onStart: async function ({ api, args, threadsData, message, event, commandName, getLang }) {
     const threadData = await threadsData.get(event.threadID);
     if (!threadData.adminIDs.includes(api.getCurrentUserID()))
       return message.reply(getLang("needAdmin"));

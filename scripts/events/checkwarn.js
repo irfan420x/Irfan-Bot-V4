@@ -17,7 +17,7 @@ module.exports = {
 		}
 	},
 
-	ncStart: async ({ threadsData, message, event, api, client, getLang }) => {
+	onStart: async ({ threadsData, message, event, api, client, getLang }) => {
 		if (event.logMessageType == "log:subscribe")
 			return async function () {
 				const { threadID } = event;

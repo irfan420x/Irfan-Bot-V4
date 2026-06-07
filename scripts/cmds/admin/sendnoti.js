@@ -70,7 +70,7 @@ module.exports = {
 		}
 	},
 
-	ncStart: async function ({ message, event, args, usersData, threadsData, api, getLang, role }) {
+	onStart: async function ({ message, event, args, usersData, threadsData, api, getLang, role }) {
 		const { threadID, senderID } = event;
 		const groupsSendNotiData = await usersData.get(senderID, 'data.groupsSendNoti', []);
 

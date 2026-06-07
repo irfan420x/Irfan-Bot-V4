@@ -6,7 +6,7 @@ module.exports = {
   config: {
     name: "ytstalk",
     aliases: ["ytinfo"],
-    author: "𝑵𝑪-𝑺𝑨𝑰𝑴",
+    author: "Irfan Ahmmed",
     team: "NoobCore",
     version: "1.0",
     role: 0,
@@ -15,7 +15,7 @@ module.exports = {
     guide: "{p}ytstalk <channelName>"
   },
 
-  ncStart: async function ({ api, event, args }) {
+  onStart: async function ({ api, event, args }) {
     const channelName = args.join(" ").trim();
 
     const FONT_URL = "https://raw.githubusercontent.com/noobcore404/NC-STORE/main/ncsfont.json";

@@ -53,7 +53,7 @@ module.exports = {
     name: "slots",
     aliases: ["slot"],
     version: "2.2.0",
-    author: "NC-xnil6x",
+    author: "Irfan Ahmmed",
     role: 0,
     category: "game",
     description: "🎰 Ultra Premium Stylish Slot Machine",
@@ -62,7 +62,7 @@ module.exports = {
     }
   },
 
-  ncStart: async ({ event, args, message, usersData }) => {
+  onStart: async ({ event, args, message, usersData }) => {
     const { senderID } = event;
     const sub = (args[0] || "").toLowerCase();
     const today = bdDate();

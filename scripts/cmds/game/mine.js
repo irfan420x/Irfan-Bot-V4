@@ -42,7 +42,7 @@ module.exports = {
   config: {
     name: "mine",
     version: "1.8.0",
-    author: "NC-xnil6x",
+    author: "Irfan Ahmmed",
     role: 0,
     category: "game",
     description: "💣 Mine Game (5 tiles, rank badge)",
@@ -54,7 +54,7 @@ module.exports = {
     }
   },
 
-  ncStart: async ({ api, event, args, message, usersData }) => {
+  onStart: async ({ api, event, args, message, usersData }) => {
     const { senderID } = event;
     const sub = (args[0] || "").toLowerCase();
     const today = bdDate();

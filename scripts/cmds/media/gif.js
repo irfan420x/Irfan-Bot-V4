@@ -18,7 +18,7 @@ module.exports = {
     name: "gif",
     aliases: ["tenor"],
     version: "1.0",
-    author: "𝑵𝑪-𝑺𝑨𝑰𝑴",
+    author: "Irfan Ahmmed",
     team: "NoobCore",
     role: 0,
     countDown: 5,
@@ -30,7 +30,7 @@ module.exports = {
     },
   },
 
-  ncStart: async function ({ api, event, args }) {
+  onStart: async function ({ api, event, args }) {
     try {
       const input = args.join(" ").trim();
       if (!input) {

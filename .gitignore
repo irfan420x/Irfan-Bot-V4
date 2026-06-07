@@ -79,3 +79,12 @@ logs/
 # Temp
 tmp/
 temp/
+# Facebook AppState / secrets
+ncstate*.json
+appstate*.json
+backups/
+Fca_Database/
+core/database/data/*.sqlite
+*.sqlite
+.env
+.env.*

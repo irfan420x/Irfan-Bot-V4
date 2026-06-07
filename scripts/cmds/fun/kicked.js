@@ -6,7 +6,7 @@ module.exports = {
   config: {
     name: "kicked",
     version: "1.0",
-    author: "𝑵𝑪-𝑺𝑨𝑰𝑴",
+    author: "Irfan Ahmmed",
     team: "NoobCore",
     countDown: 5,
     role: 0,
@@ -23,7 +23,7 @@ module.exports = {
     }
   },
 
-  ncStart: async function ({ event, message, usersData, args, getLang }) {
+  onStart: async function ({ event, message, usersData, args, getLang }) {
     const kickerID = event.senderID;
     let kickedID = Object.keys(event.mentions || {})[0];
     if (!kickedID && event.messageReply?.senderID) kickedID = event.messageReply.senderID;

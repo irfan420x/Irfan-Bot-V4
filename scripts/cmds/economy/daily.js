@@ -4,7 +4,7 @@ module.exports = {
 	config: {
 		name: "daily",
 		version: "2.0",
-		author: "NoobCore Team", // NC-FAHAD FIX
+		author: "Irfan Ahmmed", // NC-FAHAD FIX
 		countDown: 5,
 		role: 0,
 		description: {
@@ -86,7 +86,7 @@ module.exports = {
 		}
 	},
 
-	ncStart: async function ({ args, message, event, envCommands, usersData, commandName, getLang, api, threadModel, userModel, globalModel }) {
+	onStart: async function ({ args, message, event, envCommands, usersData, commandName, getLang, api, threadModel, userModel, globalModel }) {
 		const config = envCommands[commandName];
 		const reward = config.rewardFirstDay;
 		const timezone = config.timezone || "Asia/Ho_Chi_Minh";

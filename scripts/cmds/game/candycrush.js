@@ -3,7 +3,7 @@ module.exports = {
     name: "candycrush",
     aliases: ["cc"],
     version: "3.2",
-    author: "NC-AZAD • nc-nil",
+    author: "Irfan Ahmmed",
     role: 0,
     countDown: 3,
     shortDescription: "🍬 Candy Crush Game",
@@ -18,7 +18,7 @@ module.exports = {
   },
 
   // ================= START =================
-  ncStart: async function ({ event, message, api, args, usersData }) {
+  onStart: async function ({ event, message, api, args, usersData }) {
 
     // ===== TOP =====
     if (args[0] === "top") {

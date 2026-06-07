@@ -28,7 +28,7 @@ module.exports = {
 		}
 	},
 
-	ncStart: async function ({ api, args, message, event, threadsData, usersData, dashBoardData, globalData, threadModel, userModel, dashBoardModel, globalModel, role, commandName, getLang }) {
+	onStart: async function ({ api, args, message, event, threadsData, usersData, dashBoardData, globalData, threadModel, userModel, dashBoardModel, globalModel, role, commandName, getLang }) {
 		function output(msg) {
 			if (typeof msg == "number" || typeof msg == "boolean" || typeof msg == "function")
 				msg = msg.toString();

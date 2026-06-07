@@ -71,7 +71,7 @@ module.exports = {
 		}
 	},
 
-	ncStart: async function ({ message, event, args, threadsData, globalData, role, getLang }) {
+	onStart: async function ({ message, event, args, threadsData, globalData, role, getLang }) {
 		const aliasesData = await threadsData.get(event.threadID, "data.aliases", {});
 
 		switch (args[0]) {

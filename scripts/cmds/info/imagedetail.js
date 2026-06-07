@@ -7,7 +7,7 @@ module.exports.config = {
   name: "imagedetail",
   aliases: ["imgdetail"],
   version: "1.0",
-  author: "𝑵𝑪-𝑺𝑨𝑰𝑴",
+  author: "Irfan Ahmmed",
   team: "NoobCore", 
   countDown: 5,
   role: 0,
@@ -15,7 +15,7 @@ module.exports.config = {
   guide: "{pn} reply to an image"
 };
 
-module.exports.ncStart = async ({ api, event }) => {
+module.exports.onStart = async ({ api, event }) => {
   try {
     const attachment = event.messageReply?.attachments?.[0];
     if (!attachment || attachment.type !== "photo") {

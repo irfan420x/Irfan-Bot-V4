@@ -5,14 +5,14 @@ config: {
 name: "imgbb",
 aliases: [],
 version: "1.0",
-author: "NC-Saimx69x",
+author: "Irfan Ahmmed",
 countDown: 5,
 role: 0,
 shortDescription: "Upload multiple images and get URLs",
 longDescription: "Reply to images/gif/png will upload them to Imgbb and return URLs."
 },
 
-ncStart: async function ({ api, event }) {
+onStart: async function ({ api, event }) {
 try {
 
 if (!event.messageReply || !event.messageReply.attachments || event.messageReply.attachments.length === 0) {

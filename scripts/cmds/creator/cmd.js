@@ -121,7 +121,7 @@ module.exports = {
                 }
         },
 
-        ncStart: async ({ args, message, api, threadModel, userModel, dashBoardModel, globalModel, threadsData, usersData, dashBoardData, globalData, event, commandName, getLang }) => {
+        onStart: async ({ args, message, api, threadModel, userModel, dashBoardModel, globalModel, threadsData, usersData, dashBoardData, globalData, event, commandName, getLang }) => {
                 const { unloadScripts, loadScripts } = global.utils;
                 if (
                         args[0] == "load"
@@ -552,10 +552,10 @@ command.location = pathCommand;
                         command.onLoad({ api, threadModel, userModel, dashBoardModel, globalModel, threadsData, usersData, dashBoardData, globalData });
 
                 const { envGlobal, envConfig } = configCommand;
-                if (!command.ncStart)
-                        throw new Error('Function ncStart is missing!');
-                if (typeof command.ncStart != "function")
-                        throw new Error('Function ncStart must be a function!');
+                if (!command.onStart)
+                        throw new Error('Function onStart is missing!');
+                if (typeof command.onStart != "function")
+                        throw new Error('Function onStart must be a function!');
                 if (!scriptName)
                         throw new Error('Name of command is missing!');
                 // ————————————————— CHECK ALIASES ————————————————— //

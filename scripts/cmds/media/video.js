@@ -17,7 +17,7 @@ module.exports = {
     name: "video",
     aliases: ["v"],
     version: "0.0.1",
-    author: "NC ArYAN",
+    author: "Irfan Ahmmed",
     countDown: 5,
     role: 0,
     team: "NoobCore",
@@ -27,7 +27,7 @@ module.exports = {
     guide: "/video [video name]"
   },
 
-  ncStart: async function({ api, event, args }) {
+  onStart: async function({ api, event, args }) {
     if (!args.length) return api.sendMessage("╭─── 𝐈𝐍𝐅𝐎 ───╮\n│ ❌ Missing video name\n╰──────────────╯", event.threadID, event.messageID);
     const G = args.join(" ");
     try {

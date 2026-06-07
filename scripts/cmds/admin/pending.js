@@ -2,7 +2,7 @@ module.exports = {
   config: {
     name: "pending",
     version: "1.0",
-    author: "𝑵𝑪-𝑺𝑨𝑰𝑴",
+    author: "Irfan Ahmmed",
     team: "NoobCore",
     countDown: 5,
     role: 2,
@@ -97,7 +97,7 @@ module.exports = {
     return api.sendMessage(getLang("approveSuccess", count), threadID, messageID);
   },
 
-  ncStart: async function ({ api, event, getLang, commandName }) {
+  onStart: async function ({ api, event, getLang, commandName }) {
     const { threadID, messageID } = event;
     let msg = "", index = 1;
 

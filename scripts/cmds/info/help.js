@@ -98,7 +98,7 @@ module.exports = {
     name: "help",
     version: "8.0",
     modify: ["Manus AI"],
-    author: "NoobCore Team",
+    author: "Irfan Ahmmed",
     countDown: 5,
     role: 0,
     autoUnseen: 40,
@@ -119,7 +119,7 @@ module.exports = {
     priority: 1
   },
 
-  ncStart: async function({ message, args, event, role }) {
+  onStart: async function({ message, args, event, role }) {
     const prefix = getPrefix(event.threadID);
 
     await Promise.all([fetchCategoryEmoji(), fetchFonts()]); 

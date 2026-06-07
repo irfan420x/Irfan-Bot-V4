@@ -6,7 +6,7 @@ module.exports = {
   config: {
     name: "murgi",
     version: "1.0",
-    author: "NC-FAHAD",
+    author: "Irfan Ahmmed",
     countDown: 5,
     role: 0,
     shortDescription: "Murgi funny",
@@ -16,7 +16,7 @@ module.exports = {
       en: "{p}{n} @mention / reply"
     }
   },
-  ncStart: async function ({ api, event, args }) {
+  onStart: async function ({ api, event, args }) {
     try {
       let targetID;
       if (Object.keys(event.mentions).length > 0) {

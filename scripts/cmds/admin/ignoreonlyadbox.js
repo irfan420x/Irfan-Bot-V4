@@ -44,7 +44,7 @@ module.exports = {
 		}
 	},
 
-	ncStart: async function ({ args, message, threadsData, getLang, event }) {
+	onStart: async function ({ args, message, threadsData, getLang, event }) {
 		const ignoreList = await threadsData.get(event.threadID, "data.ignoreCommanToOnlyAdminBox", []);
 		switch (args[0]) {
 			case "add": {

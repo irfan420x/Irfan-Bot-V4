@@ -2,7 +2,7 @@ module.exports = {
   config: {
     name: "info",
     version: "1.0",
-    author: "💻𝑵𝑪-𝑿𝑵𝑰𝑳6𝒙⚡",
+    author: "Irfan Ahmmed",
     countDown: 5,
     role: 0, // 0 use for everyone, 1 use for box admin, 2 use for bot admin, 3 use for bot Creator
     premium: false, // ture use only premium user
@@ -42,7 +42,7 @@ module.exports = {
     }
   },
 
-  ncStart: async function ({ api, event }) {
+  onStart: async function ({ api, event }) {
     const message = this.langs.en.infoMessage;
 
     await api.sendMessage(message, event.threadID, (error, info) => {

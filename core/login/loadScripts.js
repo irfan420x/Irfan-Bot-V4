@@ -163,10 +163,10 @@ if (!configCommand.category) {
 }
                                 if (!commandName)
                                         throw new Error(`name of ${text} undefined`);
-                                if (!command.ncStart)
-                                        throw new Error(`ncStart of ${text} undefined`);
-                                if (typeof command.ncStart !== "function")
-                                        throw new Error(`ncStart of ${text} must be a function`);
+                                if (!command.onStart)
+                                        throw new Error(`Start of ${text} undefined`);
+                                if (typeof command.onStart !== "function")
+                                        throw new Error(`Start of ${text} must be a function`);
                                 if (noobCore[setMap].has(commandName))
                                         throw new Error(`${text} "${commandName}" already exists with file "${removeHomeDir(noobCore[setMap].get(commandName).location || "")}"`);
                                 const { ncFirstChat, ncPrefix, onLoad, ncEvent, ncAnyEvent } = command;

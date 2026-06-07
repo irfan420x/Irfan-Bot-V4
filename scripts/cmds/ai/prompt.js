@@ -8,13 +8,13 @@ module.exports = {
     aliases: ["p"],
     version: "0.0.5",
     role: 0,
-    author: "Azadx69x",
+    author: "Irfan Ahmmed",
     category: "ai",
     cooldowns: 3,
     guide: { en: "Reply to an image to generate an AI prompt" }
   },
 
-  ncStart: async ({ api, event }) => {
+  onStart: async ({ api, event }) => {
     const { threadID, messageID, messageReply } = event;
     
     if (

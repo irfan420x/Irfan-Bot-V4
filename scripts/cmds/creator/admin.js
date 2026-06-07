@@ -64,7 +64,7 @@ module.exports = {
     }
   },
 
-  ncStart: async function ({ message, args, usersData, event, getLang }) {
+  onStart: async function ({ message, args, usersData, event, getLang }) {
     const sub = args[0];
 
     const getUIDs = () => {

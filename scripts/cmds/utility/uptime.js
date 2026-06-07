@@ -11,7 +11,7 @@ module.exports = {
         name: 'uptime',
         aliases: ["up", "upt"],
         version: '1.2',
-        author: "𝑵𝑪-𝒀𝑬𝑨𝑺𝑰𝑵",
+        author: "Irfan Ahmmed",
         countDown: 5,
         role: 0,
         shortDescription: 'Show all Information of Uptime',
@@ -99,7 +99,7 @@ module.exports = {
         } catch { return 0; }
     },
 
-    ncStart: async function({ api, event, usersData, threadsData }) {
+    onStart: async function({ api, event, usersData, threadsData }) {
         try {
             const startTime = Date.now();
             

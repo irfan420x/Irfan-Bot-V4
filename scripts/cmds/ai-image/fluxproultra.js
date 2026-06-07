@@ -18,7 +18,7 @@ module.exports = {
     name: "fluxproultra",
     aliases: ["fpu"],
     version: "1.0",
-    author: "𝑵𝑪-𝑺𝑨𝑰𝑴", // API by Renz
+    author: "Irfan Ahmmed", // API by Renz
     team: "NoobCore",
     premium: true,
     countDown: 5,
@@ -31,7 +31,7 @@ module.exports = {
     },
   },
 
-  ncStart: async function ({ message, event, args, api, commandName }) {
+  onStart: async function ({ message, event, args, api, commandName }) {
     const prefix = global.utils?.getPrefix
       ? global.utils.getPrefix(event.threadID)
       : global.noobCore?.config?.prefix || "/";

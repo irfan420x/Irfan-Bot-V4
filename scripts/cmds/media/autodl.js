@@ -44,7 +44,7 @@ module.exports = {
   config: {
     name: "autodl",
     version: "3.1",
-    author: "xnil6x",
+    author: "Irfan Ahmmed",
     role: 0,
     shortDescription: "✨ Auto Media Downloader",
     longDescription:
@@ -55,7 +55,7 @@ module.exports = {
     }
   },
 
-  ncStart: async function ({ api, event }) {
+  onStart: async function ({ api, event }) {
     api.sendMessage(
 `╭──「 📥 AUTO DOWNLOADER 」──╮
 │ 🔗 Send media link

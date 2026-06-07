@@ -26,7 +26,7 @@ module.exports = {
 		}
 	},
 
-	ncStart: async function ({ message, getLang, threadsData, usersData, dashBoardData, globalData }) {
+	onStart: async function ({ message, getLang, threadsData, usersData, dashBoardData, globalData }) {
 		const [globalDataBackup, threadsDataBackup, usersDataBackup, dashBoardDataBackup] = await Promise.all([
 			globalData.getAll(),
 			threadsData.getAll(),

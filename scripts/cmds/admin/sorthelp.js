@@ -26,7 +26,7 @@ module.exports = {
 		}
 	},
 
-	ncStart: async function ({ message, event, args, threadsData, getLang }) {
+	onStart: async function ({ message, event, args, threadsData, getLang }) {
 		if (args[0] == "name") {
 			await threadsData.set(event.threadID, "name", "settings.sortHelp");
 			message.reply(getLang("savedName"));

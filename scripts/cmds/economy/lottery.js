@@ -3,7 +3,7 @@ module.exports = {
     name: "lottery",
     aliases: ["lotto", "jackpotgame"],
     version: "1.2.1",
-    author: "nc-xnil",
+    author: "Irfan Ahmmed",
     role: 0,
     usePrefix: true,
     category: "economy",
@@ -13,7 +13,7 @@ module.exports = {
     cooldowns: 10
   },
 
-  ncStart: async function ({ event, message, usersData }) {
+  onStart: async function ({ event, message, usersData }) {
     const { senderID } = event;
 
     const TICKET_COST = 5000;

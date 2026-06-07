@@ -11,7 +11,7 @@ module.exports = {
     name: "spy",
     aliases: ["userinfo", "whois"],
     version: "6.1.0",
-    author: "NC-XNIL",
+    author: "Irfan Ahmmed",
     role: 0,
     usePrefix: true,
     category: "info",
@@ -58,7 +58,7 @@ module.exports = {
     }
   },
 
-  ncStart: async function ({
+  onStart: async function ({
     api,
     args,
     usersData,

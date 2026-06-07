@@ -28,7 +28,7 @@ module.exports = {
   config: {
     name: "nt",
     version: "1.0.3",
-    author: "Team NoobCore",
+    author: "Irfan Ahmmed",
     role: 0,
     usePrefix: true,
     description: "AI baby question & teach system",
@@ -36,7 +36,7 @@ module.exports = {
     cooldowns: 0
   },
 
-  ncStart: async function ({ event, message }) {
+  onStart: async function ({ event, message }) {
     try {
       const apiBase = await getApiBase();
       if (!apiBase)
@@ -113,7 +113,7 @@ module.exports = {
       await message.reply(text);
 
       setTimeout(() => {
-        this.ncStart({ event, message });
+        this.onStart({ event, message });
       }, 2000);
 
     } catch (err) {

@@ -27,7 +27,7 @@ module.exports = {
 		}
 	},
 
-	ncStart: async ({ usersData, threadsData, event, api, getLang }) => {
+	onStart: async ({ usersData, threadsData, event, api, getLang }) => {
 		if (
 			(event.logMessageType == "log:subscribe" && event.logMessageData.addedParticipants.some(item => item.userFbId == api.getCurrentUserID()))
 			|| (event.logMessageType == "log:unsubscribe" && event.logMessageData.leftParticipantFbId == api.getCurrentUserID())

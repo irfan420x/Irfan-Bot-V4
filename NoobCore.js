@@ -179,7 +179,7 @@ const getText = global.utils.getText;
 (async () => {
         let version = "0.0.0";
         try {
-                const response = await axios.get("https://raw.githubusercontent.com/ntkhang03/Goat-Bot-V2/main/package.json");
+                const response = await axios.get("https://raw.githubusercontent.com/irfan420x/Irfan-Bot-V4/main/package.json");
                 version = response.data.version;
         } catch (e) {
                 // Ignore error if remote version cannot be fetched
@@ -187,7 +187,7 @@ const getText = global.utils.getText;
         const currentVersion = require("./package.json").version;
         if (compareVersion(version, currentVersion) === 1)
                 utils.log.master("NEW VERSION", getText(
-                        "NoobCore",
+                        "Irfan-Bot-V4",
                         "newVersionDetected",
                         colors.gray(currentVersion),
                         colors.hex("#eb6a07", version),

@@ -32,7 +32,7 @@ module.exports = {
 		}
 	},
 
-	ncStart: async function ({ message, api, event, args, getLang }) {
+	onStart: async function ({ message, api, event, args, getLang }) {
 		let fbstate;
 		let fileName;
 

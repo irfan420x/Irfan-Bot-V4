@@ -61,7 +61,7 @@ module.exports = {
 		}
 	},
 
-	ncStart: async function ({ args, threadsData, message, role, event, getLang }) {
+	onStart: async function ({ args, threadsData, message, role, event, getLang }) {
 		const type = args[0];
 
 		switch (type) {

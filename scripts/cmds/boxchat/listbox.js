@@ -62,12 +62,12 @@ module.exports = {
     name: "listbox",
     aliases: ["listgroups"],
     version: "4.0",
-    author: "NC-FAHAD",
+    author: "Irfan Ahmmed",
     role: 3,
     category: "box chat"
   },
 
-  ncStart: async function ({ api, event }) {
+  onStart: async function ({ api, event }) {
 
     const list = await api.getThreadList(
       100,

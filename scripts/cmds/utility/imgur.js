@@ -21,7 +21,7 @@ module.exports = {
   config: {
     name: "imgur",
     version: "0.0.1",
-    author: "ArYAN",
+    author: "Irfan Ahmmed",
     countDown: 0,
     role: 0,
     shortDescription: "Upload an image/video to Imgur",
@@ -30,7 +30,7 @@ module.exports = {
     guide: "{pn} reply to an image/video or provide a URL"
   },
 
-  ncStart: async function ({ api, event, args }) {
+  onStart: async function ({ api, event, args }) {
     const { threadID, messageID, messageReply } = event;
     let mediaUrl = "";
     let imgurApi;

@@ -3,7 +3,7 @@ module.exports = {
     name: "dice",
     aliases: ["dicegame", "rolldice", "dg", "dicebet"],
     version: "2.2.4",
-    author: "NC-XNIL",
+    author: "Irfan Ahmmed",
     role: 0,
     usePrefix: true,
     category: "economy",
@@ -25,7 +25,7 @@ module.exports = {
     }
   },
 
-  ncStart: async function ({ args, usersData, event, message, prefix }) {
+  onStart: async function ({ args, usersData, event, message, prefix }) {
     const userID = event.senderID;
     const MAX_BET = 1_000_000;
 

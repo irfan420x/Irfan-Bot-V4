@@ -3,7 +3,7 @@ module.exports = {
     name: "supportgc",
     aliases: ["supportgroup"],
     version: "1.1",
-    author: "𝑵𝑪-𝑺𝑨𝑰𝑴",
+    author: "Irfan Ahmmed",
     countDown: 5,
     role: 0,
     description: {
@@ -14,7 +14,7 @@ module.exports = {
     }
   },
 
-  ncStart: async function ({ api, event, message }) {
+  onStart: async function ({ api, event, message }) {
     const supportGroupThreadID = "2345731749224307";
 
     try {

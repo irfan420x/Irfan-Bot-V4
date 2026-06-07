@@ -1,47 +1,83 @@
 {
-  "name": "irfan-fca",
-  "version": "2.0.0",
-  "description": "🚀 Advanced Facebook Chat API — 65+ Methods, MQTT Real-time, Middleware System, New GraphQL APIs",
+  "name": "fca-unofficial-updated",
+  "version": "3.9.9",
+  "description": "The most powerful and updated Facebook Chat API (FCA) with reverse-engineered fixes for GraphQL and MQTT.",
   "main": "index.js",
   "types": "index.d.ts",
+  "exports": {
+    ".": {
+      "require": "./index.js",
+      "default": "./index.js",
+      "types": "./index.d.ts"
+    }
+  },
+  "files": [
+    "index.js",
+    "index.d.ts",
+    "module/",
+    "func/",
+    "src/",
+    "DOCS.md",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md"
+  ],
   "scripts": {
     "test": "mocha",
-    "lint": "./node_modules/.bin/eslint **.js",
-    "prettier": "npx prettier utils.js src/* --write"
+    "lint": "eslint ."
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/Irfan430/fca-unofficial.git"
+    "url": "git+https://github.com/Irfan430/fca-unofficial-updated.git"
   },
   "keywords": [
     "facebook",
     "chat",
     "api",
     "messenger",
-    "fca",
     "bot",
+    "unofficial",
     "automation",
-    "mqtt",
-    "real-time"
+    "facebook-api",
+    "facebook-chat",
+    "facebook-messenger",
+    "chatbot",
+    "nodejs",
+    "fca"
   ],
-  "author": "Irfan Ahmmed",
+  "author": {
+    "name": "Irfan430",
+    "url": "https://github.com/Irfan430"
+  },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Irfan430/fca-unofficial/issues"
+    "url": "https://github.com/Irfan430/fca-unofficial-updated/issues"
   },
-  "homepage": "https://github.com/Irfan430/fca-unofficial#readme",
+  "homepage": "https://github.com/Irfan430/fca-unofficial-updated#readme",
+  "engines": {
+    "node": ">=12.0.0"
+  },
   "dependencies": {
-    "axios": "^0.27.2",
+    "axios": "^1.13.5",
+    "axios-cookiejar-support": "^5.0.5",
+    "bluebird": "^3.7.2",
+    "chalk": "^4.1.2",
+    "cheerio": "^1.0.0-rc.10",
+    "duplexify": "^4.1.3",
+    "gradient-string": "^2.0.2",
+    "https-proxy-agent": "^4.0.0",
     "mqtt": "^4.3.8",
-    "ws": "^8.16.0",
-    "cheerio": "^1.0.0-rc.12",
-    "sequelize": "^6.35.2",
+    "sequelize": "^6.37.6",
     "sqlite3": "^5.1.7",
-    "totp-generator": "^0.0.14"
+    "totp-generator": "^1.0.0",
+    "ws": "^8.18.1"
   },
   "devDependencies": {
-    "eslint": "^8.56.0",
-    "mocha": "^10.2.0",
-    "prettier": "^3.2.4"
+    "eslint": "^8.50.0",
+    "mocha": "^10.2.0"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
   }
 }

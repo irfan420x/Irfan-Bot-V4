@@ -3,7 +3,7 @@ module.exports = {
     name: "profile",
     aliases: ["pp", "pfp"],
     version: "1.0",
-    author: "NoobCore Team",
+    author: "Irfan Ahmmed",
     usePrefix: false,
     countDown: 5,
     role: 0,
@@ -15,7 +15,7 @@ module.exports = {
     }
   },
 
-  ncStart: async function ({ event, message, args, usersData }) {
+  onStart: async function ({ event, message, args, usersData }) {
     try {
       let targetID;
 

@@ -47,7 +47,7 @@ module.exports = {
                 hubbleData = JSON.parse(fs.readFileSync(pathData));
         },
 
-        ncStart: async function ({ message, args, getLang }) {
+        onStart: async function ({ message, args, getLang }) {
                 const date = args[0] || "";
                 const dateText = checkValidDate(date);
                 if (!date || !dateText)

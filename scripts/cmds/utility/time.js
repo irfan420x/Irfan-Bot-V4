@@ -6,7 +6,7 @@ module.exports = {
   config: {
     name: "time",
     version: "1.0",
-    author: "𝑵𝑪-𝑺𝑨𝑰𝑴",
+    author: "Irfan Ahmmed",
     team: "NoobCore",
     role: 0,
     countDown: 3,
@@ -15,7 +15,7 @@ module.exports = {
     guide: "/time - Get current  time card"
   },
 
-  ncStart: async ({ message }) => {
+  onStart: async ({ message }) => {
     try {
       const wait = await message.reply("╭─── 𝐈𝐍𝐅𝐎 ───╮\n│ ⚡ Fetching time card...\n╰──────────────╯");
 

@@ -30,7 +30,7 @@ module.exports = {
   config: {
     name: "wheel",
     version: "5.0",
-    author: "NC-XNIL | NC-FAHAD ",
+    author: "Irfan Ahmmed",
     shortDescription: "🎡 Wheel of Fortune",
     longDescription: "Spin the ultimate wheel with progressive jackpots, special events, and massive rewards!",
     category: "game",
@@ -39,7 +39,7 @@ module.exports = {
     }
   },
 
-  ncStart: async function ({ api, event, args, usersData, commandName }) {
+  onStart: async function ({ api, event, args, usersData, commandName }) {
     const { senderID, threadID, messageID } = event;
     const command = args[0]?.toLowerCase();
 

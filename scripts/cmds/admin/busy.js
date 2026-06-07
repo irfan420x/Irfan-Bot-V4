@@ -40,7 +40,7 @@ module.exports = {
 		}
 	},
 
-	ncStart: async function ({ args, message, event, getLang, usersData }) {
+	onStart: async function ({ args, message, event, getLang, usersData }) {
 		const { senderID } = event;
 
 		if (args[0] == "off") {

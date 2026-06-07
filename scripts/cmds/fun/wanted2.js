@@ -7,13 +7,13 @@ module.exports = {
   config: {
     name: "wanted2",
     version: "1.0",
-    author: "NC-TOSHIRO",
+    author: "Irfan Ahmmed",
     role: 0,
     category: "fun",
     atai: true
   },
 
-  ncStart: async ({ event, message, usersData }) => {
+  onStart: async ({ event, message, usersData }) => {
     try {
       const uid = event.messageReply
         ? event.messageReply.senderID

@@ -8,7 +8,7 @@ module.exports = {
     name: "bro2",
     aliases: ["minebro", "bleachbro"],
     version: "1.2",
-    author: "TOSHIRO EDIT",
+    author: "Irfan Ahmmed",
     role: 0,
     shortDescription: "Minecraft Bleach Duo",
     category: "fun",
@@ -22,7 +22,7 @@ module.exports = {
     }
   },
 
-  ncStart: async function ({ event, api, usersData, langs }) {
+  onStart: async function ({ event, api, usersData, langs }) {
 
     const senderID = event.senderID;
     let targetID = Object.keys(event.mentions || {})[0];

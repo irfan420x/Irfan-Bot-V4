@@ -5,7 +5,7 @@ module.exports = {
     name: "theme",
     aliases: ["aitheme", "changetheme"],
     version: "2.0",
-    author: "Neoaz ゐ",
+    author: "Irfan Ahmmed",
     countDown: 5,
     role: 1,
     description: {
@@ -72,7 +72,7 @@ module.exports = {
     }
   },
 
-  ncStart: async function ({ args, message, event, api, getLang, commandName }) {
+  onStart: async function ({ args, message, event, api, getLang, commandName }) {
     const command = args[0];
     
     if (command === "id") {

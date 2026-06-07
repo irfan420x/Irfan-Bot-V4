@@ -5,7 +5,7 @@ module.exports = {
     name: "mediafetch",
     aliases: ["mf", "getmedia"],
     version: "1.1.0",
-    author: "Manus",
+    author: "Irfan Ahmmed",
     countDown: 5,
     role: 0,
     description: "Fetch shared media (images/videos) from the current thread. Can filter by type.",

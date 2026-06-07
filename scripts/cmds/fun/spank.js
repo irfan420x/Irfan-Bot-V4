@@ -7,7 +7,7 @@ module.exports = {
     name: "spank",
     aliases: ["spnk"],
     version: "1.1",
-    author: "NC-TOSHIRO",
+    author: "Irfan Ahmmed",
     role: 0,
     usePrefix: true,
     premium: false,
@@ -24,7 +24,7 @@ module.exports = {
     }
   },
 
-  ncStart: async function ({ event, message, usersData, getLang }) {
+  onStart: async function ({ event, message, usersData, getLang }) {
     const senderID = event.senderID;
 
     let targetID = Object.keys(event.mentions || {})[0];

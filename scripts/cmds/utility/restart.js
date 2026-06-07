@@ -51,7 +51,7 @@ module.exports = {
 		}
 	},
 
-	ncStart: async function ({ message, event, getLang }) {
+	onStart: async function ({ message, event, getLang }) {
 		try {
 			const dirPath = path.join(__dirname, "tmp");
 			const pathFile = path.join(dirPath, "restart.txt");

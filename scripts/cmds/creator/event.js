@@ -76,7 +76,7 @@ module.exports = {
 		}
 	},
 
-	ncStart: async ({ args, message, api, threadModel, userModel, dashBoardModel, globalModel, threadsData, usersData, dashBoardData, globalData, commandName, event, getLang }) => {
+	onStart: async ({ args, message, api, threadModel, userModel, dashBoardModel, globalModel, threadsData, usersData, dashBoardData, globalData, commandName, event, getLang }) => {
 		const { configCommands } = global.noobCore;
 		const { log, loadScripts } = global.utils;
 

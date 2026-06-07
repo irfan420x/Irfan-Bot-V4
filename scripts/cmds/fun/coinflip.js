@@ -3,7 +3,7 @@ module.exports = {
     name: "coinflip",
     aliases: ["cf"],
     version: "1.2",
-    author: "NC-Toshiro Editz",
+    author: "Irfan Ahmmed",
     countDown: 3,
     role: 0,
     shortDescription: "Flip a coin and win coins",
@@ -11,7 +11,7 @@ module.exports = {
     guide: "{pn} <bet amount> [h/t]"
   },
 
-  ncStart: async function ({ api, event, args, usersData }) {
+  onStart: async function ({ api, event, args, usersData }) {
     try {
       const bet = parseInt(args[0]);
       if (!bet || bet <= 0)

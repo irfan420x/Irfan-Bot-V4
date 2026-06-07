@@ -95,7 +95,7 @@ module.exports = {
 		}
 	},
 
-	ncStart: async function ({ role, args, message, event, threadsData, getLang, commandName }) {
+	onStart: async function ({ role, args, message, event, threadsData, getLang, commandName }) {
 		const { threadID, senderID } = event;
 
 		const type = args[0];

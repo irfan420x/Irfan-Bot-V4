@@ -7,14 +7,14 @@ module.exports = {
     config: {
         name: "kiss2",
         version: "3.5.0",
-        author: "NC-XALMAN",
+        author: "Irfan Ahmmed",
         countDown: 5,
         role: 0,
         description: "Kiss someone using mention, reply, or UID",
         guide: { en: "{p}{n} @mention | Reply to a message | {p}{n} [uid]" }
     },
 
-    ncStart: async function ({ api, event, args, usersData }) {
+    onStart: async function ({ api, event, args, usersData }) {
         const { threadID, messageID, senderID, mentions, type, messageReply } = event;
         
         let mentionID;

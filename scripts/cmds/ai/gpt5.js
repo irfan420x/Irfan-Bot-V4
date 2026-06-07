@@ -6,12 +6,12 @@ module.exports = {
     name: "gpt",
     aliases: ["chatgpt", "gpt5"],
     version: "0.0.1",
-    author: "ArYAN",
+    author: "Irfan Ahmmed",
     role: 0,
     category: "Ai"
   },
 
-  ncStart: async function ({ api, message, args, event }) {
+  onStart: async function ({ api, message, args, event }) {
     const Q = args.join(" ");
     if (!Q) return message.reply("╭─── 𝐈𝐍𝐅𝐎 ───╮\n│ Please ask a question 🍌\n╰──────────────╯");
 

@@ -298,7 +298,7 @@ module.exports = {
         name: "balance",
         aliases: ["bal"],
         version: "2.1.0",
-        author: "NoobCore Team",
+        author: "Irfan Ahmmed",
         team: "NoobCore",
         countDown: 3,
         role: 0,
@@ -313,7 +313,7 @@ module.exports = {
         }
     },
 
-    ncStart: async function ({ message, event, args, usersData, commandName, api }) {
+    onStart: async function ({ message, event, args, usersData, commandName, api }) {
         const { senderID, mentions, messageReply, threadID } = event;
         const command = args[0]?.toLowerCase();
         

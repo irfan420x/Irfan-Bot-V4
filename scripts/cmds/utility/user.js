@@ -4,7 +4,7 @@ module.exports = {
 	config: {
 		name: "user",
 		version: "2.0",
-		author: "NoobCore Team",
+		author: "Irfan Ahmmed",
 		countDown: 5,
 		role: 3,
 		description: {
@@ -53,7 +53,7 @@ module.exports = {
 	},
 
 	// Handle commands
-	ncStart: async function ({ args, usersData, message, event, getLang }) {
+	onStart: async function ({ args, usersData, message, event, getLang }) {
 		const cmd = args[0]?.toLowerCase();
 
 		// Language helper

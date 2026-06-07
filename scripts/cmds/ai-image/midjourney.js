@@ -14,7 +14,7 @@ module.exports = {
     aliases: ["mj"],
     version: "1.0.2",
     premium: true,
-    author: "NC-XNIL | NC-SAIM",
+    author: "Irfan Ahmmed",
     role: 0,
     usePrefix: true,
     description: "Generate AI images from prompt with reactions",
@@ -22,7 +22,7 @@ module.exports = {
     category: "ai",
     cooldowns: 5
   },
-  ncStart: async function ({ api, event, args, message }) {
+  onStart: async function ({ api, event, args, message }) {
     const prompt = args.join(" ");
     if (!prompt) {
       return message.reply(

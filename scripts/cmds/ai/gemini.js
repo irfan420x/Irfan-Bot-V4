@@ -8,7 +8,7 @@ module.exports = {
     name: "gemini",
     aliases: ["ai", "chat"],
     version: "0.0.1",
-    author: "Nc-ArYAN",
+    author: "Irfan Ahmmed",
     countDown: 3,
     usePrefix: true,
     role: 0,
@@ -18,7 +18,7 @@ module.exports = {
     guide: "/gemini [your question] (Reply to an image to use Vision)"
   },
 
-  ncStart: async function({ api, event, args }) {
+  onStart: async function({ api, event, args }) {
     const p = args.join(" ");
     if (!p) return api.sendMessage("╭─── 𝐈𝐍𝐅𝐎 ───╮\n│ ❌ Please provide a question or prompt.\n╰──────────────╯", event.threadID, event.messageID);
 

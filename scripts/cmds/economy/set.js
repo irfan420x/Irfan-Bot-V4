@@ -3,7 +3,7 @@ module.exports = {
     name: "set",
     aliases: ["st"],
     version: "1.2",
-    author: "NC-AZAD",
+    author: "Irfan Ahmmed",
     role: 0,
     shortDescription: "Set user money or exp (Owner only)",
     longDescription: "Owner can set coins or experience for any user",
@@ -16,7 +16,7 @@ module.exports = {
     }
   },
 
-  ncStart: async function ({ args, event, api, usersData }) {
+  onStart: async function ({ args, event, api, usersData }) {
     const owners = global.noobCore.ncsetting.creator;
     const { senderID, threadID, mentions, messageReply } = event;
     

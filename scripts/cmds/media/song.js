@@ -8,7 +8,7 @@ module.exports = {
   config: {
     name: "song",
     version: "4.3.0",
-    author: "NC-TOSHIRO",
+    author: "Irfan Ahmmed",
     category: "media",
     cooldown: 5,
     role: 0,
@@ -17,7 +17,7 @@ module.exports = {
     usePrefix: true
   },
 
-  ncStart: async function ({ api, event, args, message }) {
+  onStart: async function ({ api, event, args, message }) {
     if (!args[0])
       return message.reply("╭─── 𝐈𝐍𝐅𝐎 ───╮\n│ ❄️ Please provide a song name or YouTube link.\n╰──────────────╯");
 

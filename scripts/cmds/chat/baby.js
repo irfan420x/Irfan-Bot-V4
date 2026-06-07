@@ -7,7 +7,7 @@ module.exports.config = {
     name: "bby",
     aliases: ["baby"],
     version: "0.0.1",
-    author: "Nc-ArYAN", 
+    author: "Irfan Ahmmed", 
     countDown: 0,
     role: 0,
     description: "update simsim api by Aryan Rayhan",
@@ -16,7 +16,7 @@ module.exports.config = {
     }
 };
 
-module.exports.ncStart = async ({
+module.exports.onStart = async ({
     api,
     event,
     args,

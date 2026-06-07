@@ -5,7 +5,7 @@ module.exports = {
     name: "cdp",
     aliases: ["coupledp"],
     version: "1.0",
-    author: "𝑵𝑪-𝑺𝑨𝑰𝑴",
+    author: "Irfan Ahmmed",
     team: "NoobCore",
     countDown: 5,
     role: 0,
@@ -15,7 +15,7 @@ module.exports = {
     guide: "{pn}"
   },
 
-  ncStart: async function ({ api, event }) {
+  onStart: async function ({ api, event }) {
     try {
       const noobcore = "https://raw.githubusercontent.com/Saim-x69x/sakura/main/ApiUrl.json";
       const apiRes = await axios.get(noobcore);

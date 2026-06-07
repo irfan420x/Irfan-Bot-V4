@@ -7,7 +7,7 @@ module.exports = {
 		name: "tiktok",
 		aliases: ["tt", "tok", "tktk"],
 		version: "1.8",
-		author: "Azad",
+		author: "Irfan Ahmmed",
 		countDown: 5,
 		role: 0,
 		description: {
@@ -27,7 +27,7 @@ module.exports = {
 		}
 	},
 	
-	ncStart: async function ({ message, args, getLang }) {
+	onStart: async function ({ message, args, getLang }) {
 		return this.handleRun({ message, args, getLang });
 	},
 	

@@ -24,7 +24,7 @@ function toBold(text) {
 module.exports.config = {
   name: "ncs",
   aliases: ["ncstore", "noobcorestore"],
-  author: "𝑵𝒐𝒐𝒃𝑪𝒐𝒓𝒆",
+  author: "Irfan Ahmmed",
   version: "2.0",
   role: 0,
   countDown: 3,
@@ -34,7 +34,7 @@ module.exports.config = {
   guide: { en: "Usage: /cs [command | letter | page]" }
 };
 
-module.exports.ncStart = async function ({ api, event, args }) {
+module.exports.onStart = async function ({ api, event, args }) {
   await loadFont();
   const query = args.join(" ").trim().toLowerCase();
 

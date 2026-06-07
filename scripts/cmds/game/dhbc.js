@@ -38,7 +38,7 @@ module.exports = {
 		}
 	},
 
-	ncStart: async function ({ message, event, commandName, getLang }) {
+	onStart: async function ({ message, event, commandName, getLang }) {
 		const datagame = (await axios.get("https://goatbotserver.onrender.com/api/duoihinhbatchu")).data;
 		const { wordcomplete, casi, image1, image2 } = datagame.data;
 

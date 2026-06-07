@@ -59,7 +59,7 @@ module.exports = {
 		}
 	},
 
-	ncStart: async function ({ message, getLang, commandName, event }) {
+	onStart: async function ({ message, getLang, commandName, event }) {
 		// Check for updates
 		const { data: { version } } = await axios.get("https://raw.githubusercontent.com/ntkhang03/Goat-Bot-V2/main/package.json");
 		const { data: versions } = await axios.get("https://raw.githubusercontent.com/ntkhang03/Goat-Bot-V2/main/versions.json");

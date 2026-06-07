@@ -7,7 +7,7 @@ module.exports = {
     name: "punch",
     aliases: ["pnch"],
     version: "1.4",
-    author: "NC-TOSHIRO",
+    author: "Irfan Ahmmed",
     countDown: 5,
     role: 0,
     description: "🥊 Generate a punch image for sender and tagged user",
@@ -24,7 +24,7 @@ module.exports = {
     }
   },
 
-  ncStart: async function ({ event, message, usersData, args, getLang }) {
+  onStart: async function ({ event, message, usersData, args, getLang }) {
     const kickerID = event.senderID;
     let kickedID = Object.keys(event.mentions || {})[0];
     if (!kickedID && event.messageReply?.senderID) kickedID = event.messageReply.senderID;

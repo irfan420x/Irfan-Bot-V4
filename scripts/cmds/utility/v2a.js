@@ -6,7 +6,7 @@ module.exports = {
     aliases: ["video2audio"],
     description: "Convert Video to audio ",
     version: "1.2",
-    author: "NC-XNIL",
+    author: "Irfan Ahmmed",
     countDown: 0,
     role: 0,
    longDescription: {
@@ -20,7 +20,7 @@ module.exports = {
     }
 
   },
-  ncStart: async function ({ api, event, args, message }) {
+  onStart: async function ({ api, event, args, message }) {
     try {
       const axios = require("axios");
       const fs = require("fs-extra");

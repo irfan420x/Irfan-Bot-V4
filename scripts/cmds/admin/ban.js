@@ -64,7 +64,7 @@ module.exports = {
                 }
         },
 
-        ncStart: async function ({ message, event, args, threadsData, getLang, usersData, api }) {
+        onStart: async function ({ message, event, args, threadsData, getLang, usersData, api }) {
                 const { members, adminIDs } = await threadsData.get(event.threadID);
                 const { senderID } = event;
                 let target;
@@ -169,7 +169,7 @@ module.exports = {
                                         message.send(getLang('needAdmin'), (err, info) => {
                                                 global.noobCore.onEvent.push({
                                                         messageID: info.messageID,
-                                                        ncStart: ({ event }) => {
+                                                        onStart: ({ event }) => {
                                                                 if (event.logMessageType === "log:thread-admins" && event.logMessageData.ADMIN_EVENT == "add_admin") {
                                                                         const { TARGET_ID } = event.logMessageData;
                                                                         if (TARGET_ID == api.getCurrentUserID()) {
@@ -201,7 +201,7 @@ module.exports = {
                                                         return message.send(getLang('needAdminToKick', fullName, userFbId), (err, info) => {
                                                                 global.noobCore.onEvent.push({
                                                                         messageID: info.messageID,
-                                                                        ncStart: ({ event }) => {
+                                                                        onStart: ({ event }) => {
                                                                                 if (event.logMessageType === "log:thread-admins" && event.logMessageData.ADMIN_EVENT == "add_admin") {
                                                                                         const { TARGET_ID } = event.logMessageData;
                                                                                         if (TARGET_ID == api.getCurrentUserID()) {

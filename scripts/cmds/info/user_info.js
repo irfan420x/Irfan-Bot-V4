@@ -5,7 +5,7 @@ module.exports = {
     name: "userinfo",
     aliases: ["info", "profile"],
     version: "1.0.0",
-    author: "Manus",
+    author: "Irfan Ahmmed",
     countDown: 5,
     role: 0,
     description: "Get detailed information about a Facebook user.",

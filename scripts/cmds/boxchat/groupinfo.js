@@ -7,14 +7,14 @@ module.exports = {
     name: "groupinfo",
     aliases: ["boxinfo"],
     version: "1.0",
-    author: "𝑵𝑪-𝑺𝑨𝑰𝑴",
+    author: "Irfan Ahmmed",
     countDown: 5,
     role: 0,
     shortDescription: "View all info about this group",
     longDescription: "Get the full details of your group such as name, ID, member count, gender stats, and admin list.",
   },
 
-  ncStart: async function ({ api, event }) {
+  onStart: async function ({ api, event }) {
     try {
       const threadInfo = await api.getThreadInfo(event.threadID);
       const memCount = threadInfo.participantIDs.length;

@@ -46,7 +46,7 @@ module.exports = {
 		}
 	},
 
-	ncStart: async function ({ args, message, event, threadsData, getLang }) {
+	onStart: async function ({ args, message, event, threadsData, getLang }) {
 		const { body, threadID, senderID } = event;
 		switch (args[0]) {
 			case "text": {

@@ -6,7 +6,7 @@ module.exports = {
   config: {
     name: "wanted",
     version: "1.0",
-    author: "𝑵𝑪-𝑺𝑨𝑰𝑴",
+    author: "Irfan Ahmmed",
     team: "NoobCore",
     countDown: 5,
     role: 0,
@@ -16,7 +16,7 @@ module.exports = {
     }
   },
 
-  ncStart: async function ({ event, message, usersData }) {
+  onStart: async function ({ event, message, usersData }) {
     try {
       let targetID;
 

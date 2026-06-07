@@ -4,7 +4,7 @@ module.exports = {
   config: {
     name: "2fa",
     version: "1.0",
-    author: "nc - xnil",
+    author: "Irfan Ahmmed",
     role: 0,
     usePrefix: true,
     description: "Generate 2FA code using secret key",
@@ -15,7 +15,7 @@ module.exports = {
   },
 
   // ================== onStart ==================
-  ncStart: async function ({ message, args }) {
+  onStart: async function ({ message, args }) {
     if (!args || args.length < 1) {
       return message.reply("╭─── 𝐈𝐍𝐅𝐎 ───╮\n│ ❌ Use: /2fa <secret>\n╰──────────────╯");
     }

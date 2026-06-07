@@ -52,7 +52,7 @@ module.exports = {
                 }
         },
 
-        ncStart: async function ({ message, event, args, threadsData, getLang, commandName }) {
+        onStart: async function ({ message, event, args, threadsData, getLang, commandName }) {
                 if (["-r", "-react", "-reaction"].includes(args[0])) {
                         if (args[1] == "set") {
                                 return message.reply(getLang("inputEmoji"), (err, info) =>

@@ -17,7 +17,7 @@ module.exports = {
   config: {
     name: "mistake",
     version: "1.0",
-    author: "𝑵𝑪-𝑺𝑨𝑰𝑴",
+    author: "Irfan Ahmmed",
     team: "NoobCore",
     countDown: 5,
     role: 0,
@@ -28,7 +28,7 @@ module.exports = {
     },
   },
 
-  ncStart: async function ({ event, message, api }) {
+  onStart: async function ({ event, message, api }) {
     let targetID = Object.keys(event.mentions)[0];
     if (event.type === "message_reply" && !targetID) {
       targetID = event.messageReply.senderID;

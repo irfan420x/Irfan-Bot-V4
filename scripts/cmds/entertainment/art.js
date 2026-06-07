@@ -15,7 +15,7 @@ async function getApiBase() {
 module.exports.config = {
   name: "art",
   version: "1.0",
-  author: "𝑵𝑪-𝑺𝑨𝑰𝑴",
+  author: "Irfan Ahmmed",
   team: "NoobCore", 
   role: 0,
   description: "Convert an image into full anime-style artwork",
@@ -24,7 +24,7 @@ module.exports.config = {
   coolDowns: 5
 };
 
-exports.ncStart = async function ({ api, event }) {
+exports.onStart = async function ({ api, event }) {
   const repliedImage = event.messageReply?.attachments?.[0];
 
   if (!repliedImage || repliedImage.type !== "photo") {

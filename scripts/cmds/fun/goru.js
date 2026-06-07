@@ -7,7 +7,7 @@ module.exports = {
   config: {
     name: "goru",
     version: "1.0.3",
-    author: "NoobCore Team", // by ARIJIT
+    author: "Irfan Ahmmed", // by ARIJIT
     countDown: 5,
     role: 0,
     shortDescription: "Expose someone as a Goru!",
@@ -17,7 +17,7 @@ module.exports = {
     },
   },
 
-  ncStart: async function ({ event, message, api }) {
+  onStart: async function ({ event, message, api }) {
     let targetID = Object.keys(event.mentions)[0];
     if (event.type === "message_reply") {
       targetID = event.messageReply.senderID;

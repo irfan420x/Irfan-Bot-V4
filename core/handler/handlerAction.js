@@ -55,7 +55,8 @@ module.exports = (
     const {
       ncAnyEvent,
       ncFirstChat,
-      ncStart,
+      commandStart,
+      executeCommand,
       ncPrefix,
       ncReply,
       ncEvent,
@@ -75,7 +76,7 @@ module.exports = (
       case "message_unsend":
         ncFirstChat();
         ncPrefix();
-        ncStart();
+        executeCommand();
         ncReply();
         break;
 

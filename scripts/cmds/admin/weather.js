@@ -58,7 +58,7 @@ module.exports = {
                 }
         },
 
-        ncStart: async function ({ args, message, envGlobal, getLang }) {
+        onStart: async function ({ args, message, envGlobal, getLang }) {
                 const apikey = envGlobal.weatherApiKey;
 
                 const area = args.join(" ");

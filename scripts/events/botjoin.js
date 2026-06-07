@@ -17,7 +17,7 @@ module.exports = {
     category: "events"
   },
 
-  ncStart: async function ({ event, api }) {
+  onStart: async function ({ event, api }) {
     if (event.logMessageType !== "log:subscribe") return;
 
     const { threadID, logMessageData } = event;

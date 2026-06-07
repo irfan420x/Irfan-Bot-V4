@@ -5,7 +5,7 @@ module.exports = {
     name: "deepseek",
     aliases: ["ds"],
     version: "1.0.0",
-    author: "Manus",
+    author: "Irfan Ahmmed",
     countDown: 5,
     usePrefix: true,
     role: 0,
@@ -15,7 +15,7 @@ module.exports = {
     guide: "{pn} [প্রশ্ন]"
   },
 
-  ncStart: async function({ api, event, args }) {
+  onStart: async function({ api, event, args }) {
     const { threadID, messageID, senderID } = event;
     const prompt = args.join(" ");
 

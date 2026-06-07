@@ -6,7 +6,7 @@ module.exports = {
     name: "delete",
     aliases: ["del", "d"],
     version: "6.0",
-    author: "𝑵𝑪-𝑿𝑵𝑰𝑳",
+    author: "Irfan Ahmmed",
     role: 3,
     countDown: 2,
     category: "utility",
@@ -23,7 +23,7 @@ module.exports = {
     }
   },
 
-  ncStart: async function ({ args, api, event }) {
+  onStart: async function ({ args, api, event }) {
     try {
       const action = args[0];
       const fileName = args[1];

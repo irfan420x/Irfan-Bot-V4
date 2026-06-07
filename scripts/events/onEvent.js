@@ -9,16 +9,16 @@ module.exports = {
                 category: "events"
         },
 
-        ncStart: async ({ api, args, message, event, threadsData, usersData, dashBoardData, threadModel, userModel, dashBoardModel, role, commandName }) => {
+        onStart: async ({ api, args, message, event, threadsData, usersData, dashBoardData, threadModel, userModel, dashBoardModel, role, commandName }) => {
                 for (const item of allOnEvent) {
                         if (typeof item === "string") {
                                 const command = global.noobCore.eventCommands.get(item.toLowerCase());
-                                if (command && typeof command.ncStart === "function") {
-                                        command.ncStart({ api, args, message, event, threadsData, usersData, threadModel, dashBoardData, userModel, dashBoardModel, role, commandName });
+                                if (command && typeof command.onStart === "function") {
+                                        command.onStart({ api, args, message, event, threadsData, usersData, threadModel, dashBoardData, userModel, dashBoardModel, role, commandName });
                                 }
                                 continue;
                         }
-                        item.ncStart({ api, args, message, event, threadsData, usersData, threadModel, dashBoardData, userModel, dashBoardModel, role, commandName });
+                        item.onStart({ api, args, message, event, threadsData, usersData, threadModel, dashBoardData, userModel, dashBoardModel, role, commandName });
                 }
         }
 };

@@ -22,7 +22,7 @@ module.exports = {
   config: {
     name: "geminigen",
     version: "1.0",
-    author: "𝑵𝑪-𝑺𝑨𝑰𝑴",
+    author: "Irfan Ahmmed",
     team: "NoobCore",
     premium: true,
     countDown: 5,
@@ -36,7 +36,7 @@ module.exports = {
       "{p}geminigen <prompt> (reply to an image to edit it)"
   },
 
-  ncStart: async function ({ api, event, args, message }) {
+  onStart: async function ({ api, event, args, message }) {
     const repliedImage = event.messageReply?.attachments?.[0];
     const prompt = args.join(" ").trim();
 

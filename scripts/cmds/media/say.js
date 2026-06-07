@@ -7,7 +7,7 @@ module.exports = {
     name: "say",
     aliases: ["speak"],
     version: "1.0",
-    author: "𝑵𝑪-𝑺𝑨𝑰𝑴",
+    author: "Irfan Ahmmed",
     team: "NoobCore",
     countDown: 5,
     role: 0,
@@ -22,7 +22,7 @@ module.exports = {
     }
   },
 
-  ncStart: async function ({ args, message }) {
+  onStart: async function ({ args, message }) {
     const text = args.join(" ").trim();
     if (!text) return message.reply("╭─── 𝐈𝐍𝐅𝐎 ───╮\n│ ⚠️ Please provide some Bangla text to speak!\n╰──────────────╯");
 

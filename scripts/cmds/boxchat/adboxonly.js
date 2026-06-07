@@ -35,7 +35,7 @@ module.exports = {
                 }
         },
 
-        ncStart: async function ({ args, message, event, threadsData, getLang }) {
+        onStart: async function ({ args, message, event, threadsData, getLang }) {
                 let isSetNoti = false;
                 let value;
                 let keySetData = "data.onlyAdminBox";

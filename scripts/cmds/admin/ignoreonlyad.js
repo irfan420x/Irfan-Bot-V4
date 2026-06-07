@@ -46,7 +46,7 @@ module.exports = {
                 }
         },
 
-        ncStart: async function ({ args, message, getLang }) {
+        onStart: async function ({ args, message, getLang }) {
                 const ignoreList = global.noobCore.ncsetting.adminOnly.ignoreCommand;
                 switch (args[0]) {
                         case "add": {

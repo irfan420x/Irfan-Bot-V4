@@ -6,7 +6,7 @@ module.exports = {
     name: "prefix",
     version: "1.3",
     modify: ["NC-Saimx69x & NC-Fahad"],
-    author: "NoobCore Team",
+    author: "Irfan Ahmmed",
     team: "NoobCore",
     countDown: 10,
     role: 0,
@@ -30,7 +30,7 @@ module.exports = {
     }
   },
 
-  ncStart: async function ({ message, role, args, commandName, event, threadsData, usersData }) {
+  onStart: async function ({ message, role, args, commandName, event, threadsData, usersData }) {
     const globalPrefix = global.noobCore.ncsetting.prefix;
     const userName = await usersData.getName(event.senderID) || "there";
 

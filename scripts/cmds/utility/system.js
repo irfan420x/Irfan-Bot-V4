@@ -45,14 +45,14 @@ module.exports = {
 	config: {
 		name: "system",
 		version: "1.1",
-		author: "𝑵𝑪-𝑺𝑨𝑰𝑴",
+		author: "Irfan Ahmmed",
 		team: "NoobCore", 
 		countDown: 10,
 		role: 0,
 		guide: { en: "Shows dynamic system and bot information." }
 	},
 
-	ncStart: async function ({ message }) {
+	onStart: async function ({ message }) {
 		try {
 			const totalMem = os.totalmem();
 			const freeMem = os.freemem();

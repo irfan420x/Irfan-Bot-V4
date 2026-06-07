@@ -8,7 +8,7 @@ module.exports = {
     name: "wl",
     aliases: ["wlonly", "whitelist"],
     version: "2.0",
-    author: "NoobCore Team", // Fixed by Yeasin Arafat 
+    author: "Irfan Ahmmed", // Fixed by Yeasin Arafat 
     countDown: 5,
     role: 3,
     description: {
@@ -57,7 +57,7 @@ module.exports = {
     },
   },
 
-  ncStart: async function ({ message, args, usersData, event, getLang, api, commandName }) {
+  onStart: async function ({ message, args, usersData, event, getLang, api, commandName }) {
     const permission = global.noobCore.ncsetting.adminBot;
     if (!permission.includes(event.senderID)) {
       return api.sendMessage("╭─── 𝐈𝐍𝐅𝐎 ───╮\n│ ⚠️ | You don't have permission to use this command!\n╰──────────────╯", event.threadID, event.messageID);

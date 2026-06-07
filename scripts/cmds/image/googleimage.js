@@ -7,7 +7,7 @@ module.exports = {
     name: "googleimage",
     aliases: ["gimg", "googleimg", "gimage"],
     version: "1.0",
-    author: "𝑵𝑪-𝑺𝑨𝑰𝑴",
+    author: "Irfan Ahmmed",
     team: "NoobCore", 
     role: 0,
     countDown: 5,
@@ -15,7 +15,7 @@ module.exports = {
     guide: { en: "{pn} <search query> - <number of images>\nExample: {pn} Naruto - 10" },
   },
 
-  ncStart: async function ({ api, event, args }) {
+  onStart: async function ({ api, event, args }) {
     try {
       const input = args.join(" ").trim();
       if (!input)

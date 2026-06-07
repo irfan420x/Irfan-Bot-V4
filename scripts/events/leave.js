@@ -20,7 +20,7 @@ module.exports = {
                 }
         },
 
-        ncStart: async ({ threadsData, message, event, api, usersData, getLang }) => {
+        onStart: async ({ threadsData, message, event, api, usersData, getLang }) => {
                 if (event.logMessageType !== "log:unsubscribe")
                         return;
                 const { threadID } = event;

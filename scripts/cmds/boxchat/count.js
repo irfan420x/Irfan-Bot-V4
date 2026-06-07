@@ -8,7 +8,7 @@ module.exports = {
     config: {
         name: "count",
         version: "3.0",
-        author: "NoobCore Team",
+        author: "Irfan Ahmmed",
         team: "NoobCore",
         countDown: 5,
         role: 0,
@@ -147,7 +147,7 @@ module.exports = {
         }
     },
 
-    ncStart: async function ({ args, threadsData, message, event, api, getLang }) {
+    onStart: async function ({ args, threadsData, message, event, api, getLang }) {
         try {
             const { threadID, senderID, mentions } = event;
             const ACCESS_TOKEN = this.config.envConfig.ACCESS_TOKEN;
@@ -605,7 +605,7 @@ module.exports = {
         }
 
         try {
-            await this.ncStart({ 
+            await this.onStart({ 
                 args: ['all', page.toString()],
                 threadsData,
                 message,

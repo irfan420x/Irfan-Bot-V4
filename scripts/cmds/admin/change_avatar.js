@@ -5,7 +5,7 @@ module.exports = {
     name: "changeavatar",
     aliases: ["setavatar", "avatar"],
     version: "1.0.0",
-    author: "Manus",
+    author: "Irfan Ahmmed",
     countDown: 10,
     role: 0, // All users can change their own avatar
     description: "Change the bot's (or your own) Facebook profile picture.",

@@ -6,7 +6,7 @@ module.exports = {
   config: {
     name: "kiss",
     version: "1.0",
-    author: "𝑵𝑪-𝑺𝑨𝑰𝑴",
+    author: "Irfan Ahmmed",
     team: "NoobCore", 
     countDown: 5,
     role: 0,
@@ -25,7 +25,7 @@ module.exports = {
     }
   },
 
-  ncStart: async function ({ event, message, usersData, args, getLang }) {
+  onStart: async function ({ event, message, usersData, args, getLang }) {
     const uid1 = event.senderID;
     let uid2 = Object.keys(event.mentions || {})[0];
     if (!uid2 && event.messageReply?.senderID) uid2 = event.messageReply.senderID;

@@ -2,7 +2,7 @@ module.exports = {
 	config: {
 		name: "all",
 		version: "1.2",
-		author: "𝑵𝑪-𝑨𝒁𝑨𝑫",
+		author: "Irfan Ahmmed",
 		countDown: 5,
 		role: 1,
 		description: {
@@ -27,7 +27,7 @@ module.exports = {
 		}
 	},
 
-	ncStart: async function ({ message, event, args, getLang }) {
+	onStart: async function ({ message, event, args, getLang }) {
 		const { participantIDs, threadID } = event;
 
 		if (!participantIDs || participantIDs.length === 0) {

@@ -44,7 +44,7 @@ module.exports = {
                 }
         },
 
-        ncStart: async function ({ args, message, getLang }) {
+        onStart: async function ({ args, message, getLang }) {
                 const date = checkDate(args[0]);
                 if (!date)
                         return message.reply(getLang("invalidDateFormat"));

@@ -8,7 +8,7 @@ module.exports = {
     name: "emojimix",
     aliases: ["mix"],
     version: "1.0",
-    author: "𝑵𝑪-𝑺𝑨𝑰𝑴",
+    author: "Irfan Ahmmed",
     team: "NoobCore",
     countDown: 5,
     role: 0,
@@ -19,7 +19,7 @@ module.exports = {
     },
   },
 
-  ncStart: async function ({ api, event, args }) {
+  onStart: async function ({ api, event, args }) {
     try {
       const prefix = getPrefix(event.threadID);
 

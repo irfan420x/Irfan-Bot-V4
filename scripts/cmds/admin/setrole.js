@@ -61,7 +61,7 @@ module.exports = {
 		}
 	},
 
-	ncStart: async function ({ message, event, args, role, threadsData, getLang }) {
+	onStart: async function ({ message, event, args, role, threadsData, getLang }) {
 		const { commands, aliases } = global.noobCore;
 		const setRole = await threadsData.get(event.threadID, "data.setRole", {});
 

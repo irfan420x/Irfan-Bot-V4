@@ -60,7 +60,7 @@ module.exports = {
     name: "monitor",
     aliases: [],
     version: "1.0",
-    author: "NC-Saimx69x",
+    author: "Irfan Ahmmed",
     role: 3,
     shortDescription: "Manage and track website uptime easily.",
     longDescription:
@@ -80,7 +80,7 @@ module.exports = {
     }
   },
 
-  ncStart: async ({ api, event, args }) => {
+  onStart: async ({ api, event, args }) => {
     const { threadID, messageID } = event;
 
     if (!isApiKeyValid()) {

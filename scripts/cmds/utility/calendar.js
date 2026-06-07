@@ -8,14 +8,14 @@ module.exports = {
   config: {
     name: "calendar",
     version: "1.0",
-    author: "𝑵𝑪-𝑺𝑨𝑰𝑴",
+    author: "Irfan Ahmmed",
     team: "NoobCore", 
     shortDescription: "🗓️ English Calendar",
     longDescription: "Fetches calendar image for Asia/Dhaka",
     guide: { en: "{p}calendar" }
   },
 
-  ncStart: async function ({ api, event }) {
+  onStart: async function ({ api, event }) {
     try {
       const noobcore = "https://raw.githubusercontent.com/noobcore404/NC-STORE/main/NCApiUrl.json";
       const rawRes = await axios.get(noobcore);

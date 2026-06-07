@@ -17,7 +17,7 @@ module.exports = {
   config: {
     name: "imagen3",
     version: "1.0",
-    author: "𝑵𝑪-𝑺𝑨𝑰𝑴", //Api by Renz 
+    author: "Irfan Ahmmed", //Api by Renz 
     team: "NoobCore",
     countDown: 5,
     role: 0,
@@ -29,7 +29,7 @@ module.exports = {
     },
   },
 
-  ncStart: async function ({ message, event, args, api, commandName }) {
+  onStart: async function ({ message, event, args, api, commandName }) {
     const prefix = global.utils?.getPrefix
       ? global.utils.getPrefix(event.threadID)
       : global.noobCore?.config?.prefix || "/";

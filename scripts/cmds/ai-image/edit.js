@@ -18,7 +18,7 @@ module.exports = {
   config: {
     name: "edit",
     version: "1.0",
-    author: "NC-Saimx69x", //API by Kay
+    author: "Irfan Ahmmed", //API by Kay
     countDown: 5,
     role: 0,
     shortDescription: "Edit an image using text prompt",
@@ -26,7 +26,7 @@ module.exports = {
     guide: "{p}edit <prompt> (reply to an image)"
   },
 
-  ncStart: async function ({ api, event, args, message }) {
+  onStart: async function ({ api, event, args, message }) {
     const repliedImage = event.messageReply?.attachments?.[0];
     const prompt = args.join(" ").trim();
 

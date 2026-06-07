@@ -9,7 +9,7 @@ module.exports = {
     name: "account",
     aliases: ["acc"],
     version: "1.5.0",
-    author: "NC-XNIL",
+    author: "Irfan Ahmmed",
     role: 0,
     usePrefix: true,
     category: "user",
@@ -86,7 +86,7 @@ module.exports = {
     }
   },
 
-  ncStart: async ({ args, usersData, message, event, getLang }) => {
+  onStart: async ({ args, usersData, message, event, getLang }) => {
     const userID = event.senderID;
     const user = await usersData.get(userID) || {};
 

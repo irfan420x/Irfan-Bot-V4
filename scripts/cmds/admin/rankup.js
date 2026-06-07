@@ -37,7 +37,7 @@ module.exports = {
 		}
 	},
 
-	ncStart: async function ({ message, event, threadsData, args, getLang }) {
+	onStart: async function ({ message, event, threadsData, args, getLang }) {
 		if (!["on", "off"].includes(args[0]))
 			return message.reply(getLang("syntaxError"));
 		await threadsData.set(event.threadID, args[0] == "on", "settings.sendRankupMessage");

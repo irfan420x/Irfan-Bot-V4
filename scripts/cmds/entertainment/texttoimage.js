@@ -35,7 +35,7 @@ module.exports = {
 		}
 	},
 
-	ncStart: async function ({ message, args, getLang, envGlobal }) {
+	onStart: async function ({ message, args, getLang, envGlobal }) {
 		const goatBotApi = new noobCoreApis(envGlobal.goatbotApikey);
 		if (!goatBotApi.isSetApiKey())
 			return message.reply(getLang("missingGoatApiKey"));

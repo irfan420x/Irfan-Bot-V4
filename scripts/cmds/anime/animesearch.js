@@ -7,7 +7,7 @@ module.exports = {
     name: "animesearch",
     aliases: ["anisar", "anisearch", "animeedit"],
     version: "1.0",
-    author: "𝑵𝑪-𝑺𝑨𝑰𝑴",
+    author: "Irfan Ahmmed",
     team: "NoobCore",
     description: "Search an anime edits video",
     category: "anime",
@@ -15,7 +15,7 @@ module.exports = {
     usage: "/animesearch sakura haruka",
   },
 
-  ncStart: async function({ api, event, args }) {
+  onStart: async function({ api, event, args }) {
     const query = args.join(" ");
     if (!query)
       return api.sendMessage("╭─── 𝐈𝐍𝐅𝐎 ───╮\n│ 🔍 | Please provide an anime name!\n╰──────────────╯", event.threadID, event.messageID);

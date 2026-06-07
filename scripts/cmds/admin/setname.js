@@ -60,7 +60,7 @@ module.exports = {
 		}
 	},
 
-	ncStart: async function ({ args, message, event, api, usersData, getLang }) {
+	onStart: async function ({ args, message, event, api, usersData, getLang }) {
 		const mentions = Object.keys(event.mentions);
 		let uids = [];
 		let nickname = args.join(" ");

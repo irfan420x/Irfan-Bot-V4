@@ -33,8 +33,8 @@ module.exports = {
 		} // English language
 	},
 
-	// ncStart is a function that will be executed when has new event in group (see more at https://github.com/ntkhang03/fb-chat-api/blob/master/DOCS.md#apilistenmqttcallback (Event Type: "event"))
-	ncStart: async function ({ api, usersData, threadsData, message, event, userModel, threadModel, prefix, dashBoardModel, globalModel, dashBoardData, globalData, envCommands, envEvents, envGlobal, role, getLang , commandName }) {
+	// onStart is a function that will be executed when has new event in group (see more at https://github.com/ntkhang03/fb-chat-api/blob/master/DOCS.md#apilistenmqttcallback (Event Type: "event"))
+	onStart: async function ({ api, usersData, threadsData, message, event, userModel, threadModel, prefix, dashBoardModel, globalModel, dashBoardData, globalData, envCommands, envEvents, envGlobal, role, getLang , commandName }) {
 		// YOUR CODE HERE, use console.log() to see all properties in variables above
 
 		// example when user join group

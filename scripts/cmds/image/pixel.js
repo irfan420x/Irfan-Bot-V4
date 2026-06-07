@@ -11,7 +11,7 @@ module.exports = {
     name: "pixel",
     aliases: ["pexel", "img"],
     version: "1.2",
-    author: "NC-XNIL",
+    author: "Irfan Ahmmed",
     countDown: 5,
     role: 0,
     shortDescription: "Search pixel images using raw API URL",
@@ -31,7 +31,7 @@ module.exports = {
     }
   },
 
-  ncStart: async function ({ api, args, message, getLang }) {
+  onStart: async function ({ api, args, message, getLang }) {
     if (!args.length) return message.reply(getLang("noQuery"));
 
     let count = 10;

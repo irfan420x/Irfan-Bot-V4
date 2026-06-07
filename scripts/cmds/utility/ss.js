@@ -15,7 +15,7 @@ module.exports.config = {
   name: "ss",
   aliases: ["screenshot"],
   version: "1.0",
-  author: "𝑵𝑪-𝑺𝑨𝑰𝑴",
+  author: "Irfan Ahmmed",
   team: "NoobCore",
   role: 0,
   description: "Take a screenshot of a website",
@@ -24,7 +24,7 @@ module.exports.config = {
   coolDowns: 5
 };
 
-exports.ncStart = async function ({ api, event, args }) {
+exports.onStart = async function ({ api, event, args }) {
   const url = args.join(" ").trim();
 
   if (!url)

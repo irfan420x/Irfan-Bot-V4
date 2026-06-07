@@ -80,7 +80,7 @@ module.exports = {
 		}
 	},
 
-	ncStart: async function ({ message, event, args, threadsData, usersData, role, getLang }) {
+	onStart: async function ({ message, event, args, threadsData, usersData, role, getLang }) {
 		if (!await threadsData.get(event.threadID, "data.badWords"))
 			await threadsData.set(event.threadID, {
 				words: [],
@@ -222,7 +222,7 @@ module.exports = {
 								let { onEvent } = global.noobCore;
 								onEvent.push({
 									messageID: info.messageID,
-									ncStart: ({ event }) => {
+									onStart: ({ event }) => {
 										if (event.logMessageType === "log:thread-admins" && event.logMessageData.ADMIN_EVENT == "add_admin") {
 											const { TARGET_ID } = event.logMessageData;
 											if (TARGET_ID == api.getCurrentUserID())

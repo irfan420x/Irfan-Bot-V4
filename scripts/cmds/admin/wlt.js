@@ -40,7 +40,7 @@ module.exports = {
 		}
 	},
 
-	ncStart: async function ({ message, args, event, getLang, api }) {
+	onStart: async function ({ message, args, event, getLang, api }) {
 		switch (args[0]) {
 			case "add":
 			case "-a":

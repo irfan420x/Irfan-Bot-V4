@@ -5,7 +5,7 @@ module.exports = {
     name: "mnm",
     aliases: [],
     version: "0.0.7",
-    author: "Azadx69x",
+    author: "Irfan Ahmmed",
     countDown: 3,
     role: 0,
     shortDescription: "𝐌𝐍𝐌 𝐞𝐟𝐟𝐞𝐜𝐭 𝐨𝐧 𝐩𝐫𝐨𝐟𝐢𝐥𝐞 𝐩𝐢𝐜",
@@ -16,7 +16,7 @@ module.exports = {
     }
   },
 
-  ncStart: async function ({ event, message, args, usersData }) {
+  onStart: async function ({ event, message, args, usersData }) {
     try {
 
       let targetID =

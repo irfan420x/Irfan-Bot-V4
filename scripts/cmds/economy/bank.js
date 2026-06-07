@@ -3,7 +3,7 @@ module.exports = {
     name: "bank",
     aliases: ["wallet"],
     version: "2.1",
-    author: "NOOBCORE TEAM",
+    author: "Irfan Ahmmed",
     countDown: 5,
     role: 0,
     description: "Bank system with wallet, bank, loan, etc.",
@@ -114,7 +114,7 @@ module.exports = {
     return usersData.set(uid, { money: user.money, data: user.data });
   },
 
-  ncStart: async function ({ message, args, event, usersData }) {
+  onStart: async function ({ message, args, event, usersData }) {
     try {
       const senderID = event.senderID;
       const sub = (args[0] || "").toLowerCase();

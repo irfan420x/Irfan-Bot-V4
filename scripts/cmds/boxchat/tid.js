@@ -15,7 +15,7 @@ module.exports = {
 		}
 	},
 
-	ncStart: async function ({ message, event }) {
+	onStart: async function ({ message, event }) {
 		message.reply(event.threadID.toString());
 	}
 };

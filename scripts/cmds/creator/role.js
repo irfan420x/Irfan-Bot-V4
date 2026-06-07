@@ -7,7 +7,7 @@ module.exports = {
     name: "role",
     aliases: ["roles"],
     version: "1.0",
-    author: "NoobCore Team",
+    author: "Irfan Ahmmed",
     countDown: 5,
     role: 3,
     description: {
@@ -46,7 +46,7 @@ module.exports = {
     }
   },
 
-  ncStart: async function ({ message, args, event, usersData, getLang }) {
+  onStart: async function ({ message, args, event, usersData, getLang }) {
     const roleType = args[0];
     const action = args[1];
 

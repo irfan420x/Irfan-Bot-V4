@@ -92,7 +92,7 @@ module.exports = {
 		}
 	},
 
-	ncStart: async function ({ args, threadsData, message, event, role, usersData, getLang, commandName }) {
+	onStart: async function ({ args, threadsData, message, event, role, usersData, getLang, commandName }) {
 		const { threadID, senderID, body } = event;
 		const shortCutData = await threadsData.get(threadID, 'data.shortcut', []);
 

@@ -8,7 +8,7 @@ module.exports = {
     name: "bro",
     aliases: ["bestie", "nakama"],
     version: "1.1",
-    author: "💻𝑵𝑪-𝑻𝑶𝑺𝑯𝑰𝑹𝑶⚡",
+    author: "Irfan Ahmmed",
     role: 0,
     shortDescription: "Bond image generator",
     category: "fun",
@@ -23,7 +23,7 @@ module.exports = {
     }
   },
 
-  ncStart: async function ({ event, api, usersData, langs }) {
+  onStart: async function ({ event, api, usersData, langs }) {
 
     const senderID = event.senderID;
     let targetID = Object.keys(event.mentions || {})[0];

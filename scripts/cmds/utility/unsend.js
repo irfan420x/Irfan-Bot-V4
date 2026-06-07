@@ -3,7 +3,7 @@ module.exports = {
         name: "unsend",
         aliases: ["u", "un", "uns", "unsent"],
         version: "1.7", 
-        author: "NoobCore Team", 
+        author: "Irfan Ahmmed", 
         countDown: 5,
         role: 0,
         description: {
@@ -26,7 +26,7 @@ module.exports = {
         }
     },
 
-    ncStart: async function ({ message, event, api, getLang }) {
+    onStart: async function ({ message, event, api, getLang }) {
         const { messageReply } = event;
 
         

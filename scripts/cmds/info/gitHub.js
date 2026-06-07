@@ -5,7 +5,7 @@ module.exports = {
     name: "github",
     aliases: [],
     version: "1.1",
-    author: "Azadx69x",
+    author: "Irfan Ahmmed",
     countDown: 3,
     role: 0,
     shortDescription: "Get GitHub user info",
@@ -16,7 +16,7 @@ module.exports = {
     }
   },
 
-  ncStart: async function ({ api, event, args }) {
+  onStart: async function ({ api, event, args }) {
     try {
       if (!args[0]) {
         return api.sendMessage(

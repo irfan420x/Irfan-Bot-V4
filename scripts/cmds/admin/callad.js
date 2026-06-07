@@ -48,7 +48,7 @@ module.exports = {
 		}
 	},
 
-	ncStart: async function ({ args, message, event, usersData, threadsData, api, commandName, getLang }) {
+	onStart: async function ({ args, message, event, usersData, threadsData, api, commandName, getLang }) {
 		const { config } = global.noobCore;
 		if (!args[0])
 			return message.reply(getLang("missingMessage"));

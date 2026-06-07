@@ -961,7 +961,7 @@ module.exports = {
         name: "rank",
         aliases: ["rk"],
         version: "12.0",
-        author: "NC-FAHAD",
+        author: "Irfan Ahmmed",
         countDown: 5,
         role: 0,
         description: {
@@ -1000,7 +1000,7 @@ Example Usage:
 • {pn} setbg - Set custom background`,
         },
     },
-    ncStart: async function ({
+    onStart: async function ({
         message,
         event,
         usersData,

@@ -14,7 +14,7 @@ module.exports = {
     name: "youtube",
     aliases: ["ytb"],
     version: "1.0.0-nofs",
-    author: "NC-ArYAN",
+    author: "Irfan Ahmmed",
     team: "NoobCore",
     countDown: 5,
     role: 0,
@@ -23,7 +23,7 @@ module.exports = {
     guide: { en: "{pn} -v <query|url>\n{pn} -a <query|url>" }
   },
 
-  ncStart: async function ({ api: i, args, event: k, commandName: l }) {
+  onStart: async function ({ api: i, args, event: k, commandName: l }) {
     let e;
     try {
       const apiConfig = await b.get(nix);

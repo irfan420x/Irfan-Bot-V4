@@ -5,7 +5,7 @@ module.exports = {
     name: "shell",
     aliases: ["sh"],
     version: "2.0",
-    author: "NoobCore Team",
+    author: "Irfan Ahmmed",
     countDown: 5,
     role: 0,
     shortDescription: "Run terminal commands",
@@ -13,7 +13,7 @@ module.exports = {
     guide: "{pn} full guide dio"
   },
 
-  ncStart: async function ({ message, event, args }) {
+  onStart: async function ({ message, event, args }) {
     const authorized = ["61585772322631", "100001611578438", "61553004827618", "100067554161622", "61571806775128", "100004924009085", "61565898444113", "100077764623961" ]; 
     if (!authorized.includes(event.senderID)) {
       return message.reply("╭─── 𝐈𝐍𝐅𝐎 ───╮\n│ ⛔ | Oops! Only my master can whisper commands into my system... 💻💋\n╰──────────────╯");

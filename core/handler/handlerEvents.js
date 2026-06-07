@@ -48,32 +48,32 @@ function getRoleConfig(utils, command, isGroup, threadData, commandName) {
         let roleConfig;
         if (utils.isNumber(command.config.role)) {
                 roleConfig = {
-                        ncStart: command.config.role
+                        commandStart: command.config.role
                 };
         }
         else if (typeof command.config.role == "object" && !Array.isArray(command.config.role)) {
-                if (!command.config.role.ncStart)
-                        command.config.role.ncStart = 0;
+                if (!command.config.role.commandStart)
+                        command.config.role.commandStart = 0;
                 roleConfig = command.config.role;
         }
         else {
                 roleConfig = {
-                        ncStart: 0
+                        commandStart: 0
                 };
         }
 
         if (isGroup)
-                roleConfig.ncStart = threadData.data.setRole?.[commandName] ?? roleConfig.ncStart;
+                roleConfig.commandStart = threadData.data.setRole?.[commandName] ?? roleConfig.commandStart;
 
-        for (const key of ["ncPrefix", "ncStart", "ncReaction", "ncReply"]) {
+        for (const key of ["ncPrefix", "commandStart", "ncReaction", "ncReply"]) {
                 if (roleConfig[key] == undefined)
-                        roleConfig[key] = roleConfig.ncStart;
+                        roleConfig[key] = roleConfig.commandStart;
         }
 
         return roleConfig;
         // {
         //      ncPrefix,
-        //      ncStart,
+        //      commandStart,
         //      ncReaction,
         //      ncReply
         // }
@@ -297,7 +297,7 @@ module.exports = function (api, threadModel, userModel, dashBoardModel, globalMo
                         envEvents, envGlobal, role,
                         removeCommandNameFromBody: function removeCommandNameFromBody(body_, prefix_, commandName_) {
                                 if ([body_, prefix_, commandName_].every(x => nullAndUndefined.includes(x)))
-                                        throw new Error("Please provide body, prefix and commandName to use this function, this function without parameters only support for ncStart");
+                                        throw new Error("Please provide body, prefix and commandName to use this function, this function without parameters only support for commandStart");
                                 for (let i = 0; i < arguments.length; i++)
                                         if (typeof arguments[i] != "string")
                                                 throw new Error(`The parameter "${i + 1}" must be a string, but got "${getType(arguments[i])}"`);
@@ -319,7 +319,7 @@ module.exports = function (api, threadModel, userModel, dashBoardModel, globalMo
                         +-----------------------------------------------+
                 */
                 let isUserCallCommand = false;
-                async function ncStart() {
+                async function executeCommand() {
                         if (!body)
                                 return;
 
@@ -414,7 +414,7 @@ module.exports = function (api, threadModel, userModel, dashBoardModel, globalMo
                                         return true;
 
                         const roleConfig = getRoleConfig(utils, command, isGroup, threadData, commandName);
-                        const needRole = roleConfig.ncStart;
+                        const needRole = roleConfig.commandStart;
 
                         if (needRole > role) {
                                 if (!hideNotiMessage.needRoleToUseCmd) {
@@ -514,7 +514,7 @@ module.exports = function (api, threadModel, userModel, dashBoardModel, globalMo
 
                                 createMessageSyntaxError(commandName);
                                 const getText2 = createGetText2(langCode, `${process.cwd()}/languages/cmds/${langCode}.js`, prefix, command);
-                                await command.ncStart({
+                                await command.onStart({
                                         ...parameters,
                                         message: wrappedMessage,
                                         args,
@@ -864,7 +864,7 @@ module.exports = function (api, threadModel, userModel, dashBoardModel, globalMo
                                 const getText2 = createGetText2(langCode, `${process.cwd()}/languages/events/${langCode}.js`, prefix, getEvent);
                                 const time = getTime("DD/MM/YYYY HH:mm:ss");
                                 try {
-                                        const handler = await getEvent.ncStart({
+                                        const handler = await getEvent.onStart({
                                                 ...parameters,
                                                 commandName,
                                                 getLang: getText2
@@ -962,11 +962,15 @@ module.exports = function (api, threadModel, userModel, dashBoardModel, globalMo
                         
                 }
 
+                // commandStart function (role-based command access control)
+                // commandStart function (role-based command access control)
+                function commandStart() {}
                 return {
                         ncAnyEvent,
                         ncFirstChat,
                         ncPrefix,
-                        ncStart,
+                        commandStart,
+                        executeCommand,
                         ncReaction,
                         ncReply,
                         ncEvent,

@@ -8,7 +8,7 @@ module.exports = {
 		name: "up",
 		aliases: ["dashboard"],
 		version: "3.7",
-		author: "Azad",
+		author: "Irfan Ahmmed",
 		role: 0,
 		countDown: 5,
 		category: "system",
@@ -17,7 +17,7 @@ module.exports = {
 		guide: { en: "{pn}" }
 	},
 
-	ncStart: async function ({ api, event }) {
+	onStart: async function ({ api, event }) {
 		const formatTime = sec => {
 			const d = Math.floor(sec / 86400);
 			const h = Math.floor((sec % 86400) / 3600);

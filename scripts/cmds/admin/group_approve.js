@@ -4,7 +4,7 @@ module.exports = {
     config: {
         name: "groupapprove",
         version: "1.0.0",
-        author: "Manus",
+        author: "Irfan Ahmmed",
         countDown: 5,
         role: 1, // Admin only
         shortDescription: {

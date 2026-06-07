@@ -27,7 +27,7 @@ module.exports = {
 		name: "raw",
 		version: "1.0",
 		role: 3,
-		author: "𝑵𝑪-𝑺𝑨𝑰𝑴",
+		author: "Irfan Ahmmed",
 		team: "NoobCore",
 		description: "Generate a RAW text link from replied code or from local bot files",
 		guide: {
@@ -36,7 +36,7 @@ module.exports = {
 		countDown: 1
 	},
 
-	ncStart: async function ({ api, event, args }) {
+	onStart: async function ({ api, event, args }) {
 		let fileName = args[0];
 		let code = "";
 

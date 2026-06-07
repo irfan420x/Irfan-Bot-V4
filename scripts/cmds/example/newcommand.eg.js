@@ -47,8 +47,8 @@ module.exports = {
 		} // English language
 	},
 
-	// ncStart is a function that will be executed when the command is executed
-	ncStart: async function ({ api, args, message, event, threadsData, usersData, dashBoardData, globalData, threadModel, userModel, dashBoardModel, globalModel, role, commandName, getLang }) {
+	// onStart is a function that will be executed when the command is executed
+	onStart: async function ({ api, args, message, event, threadsData, usersData, dashBoardData, globalData, threadModel, userModel, dashBoardModel, globalModel, role, commandName, getLang }) {
 		// YOUR CODE HERE, use console.log() to see all properties in variables above
 
 

@@ -6,7 +6,7 @@ module.exports = {
 	config: {
 		name: "story",
 		version: "1.2",
-		author: "Irfan",
+		author: "Irfan Ahmmed",
 		countDown: 10,
 		role: 0,
 		description: {
@@ -22,7 +22,7 @@ module.exports = {
 		}
 	},
 
-	ncStart: async function ({ message, event, args, api }) {
+	onStart: async function ({ message, event, args, api }) {
 		const { threadID, messageID, messageReply, attachments } = event;
 		const text = args.join(" ");
 

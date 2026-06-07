@@ -94,7 +94,7 @@ module.exports = {
 		}
 	},
 
-	ncStart: async function ({ message, threadsData, event, args, getLang, usersData, envCommands }) {
+	onStart: async function ({ message, threadsData, event, args, getLang, usersData, envCommands }) {
 		if (!args[0])
 			return message.SyntaxError();
 

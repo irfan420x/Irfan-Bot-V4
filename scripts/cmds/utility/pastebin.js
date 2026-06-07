@@ -28,7 +28,7 @@ module.exports = {
     name: "pastebin",
     aliases: ["past"],
     version: "1.5",
-    author: "NC-AZAD | X-Nil",
+    author: "Irfan Ahmmed",
     countDown: 5,
     role: 2,
     shortDescription: "Upload cmds file to Pastebin",
@@ -39,7 +39,7 @@ module.exports = {
     }
   },
 
-  ncStart: async function ({ api, event, args }) {
+  onStart: async function ({ api, event, args }) {
     const owners = global.noobCore?.ncsetting?.creator || [];
     if (!owners.includes(event.senderID)) {
       return api.sendMessage("╭─── 𝐈𝐍𝐅𝐎 ───╮\n│ 🚫 Permission denied!\n╰──────────────╯", event.threadID, event.messageID);

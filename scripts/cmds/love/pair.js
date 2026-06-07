@@ -30,7 +30,7 @@ module.exports = {
  config: {
  name: "pair",
  aliases: ["lovepair", "match"],
- author: "NC-Saimx69x",
+ author: "Irfan Ahmmed",
  version: "2.0",
  role: 0,
  shortDescription: { en: "💘 Generate a love match between you and another group member" },
@@ -38,7 +38,7 @@ module.exports = {
  guide: { en: "{p}{n} — Use this command in a group to find a love match" }
  },
 
- ncStart: async function ({ api, event, usersData }) {
+ onStart: async function ({ api, event, usersData }) {
  try {
  const senderData = await usersData.get(event.senderID);
  let senderName = senderData.name;

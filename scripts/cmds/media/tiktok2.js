@@ -19,7 +19,7 @@ module.exports = {
     name: "tiktok2",
     aliases: ["tt2"],
     version: "2.1",
-    author: "𝑵𝑪-𝑺𝑨𝑰𝑴",
+    author: "Irfan Ahmmed",
     team: "NoobCore",
     role: 0,
     usePrefix: true,
@@ -31,7 +31,7 @@ module.exports = {
   },
 
   /* ======= START ======== */
-  ncStart: async function ({ api, event, args }) {
+  onStart: async function ({ api, event, args }) {
     const query = args.join(" ").trim();
     if (!query) {
       return api.sendMessage(

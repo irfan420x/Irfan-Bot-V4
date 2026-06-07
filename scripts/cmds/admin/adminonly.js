@@ -38,7 +38,7 @@ module.exports = {
 		}
 	},
 
-	ncStart: function ({ args, message, getLang }) {
+	onStart: function ({ args, message, getLang }) {
 		let isSetNoti = false;
 		let value;
 		let indexGetVal = 0;

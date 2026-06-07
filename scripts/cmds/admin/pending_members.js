@@ -5,7 +5,7 @@ module.exports = {
     name: "pendingmembers",
     aliases: ["pm", "pending"],
     version: "1.1.0",
-    author: "Manus",
+    author: "Irfan Ahmmed",
     countDown: 5,
     role: 1, // Admin only
     description: "Fetch pending member requests for the current group.",

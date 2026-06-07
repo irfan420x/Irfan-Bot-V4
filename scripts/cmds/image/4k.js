@@ -17,7 +17,7 @@ module.exports = {
     name: "4k",
     aliases: ["upscale", "hd", "enhance"],
     version: "1.0",
-    author: "𝑵𝑪-𝑺𝑨𝑰𝑴", //Api by Fahim
+    author: "Irfan Ahmmed", //Api by Fahim
     team: "NoobCore",
     shortDescription: "Upscale image to 4K quality",
     longDescription:
@@ -26,7 +26,7 @@ module.exports = {
     guide: "{pn} (reply to an image)",
   },
 
-  ncStart: async function ({ api, event }) {
+  onStart: async function ({ api, event }) {
     let imageUrl = "";
     let processingMsg;
 
