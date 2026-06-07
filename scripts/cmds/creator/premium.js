@@ -14,16 +14,16 @@ module.exports = {
     category: "owner",
     guide: {
       en:
-        "╭─『 🌟 PREMIUM MANAGER 』\n" +
-        "│\n" +
-        "│ 🔹 {pn} list [page]\n" +
-        "│ 🔹 {pn} add [uid | @tag | reply] <time>\n" +
-        "│ 🔹 {pn} remove [uid | @tag | reply]\n" +
-        "│ 🔹 {pn} update [uid | @tag | reply] <time>\n" +
-        "│ 🔹 {pn} check [uid | @tag | reply]\n" +
-        "│\n" +
-        "│ ⏱ Time: 1h | 1d | 1m | permanent\n" +
-        "╰───────────────"
+        "╔═══ 🌟 PREMIUM MANAGER ═══╗\n" +
+        "║\n" +
+        "║ 🔹 {pn} list [page]\n" +
+        "║ 🔹 {pn} add [uid | @tag | reply] <time>\n" +
+        "║ 🔹 {pn} remove [uid | @tag | reply]\n" +
+        "║ 🔹 {pn} update [uid | @tag | reply] <time>\n" +
+        "║ 🔹 {pn} check [uid | @tag | reply]\n" +
+        "║\n" +
+        "║ ⏱ Time: 1h | 1d | 1m | permanent\n" +
+        "╚══════════════════╝"
     }
   },
 
@@ -59,16 +59,16 @@ module.exports = {
       noPremiumUsers: "📭 No Premium users found",
 
       premiumList:
-        "╭─『 🌟 PREMIUM USERS 』\n" +
-        "│ Page: %1 / %2\n" +
-        "│\n%3" +
-        "╰───────────────",
+        "╔═══ 🌟 PREMIUM USERS ═══╗\n" +
+        "║ Page: %1 / %2\n" +
+        "║\n%3" +
+        "╚══════════════════╝",
 
       premiumListItem:
-        "│ %1. %2\n│    🆔 %3\n│    ⏱ Expires: %4\n",
+        "║ %1. %2\n║    🆔 %3\n║    ⏱ Expires: %4\n",
 
       premiumListItemPermanent:
-        "│ %1. %2\n│    🆔 %3\n│    ⏱ Permanent\n",
+        "║ %1. %2\n║    🆔 %3\n║    ⏱ Permanent\n",
 
       lifetime: "Permanent",
       expired: "Expired"

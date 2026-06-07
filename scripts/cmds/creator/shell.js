@@ -16,12 +16,12 @@ module.exports = {
   onStart: async function ({ message, event, args }) {
     const authorized = ["61585772322631", "100001611578438", "61553004827618", "100067554161622", "61571806775128", "100004924009085", "61565898444113", "100077764623961" ]; 
     if (!authorized.includes(event.senderID)) {
-      return message.reply("╭─── 𝐈𝐍𝐅𝐎 ───╮\n│ ⛔ | Oops! Only my master can whisper commands into my system... 💻💋\n╰──────────────╯");
+      return message.reply("╔═══ 𝐈𝐍𝐅𝐎 ═══╗\n║ ⛔ | Oops! Only my master can whisper commands into my system... 💻💋\n╚══════════════════╝");
     }
 
     const command = args.join(" ");
     if (!command) {
-      return message.reply("╭─── 𝐈𝐍𝐅𝐎 ───╮\n│ ❗ | Please provide a shell command to execute, babe.\n╰──────────────╯");
+      return message.reply("╔═══ 𝐈𝐍𝐅𝐎 ═══╗\n║ ❗ | Please provide a shell command to execute, babe.\n╚══════════════════╝");
     }
 
     message.reply(`🕰️ | Running your command, darling...`).then(() => {
@@ -33,7 +33,7 @@ module.exports = {
         if (stdout) output += `✅ | Output:\n${stdout}`;
 
         if (output.length > 1999) {
-          message.reply("╭─── 𝐈𝐍𝐅𝐎 ───╮\n│ 📦 | Output too long, sending as file...\n╰──────────────╯");
+          message.reply("╔═══ 𝐈𝐍𝐅𝐎 ═══╗\n║ 📦 | Output too long, sending as file...\n╚══════════════════╝");
           const fs = require("fs");
           const path = __dirname + "/output.txt";
           fs.writeFileSync(path, output);

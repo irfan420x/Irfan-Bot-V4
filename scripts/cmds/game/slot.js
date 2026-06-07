@@ -86,17 +86,16 @@ module.exports = {
         : "0";
 
       return message.reply(
-        `╭─── 𝐒𝐋𝐎𝐓 𝐈𝐍𝐅𝐎 ───╮\n` +
-        `│ 👤 User: ${user.name || "User"}\n` +
-        `│ 👑 Premium: ${isPremium ? "✅" : "❌"}\n` +
-        `│ 🎯 Limit: ${dl}\n` +
-        `├────── 𝐓𝐎𝐃𝐀𝐘 ──────╮\n` +
-        `│ 🎰 Played: ${todayStats.play}\n` +
-        `│ 🎉 Wins: ${todayStats.win}\n` +
-        `│ 📈 Rate: ${rate}%\n` +
-        `│ 💰 Profit: ${fm(todayStats.winMoney)}\n` +
-        `╰──────────────────╯`
-      );
+        `╔═══ 𝐒𝐋𝐎𝐓 𝐈𝐍𝐅𝐎 ═══╗\n` +
+        `║ 👤 User: ${user.name || "User"}\n` +
+        `║ 👑 Premium: ${isPremium ? "✅" : "❌"}\n` +
+        `║ 🎯 Limit: ${dl}\n` +
+        `╠══════════════════╣ 𝐓𝐎𝐃𝐀𝐘 ──────╮\n` +
+        `║ 🎰 Played: ${todayStats.play}\n` +
+        `║ 🎉 Wins: ${todayStats.win}\n` +
+        `║ 📈 Rate: ${rate}%\n` +
+        `║ 💰 Profit: ${fm(todayStats.winMoney)}\n` +
+        `╚══════════════════╝`);
     }
 
     /* ===== TOP ===== */
@@ -110,27 +109,27 @@ module.exports = {
         .sort((a, b) => b.win - a.win)
         .slice(0, 5);
 
-      let msg = `╭─── 𝐒𝐋𝐎𝐓 𝐓𝐎𝐏 ───╮\n`;
+      let msg = `╔═══ 𝐒𝐋𝐎𝐓 𝐓𝐎𝐏 ═══╗\n`;
       top.forEach((u, i) => {
-        msg += `│ #${i + 1} ${u.name}: ${u.win} 🏆\n`;
+        msg += `║ #${i + 1} ${u.name}: ${u.win} 🏆\n`;
       });
-      msg += `╰────────────────╯`;
+      msg += `╚══════════════════╝`;
       return message.reply(msg);
     }
 
     /* ===== BET ===== */
     const bet = parseBet(args[0]);
     if (!bet || isNaN(bet))
-      return message.reply("╭─── 𝐒𝐘𝐒𝐓𝐄𝐌 ───╮\n│ ⚠️ Invalid bet amount\n╰──────────────╯");
+      return message.reply("╔═══ 𝐒𝐘𝐒𝐓𝐄𝐌 ═══╗\n║ ⚠️ Invalid bet amount\n╚══════════════════╝");
 
     if (bet > mbet)
-      return message.reply(`╭─── 𝐒𝐘𝐒𝐓𝐄𝐌 ───╮\n│ 🚫 Max Bet: ${fm(mbet)}\n╰──────────────╯`);
+      return message.reply(`╔═══ 𝐒𝐘𝐒𝐓𝐄𝐌 ═══╗\n║ 🚫 Max Bet: ${fm(mbet)}\n╚══════════════════╝`);
 
     if (todayStats.play >= dl)
-      return message.reply(`╭─── 𝐒𝐘𝐒𝐓𝐄𝐌 ───╮\n│ ⛔ Daily limit reached\n╰──────────────╯`);
+      return message.reply(`╔═══ 𝐒𝐘𝐒𝐓𝐄𝐌 ═══╗\n║ ⛔ Daily limit reached\n╚══════════════════╝`);
 
     if (user.money < bet)
-      return message.reply(`╭─── 𝐄𝐑𝐑𝐎𝐑 ───╮\n│ 💸 Need ${fm(bet - user.money)} more\n╰─────────────╯`);
+      return message.reply(`╔═══ 𝐄𝐑𝐑𝐎𝐑 ═══╗\n║ 💸 Need ${fm(bet - user.money)} more\n╚══════════════════╝`);
 
     /* ===== SPIN ===== */
     const s1 = roll();
@@ -172,14 +171,13 @@ module.exports = {
     });
 
     return message.reply(
-      `╭─── 𝐒𝐋𝐎𝐓 𝐌𝐀𝐂𝐇𝐈𝐍𝐄 ───╮\n` +
-      `│  🎰  ${s1}  │  ${s2}  │  ${s3}  🎰  \n` +
-      `├─────────────────────╮\n` +
-      `│ 📢 Result: ${title}\n` +
-      `│ 💰 ${win > 0 ? "+" : "-"}${fm(Math.abs(win))}\n` +
-      `│ 💳 Balance: ${fm(newBalance)}\n` +
-      `│ 🎯 Today: ${todayStats.play}/${dl}\n` +
-      `╰─────────────────────╯`
-    );
+      `╔═══ 𝐒𝐋𝐎𝐓 𝐌𝐀𝐂𝐇𝐈𝐍𝐄 ═══╗\n` +
+      `║  🎰  ${s1}  ║  ${s2}  ║  ${s3}  🎰  \n` +
+      `╠══════════════════╣\n` +
+      `║ 📢 Result: ${title}\n` +
+      `║ 💰 ${win > 0 ? "+" : "-"}${fm(Math.abs(win))}\n` +
+      `║ 💳 Balance: ${fm(newBalance)}\n` +
+      `║ 🎯 Today: ${todayStats.play}/${dl}\n` +
+      `╚══════════════════╝`);
   }
 };

@@ -49,13 +49,13 @@ module.exports = {
       const apiBaseRes = await axios.get("https://raw.githubusercontent.com/noobcore404/NC-STORE/main/NCApiUrl.json");
       const apiBase = apiBaseRes.data?.apiv1;
 
-      if (!apiBase) return message.reply("╭─── 𝐈𝐍𝐅𝐎 ───╮\n│ ❌ API base URL not found in ApiUrl.json.\n╰──────────────╯");
+      if (!apiBase) return message.reply("╔═══ 𝐈𝐍𝐅𝐎 ═══╗\n║ ❌ API base URL not found in ApiUrl.json.\n╚══════════════════╝");
 
       const url = `${apiBase}/api/caption?cat=${encodeURIComponent(cat)}`;
       const res = await axios.get(url);
 
       if (!res.data?.result) {
-        return message.reply("╭─── 𝐈𝐍𝐅𝐎 ───╮\n│ ❌ No caption found for this category.\n╰──────────────╯");
+        return message.reply("╔═══ 𝐈𝐍𝐅𝐎 ═══╗\n║ ❌ No caption found for this category.\n╚══════════════════╝");
       }
 
       const { bn, en } = res.data.result;
@@ -73,7 +73,7 @@ ${en}
       await message.reply(text.trim());
     } catch (e) {
       console.error(e);
-      message.reply("╭─── 𝐈𝐍𝐅𝐎 ───╮\n│ ❌ | Something went wrong. Please try again later.\n╰──────────────╯");
+      message.reply("╔═══ 𝐈𝐍𝐅𝐎 ═══╗\n║ ❌ | Something went wrong. Please try again later.\n╚══════════════════╝");
     }
   }
 };

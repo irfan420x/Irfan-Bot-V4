@@ -14,17 +14,17 @@ module.exports = {
     guide: {
       en:
         "👋 Need help with prefixes? Here's what I can do:\n" +
-        "╰‣ Type: {pn} <newPrefix>\n" +
+        "╚══════════════════╝‣ Type: {pn} <newPrefix>\n" +
         "   ↪ Set a new prefix for this chat only\n" +
         "   ↪ Example: {pn} $\n" +
-        "╰‣ Type: {pn} <newPrefix> -g\n" +
+        "╚══════════════════╝‣ Type: {pn} <newPrefix> -g\n" +
         "   ↪ Set a new global prefix (admin only)\n" +
         "   ↪ Example: {pn} ! -g\n" +
-        "╰‣ Type: {pn} reset\n" +
+        "╚══════════════════╝‣ Type: {pn} reset\n" +
         "   ↪ Reset to default prefix from config\n" +
-        "╰‣ Type: {pn} refresh\n" +
+        "╚══════════════════╝‣ Type: {pn} refresh\n" +
         "   ↪ Refresh prefix cache for this chat\n" +
-        "╰‣ Just type: prefix\n" +
+        "╚══════════════════╝‣ Just type: prefix\n" +
         "   ↪ Shows current prefix info\n" +
         "🤖 I'm NoobCore V3, ready to help!"
     }
@@ -38,8 +38,8 @@ module.exports = {
       const threadPrefix = await threadsData.get(event.threadID, "data.prefix") || globalPrefix;
       return message.reply(
         `👋 Hey ${userName}, did you ask for my prefix?\n` +
-        `╭‣ 🌐 Global: ${globalPrefix}\n` +
-        `╰‣ 💬 This Chat: ${threadPrefix}\n` +
+        `╔‣ 🌐 Global: ${globalPrefix}\n` +
+        `╚══════════════════╝‣ 💬 This Chat: ${threadPrefix}\n` +
         `🤖 I'm NoobCore V3\n📂 try "${threadPrefix}help" to see all commands.`
       );
     }
@@ -48,8 +48,8 @@ module.exports = {
       await threadsData.set(event.threadID, null, "data.prefix");
       return message.reply(
         `✅ Hey ${userName}, chat prefix has been reset!\n` +
-        `╭‣ 🌐 Global: ${globalPrefix}\n` +
-        `╰‣ 💬 This Chat: ${globalPrefix}\n` +
+        `╔‣ 🌐 Global: ${globalPrefix}\n` +
+        `╚══════════════════╝‣ 💬 This Chat: ${globalPrefix}\n` +
         `🤖 I'm NoobCore V3\n📂 try "${globalPrefix}help" to see all commands.`
       );
     }
@@ -63,8 +63,8 @@ module.exports = {
         const refreshedPrefix = await threadsData.get(threadID, "data.prefix") || globalPrefix;
         return message.reply(
           `🔄 Hey ${userName}, prefix cache has been refreshed!\n` +
-          `╭‣ 🌐 Global: ${globalPrefix}\n` +
-          `╰‣ 💬 This Chat: ${refreshedPrefix}\n` +
+          `╔‣ 🌐 Global: ${globalPrefix}\n` +
+          `╚══════════════════╝‣ 💬 This Chat: ${refreshedPrefix}\n` +
           `🤖 I'm NoobCore V3\n📂 try "${refreshedPrefix}help" to see all commands.`
         );
       } catch (error) {
@@ -81,8 +81,8 @@ module.exports = {
 
     const currentPrefix = await threadsData.get(event.threadID, "data.prefix") || globalPrefix;
     const confirmMessage = setGlobal 
-      ? `⚙️ Hey ${userName}, confirm global prefix change?\n╭‣ Current: ${globalPrefix}\n╰‣ New: ${newPrefix}\n🤖 React to confirm!`
-      : `⚙️ Hey ${userName}, confirm chat prefix change?\n╭‣ Current: ${currentPrefix}\n╰‣ New: ${newPrefix}\n🤖 React to confirm!`;
+      ? `⚙️ Hey ${userName}, confirm global prefix change?\n╔‣ Current: ${globalPrefix}\n╚══════════════════╝‣ New: ${newPrefix}\n🤖 React to confirm!`
+      : `⚙️ Hey ${userName}, confirm chat prefix change?\n╔‣ Current: ${currentPrefix}\n╚══════════════════╝‣ New: ${newPrefix}\n🤖 React to confirm!`;
     
     return message.reply(confirmMessage, (err, info) => {
       if (err) return;
@@ -131,8 +131,8 @@ module.exports = {
     
     return message.reply(
       `👋 Hey ${userName}, did you ask for my prefix?\n` +
-      `╭‣ 🌐 Global: ${globalPrefix}\n` +
-      `╰‣ 💬 This Chat: ${threadPrefix}\n` +
+      `╔‣ 🌐 Global: ${globalPrefix}\n` +
+      `╚══════════════════╝‣ 💬 This Chat: ${threadPrefix}\n` +
       `🤖 I'm NoobCore V3\n📂 try "${threadPrefix}help" to see all commands.`
     );
   }

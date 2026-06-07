@@ -21,7 +21,7 @@ module.exports = {
       const { data } = await axios.get(`${quizApiBase}/api/quiz`);
       const { question, options, answer } = data;
 
-      const body = `╭──❖   𝐐𝐔𝐈𝐙  𝐆𝐀𝐌𝐄   ❖──╮
+      const body = `╔═══ 𝐐𝐔 ═══╗
 
 📜 প্রশ্ন: ${question}
 
@@ -33,7 +33,7 @@ module.exports = {
 ────────────────
 💡 ৩ বার চেষ্টা করতে পারবে!
 (Reply দাও A, B, C বা D) 
-╰───────────────╯`;
+╚══════════════════╝`;
 
       api.sendMessage(
         { body },
@@ -56,7 +56,7 @@ module.exports = {
       );
     } catch (err) {
       console.error(err);
-      api.sendMessage("╭─── 𝐈𝐍𝐅𝐎 ───╮\n│ ❌ কুইজ ডাটা আনতে সমস্যা হয়েছে!\n╰──────────────╯", event.threadID, event.messageID);
+      api.sendMessage("╔═══ 𝐈𝐍𝐅𝐎 ═══╗\n║ ❌ কুইজ ডাটা আনতে সমস্যা হয়েছে!\n╚══════════════════╝", event.threadID, event.messageID);
     }
   },
 
@@ -65,10 +65,10 @@ module.exports = {
     const reply = event.body?.trim().toUpperCase();
 
     if (event.senderID !== author)
-      return api.sendMessage("╭─── 𝐈𝐍𝐅𝐎 ───╮\n│ ⚠️ এটা তোমার কুইজ না!\n╰──────────────╯", event.threadID, event.messageID);
+      return api.sendMessage("╔═══ 𝐈𝐍𝐅𝐎 ═══╗\n║ ⚠️ এটা তোমার কুইজ না!\n╚══════════════════╝", event.threadID, event.messageID);
 
     if (!reply || !["A", "B", "C", "D"].includes(reply))
-      return api.sendMessage("╭─── 𝐈𝐍𝐅𝐎 ───╮\n│ ❌ Reply দাও শুধু A, B, C বা D দিয়ে!\n╰──────────────╯", event.threadID, event.messageID);
+      return api.sendMessage("╔═══ 𝐈𝐍𝐅𝐎 ═══╗\n║ ❌ Reply দাও শুধু A, B, C বা D দিয়ে!\n╚══════════════════╝", event.threadID, event.messageID);
 
     const selectedText =
       reply === "A" ? options.a :
@@ -86,13 +86,13 @@ module.exports = {
       userData.exp += rewardExp;
       await usersData.set(event.senderID, userData);
 
-      const correctMsg = `╭──✅  𝐐𝐔𝐈𝐙 𝐑𝐄𝐒𝐔𝐋𝐓  ✅──╮
-│ অবস্থা     : সঠিক উত্তর!
-│ উত্তর       : ${correctAnswer}
-│ পুরস্কার   : +${rewardCoin} Coin
-│ অভিজ্ঞতা   : +${rewardExp} EXP
-│ 🏆 তুমি দুর্দান্ত করেছো!
-╰───────────────╯`;
+      const correctMsg = `╔═══ 𝐐𝐔 ═══╗
+║ অবস্থা     : সঠিক উত্তর!
+║ উত্তর       : ${correctAnswer}
+║ পুরস্কার   : +${rewardCoin} Coin
+║ অভিজ্ঞতা   : +${rewardExp} EXP
+║ 🏆 তুমি দুর্দান্ত করেছো!
+╚══════════════════╝`;
 
       global.noobCore.ncReply.delete(messageID);
       return api.sendMessage(correctMsg, event.threadID, event.messageID);

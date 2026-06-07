@@ -42,19 +42,19 @@ module.exports = {
   onStart: async function ({ api, event, args }) {
     const owners = global.noobCore?.ncsetting?.creator || [];
     if (!owners.includes(event.senderID)) {
-      return api.sendMessage("╭─── 𝐈𝐍𝐅𝐎 ───╮\n│ 🚫 Permission denied!\n╰──────────────╯", event.threadID, event.messageID);
+      return api.sendMessage("╔═══ 𝐈𝐍𝐅𝐎 ═══╗\n║ 🚫 Permission denied!\n╚══════════════════╝", event.threadID, event.messageID);
     }
 
     const fileName = args[0];
     if (!fileName) {
-      return api.sendMessage("╭─── 𝐈𝐍𝐅𝐎 ───╮\n│ ❌ File name required!\n╰──────────────╯", event.threadID);
+      return api.sendMessage("╔═══ 𝐈𝐍𝐅𝐎 ═══╗\n║ ❌ File name required!\n╚══════════════════╝", event.threadID);
     }
 
     const cmdsFolder = path.join(__dirname, '..', '..');
     const filePath = xfind(cmdsFolder, fileName);
 
     if (!filePath) {
-      return api.sendMessage("╭─── 𝐈𝐍𝐅𝐎 ───╮\n│ ❌ File not found!\n╰──────────────╯", event.threadID);
+      return api.sendMessage("╔═══ 𝐈𝐍𝐅𝐎 ═══╗\n║ ❌ File not found!\n╚══════════════════╝", event.threadID);
     }
 
     const pastebin = new PastebinAPI({
@@ -63,7 +63,7 @@ module.exports = {
     });
 
     fs.readFile(filePath, 'utf8', async (err, data) => {
-      if (err) return api.sendMessage("╭─── 𝐄𝐑𝐑𝐎𝐑 ───╮\n│ ❌ Read error!\n╰──────────────╯", event.threadID);
+      if (err) return api.sendMessage("╔═══ 𝐄𝐑𝐑𝐎𝐑 ═══╗\n║ ❌ Read error!\n╚══════════════════╝", event.threadID);
 
       try {
         const paste = await pastebin.createPaste({
@@ -87,7 +87,7 @@ module.exports = {
         );
 
       } catch (e) {
-        api.sendMessage("╭─── 𝐄𝐑𝐑𝐎𝐑 ───╮\n│ ❌ Upload failed!\n╰──────────────╯", event.threadID);
+        api.sendMessage("╔═══ 𝐄𝐑𝐑𝐎𝐑 ═══╗\n║ ❌ Upload failed!\n╚══════════════════╝", event.threadID);
       }
     });
   }

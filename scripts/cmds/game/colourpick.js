@@ -68,19 +68,19 @@ module.exports = {
         : "0.0";
 
       return api.sendMessage(
-`━━━━━━━━━━━━━━
+`
 🎨 COLORPICK INFO
-━━━━━━━━━━━━━━
+══════════════════════════════
 • User   : ${user.name || "Unknown"}
 • Premium: ${isPremium ? "YES" : "NO"}
 • Limit  : ${todayStats.play}/${dailyLimit}
 
-━━━━━━━━━━━━━━
+══════════════════════════════
 • Played : ${todayStats.play}
 • Win    : ${todayStats.win}
 • Lose   : ${todayStats.lose}
 • Rate   : ${rate}%
-━━━━━━━━━━━━━━`,
+══════════════════════════════`,
         threadID
       );
     }
@@ -97,14 +97,14 @@ module.exports = {
         .slice(0, 10);
 
       return api.sendMessage(
-`━━━━━━━━━━━━━━
+`
 🏆 COLORPICK TOP 10
-━━━━━━━━━━━━━━
+══════════════════════════════
 ${top.map((u, i) =>
 `• #${i + 1} ${u.name}
   Wins : ${u.win}`
 ).join("\n\n")}
-━━━━━━━━━━━━━━`,
+══════════════════════════════`,
         threadID
       );
     }
@@ -112,7 +112,7 @@ ${top.map((u, i) =>
     /* ===== BET ===== */
     const bet = parseBet(args[0]);
     if (!bet || isNaN(bet) || bet <= 0)
-      return api.sendMessage("╭─── 𝐈𝐍𝐅𝐎 ───╮\n│ ❌ Invalid bet amount.\n╰──────────────╯", threadID);
+      return api.sendMessage("╔═══ 𝐈𝐍𝐅𝐎 ═══╗\n║ ❌ Invalid bet amount.\n╚══════════════════╝", threadID);
 
     if (bet > mbet)
       return api.sendMessage(`🚫 Max bet: ${fm(mbet)}`, threadID);
@@ -124,7 +124,7 @@ ${top.map((u, i) =>
       );
 
     if (!user.money || user.money < bet)
-      return api.sendMessage("╭─── 𝐈𝐍𝐅𝐎 ───╮\n│ 💸 Not enough balance.\n╰──────────────╯", threadID);
+      return api.sendMessage("╔═══ 𝐈𝐍𝐅𝐎 ═══╗\n║ 💸 Not enough balance.\n╚══════════════════╝", threadID);
 
     /* ===== GAME ===== */
     const colors = [
@@ -149,18 +149,18 @@ ${top.map((u, i) =>
     });
 
     api.sendMessage(
-`━━━━━━━━━━━━━━
+`
 🎨 COLOR PICK
-━━━━━━━━━━━━━━
+══════════════════════════════
 1️⃣ ${options[0]}
 2️⃣ ${options[1]}
 3️⃣ ${options[2]}
 
-━━━━━━━━━━━━━━
+══════════════════════════════
 • Bet   : ${fm(bet)}
 • Limit : ${todayStats.play}/${dailyLimit}
 • Reply 1 / 2 / 3
-━━━━━━━━━━━━━━`,
+══════════════════════════════`,
       threadID,
       (err, info) => {
         global.noobCore.ncReply.set(info.messageID, {
@@ -199,17 +199,17 @@ ${top.map((u, i) =>
       allStats.win++;
 
       api.sendMessage(
-`━━━━━━━━━━━━━━
+`
 🎉 YOU WIN
-━━━━━━━━━━━━━━
+══════════════════════════════
 • Pick    : ${pick}
 • Correct : ${Reply.correct}
 
-━━━━━━━━━━━━━━
+══════════════════════════════
 • Won     : ${fm(bet)}
 • Balance : ${fm(user.money + bet)}
 • Limit   : ${todayStats.play}/${dailyLimit}
-━━━━━━━━━━━━━━`,
+══════════════════════════════`,
         event.threadID
       );
     } else {
@@ -217,17 +217,17 @@ ${top.map((u, i) =>
       todayStats.lose++;
 
       api.sendMessage(
-`━━━━━━━━━━━━━━
+`
 💀 YOU LOSE
-━━━━━━━━━━━━━━
+══════════════════════════════
 • Pick    : ${pick}
 • Correct : ${Reply.correct}
 
-━━━━━━━━━━━━━━
+══════════════════════════════
 • Lost    : ${fm(bet)}
 • Balance : ${fm(user.money - bet)}
 • Limit   : ${todayStats.play}/${dailyLimit}
-━━━━━━━━━━━━━━`,
+══════════════════════════════`,
         event.threadID
       );
     }

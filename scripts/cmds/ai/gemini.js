@@ -20,7 +20,7 @@ module.exports = {
 
   onStart: async function({ api, event, args }) {
     const p = args.join(" ");
-    if (!p) return api.sendMessage("╭─── 𝐈𝐍𝐅𝐎 ───╮\n│ ❌ Please provide a question or prompt.\n╰──────────────╯", event.threadID, event.messageID);
+    if (!p) return api.sendMessage("╔═══ 𝐈𝐍𝐅𝐎 ═══╗\n║ ❌ Please provide a question or prompt.\n╚══════════════════╝", event.threadID, event.messageID);
 
     api.setMessageReaction("⏳", event.messageID, event.threadID, () => {}, true);
 
@@ -31,7 +31,7 @@ module.exports = {
       if (!baseApi) throw new Error("Configuration Error: Missing API in GitHub JSON.");
     } catch (error) {
       api.setMessageReaction("❌", event.messageID, event.threadID, () => {}, true);
-      return api.sendMessage("╭─── 𝐄𝐑𝐑𝐎𝐑 ───╮\n│ ❌ Failed to fetch API configuration from GitHub.\n╰──────────────╯", event.threadID, event.messageID);
+      return api.sendMessage("╔═══ 𝐄𝐑𝐑𝐎𝐑 ═══╗\n║ ❌ Failed to fetch API configuration from GitHub.\n╚══════════════════╝", event.threadID, event.messageID);
     }
     
     const apiUrlText = `${baseApi}/gemini`;
@@ -76,7 +76,7 @@ module.exports = {
     } catch (e) {
       console.error("Gemini Command Error:", e.message);
       api.setMessageReaction("❌", event.messageID, () => {}, true);
-      api.sendMessage("╭─── 𝐈𝐍𝐅𝐎 ───╮\n│ ⚠ Gemini API a somossa hoyeche.\n╰──────────────╯", event.threadID, event.messageID);
+      api.sendMessage("╔═══ 𝐈𝐍𝐅𝐎 ═══╗\n║ ⚠ Gemini API a somossa hoyeche.\n╚══════════════════╝", event.threadID, event.messageID);
     }
   },
 
@@ -94,7 +94,7 @@ module.exports = {
       if (!baseApi) throw new Error("Configuration Error: Missing API in GitHub JSON.");
     } catch (error) {
       api.setMessageReaction("❌", event.messageID, event.threadID, () => {}, true);
-      return api.sendMessage("╭─── 𝐄𝐑𝐑𝐎𝐑 ───╮\n│ ❌ Failed to fetch API configuration from GitHub.\n╰──────────────╯", event.threadID, event.messageID);
+      return api.sendMessage("╔═══ 𝐄𝐑𝐑𝐎𝐑 ═══╗\n║ ❌ Failed to fetch API configuration from GitHub.\n╚══════════════════╝", event.threadID, event.messageID);
     }
 
     const apiUrlText = `${baseApi}/gemini`;
@@ -113,7 +113,7 @@ module.exports = {
 
     } catch (e) {
       api.setMessageReaction("❌", event.messageID, event.threadID, () => {}, true);
-      api.sendMessage("╭─── 𝐈𝐍𝐅𝐎 ───╮\n│ ⚠ Gemini API er response dite somossa hocchhe.\n╰──────────────╯", event.threadID, event.messageID);
+      api.sendMessage("╔═══ 𝐈𝐍𝐅𝐎 ═══╗\n║ ⚠ Gemini API er response dite somossa hocchhe.\n╚══════════════════╝", event.threadID, event.messageID);
     }
   }
 };

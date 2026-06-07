@@ -228,7 +228,7 @@ async function askAI(senderID, prompt, gender, name, permanent, imageUrl) {
 async function handleMessage(message, event, usersData, api, question) {
 
   if (!question || !question.trim()) {
-    return message.reply("╭─── 𝐈𝐍𝐅𝐎 ───╮\n│ কিছু জিজ্ঞেস করো আমাকে 😊\n╰──────────────╯");
+    return message.reply("╔═══ 𝐈𝐍𝐅𝐎 ═══╗\n║ কিছু জিজ্ঞেস করো আমাকে 😊\n╚══════════════════╝");
   }
 
   try {
@@ -285,7 +285,7 @@ async function handleMessage(message, event, usersData, api, question) {
 
     console.error("[Irfan Error]", e.message);
 
-    message.reply("╭─── 𝐈𝐍𝐅𝐎 ───╮\n│ AI এখন ঘুমাচ্ছে 😴 একটু পরে try করো।\n╰──────────────╯");
+    message.reply("╔═══ 𝐈𝐍𝐅𝐎 ═══╗\n║ AI এখন ঘুমাচ্ছে 😴 একটু পরে try করো।\n╚══════════════════╝");
 
   }
 

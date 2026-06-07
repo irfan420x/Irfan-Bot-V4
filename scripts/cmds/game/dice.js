@@ -10,18 +10,18 @@ module.exports = {
     description: "Dice betting game",
     guide: {
       en:
-        "╭─『 🎲 DICE GAME 』\n" +
-        "│ {pn} <bet> <amount>\n" +
-        "│ {pn} <bet1> <bet2> <amount>\n" +
-        "│\n" +
-        "│ Amount:\n" +
-        "│ • k = thousand\n" +
-        "│ • m = million (max)\n" +
-        "│ • b / t / qt supported (but capped)\n" +
-        "│\n" +
-        "│ Example:\n" +
-        "│ {pn} low odd 300k\n" +
-        "╰───────────────"
+        "╔═══ 🎲 DICE GAME ═══╗\n" +
+        "║ {pn} <bet> <amount>\n" +
+        "║ {pn} <bet1> <bet2> <amount>\n" +
+        "║\n" +
+        "║ Amount:\n" +
+        "║ • k = thousand\n" +
+        "║ • m = million (max)\n" +
+        "║ • b / t / qt supported (but capped)\n" +
+        "║\n" +
+        "║ Example:\n" +
+        "║ {pn} low odd 300k\n" +
+        "╚══════════════════╝"
     }
   },
 
@@ -87,11 +87,11 @@ module.exports = {
     const valid = ["high", "low", "even", "odd", "7", "double"];
 
     if (!valid.includes(bet1) || (bet2 && !valid.includes(bet2))) {
-      return message.reply("╭─── 𝐈𝐍𝐅𝐎 ───╮\n│ Invalid bet. Use high, low, even, odd, 7 or double.\n╰──────────────╯");
+      return message.reply("╔═══ 𝐈𝐍𝐅𝐎 ═══╗\n║ Invalid bet. Use high, low, even, odd, 7 or double.\n╚══════════════════╝");
     }
 
     if (!Number.isFinite(amount) || amount < 10) {
-      return message.reply("╭─── 𝐈𝐍𝐅𝐎 ───╮\n│ Minimum bet is 10.\n╰──────────────╯");
+      return message.reply("╔═══ 𝐈𝐍𝐅𝐎 ═══╗\n║ Minimum bet is 10.\n╚══════════════════╝");
     }
 
     if (amount > MAX_BET) {

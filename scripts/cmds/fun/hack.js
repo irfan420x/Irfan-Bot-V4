@@ -40,11 +40,11 @@ module.exports = {
       fs.writeFileSync(outPath, finalImage.data);
         
       const replyText = `
-┏━━🛡️ 𝐇𝐀𝐂𝐊 𝐒𝐔𝐂𝐂𝐄𝐒𝐒 ━━┓
+┏🛡️ 𝐇𝐀𝐂𝐊 𝐒𝐔𝐂𝐂𝐄𝐒𝐒 ┓
 🎯 Target: ${name}
 🖥️ Hack Completed Successfully!
 📨 Check Your Inbox My Lord!
-┗━━━━━━━━━━━━━━━━━┛`;
+┗┛`;
 
       await api.sendMessage(
         {

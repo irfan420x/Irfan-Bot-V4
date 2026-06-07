@@ -24,11 +24,11 @@ module.exports = {
     }
 
     if (!targetID) {
-      return message.reply("╭─── 𝐈𝐍𝐅𝐎 ───╮\n│ ❗ Tag or reply to someone to turn them into a sanda!\n╰──────────────╯");
+      return message.reply("╔═══ 𝐈𝐍𝐅𝐎 ═══╗\n║ ❗ Tag or reply to someone to turn them into a sanda!\n╚══════════════════╝");
     }
 
     if (targetID === event.senderID) {
-      return message.reply("╭─── 𝐈𝐍𝐅𝐎 ───╮\n│ ❗ Bro, why would you sanda yourself?\n╰──────────────╯");
+      return message.reply("╔═══ 𝐈𝐍𝐅𝐎 ═══╗\n║ ❗ Bro, why would you sanda yourself?\n╚══════════════════╝");
     }
 
     const baseFolder = path.join(__dirname, "NAFIJ");
@@ -90,7 +90,7 @@ module.exports = {
       );
     } catch (err) {
       console.error(" Sanda Command Error:", err);
-      message.reply("╭─── 𝐈𝐍𝐅𝐎 ───╮\n│  সমস্যা হইসে ভাই। আরেকবার try দে।\n╰──────────────╯");
+      message.reply("╔═══ 𝐈𝐍𝐅𝐎 ═══╗\n║  সমস্যা হইসে ভাই। আরেকবার try দে।\n╚══════════════════╝");
     }
   },
 };

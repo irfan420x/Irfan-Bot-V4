@@ -33,19 +33,19 @@ module.exports = {
 
   box(title, body, footer = "") {
     // single-line box with bold title
-    const head = `╭─ ${title}`;
-    const foot = footer ? `\n╰─ ${footer}` : "\n╰─";
+    const head = `╔─ ${title}`;
+    const foot = footer ? `\n╚══════════════════╝${footer}` : "\n╚══════════════════╝";
     return `${head}\n${body}${foot}`;
   },
 
   row(label, value, icon = "") {
     // aligned row like: "💰 Wallet         12.3K"
     const lbl = `${icon ? icon + " " : ""}${label}`.padEnd(16, " ");
-    return `│ ${lbl} ${value}`;
+    return `║ ${lbl} ${value}`;
   },
 
   divider() {
-    return "│ " + this.line();
+    return "║ " + this.line();
   },
 
   progressBar(current, max, width = 16) {
@@ -53,7 +53,7 @@ module.exports = {
     const ratio = Math.max(0, Math.min(1, current / max));
     const filled = Math.round(ratio * width);
     const empty = width - filled;
-    return `│ 📊 Progress     [${"█".repeat(filled)}${"░".repeat(empty)}] ${Math.round(ratio * 100)}%`;
+    return `║ 📊 Progress     [${"█".repeat(filled)}${"░".repeat(empty)}] ${Math.round(ratio * 100)}%`;
   },
 
   /* =======================
@@ -122,15 +122,15 @@ module.exports = {
 
       if (!sub) {
         const body = [
-          `│ ${this.brand()}`,
+          `║ ${this.brand()}`,
           this.divider(),
-          "│ 𝘊𝘰𝘮𝘮𝘢𝘯𝘥𝘴",
-          "│ • balance",
-          "│ • deposit <amount|all|half>",
-          "│ • withdraw <amount|all|half>",
-          "│ • loan",
-          "│ • repay [amount|all|half]  (alias: preloan)",
-          "│ • top"
+          "║ 𝘊𝘰𝘮𝘮𝘢𝘯𝘥𝘴",
+          "║ • balance",
+          "║ • deposit <amount|all|half>",
+          "║ • withdraw <amount|all|half>",
+          "║ • loan",
+          "║ • repay [amount|all|half]  (alias: preloan)",
+          "║ • top"
         ].join("\n");
         return message.reply(this.box("🏦 Bank Commands", body, "Use the guide above."));
       }
@@ -145,7 +145,7 @@ module.exports = {
       if (sub === "balance" || sub === "bal") {
         const header = `👤 ${userName}`;
         const body = [
-          `│ ${this.brand()}`,
+          `║ ${this.brand()}`,
           this.divider(),
           this.row("Wallet", fmt(wallet), "💰"),
           this.row("Bank",   fmt(bank.bank), "🏦"),
@@ -162,17 +162,17 @@ module.exports = {
       if (sub === "deposit" || sub === "dep" || sub === "d") {
         const amount = this.parseAmount(args[1], wallet);
         if (!Number.isFinite(amount) || amount <= 0)
-          return message.reply(this.box("❌ Invalid Input", "│ Enter a valid amount (e.g., 500, 2k, all, half)."));
+          return message.reply(this.box("❌ Invalid Input", "║ Enter a valid amount (e.g., 500, 2k, all, half)."));
 
         if (wallet < amount)
-          return message.reply(this.box("❌ Not Enough Wallet", `│ You have ${fmt(wallet)}.`));
+          return message.reply(this.box("❌ Not Enough Wallet", `║ You have ${fmt(wallet)}.`));
 
         user.money = wallet - amount;
         bank.bank += amount;
         await this.saveUser(usersData, senderID, user);
 
         const body = [
-          `│ ${this.brand()}`,
+          `║ ${this.brand()}`,
           this.divider(),
           this.row("Deposited", fmt(amount), "✅"),
           this.row("Bank", fmt(bank.bank), "🏦"),
@@ -185,17 +185,17 @@ module.exports = {
       if (sub === "withdraw" || sub === "with" || sub === "w") {
         const amount = this.parseAmount(args[1], bank.bank);
         if (!Number.isFinite(amount) || amount <= 0)
-          return message.reply(this.box("❌ Invalid Input", "│ Enter a valid amount (e.g., 500, 2k, all, half)."));
+          return message.reply(this.box("❌ Invalid Input", "║ Enter a valid amount (e.g., 500, 2k, all, half)."));
 
         if (bank.bank < amount)
-          return message.reply(this.box("❌ Not Enough Bank", `│ You have ${fmt(bank.bank)} in bank.`));
+          return message.reply(this.box("❌ Not Enough Bank", `║ You have ${fmt(bank.bank)} in bank.`));
 
         bank.bank -= amount;
         user.money = wallet + amount;
         await this.saveUser(usersData, senderID, user);
 
         const body = [
-          `│ ${this.brand()}`,
+          `║ ${this.brand()}`,
           this.divider(),
           this.row("Withdrew", fmt(amount), "✅"),
           this.row("Wallet", fmt(user.money), "💰"),
@@ -210,8 +210,8 @@ module.exports = {
 
         if (bank.loan > 0) {
           const body = [
-            `│ Existing loan: ${fmt(bank.loan)}.`,
-            "│ Repay it before taking a new one."
+            `║ Existing loan: ${fmt(bank.loan)}.`,
+            "║ Repay it before taking a new one."
           ].join("\n");
           return message.reply(this.box("⛔ Loan Exists", body));
         }
@@ -222,7 +222,7 @@ module.exports = {
         await this.saveUser(usersData, senderID, user);
 
         const body = [
-          `│ ${this.brand()}`,
+          `║ ${this.brand()}`,
           this.divider(),
           this.row("Approved", fmt(LOAN_LIMIT), "✅"),
           this.row("Wallet", fmt(user.money), "💰"),
@@ -235,17 +235,17 @@ module.exports = {
       /* -------- repay (alias preloan) -------- */
       if (sub === "repay" || sub === "preloan") {
         if (bank.loan <= 0) {
-          return message.reply(this.box("✅ No Active Loan", "│ You're debt-free. Nice!"));
+          return message.reply(this.box("✅ No Active Loan", "║ You're debt-free. Nice!"));
         }
 
         const raw = args[1];
         const pay = raw ? this.parseAmount(raw, wallet) : bank.loan;
 
         if (!Number.isFinite(pay) || pay <= 0)
-          return message.reply(this.box("❌ Invalid Input", "│ Enter a valid amount (e.g., 500, 2k, all, half)."));
+          return message.reply(this.box("❌ Invalid Input", "║ Enter a valid amount (e.g., 500, 2k, all, half)."));
 
         if (pay > wallet)
-          return message.reply(this.box("❌ Not Enough Wallet", `│ You have ${fmt(wallet)}.`));
+          return message.reply(this.box("❌ Not Enough Wallet", `║ You have ${fmt(wallet)}.`));
 
         const actual = Math.min(pay, bank.loan);
         user.money = wallet - actual;
@@ -255,7 +255,7 @@ module.exports = {
 
         const cleared = bank.loan === 0;
         const body = [
-          `│ ${this.brand()}`,
+          `║ ${this.brand()}`,
           this.divider(),
           this.row("Repaid", fmt(actual), "✅"),
           this.row("Remaining", fmt(bank.loan), "💳"),
@@ -279,16 +279,16 @@ module.exports = {
           .slice(0, 10);
 
         if (ranked.length === 0)
-          return message.reply(this.box("❌ No Data", "│ No users found with money in bank."));
+          return message.reply(this.box("❌ No Data", "║ No users found with money in bank."));
 
         const lines = ranked.map((u, i) => {
           const rankIcon = i === 0 ? "🥇" : i === 1 ? "🥈" : i === 2 ? "🥉" : "🏅";
           const index = String(i + 1).padStart(2, " ");
-          return `│ ${index}. ${rankIcon} ${u.name} — ${this.formatMoney(u.bank)}`;
+          return `║ ${index}. ${rankIcon} ${u.name} — ${this.formatMoney(u.bank)}`;
         });
 
         const body = [
-          `│ ${this.brand()}`,
+          `║ ${this.brand()}`,
           this.divider(),
           ...lines
         ].join("\n");
@@ -297,11 +297,11 @@ module.exports = {
       }
 
       // Unknown subcommand
-      return message.reply(this.box("❓ Invalid Command", "│ Try: balance, deposit, withdraw, loan, repay, top"));
+      return message.reply(this.box("❓ Invalid Command", "║ Try: balance, deposit, withdraw, loan, repay, top"));
 
     } catch (err) {
       console.error("Bank command error:", err);
-      return message.reply(this.box("❌ Error", "│ An unexpected error occurred. Please try again."));
+      return message.reply(this.box("❌ Error", "║ An unexpected error occurred. Please try again."));
     }
   }
 };

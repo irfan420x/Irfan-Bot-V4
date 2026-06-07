@@ -70,7 +70,7 @@ module.exports = {
       await fs.unlink(outputPath);
     } catch (err) {
       console.error("❌ Mistake Command Error:", err?.message || err);
-      message.reply("╭─── 𝐄𝐑𝐑𝐎𝐑 ───╮\n│ ⚠️ An error occurred. Please try again later.\n╰──────────────╯");
+      message.reply("╔═══ 𝐄𝐑𝐑𝐎𝐑 ═══╗\n║ ⚠️ An error occurred. Please try again later.\n╚══════════════════╝");
     }
   },
 };

@@ -66,13 +66,13 @@ module.exports = {
                         responseType: "arraybuffer"
                 });
 
-                const msg = `╭─╼━━━━━━━━━━━━╾─╮\n` +
-                        `│  🌙  ${"ＭＯＯＮ  ＰＨＡＳＥ"}  │\n` +
-                        `├─╼━━━━━━━━━━━━╾─╯\n` +
-                        `│ 📅 Date: ${args[0]}\n` +
-                        `│ 🔭 Phase: ${$($('h3').get()[0]).text()}\n` +
-                        `│ ℹ️ Info: ${$("#phimg > small").text()}\n` +
-                        `╰─╼━━━━━━━━━━━━╾─╯`;
+                const msg = `╔══════════════════╗\n` +
+                        `║  🌙  ${"ＭＯＯＮ  ＰＨＡＳＥ"}  ║\n` +
+                        `╠══════════════════╣\n` +
+                        `║ 📅 Date: ${args[0]}\n` +
+                        `║ 🔭 Phase: ${$($('h3').get()[0]).text()}\n` +
+                        `║ ℹ️ Info: ${$("#phimg > small").text()}\n` +
+                        `╚══════════════════╝`;
 
                 if (args[1]) {
                         const canvas = Canvas.createCanvas(1080, 2400);

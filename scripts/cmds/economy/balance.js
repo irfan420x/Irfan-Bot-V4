@@ -309,8 +309,7 @@ module.exports = {
             en: "Check your balance, transfer money, view leaderboard, and get daily bonuses with premium visual cards and secure transactions."
         },
         guide: {
-            en: `╭─── 𝐄𝐂𝐎𝐍𝐎𝐌𝐘 ───╮\n│ 💰 {pn} - Check balance\n│ 👤 {pn} @user - Check someone\n│ 💸 {pn} transfer @user <amt>\n│ 🏆 {pn} top [page]\n│ 🎁 {pn} daily - Claim bonus\n╰────────────────╯`
-        }
+            en: `╔═══ 𝐄𝐂𝐎𝐍𝐎𝐌𝐘 ═══╗\n║ 💰 {pn} - Check balance\n║ 👤 {pn} @user - Check someone\n║ 💸 {pn} transfer @user <amt>\n║ 🏆 {pn} top [page]\n║ 🎁 {pn} daily - Claim bonus\n╚══════════════════╝`}
     },
 
     onStart: async function ({ message, event, args, usersData, commandName, api }) {
@@ -324,14 +323,14 @@ module.exports = {
                 const amount = parseInt(args[args.length - 1]);
 
                 if (!targetID || isNaN(amount) || amount < CONFIG.transfer.minAmount) {
-                    return message.reply(`╭─── 𝐒𝐘𝐒𝐓𝐄𝐌 ───╮\n│ ⚠️ Invalid transfer!\n│ 💰 Min: ${CONFIG.transfer.minAmount}\n╰──────────────╯`);
+                    return message.reply(`╔═══ 𝐒𝐘𝐒𝐓𝐄𝐌 ═══╗\n║ ⚠️ Invalid transfer!\n║ 💰 Min: ${CONFIG.transfer.minAmount}\n╚══════════════════╝`);
                 }
 
                 const senderData = await usersData.get(senderID);
                 const taxInfo = calculateTax(amount);
 
                 if (senderData.money < taxInfo.total) {
-                    return message.reply(`╭─── 𝐄𝐑𝐑𝐎𝐑 ───╮\n│ ❌ Insufficient funds\n│ 💸 Need: ${formatMoney(taxInfo.total)}\n╰─────────────╯`);
+                    return message.reply(`╔═══ 𝐄𝐑𝐑𝐎𝐑 ═══╗\n║ ❌ Insufficient funds\n║ 💸 Need: ${formatMoney(taxInfo.total)}\n╚══════════════════╝`);
                 }
 
                 const targetData = await usersData.get(targetID);
@@ -342,7 +341,7 @@ module.exports = {
                 await usersData.set(targetID, targetData);
 
                 const txID = generateTransactionID();
-                return message.reply(`╭─── 𝐓𝐑𝐀𝐍𝐒𝐅𝐄𝐑 ───╮\n│ ✅ Success!\n│ 👤 To: ${mentions[targetID] || "User"}\n│ 💰 Amount: ${formatMoney(amount)}\n│ 📉 Tax: ${formatMoney(taxInfo.tax)} (${taxInfo.rate}%)\n│ 🆔 ID: ${txID}\n╰────────────────╯`);
+                return message.reply(`╔═══ 𝐓𝐑𝐀𝐍𝐒𝐅𝐄𝐑 ═══╗\n║ ✅ Success!\n║ 👤 To: ${mentions[targetID] || "User"}\n║ 💰 Amount: ${formatMoney(amount)}\n║ 📉 Tax: ${formatMoney(taxInfo.tax)} (${taxInfo.rate}%)\n║ 🆔 ID: ${txID}\n╚══════════════════╝`);
             }
 
             // Handle Daily
@@ -356,7 +355,7 @@ module.exports = {
                     const remaining = cooldown - (now - lastDaily);
                     const hours = Math.floor(remaining / (60 * 60 * 1000));
                     const minutes = Math.floor((remaining % (60 * 60 * 1000)) / (60 * 1000));
-                    return message.reply(`╭─── 𝐃𝐀𝐈𝐋𝐘 ───╮\n│ ⏳ Already claimed!\n│ 🕒 Next in: ${hours}h ${minutes}m\n╰──────────────╯`);
+                    return message.reply(`╔═══ 𝐃𝐀𝐈𝐋𝐘 ═══╗\n║ ⏳ Already claimed!\n║ 🕒 Next in: ${hours}h ${minutes}m\n╚══════════════════╝`);
                 }
 
                 const reward = CONFIG.dailyBonus.baseAmount;
@@ -364,7 +363,7 @@ module.exports = {
                 userData.lastDaily = now;
                 await usersData.set(senderID, userData);
 
-                return message.reply(`╭─── 𝐃𝐀𝐈𝐋𝐘 ───╮\n│ 🎁 Bonus Claimed!\n│ 💰 Reward: ${formatMoney(reward)}\n│ ✨ Come back tomorrow!\n╰──────────────╯`);
+                return message.reply(`╔═══ 𝐃𝐀𝐈𝐋𝐘 ═══╗\n║ 🎁 Bonus Claimed!\n║ 💰 Reward: ${formatMoney(reward)}\n║ ✨ Come back tomorrow!\n╚══════════════════╝`);
             }
 
             // Default: Show Balance Card
@@ -372,19 +371,19 @@ module.exports = {
             const userData = await usersData.get(targetID);
             const tier = getTierInfo(userData.money);
 
-            const balMsg = `╭─── 𝐁𝐀𝐋𝐀𝐍𝐂𝐄 ───╮\n` +
-                `│ 👤 User: ${userData.name || "User"}\n` +
-                `│ 💰 Money: ${formatMoney(userData.money)}\n` +
-                `│ 🏆 Tier: ${tier.badge} ${tier.name}\n` +
-                `├────────────────╮\n` +
-                `│ 📈 Progress: ${Math.round(tier.progress)}%\n` +
-                `╰────────────────╯`;
+            const balMsg = `╔═══ 𝐁𝐀𝐋𝐀𝐍𝐂𝐄 ═══╗\n` +
+                `║ 👤 User: ${userData.name || "User"}\n` +
+                `║ 💰 Money: ${formatMoney(userData.money)}\n` +
+                `║ 🏆 Tier: ${tier.badge} ${tier.name}\n` +
+                `╠══════════════════╣\n` +
+                `║ 📈 Progress: ${Math.round(tier.progress)}%\n` +
+                `╚══════════════════╝`;
 
             return message.reply(balMsg);
 
         } catch (error) {
             console.error(error);
-            return message.reply(`╭─── 𝐄𝐑𝐑𝐎𝐑 ───╮\n│ ❌ ${error.message}\n╰─────────────╯`);
+            return message.reply(`╔═══ 𝐄𝐑𝐑𝐎𝐑 ═══╗\n║ ❌ ${error.message}\n╚══════════════════╝`);
         }
     }
 };

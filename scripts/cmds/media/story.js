@@ -27,7 +27,7 @@ module.exports = {
 		const text = args.join(" ");
 
 		if (!text && !messageReply && attachments.length === 0) {
-			return message.reply("╭─── 𝐒𝐘𝐒𝐓𝐄𝐌 ───╮\n│ ⚠️ Please provide content\n│ or attach media.\n╰──────────────╯");
+			return message.reply("╔═══ 𝐒𝐘𝐒𝐓𝐄𝐌 ═══╗\n║ ⚠️ Please provide content\n║ or attach media.\n╚══════════════════╝");
 		}
 
 		let mediaStream = null;
@@ -48,17 +48,17 @@ module.exports = {
 				attachment: mediaStream
 			};
 
-			message.reply("╭─── 𝐒𝐓𝐎𝐑𝐘 ───╮\n│ ⏳ Processing...\n│ 🚀 Posting to Facebook\n╰─────────────╯");
+			message.reply("╔═══ 𝐒𝐓𝐎𝐑𝐘 ═══╗\n║ ⏳ Processing...\n║ 🚀 Posting to Facebook\n╚══════════════════╝");
 
 			api.createStory(storyData, (err, res) => {
 				if (err) {
-					return message.reply(`╭─── 𝐄𝐑𝐑𝐎𝐑 ───╮\n│ ❌ Failed to post story\n│ 📝 ${err.message || "Unknown error"}\n╰─────────────╯`);
+					return message.reply(`╔═══ 𝐄𝐑𝐑𝐎𝐑 ═══╗\n║ ❌ Failed to post story\n║ 📝 ${err.message || "Unknown error"}\n╚══════════════════╝`);
 				}
-				message.reply("╭─── 𝐒𝐔𝐂𝐂𝐄𝐒𝐒 ───╮\n│ ✅ Story posted!\n│ ✨ Check your profile\n╰──────────────╯");
+				message.reply("╔═══ 𝐒𝐔𝐂𝐂𝐄𝐒𝐒 ═══╗\n║ ✅ Story posted!\n║ ✨ Check your profile\n╚══════════════════╝");
 			});
 
 		} catch (error) {
-			message.reply(`╭─── 𝐄𝐑𝐑𝐎𝐑 ───╮\n│ ❌ ${error.message}\n╰─────────────╯`);
+			message.reply(`╔═══ 𝐄𝐑𝐑𝐎𝐑 ═══╗\n║ ❌ ${error.message}\n╚══════════════════╝`);
 		}
 	}
 };

@@ -1041,7 +1041,7 @@ Example Usage:
                 }
                 const attachment = messageReply.attachments[0];
                 if (attachment.type !== "photo") {
-                    return message.reply("╭─── 𝐈𝐍𝐅𝐎 ───╮\n│ ❌ Please reply to a photo!\n╰──────────────╯");
+                    return message.reply("╔═══ 𝐈𝐍𝐅𝐎 ═══╗\n║ ❌ Please reply to a photo!\n╚══════════════════╝");
                 }
                 try {
                     const userData = (await usersData.get(senderID)) || {};
@@ -1051,7 +1051,7 @@ Example Usage:
                         "✅ Custom background set successfully!",
                     );
                 } catch (error) {
-                    return message.reply("╭─── 𝐄𝐑𝐑𝐎𝐑 ───╮\n│ ❌ Failed to set background!\n╰──────────────╯");
+                    return message.reply("╔═══ 𝐄𝐑𝐑𝐎𝐑 ═══╗\n║ ❌ Failed to set background!\n╚══════════════════╝");
                 }
             }
             if (command === "removebg" || command === "deletebg") {
@@ -1060,11 +1060,11 @@ Example Usage:
                     if (userData.rankBackground) {
                         delete userData.rankBackground;
                         await usersData.set(senderID, userData);
-                        return message.reply("╭─── 𝐈𝐍𝐅𝐎 ───╮\n│ ✅ Background removed!\n╰──────────────╯");
+                        return message.reply("╔═══ 𝐈𝐍𝐅𝐎 ═══╗\n║ ✅ Background removed!\n╚══════════════════╝");
                     }
-                    return message.reply("╭─── 𝐈𝐍𝐅𝐎 ───╮\n│ ℹ️ No custom background found.\n╰──────────────╯");
+                    return message.reply("╔═══ 𝐈𝐍𝐅𝐎 ═══╗\n║ ℹ️ No custom background found.\n╚══════════════════╝");
                 } catch (error) {
-                    return message.reply("╭─── 𝐄𝐑𝐑𝐎𝐑 ───╮\n│ ❌ Failed to remove background!\n╰──────────────╯");
+                    return message.reply("╔═══ 𝐄𝐑𝐑𝐎𝐑 ═══╗\n║ ❌ Failed to remove background!\n╚══════════════════╝");
                 }
             }
             let targetID;
@@ -1106,7 +1106,7 @@ Example Usage:
             ]);
             if (!userData) {
                 await message.unsend(loadingMsg.messageID);
-                return message.reply("╭─── 𝐈𝐍𝐅𝐎 ───╮\n│ ❌ User data not found!\n╰──────────────╯");
+                return message.reply("╔═══ 𝐈𝐍𝐅𝐎 ═══╗\n║ ❌ User data not found!\n╚══════════════════╝");
             }
             let userInfo = {};
             try {

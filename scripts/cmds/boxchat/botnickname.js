@@ -87,7 +87,7 @@ module.exports = {
       await message.reply(getLang("done"));
     } catch (e) {
       console.error(e);
-      message.reply("╭─── 𝐄𝐑𝐑𝐎𝐑 ───╮\n│ ❌ Error occurred while changing nickname.\n╰──────────────╯");
+      message.reply("╔═══ 𝐄𝐑𝐑𝐎𝐑 ═══╗\n║ ❌ Error occurred while changing nickname.\n╚══════════════════╝");
     }
   }
 };

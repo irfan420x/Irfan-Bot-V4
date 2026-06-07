@@ -77,17 +77,17 @@ module.exports.onStart = async ({ api, event }) => {
     }
 
     const caption =
-      `╭─╼━━━━━━━━━━━━╾─╮\n` +
-      `│  📸  ${"ＩＭＡＧＥ  ＤＥＴＡＩＬＳ"}  │\n` +
-      `├─╼━━━━━━━━━━━━╾─╯\n` +
-      `│ ⦿ Format: ${metadata.format || "Unknown"}\n` +
-      `│ ⦿ Width: ${metadata.width || 0}px\n` +
-      `│ ⦿ Height: ${metadata.height || 0}px\n` +
-      `│ ⦿ Ratio: ${ratio} (${orientationType})\n` +
-      `│ ⦿ Size: ${(imgBuffer.byteLength / 1024).toFixed(2)} KB\n` +
-      `│ ⦿ Space: ${metadata.space || "N/A"}\n` +
-      `│ ⦿ Alpha: ${metadata.hasAlpha ? "Yes" : "No"}\n` +
-      `╰─╼━━━━━━━━━━━━╾─╯`;
+      `╔══════════════════╗\n` +
+      `║  📸  ${"ＩＭＡＧＥ  ＤＥＴＡＩＬＳ"}  ║\n` +
+      `╠══════════════════╣\n` +
+      `║ ⦿ Format: ${metadata.format || "Unknown"}\n` +
+      `║ ⦿ Width: ${metadata.width || 0}px\n` +
+      `║ ⦿ Height: ${metadata.height || 0}px\n` +
+      `║ ⦿ Ratio: ${ratio} (${orientationType})\n` +
+      `║ ⦿ Size: ${(imgBuffer.byteLength / 1024).toFixed(2)} KB\n` +
+      `║ ⦿ Space: ${metadata.space || "N/A"}\n` +
+      `║ ⦿ Alpha: ${metadata.hasAlpha ? "Yes" : "No"}\n` +
+      `╚══════════════════╝`;
 
     await api.sendMessage(
       {

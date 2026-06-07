@@ -15,41 +15,41 @@ module.exports = {
     category: "box chat",
     guide: {
       en:
-        "╭── 👑 ADMIN MANAGER ──╮\n" +
-        "│\n" +
-        "│ ➕ {pn} add | -a <uid | @tag | reply>\n" +
-        "│ ➖ {pn} remove | -r <uid | @tag | reply>\n" +
-        "│ 📜 {pn} list | -l\n" +
-        "│\n" +
-        "╰─────────────────────────╯"
+        "╔═══ AD ═══╗\n" +
+        "║\n" +
+        "║ ➕ {pn} add | -a <uid | @tag | reply>\n" +
+        "║ ➖ {pn} remove | -r <uid | @tag | reply>\n" +
+        "║ 📜 {pn} list | -l\n" +
+        "║\n" +
+        "╚══════════════════╝"
     }
   },
 
   langs: {
     en: {
       added:
-        "╭─『 ✅ ADMIN ADDED 』─╮\n" +
-        "│ 👤 Users: %1\n" +
-        "│\n%2\n" +
-        "╰──────────────────╯",
+        "╔═══ ✅ ADMIN ADDED ═══╗\n" +
+        "║ 👤 Users: %1\n" +
+        "║\n%2\n" +
+        "╚══════════════════╝",
 
       alreadyAdmin:
-        "\n╭─『 ⚠️ ALREADY ADMIN 』─╮\n" +
-        "│ 👤 Users: %1\n" +
-        "│\n%2\n" +
-        "╰────────────────────╯",
+        "\n╔═══ ⚠️ ALREADY ADMIN ═══╗\n" +
+        "║ 👤 Users: %1\n" +
+        "║\n%2\n" +
+        "╚══════════════════╝",
 
       removed:
-        "╭─『 🗑️ ADMIN REMOVED 』─╮\n" +
-        "│ 👤 Users: %1\n" +
-        "│\n%2\n" +
-        "╰────────────────────╯",
+        "╔═══ 🗑️ ADMIN REMOVED ═══╗\n" +
+        "║ 👤 Users: %1\n" +
+        "║\n%2\n" +
+        "╚══════════════════╝",
 
       notAdmin:
-        "\n╭─『 ⚠️ NOT ADMIN 』─╮\n" +
-        "│ 👤 Users: %1\n" +
-        "│\n%2\n" +
-        "╰────────────────╯",
+        "\n╔═══ ⚠️ NOT ADMIN ═══╗\n" +
+        "║ 👤 Users: %1\n" +
+        "║\n%2\n" +
+        "╚══════════════════╝",
 
       missingIdAdd:
         "⚠️ | Please mention, reply or provide UID to **add admin**",
@@ -58,9 +58,9 @@ module.exports = {
         "⚠️ | Please mention, reply or provide UID to **remove admin**",
 
       listAdmin:
-        "╭──『 👑 ADMIN LIST 』──╮\n" +
+        "╔═══ 👑 ADMIN LIST ═══╗\n" +
         "%1\n" +
-        "╰──────────────────╯"
+        "╚══════════════════╝"
     }
   },
 

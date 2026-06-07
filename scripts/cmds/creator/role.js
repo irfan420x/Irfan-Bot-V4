@@ -16,15 +16,15 @@ module.exports = {
     category: "owner",
     guide: {
       en:
-        "╭─╼━━『 👑 ROLE MANAGER 』━━━╾─╮\n" +
-        "│\n" +
-        "│ ➕ /role admin add <uid | @tag | reply>\n" +
-        "│ ➖ /role admin remove <uid | @tag>\n" +
-        "│ 📜 /role admin list\n" +
-        "│\n" +
-        "│ ➕ /role creator add <uid | @tag>\n" +
-        "│ ➖ /role creator remove <uid | @tag>\n" +
-        "│ 📜 /role creator list\n"
+        "╔═══ 『 👑 ROLE MANAGER 』 ═══╗\n" +
+        "║\n" +
+        "║ ➕ /role admin add <uid | @tag | reply>\n" +
+        "║ ➖ /role admin remove <uid | @tag>\n" +
+        "║ 📜 /role admin list\n" +
+        "║\n" +
+        "║ ➕ /role creator add <uid | @tag>\n" +
+        "║ ➖ /role creator remove <uid | @tag>\n" +
+        "║ 📜 /role creator list\n"
     }
   },
 
@@ -34,15 +34,15 @@ module.exports = {
       invalidAction: "⚠️ | Action must be *add / remove / list*",
       missingId: "⚠️ | Please mention, reply or provide UID",
       added:
-        "╭─『 ✅ ROLE ADDED 』─╮\n%1\n╰────────────────╯",
+        "╔═══ ✅ ROLE ADDED ═══╗\n%1\n╚══════════════════╝",
       removed:
-        "╭─『 🗑️ ROLE REMOVED 』─╮\n%1\n╰────────────────╯",
+        "╔═══ 🗑️ ROLE REMOVED ═══╗\n%1\n╚══════════════════╝",
       existed:
         "⚠️ | Already exists:\n%1",
       notFound:
         "⚠️ | Not found:\n%1",
       list:
-        "╭─『 👑 %1 LIST 』─╮\n%2\n╰────────────────╯"
+        "╔═══ 👑 %1 LIST ═══╗\n%2\n╚══════════════════╝"
     }
   },
 

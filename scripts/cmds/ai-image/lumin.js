@@ -78,7 +78,7 @@ module.exports = {
       );
     } catch (error) {
       console.error("lumin generation error:", error?.message || error);
-      message.reply("╭─── 𝐄𝐑𝐑𝐎𝐑 ───╮\n│ ⚠️ Failed to generate image. Please try again later.\n╰──────────────╯");
+      message.reply("╔═══ 𝐄𝐑𝐑𝐎𝐑 ═══╗\n║ ⚠️ Failed to generate image. Please try again later.\n╚══════════════════╝");
       if (waitingMsg?.messageID) api.unsendMessage(waitingMsg.messageID);
     }
   },

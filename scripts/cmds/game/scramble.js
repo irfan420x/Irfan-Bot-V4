@@ -43,12 +43,12 @@ module.exports = {
 				scrambledWord = originalWord.split('').sort(() => Math.random() - 0.5).join('');
 			}
 
-			const body = `╭─── 𝐒𝐂𝐑𝐀𝐌𝐁𝐋𝐄 ───╮\n` +
-				`│ 🔠 Word: **${scrambledWord}**\n` +
-				`│ 💡 Hint: Tech/Social\n` +
-				`│ 💰 Reward: 500 Coins\n` +
-				`│ ⏱️ Time: 30 Seconds\n` +
-				`╰────────────────╯`;
+			const body = `╔═══ 𝐒𝐂𝐑𝐀𝐌𝐁𝐋𝐄 ═══╗\n` +
+				`║ 🔠 Word: **${scrambledWord}**\n` +
+				`║ 💡 Hint: Tech/Social\n` +
+				`║ 💰 Reward: 500 Coins\n` +
+				`║ ⏱️ Time: 30 Seconds\n` +
+				`╚══════════════════╝`;
 
 			api.sendMessage(body, event.threadID, (err, info) => {
 				if (err) return;
@@ -69,14 +69,13 @@ module.exports = {
 					const gameState = global.noobCore.ncReply.get(info.messageID);
 					if (gameState && !gameState.isEnded) {
 						gameState.isEnded = true;
-						api.sendMessage(`╭─── 𝐓𝐈𝐌𝐄'𝐒 𝐔𝐏 ───╮\n│ ⏰ Game Over!\n│ ✅ Word: **${originalWord}**\n╰────────────────╯`, event.threadID, info.messageID);
-						global.noobCore.ncReply.delete(info.messageID);
+						api.sendMessage(`╔═══ 𝐓𝐈𝐌𝐄'𝐒 𝐔𝐏 ═══╗\\n║ ⏰ Game Over!\\n║ ✅ Word: **${originalWord}**\\n╚══════════════════╝`, event.threadID, () => { global.noobCore.ncReply.delete(info.messageID); });
 					}
 				}, 30000);
 			}, event.messageID);
 
 		} catch (error) {
-			api.sendMessage("╭─── 𝐄𝐑𝐑𝐎𝐑 ───╮\n│ ❌ Game failed\n╰─────────────╯", event.threadID, event.messageID);
+			api.sendMessage("╔═══ 𝐄𝐑𝐑𝐎𝐑 ═══╗\n║ ❌ Game failed\n╚══════════════════╝", event.threadID, event.messageID);
 		}
 	},
 
@@ -95,17 +94,17 @@ module.exports = {
 				userData.money = (userData.money || 0) + reward;
 				await usersData.set(event.senderID, userData);
 
-				const successMsg = `╭─── 𝐖𝐈𝐍𝐍𝐄𝐑 ───╮\n` +
-					`│ 🎉 Correct: **${correctWord}**\n` +
-					`│ 👤 User: @${event.senderID}\n` +
-					`│ 💰 Reward: +${reward} Coins\n` +
-					`╰───────────────╯`;
+				const successMsg = `╔═══ 𝐖𝐈𝐍𝐍𝐄𝐑 ═══╗\n` +
+					`║ 🎉 Correct: **${correctWord}**\n` +
+					`║ 👤 User: @${event.senderID}\n` +
+					`║ 💰 Reward: +${reward} Coins\n` +
+					`╚══════════════════╝`;
 
 				api.sendMessage(successMsg, event.threadID, event.messageID);
 				global.noobCore.ncReply.delete(messageID);
 			} catch (error) {
-				api.sendMessage(`╭─── 𝐖𝐈𝐍𝐍𝐄𝐑 ───╮\n│ ✅ Correct: **${correctWord}**\n╰───────────────╯`, event.threadID, event.messageID);
-			}
+				api.sendMessage(`╔═══ 𝐖𝐈𝐍𝐍𝐄𝐑 ═══╗\\n║ ✅ Correct: **${correctWord}**\\n╚══════════════════╝`, event.threadID, event.messageID);
 		}
+	}
 	}
 };

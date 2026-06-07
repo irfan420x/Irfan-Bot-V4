@@ -23,14 +23,14 @@ module.exports = {
 
 	langs: {
 		vi: {
-			missingColor: "╭───────╮\n   ⚠️ 𝗘𝗥𝗥𝗢𝗥\n╰───────╯\n\n» Vui lòng nhập mã màu hoặc hex bạn muốn đặt cho nhóm!",
-			success: "╭───────╮\n   ✅ 𝗦𝗨𝗖𝗖𝗘𝗦𝗦\n╰───────╯\n\n» Đã thay đổi màu sắc của nhóm thành công!\n» Trạng thái: Hoàn tất ✨",
-			error: "╭───────╮\n   ❌ 𝗙𝗔𝗜𝗟𝗘𝗗\n╰───────╯\n\n» Đã xảy ra lỗi khi thay đổi màu sắc:\n» %1"
+			missingColor: "╔═══ ─ ═══╗\n   ⚠️ 𝗘𝗥𝗥𝗢𝗥\n╚══════════════════╝\n\n» Vui lòng nhập mã màu hoặc hex bạn muốn đặt cho nhóm!",
+			success: "╔═══ ─ ═══╗\n   ✅ 𝗦𝗨𝗖𝗖𝗘𝗦𝗦\n╚══════════════════╝\n\n» Đã thay đổi màu sắc của nhóm thành công!\n» Trạng thái: Hoàn tất ✨",
+			error: "╔═══ ─ ═══╗\n   ❌ 𝗙𝗔𝗜𝗟𝗘𝗗\n╚══════════════════╝\n\n» Đã xảy ra lỗi khi thay đổi màu sắc:\n» %1"
 		},
 		en: {
-			missingColor: "╭───────╮\n   ⚠️ 𝗘𝗥𝗥𝗢𝗥\n╰───────╯\n\n» Please enter the color code or hex you want to set for the group!",
-			success: "╭───────╮\n   ✅ 𝗦𝗨𝗖𝗖𝗘𝗦𝗦\n╰───────╯\n\n» Successfully changed group color!\n» Status: Completed ✨",
-			error: "╭───────╮\n   ❌ 𝗙𝗔𝗜𝗟𝗘𝗗\n╰───────╯\n\n» An error occurred while changing color:\n» %1"
+			missingColor: "╔═══ ─ ═══╗\n   ⚠️ 𝗘𝗥𝗥𝗢𝗥\n╚══════════════════╝\n\n» Please enter the color code or hex you want to set for the group!",
+			success: "╔═══ ─ ═══╗\n   ✅ 𝗦𝗨𝗖𝗖𝗘𝗦𝗦\n╚══════════════════╝\n\n» Successfully changed group color!\n» Status: Completed ✨",
+			error: "╔═══ ─ ═══╗\n   ❌ 𝗙𝗔𝗜𝗟𝗘𝗗\n╚══════════════════╝\n\n» An error occurred while changing color:\n» %1"
 		}
 	},
 

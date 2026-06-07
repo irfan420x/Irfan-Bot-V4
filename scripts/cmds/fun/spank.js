@@ -99,7 +99,7 @@ module.exports = {
 
   ncPrefix: async function ({ event, message }) {
     if (event.body?.toLowerCase() === "spank me") {
-      return message.reply("╭─── 𝐈𝐍𝐅𝐎 ───╮\n│ 🍑 Use the command with a tag or reply.\n╰──────────────╯");
+      return message.reply("╔═══ 𝐈𝐍𝐅𝐎 ═══╗\n║ 🍑 Use the command with a tag or reply.\n╚══════════════════╝");
     }
   }
 };

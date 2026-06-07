@@ -13,7 +13,7 @@ module.exports = {
 
   onStart: async function ({ api, message, args, event }) {
     const Q = args.join(" ");
-    if (!Q) return message.reply("╭─── 𝐈𝐍𝐅𝐎 ───╮\n│ Please ask a question 🍌\n╰──────────────╯");
+    if (!Q) return message.reply("╔═══ 𝐈𝐍𝐅𝐎 ═══╗\n║ Please ask a question 🍌\n╚══════════════════╝");
 
     api.setMessageReaction("⏳", event.messageID, event.threadID);
 
@@ -41,7 +41,7 @@ module.exports = {
       });
     } catch {
       api.setMessageReaction("❌", event.messageID, event.threadID);
-      message.reply("╭─── 𝐄𝐑𝐑𝐎𝐑 ───╮\n│ API error 😈\n╰──────────────╯");
+      message.reply("╔═══ 𝐄𝐑𝐑𝐎𝐑 ═══╗\n║ API error 😈\n╚══════════════════╝");
     }
   },
 
@@ -74,7 +74,7 @@ module.exports = {
       });
     } catch {
       api.setMessageReaction("❌", event.messageID, event.threadID);
-      message.reply("╭─── 𝐄𝐑𝐑𝐎𝐑 ───╮\n│ API error 😈\n╰──────────────╯");
+      message.reply("╔═══ 𝐄𝐑𝐑𝐎𝐑 ═══╗\n║ API error 😈\n╚══════════════════╝");
     }
   }
 };

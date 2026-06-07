@@ -49,7 +49,7 @@ module.exports = {
     }
 
     if (!mediaUrl) {
-      return api.sendMessage("╭─── 𝐈𝐍𝐅𝐎 ───╮\n│ ❌ Please reply to an image/video or provide a URL!\n╰──────────────╯", threadID, messageID);
+      return api.sendMessage("╔═══ 𝐈𝐍𝐅𝐎 ═══╗\n║ ❌ Please reply to an image/video or provide a URL!\n╚══════════════════╝", threadID, messageID);
     }
 
     try {
@@ -60,7 +60,7 @@ module.exports = {
 
       if (!ok) {
         api.setMessageReaction("", messageID, () => {}, true);
-        return api.sendMessage("╭─── 𝐄𝐑𝐑𝐎𝐑 ───╮\n│ ❌ Failed to upload to Imgur.\n╰──────────────╯", threadID, messageID);
+        return api.sendMessage("╔═══ 𝐄𝐑𝐑𝐎𝐑 ═══╗\n║ ❌ Failed to upload to Imgur.\n╚══════════════════╝", threadID, messageID);
       }
 
       api.setMessageReaction("✅", messageID, () => {}, true);
@@ -68,7 +68,7 @@ module.exports = {
 
     } catch (err) {
       api.setMessageReaction("", messageID, () => {}, true);
-      return api.sendMessage("╭─── 𝐄𝐑𝐑𝐎𝐑 ───╮\n│ ⚠️ An error occurred while uploading.\n╰──────────────╯", threadID, messageID);
+      return api.sendMessage("╔═══ 𝐄𝐑𝐑𝐎𝐑 ═══╗\n║ ⚠️ An error occurred while uploading.\n╚══════════════════╝", threadID, messageID);
     }
   }
 };

@@ -42,7 +42,7 @@ module.exports = {
 
     } catch (err) {
       console.error(err);
-      return message.reply("╭─── 𝐈𝐍𝐅𝐎 ───╮\n│ ❌ Could not fetch the profile picture. Maybe UID is invalid or privacy blocked.\n╰──────────────╯");
+      return message.reply("╔═══ 𝐈𝐍𝐅𝐎 ═══╗\n║ ❌ Could not fetch the profile picture. Maybe UID is invalid or privacy blocked.\n╚══════════════════╝");
     }
   }
 };

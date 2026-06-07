@@ -588,7 +588,7 @@ module.exports = {
             }
         } catch (e) {
             console.error(e);
-            message.reply("╭─── 𝐄𝐑𝐑𝐎𝐑 ───╮\n│ ❌ Error generating card.\n╰──────────────╯");
+            message.reply("╔═══ 𝐄𝐑𝐑𝐎𝐑 ═══╗\n║ ❌ Error generating card.\n╚══════════════════╝");
         }
     },
         ncReply: async function ({ event, message, getLang, api, threadsData }) {
@@ -596,7 +596,7 @@ module.exports = {
         
         if (!replyData || replyData.type !== 'leaderboard') return;
         if (replyData.author !== event.senderID) {
-            return message.reply("╭─── 𝐈𝐍𝐅𝐎 ───╮\n│ ❌ You are not authorized to use this pagination.\n╰──────────────╯");
+            return message.reply("╔═══ 𝐈𝐍𝐅𝐎 ═══╗\n║ ❌ You are not authorized to use this pagination.\n╚══════════════════╝");
         }
 
         const page = parseInt(event.body);

@@ -79,7 +79,7 @@ module.exports = {
 					keyword = args.slice(2).join(" ");
 				}
 				const result = allThread.filter(item => item.threadID.length > 15 && (item.threadName || "").toLowerCase().includes(keyword.toLowerCase()));
-				const resultText = result.reduce((i, thread) => i += `\n╭Name: ${thread.threadName}\n╰ID: ${thread.threadID}`, "");
+				const resultText = result.reduce((i, thread) => i += `\n╔Name: ${thread.threadName}\n╚══════════════════╝ID: ${thread.threadID}`, "");
 				let msg = "";
 				if (result.length > 0)
 					msg += getLang("found", result.length, keyword, resultText);

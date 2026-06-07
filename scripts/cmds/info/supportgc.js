@@ -36,32 +36,30 @@ module.exports = {
       );
 
       return message.reply(
-        `╭─╼━━━━━━━━━━━━╾─╮\n` +
-        `│  ✅  ${"ＡＣＣＥＳＳ  ＧＲＡＮＴＥＤ"}  │\n` +
-        `├─╼━━━━━━━━━━━━╾─╯\n` +
-        `│ 🌟 You are now connected\n` +
-        `│ 👥 to our Support Group.\n` +
-        `╰─╼━━━━━━━━━━━━╾─╯`
-      );
+        `╔══════════════════╗\n` +
+        `║  ✅  ${"ＡＣＣＥＳＳ  ＧＲＡＮＴＥＤ"}  ║\n` +
+        `╠══════════════════╣\n` +
+        `║ 🌟 You are now connected\n` +
+        `║ 👥 to our Support Group.\n` +
+        `╚══════════════════╝`);
 
     } catch (error) {
       console.error("SupportGC Add Error:", error);
 
       return message.reply(
-        `╭─╼━━━━━━━━━━━━╾─╮\n` +
-        `│  ❌  ${"ＡＤＤ  ＦＡＩＬＥＤ"}  │\n` +
-        `├─╼━━━━━━━━━━━━╾─╯\n` +
-        `│ ➡ Possible reasons:\n` +
-        `│ • Profile is private\n` +
-        `│ • Bot is blocked\n` +
-        `│ • Bot is not admin\n` +
-        `├─╼━━━━━━━━━━━━╾─╮\n` +
-        `│      ${"ＳＵＧＧＥＳＴＩＯＮ"}      │\n` +
-        `├─╼━━━━━━━━━━━━╾─╯\n` +
-        `│ 📩 Send friend request\n` +
-        `│ to the bot and try again.\n` +
-        `╰─╼━━━━━━━━━━━━╾─╯`
-      );
+        `╔══════════════════╗\n` +
+        `║  ❌  ${"ＡＤＤ  ＦＡＩＬＥＤ"}  ║\n` +
+        `╠══════════════════╣\n` +
+        `║ ➡ Possible reasons:\n` +
+        `║ • Profile is private\n` +
+        `║ • Bot is blocked\n` +
+        `║ • Bot is not admin\n` +
+        `╠══════════════════╣\n` +
+        `║      ${"ＳＵＧＧＥＳＴＩＯＮ"}      ║\n` +
+        `╠══════════════════╣\n` +
+        `║ 📩 Send friend request\n` +
+        `║ to the bot and try again.\n` +
+        `╚══════════════════╝`);
     }
   }
 };

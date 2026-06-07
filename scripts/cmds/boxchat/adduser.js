@@ -15,8 +15,8 @@ module.exports = {
 		},
 		category: "box chat",
 		guide: {
-			vi: "┏━━━━━━━━━━━━━━━━━━━━┓\n┃   ➤ {pn} [link profile]\n┃   ➤ {pn} [uid]\n┃   ➤ {pn} [@tag]\n┃   ➤ {pn} [link1] [uid2] [@tag3]\n┗━━━━━━━━━━━━━━━━━━━━┛",
-			en: "┏━━━━━━━━━━━━━━━━━━━━┓\n┃   ➤ {pn} [profile link]\n┃   ➤ {pn} [uid]\n┃   ➤ {pn} [@tag]\n┃   ➤ {pn} [link1] [uid2] [@tag3]\n┗━━━━━━━━━━━━━━━━━━━━┛"
+			vi: "┏┓\n┃   ➤ {pn} [link profile]\n┃   ➤ {pn} [uid]\n┃   ➤ {pn} [@tag]\n┃   ➤ {pn} [link1] [uid2] [@tag3]\n┗┛",
+			en: "┏┓\n┃   ➤ {pn} [profile link]\n┃   ➤ {pn} [uid]\n┃   ➤ {pn} [@tag]\n┃   ➤ {pn} [link1] [uid2] [@tag3]\n┗┛"
 		}
 	},
 
@@ -36,8 +36,8 @@ module.exports = {
 			waitingApproval: "⏱️ Chờ phê duyệt: %1",
 			failedList: "❌ Thất bại: %1",
 			taggedUserAdded: "✅ Đã thêm người dùng được tag",
-			title: "━━━━━━━━━━━━━━━━━━━━\n     🎯 KẾT QUẢ THÊM THÀNH VIÊN\n━━━━━━━━━━━━━━━━━━━━",
-			separator: "━" + "━".repeat(35) + "━"
+			title: "\n     🎯 KẾT QUẢ THÊM THÀNH VIÊN\n",
+			separator: "" + "".repeat(35) + ""
 		},
 		en: {
 			alreadyInGroup: "👥 Already in group",
@@ -54,8 +54,8 @@ module.exports = {
 			waitingApproval: "⏱️ Waiting approval: %1",
 			failedList: "❌ Failed: %1",
 			taggedUserAdded: "✅ Added tagged user",
-			title: "━━━━━━━━━━━━━━━━━━━━\n     🎯 ADD USER RESULTS\n━━━━━━━━━━━━━━━━━━━━",
-			separator: "━" + "━".repeat(35) + "━"
+			title: "\n     🎯 ADD USER RESULTS\n",
+			separator: "" + "".repeat(35) + ""
 		}
 	},
 

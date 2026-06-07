@@ -40,7 +40,7 @@ module.exports = {
     try {
       const apiBase = await getApiBase();
       if (!apiBase)
-        return message.reply("╭─── 𝐈𝐍𝐅𝐎 ───╮\n│ ❌ API not available right now.\n╰──────────────╯");
+        return message.reply("╔═══ 𝐈𝐍𝐅𝐎 ═══╗\n║ ❌ API not available right now.\n╚══════════════════╝");
 
       const [listRes, randomRes] = await Promise.all([
         axios.get(`${apiBase}/baby?list=all`),
@@ -69,7 +69,7 @@ module.exports = {
       );
     } catch (err) {
       console.error("[NT ERROR]", err);
-      return message.reply("╭─── 𝐄𝐑𝐑𝐎𝐑 ───╮\n│ ❌ API Error! Please try again later.\n╰──────────────╯");
+      return message.reply("╔═══ 𝐄𝐑𝐑𝐎𝐑 ═══╗\n║ ❌ API Error! Please try again later.\n╚══════════════════╝");
     }
   },
 
@@ -80,7 +80,7 @@ module.exports = {
     try {
       const apiBase = await getApiBase();
       if (!apiBase)
-        return message.reply("╭─── 𝐈𝐍𝐅𝐎 ───╮\n│ ❌ API not available right now.\n╰──────────────╯");
+        return message.reply("╔═══ 𝐈𝐍𝐅𝐎 ═══╗\n║ ❌ API not available right now.\n╚══════════════════╝");
 
       const userName = await usersData.getName(senderID);
 
@@ -91,7 +91,7 @@ module.exports = {
       );
 
       if (res.status !== 200)
-        return message.reply("╭─── 𝐄𝐑𝐑𝐎𝐑 ───╮\n│ ❌ Failed to save reply.\n╰──────────────╯");
+        return message.reply("╔═══ 𝐄𝐑𝐑𝐎𝐑 ═══╗\n║ ❌ Failed to save reply.\n╚══════════════════╝");
 
       /* ===== REWARD SYSTEM ===== */
       const userData = (await usersData.get(senderID)) || {};
@@ -118,7 +118,7 @@ module.exports = {
 
     } catch (err) {
       console.error("[NT SAVE ERROR]", err);
-      return message.reply("╭─── 𝐄𝐑𝐑𝐎𝐑 ───╮\n│ ❌ Error saving reply.\n╰──────────────╯");
+      return message.reply("╔═══ 𝐄𝐑𝐑𝐎𝐑 ═══╗\n║ ❌ Error saving reply.\n╚══════════════════╝");
     }
   }
 };

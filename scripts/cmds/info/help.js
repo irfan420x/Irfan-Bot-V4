@@ -178,8 +178,7 @@ module.exports = {
 
       if (!matchedCat) {
         return message.reply(
-          `╭─── 𝐄𝐑𝐑𝐎𝐑 ───╮\n│ ❌ Category not found\n│ 📝 Available: ${Object.keys(catIndex).join(", ")}\n╰─────────────╯`
-        );
+          `╔═══ 𝐄𝐑𝐑𝐎𝐑 ═══╗\n║ ❌ Category not found\n║ 📝 Available: ${Object.keys(catIndex).join(", ")}\n╚══════════════════╝`);
       }
       return sendCategory(matchedCat, pageNum);
     }
@@ -195,7 +194,7 @@ module.exports = {
     if (!cmd) {
       const maybeCat = findCategory(normalizeCat(query), Object.keys(catIndex));
       if (maybeCat) return sendCategory(maybeCat, 1);
-      return message.reply(`╭─── 𝐄𝐑𝐑𝐎𝐑 ───╮\n│ ❌ Command not found\n│ 💡 Try: ${prefix}help category\n╰─────────────╯`);
+      return message.reply(`╔═══ 𝐄𝐑𝐑𝐎𝐑 ═══╗\n║ ❌ Command not found\n║ 💡 Try: ${prefix}help category\n╚══════════════════╝`);
     }
 
     return sendCommandDetail(cmd);
@@ -232,18 +231,18 @@ module.exports = {
                    .replace(/\{name\}|\{n\}/g, name)
                    .replace(/\{pn\}/g, prefix + name);
 
-      let msg = `╭─── 𝐂𝐎𝐌𝐌𝐀𝐍𝐃 ───╮\n`;
-      msg += `│ 📘 Name: ${applyFont(prefix + name, fontCommand)}\n`;
-      msg += `│ 🗂️ Category: ${emoji} ${applyFont(category, fontCategory)}\n`;
-      msg += `│ 📄 Info: ${shortDesc || "No description"}\n`;
-      msg += `│ 🧩 Aliases: ${aliasesList}\n`;
-      msg += `│ ⚙️ Version: ${version}\n`;
-      msg += `│ ⏳ Cooldown: ${cooldown}s\n`;
-      msg += `│ 🧷 Role: ${roleText}\n`;
-      msg += `│ 👑 Author: ${author}\n`;
-      msg += `├─────────────────╮\n`;
-      msg += guide ? guide.split("\n").map(l => "│ 📜 " + l).join("\n") + "\n" : "│ 📜 Usage: No guide available\n";
-      msg += `╰─────────────────╯`;
+      let msg = `╔═══ 𝐂𝐎𝐌𝐌𝐀𝐍𝐃 ═══╗\n`;
+      msg += `║ 📘 Name: ${applyFont(prefix + name, fontCommand)}\n`;
+      msg += `║ 🗂️ Category: ${emoji} ${applyFont(category, fontCategory)}\n`;
+      msg += `║ 📄 Info: ${shortDesc || "No description"}\n`;
+      msg += `║ 🧩 Aliases: ${aliasesList}\n`;
+      msg += `║ ⚙️ Version: ${version}\n`;
+      msg += `║ ⏳ Cooldown: ${cooldown}s\n`;
+      msg += `║ 🧷 Role: ${roleText}\n`;
+      msg += `║ 👑 Author: ${author}\n`;
+      msg += `╠══════════════════╣\n`;
+      msg += guide ? guide.split("\n").map(l => "║ 📜 " + l).join("\n") + "\n" : "║ 📜 Usage: No guide available\n";
+      msg += `╚══════════════════╝`;
 
       return message.send({ body: msg });
     }
@@ -258,23 +257,23 @@ module.exports = {
         cats[category].push(name);
       }
 
-      let msg = `╭─── 𝐈𝐑𝐅𝐀𝐍 𝐁𝐎𝐓 ───╮\n`;
-      msg += `│  🌟  ${applyFont("MAIN MENU", fontCategory)}  🌟  \n`;
-      msg += `╰─────────────────╯\n\n`;
+      let msg = `╔═══ 𝐈𝐑𝐅𝐀𝐍 𝐁𝐎𝐓 ═══╗\n`;
+      msg += `║  🌟  ${applyFont("MAIN MENU", fontCategory)}  🌟  \n`;
+      msg += `╚══════════════════╝\n\n`;
 
       for (const cat of Object.keys(cats).sort()) {
         const emoji = categoryEmoji[cat] || "📁";
         const lines = chunkCommands(cats[cat].sort(), 50, t => applyFont(t, fontCommand));
-        msg += `╭─── ${emoji} ${applyFont(cat.toUpperCase(), fontCategory)} ───╮\n`;
-        for (const l of lines) msg += `│ ${l}\n`;
-        msg += `╰─────────────────╯\n\n`;
+        msg += `╔═══ ${emoji} ${applyFont(cat.toUpperCase(), fontCategory)} ═══╗\n`;
+        for (const l of lines) msg += `║ ${l}\n`;
+        msg += `╚══════════════════╝\n\n`;
       }
 
-      msg += `╭─── 𝐒𝐓𝐀𝐓𝐔𝐒 ───╮\n`;
-      msg += `│ 💡 Total: ${all.length}\n`;
-      msg += `│ 📖 Page: ${page} / ${totalPages}\n`;
-      msg += `│ 🤖 Nick: ${global.noobCore.ncsetting.nickNameBot}\n`;
-      msg += `╰───────────────╯\n`;
+      msg += `╔═══ 𝐒𝐓𝐀𝐓𝐔𝐒 ═══╗\n`;
+      msg += `║ 💡 Total: ${all.length}\n`;
+      msg += `║ 📖 Page: ${page} / ${totalPages}\n`;
+      msg += `║ 🤖 Nick: ${global.noobCore.ncsetting.nickNameBot}\n`;
+      msg += `╚══════════════════╝\n`;
 
       const buttons = [
         { title: "Admin Info", url: "https://www.facebook.com/Irfan.Khan.0430" },
@@ -286,16 +285,16 @@ module.exports = {
 
     async function sendCategoryList() {
       const entries = Object.entries(catIndex).sort((a, b) => a[0].localeCompare(b[0]));
-      let msg = `╭─── 𝐂𝐀𝐓𝐄𝐆𝐎𝐑𝐈𝐄𝐒 ───╮\n`;
+      let msg = `╔═══ 𝐂𝐀𝐓𝐄𝐆𝐎𝐑𝐈𝐄𝐒 ═══╗\n`;
 
       for (const [cat, names] of entries) {
         const emoji = categoryEmoji[cat] || "📁";
-        msg += `│ ${emoji} ${applyFont(cat, fontCategory)} (${names.length})\n`;
+        msg += `║ ${emoji} ${applyFont(cat, fontCategory)} (${names.length})\n`;
       }
 
-      msg += `├───────────────────╮\n`;
-      msg += `│ 💡 Use: ${prefix}help c <name>\n`;
-      msg += `╰───────────────────╯`;
+      msg += `╠══════════════════╣\n`;
+      msg += `║ 💡 Use: ${prefix}help c <name>\n`;
+      msg += `╚══════════════════╝`;
 
       return message.reply({ body: msg });
     }
@@ -309,14 +308,14 @@ module.exports = {
       const page = Math.max(1, Math.min(total, pageNum));
       const lines = chunkCommands(chunks[page - 1], 50, t => applyFont(t, fontCommand));
 
-      let msg = `╭─── 𝐂𝐀𝐓𝐄𝐆𝐎𝐑𝐘 ───╮\n`;
-      msg += `│ 🗂️ ${applyFont(cat.toUpperCase(), fontCategory)}\n`;
-      msg += `├─────────────────╮\n`;
-      for (const l of lines) msg += `│ ${l}\n`;
-      msg += `├─────────────────╮\n`;
-      msg += `│ 💡 Total: ${names.length}\n`;
-      msg += `│ 📖 Page: ${page}/${total}\n`;
-      msg += `╰─────────────────╯`;
+      let msg = `╔═══ 𝐂𝐀𝐓𝐄𝐆𝐎𝐑𝐘 ═══╗\n`;
+      msg += `║ 🗂️ ${applyFont(cat.toUpperCase(), fontCategory)}\n`;
+      msg += `╠══════════════════╣\n`;
+      for (const l of lines) msg += `║ ${l}\n`;
+      msg += `╠══════════════════╣\n`;
+      msg += `║ 💡 Total: ${names.length}\n`;
+      msg += `║ 📖 Page: ${page}/${total}\n`;
+      msg += `╚══════════════════╝`;
 
       return message.reply({ body: msg });
     }

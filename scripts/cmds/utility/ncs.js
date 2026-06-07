@@ -64,13 +64,13 @@ module.exports.onStart = async function ({ api, event, args }) {
     const end = start + ITEMS_PER_PAGE;
     const cmdsToShow = finalArray.slice(start, end);
 
-    let msg = `━━━━━━━━━━━━━━\n👨‍💻 ${toBold("NC Command Store")}\n━━━━━━━━━━━━━━\n📄 ${toBold(`Page: ${page}/${totalPages}`)}\n🧩 ${toBold(`Total: ${finalArray.length} Cmds`)}\n────────────────\n`;
+    let msg = `\n👨‍💻 ${toBold("NC Command Store")}\n\n📄 ${toBold(`Page: ${page}/${totalPages}`)}\n🧩 ${toBold(`Total: ${finalArray.length} Cmds`)}\n────────────────\n`;
 
     cmdsToShow.forEach((cmd, i) => {
       msg += `- ${toBold(`${start + i + 1}. ${cmd.cmd}`)}\n👨‍💻 ${toBold(`Author: ${cmd.author}`)}\n🕓 ${toBold(`Update: ${cmd.update || "Unknown"}`)}\n────────────────\n`;
     });
 
-    msg += `📑 ${toBold(`Type "/${this.config.name} ${page + 1}" for next page.`)}\n━━━━━━━━━━━━━━`;
+    msg += `📑 ${toBold(`Type "/${this.config.name} ${page + 1}" for next page.`)}\n`;
 
     api.sendMessage(msg, event.threadID, (err, info) => {
       global.noobCore.ncReply.set(info.messageID, {
@@ -111,7 +111,7 @@ module.exports.ncReply = async function ({ api, event, Reply }) {
       return api.sendMessage(toBold("❌ Command URL not found!"), event.threadID, event.messageID);
 
     api.unsendMessage(Reply.messageID);
-    const msg = `━━━━━━━━━━━━━━\n📘 ${toBold("Command Info")}\n━━━━━━━━━━━━━━\n🧩 ${toBold(`Name: ${cmdName}`)}\n⚙️ ${toBold(`Status: ${status || "Unavailable"}`)}\n🌐 URL: ${cmdUrl}\n━━━━━━━━━━━━━━`;
+    const msg = `\n📘 ${toBold("Command Info")}\n\n🧩 ${toBold(`Name: ${cmdName}`)}\n⚙️ ${toBold(`Status: ${status || "Unavailable"}`)}\n🌐 URL: ${cmdUrl}\n`;
 
     api.sendMessage(msg, event.threadID, event.messageID);
   } catch (err) {

@@ -67,19 +67,19 @@ module.exports = {
 			const cpuModel = os.cpus()[0].model.split('@')[0].trim();
 
 			const now = moment().tz("Asia/Dhaka");
-			const textMessage = `╭─── 𝐒𝐘𝐒𝐓𝐄𝐌 𝐈𝐍𝐅𝐎 ───╮\n` +
-				`│ 📊 RAM Usage : ${ramLoad}%\n` +
-				`│ ⚡ CPU Usage : ${cpuLoad}%\n` +
-				`│ 💾 Disk Usage : ${diskLoad}%\n` +
-				`├────────────────────╮\n` +
-				`│ 🕒 Sys Uptime : ${sysUptime}\n` +
-				`│ 🤖 Bot Uptime : ${botUptime}\n` +
-				`│ 🧠 CPU Cores : ${cpuCores}\n` +
-				`│ 📦 Node.js : ${nodeVersion}\n` +
-				`├────────────────────╮\n` +
-				`│ 📅 Date: ${now.format("YYYY-MM-DD")}\n` +
-				`│ ⏰ Time: ${now.format("HH:mm:ss")}\n` +
-				`╰────────────────────╯`;
+			const textMessage = `╔═══ 𝐒𝐘𝐒𝐓𝐄𝐌 𝐈𝐍𝐅𝐎 ═══╗\n` +
+				`║ 📊 RAM Usage : ${ramLoad}%\n` +
+				`║ ⚡ CPU Usage : ${cpuLoad}%\n` +
+				`║ 💾 Disk Usage : ${diskLoad}%\n` +
+				`╠══════════════════╣\n` +
+				`║ 🕒 Sys Uptime : ${sysUptime}\n` +
+				`║ 🤖 Bot Uptime : ${botUptime}\n` +
+				`║ 🧠 CPU Cores : ${cpuCores}\n` +
+				`║ 📦 Node.js : ${nodeVersion}\n` +
+				`╠══════════════════╣\n` +
+				`║ 📅 Date: ${now.format("YYYY-MM-DD")}\n` +
+				`║ ⏰ Time: ${now.format("HH:mm:ss")}\n` +
+				`╚══════════════════╝`;
 
 			const noobcore = "https://raw.githubusercontent.com/noobcore404/NC-STORE/main/NCApiUrl.json";
 			const rawRes = await axios.get(noobcore);
@@ -109,7 +109,7 @@ module.exports = {
 
 		} catch (err) {
 			console.error("SYSTEM COMMAND ERROR:", err);
-			return message.reply("╭─── 𝐄𝐑𝐑𝐎𝐑 ───╮\n│ ❌ Something went wrong\n╰─────────────╯");
+			return message.reply("╔═══ 𝐄𝐑𝐑𝐎𝐑 ═══╗\n║ ❌ Something went wrong\n╚══════════════════╝");
 		}
 	}
 };

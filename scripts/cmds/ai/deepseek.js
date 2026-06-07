@@ -20,7 +20,7 @@ module.exports = {
     const prompt = args.join(" ");
 
     if (!prompt) {
-      return api.sendMessage("╭─── 𝐈𝐍𝐅𝐎 ───╮\n│ দয়া করে একটি প্রশ্ন করুন। 😊\n╰──────────────╯", threadID, messageID);
+      return api.sendMessage("╔═══ 𝐈𝐍𝐅𝐎 ═══╗\n║ দয়া করে একটি প্রশ্ন করুন। 😊\n╚══════════════════╝", threadID, messageID);
     }
 
     api.setMessageReaction("⏳", messageID, threadID, () => {}, true);
@@ -45,7 +45,7 @@ module.exports = {
     } catch (error) {
       console.error("[DeepSeek Error]", error.message);
       api.setMessageReaction("❌", messageID, threadID, () => {}, true);
-      api.sendMessage("╭─── 𝐄𝐑𝐑𝐎𝐑 ───╮\n│ DeepSeek API এখন কাজ করছে না। পরে চেষ্টা করো। 😴\n╰──────────────╯", threadID, messageID);
+      api.sendMessage("╔═══ 𝐄𝐑𝐑𝐎𝐑 ═══╗\n║ DeepSeek API এখন কাজ করছে না। পরে চেষ্টা করো। 😴\n╚══════════════════╝", threadID, messageID);
     }
   },
 
@@ -75,7 +75,7 @@ module.exports = {
 
     } catch (error) {
       api.setMessageReaction("❌", event.messageID, event.threadID, () => {}, true);
-      api.sendMessage("╭─── 𝐄𝐑𝐑𝐎𝐑 ───╮\n│ DeepSeek API এখন কাজ করছে না। পরে চেষ্টা করো। 😴\n╰──────────────╯", event.threadID, event.messageID);
+      api.sendMessage("╔═══ 𝐄𝐑𝐑𝐎𝐑 ═══╗\n║ DeepSeek API এখন কাজ করছে না। পরে চেষ্টা করো। 😴\n╚══════════════════╝", event.threadID, event.messageID);
     }
   }
 };

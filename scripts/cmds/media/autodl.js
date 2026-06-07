@@ -57,12 +57,7 @@ module.exports = {
 
   onStart: async function ({ api, event }) {
     api.sendMessage(
-`╭──「 📥 AUTO DOWNLOADER 」──╮
-│ 🔗 Send media link
-│ ⚡ Auto download
-│ 🌐 Multi-platform support
-╰────────────────────╯`,
-      event.threadID,
+`╔═══ 📥 AUTO DOWNLOADER ═══╗\n║ 🔗 Send media link\n║ ⚡ Auto download\n║ 🌐 Multi-platform support\n╚══════════════════╝`, event.threadID,
       event.messageID
     );
   },
@@ -105,11 +100,10 @@ module.exports = {
       api.sendMessage(
         {
           body:
-`╭─「 ✅ DOWNLOAD COMPLETE 」─╮
-│ 🎬 Title    : ${data.title || "Unknown"}
-│ 📁 Type     : ${data.type || "media"}
-╰──────────────────────╯`,
-          attachment: fs.createReadStream(filePath)
+`╔═══ ✅ DOWNLOAD COMPLETE ═══╗
+║ 🎬 Title    : ${data.title || "Unknown"}
+║ 📁 Type     : ${data.type || "media"}
+╚══════════════════╝`, attachment: fs.createReadStream(filePath)
         },
         event.threadID,
         () => fs.unlinkSync(filePath),
@@ -121,11 +115,10 @@ module.exports = {
       api.setMessageReaction("❌", event.messageID, () => {}, true);
 
       api.sendMessage(
-`╭─「 ❌ DOWNLOAD FAILED 」─╮
-│ ⚠️ Cannot fetch media
-│ 🔁 Try another link
-╰──────────────────────╯`,
-        event.threadID,
+`╔═══ ❌ DOWNLOAD FAILED ═══╗
+║ ⚠️ Cannot fetch media
+║ 🔁 Try another link
+╚══════════════════╝`, event.threadID,
         event.messageID
       );
     }

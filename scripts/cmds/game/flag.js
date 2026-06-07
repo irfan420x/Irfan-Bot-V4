@@ -41,7 +41,7 @@ module.exports = {
       const imageStream = await axios({ method: "GET", url: image, responseType: "stream" });
 
       const body = await toFont(`》 Flag Quiz 🚩
-━━━━━━━━━━━━━━
+══════════════════════════════
 📸 Guess the country of this flag!
 🅐 ${options.A}
 🅑 ${options.B}

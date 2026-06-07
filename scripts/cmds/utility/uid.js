@@ -36,37 +36,37 @@ module.exports = {
 
 	onStart: async function ({ message, event, args, getLang }) {
 		if (event.messageReply)
-			return message.reply(`╭─── 𝐔𝐈𝐃 ───╮\n│ 🆔 ${event.messageReply.senderID}\n╰───────────╯`);
+			return message.reply(`╔═══ 𝐔𝐈𝐃 ═══╗\n║ 🆔 ${event.messageReply.senderID}\n╚══════════════════╝`);
 		if (!args[0])
-			return message.reply(`╭─── 𝐔𝐈𝐃 ───╮\n│ 🆔 ${event.senderID}\n╰───────────╯`);
+			return message.reply(`╔═══ 𝐔𝐈𝐃 ═══╗\n║ 🆔 ${event.senderID}\n╚══════════════════╝`);
 		
 		if (args[0].match(regExCheckURL)) {
-			let msg = '╭─── 𝐔𝐈𝐃 ───╮\n';
+			let msg = '╔═══ 𝐔𝐈𝐃 ═══╗\n';
 			for (const link of args) {
 				try {
 					const uid = await findUid(link);
-					msg += `│ 🔗 ${uid}\n`;
+					msg += `║ 🔗 ${uid}\n`;
 				}
 				catch (e) {
-					msg += `│ ❌ Error: ${e.message}\n`;
+					msg += `║ ❌ Error: ${e.message}\n`;
 				}
 			}
-			msg += '╰───────────╯';
+			msg += '╚══════════════════╝';
 			message.reply(msg);
 			return;
 		}
 
-		let msg = "╭─── 𝐔𝐈𝐃 ───╮\n";
+		let msg = "╔═══ 𝐔𝐈𝐃 ═══╗\n";
 		const { mentions } = event;
 		let hasMentions = false;
 		for (const id in mentions) {
-			msg += `│ 👤 ${mentions[id].replace("@", "")}: ${id}\n`;
+			msg += `║ 👤 ${mentions[id].replace("@", "")}: ${id}\n`;
 			hasMentions = true;
 		}
-		msg += "╰───────────╯";
+		msg += "╚══════════════════╝";
 		
 		if (!hasMentions) {
-			return message.reply(`╭─── 𝐒𝐘𝐒𝐓𝐄𝐌 ───╮\n│ ⚠️ ${getLang("syntaxError")}\n╰──────────────╯`);
+			return message.reply(`╔═══ 𝐒𝐘𝐒𝐓𝐄𝐌 ═══╗\n║ ⚠️ ${getLang("syntaxError")}\n╚══════════════════╝`);
 		}
 		message.reply(msg);
 	}

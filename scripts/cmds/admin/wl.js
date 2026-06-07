@@ -17,11 +17,11 @@ module.exports = {
     category: "owner",
     guide: {
       en:
-        "━━━━━━━━━━━━━━━━━━━━\n" +
+        "\n" +
         "╔════════════════════╗\n" +
         "║   WHITELIST MENU   ║\n" +
         "╚════════════════════╝\n" +
-        "━━━━━━━━━━━━━━━━━━━━\n" +
+        "\n" +
         "➤ {pn} add [uid/@tag] - Add user to whitelist\n" +
         "➤ {pn} remove [uid/@tag] - Remove user from whitelist\n" +
         "➤ {pn} list - Show all whitelisted users\n" +
@@ -30,22 +30,29 @@ module.exports = {
         "➤ {pn} noti [on/off] - Toggle notification for non-whitelisted users\n" +
         "➤ {pn} clear - Clear all whitelisted users\n" +
         "➤ {pn} count - Show total whitelisted users\n" +
-        "━━━━━━━━━━━━━━━━━━━━"
+        ""
     },
   },
 
   langs: {
     en: {
-      added: `╭✦✅ 𝗔𝗗𝗗𝗘𝗗 𝗦𝗨𝗖𝗖𝗘𝗦𝗦𝗙𝗨𝗟𝗟𝗬\n│✦ 𝗔𝗱𝗱𝗲𝗱: %1 𝘂𝘀𝗲𝗿(𝘀)\n%2\n╰✦ 𝗧𝗼𝘁𝗮𝗹 𝗪𝗵𝗶𝘁𝗲𝗹𝗶𝘀𝘁𝗲𝗱: %3`,
-      alreadyAdded: `╭✦⚠️  𝗔𝗟𝗥𝗘𝗔𝗗𝗬 𝗜𝗡 𝗪𝗛𝗜𝗧𝗘𝗟𝗜𝗦𝗧\n│✦ 𝗨𝘀𝗲𝗿𝘀: %1\n%2\n╰✦ 𝗧𝗼𝘁𝗮𝗹 𝗪𝗵𝗶𝘁𝗲𝗹𝗶𝘀𝘁𝗲𝗱: %3`,
-      removed: `╭✦✅ 𝗥𝗘𝗠𝗢𝗩𝗘𝗗 𝗦𝗨𝗖𝗖𝗘𝗦𝗦𝗙𝗨𝗟𝗟𝗬\n│✦ 𝗥𝗲𝗺𝗼𝘃𝗲𝗱: %1 𝘂𝘀𝗲𝗿(𝘀)\n%2\n╰✦ 𝗧𝗼𝘁𝗮𝗹 𝗪𝗵𝗶𝘁𝗲𝗹𝗶𝘀𝘁𝗲𝗱: %3`,
-      notInList: `╭✦⚠️  𝗨𝗦𝗘𝗥𝗦 𝗡𝗢𝗧 𝗜𝗡 𝗪𝗛𝗜𝗧𝗘𝗟𝗜𝗦𝗧\n│✦ 𝗨𝘀𝗲𝗿𝘀: %1\n%2\n╰✦ 𝗧𝗼𝘁𝗮𝗹 𝗪𝗵𝗶𝘁𝗲𝗹𝗶𝘀𝘁𝗲𝗱: %3`,
+      added: `╔═══ ✅ 𝗔𝗗𝗗𝗘𝗗 𝗦𝗨𝗖𝗖𝗘𝗦𝗦𝗙𝗨𝗟𝗟𝗬\n║✦ 𝗔𝗱𝗱𝗲𝗱: %1 𝘂𝘀𝗲𝗿(𝘀)\n%2\n╚══════════════════╝✦ 𝗧𝗼𝘁𝗮𝗹 𝗪𝗵𝗶𝘁𝗲𝗹𝗶𝘀𝘁𝗲𝗱: %3`,
+
+      alreadyAdded: `╔═══ ⚠️  𝗔𝗟𝗥𝗘𝗔𝗗𝗬 𝗜𝗡 𝗪𝗛𝗜𝗧𝗘𝗟𝗜𝗦𝗧\n║✦ 𝗨𝘀𝗲𝗿𝘀: %1\n%2\n╚══════════════════╝✦ 𝗧𝗼𝘁𝗮𝗹 𝗪𝗵𝗶𝘁𝗲𝗹𝗶𝘀𝘁𝗲𝗱: %3`,
+
+      removed: `╔═══ ✅ 𝗥𝗘𝗠𝗢𝗩𝗘𝗗 𝗦𝗨𝗖𝗖𝗘𝗦𝗦𝗙𝗨𝗟𝗟𝗬\n║✦ 𝗥𝗲𝗺𝗼𝘃𝗲𝗱: %1 𝘂𝘀𝗲𝗿(𝘀)\n%2\n╚══════════════════╝✦ 𝗧𝗼𝘁𝗮𝗹 𝗪𝗵𝗶𝘁𝗲𝗹𝗶𝘀𝘁𝗲𝗱: %3`,
+
+      notInList: `╔═══ ⚠️  𝗨𝗦𝗘𝗥𝗦 𝗡𝗢𝗧 𝗜𝗡 𝗪𝗛𝗜𝗧𝗘𝗟𝗜𝗦𝗧\n║✦ 𝗨𝘀𝗲𝗿𝘀: %1\n%2\n╚══════════════════╝✦ 𝗧𝗼𝘁𝗮𝗹 𝗪𝗵𝗶𝘁𝗲𝗹𝗶𝘀𝘁𝗲𝗱: %3`,
+
       missingIdAdd: "⚠️ | Please enter UID or tag user to add to whitelist",
       missingIdRemove: "⚠️ | Please enter UID or tag user to remove from whitelist",
-      listHeader: `╭✦✨ 𝗪𝗛𝗜𝗧𝗘𝗟𝗜𝗦𝗧𝗘𝗗 𝗨𝗦𝗘𝗥𝗦\n│✦ 𝗧𝗼𝘁𝗮𝗹: %1 𝘂𝘀𝗲𝗿(𝘀)\n%2\n╰✦ 𝗠𝗼𝗱𝗲: %3`,
+      listHeader: `╔═══ ✨ 𝗪𝗛𝗜𝗧𝗘𝗟𝗜𝗦𝗧𝗘𝗗 𝗨𝗦𝗘𝗥𝗦\n║✦ 𝗧𝗼𝘁𝗮𝗹: %1 𝘂𝘀𝗲𝗿(𝘀)\n%2\n╚══════════════════╝✦ 𝗠𝗼𝗱𝗲: %3`,
+
       emptyList: "📭 | Whitelist is currently empty",
-      isWhitelisted: `╭✦✅ 𝗪𝗛𝗜𝗧𝗘𝗟𝗜𝗦𝗧𝗘𝗗\n│✦ 𝗡𝗮𝗺𝗲: %1\n│✦ 𝗨𝗜𝗗: %2\n│✦ 𝗦𝘁𝗮𝘁𝘂𝘀: Whitelisted ✅\n╰✦ 𝗧𝗼𝘁𝗮𝗹 𝗪𝗵𝗶𝘁𝗲𝗹𝗶𝘀𝘁𝗲𝗱: %3`,
-      notWhitelisted: `╭✦❌ 𝗡𝗢𝗧 𝗪𝗛𝗜𝗧𝗘𝗟𝗜𝗦𝗧𝗘𝗗\n│✦ 𝗡𝗮𝗺𝗲: %1\n│✦ 𝗨𝗜𝗗: %2\n│✦ 𝗦𝘁𝗮𝘁𝘂𝘀: Not Whitelisted ❌\n╰✦ 𝗧𝗼𝘁𝗮𝗹 𝗪𝗵𝗶𝘁𝗲𝗹𝗶𝘀𝘁𝗲𝗱: %3`,
+      isWhitelisted: `╔═══ ✅ 𝗪𝗛𝗜𝗧𝗘𝗟𝗜𝗦𝗧𝗘𝗗\n║✦ 𝗡𝗮𝗺𝗲: %1\n║✦ 𝗨𝗜𝗗: %2\n║✦ 𝗦𝘁𝗮𝘁𝘂𝘀: Whitelisted ✅\n╚══════════════════╝✦ 𝗧𝗼𝘁𝗮𝗹 𝗪𝗵𝗶𝘁𝗲𝗹𝗶𝘀𝘁𝗲𝗱: %3`,
+
+      notWhitelisted: `╔═══ ❌ 𝗡𝗢𝗧 𝗪𝗛𝗜𝗧𝗘𝗟𝗜𝗦𝗧𝗘𝗗\n║✦ 𝗡𝗮𝗺𝗲: %1\n║✦ 𝗨𝗜𝗗: %2\n║✦ 𝗦𝘁𝗮𝘁𝘂𝘀: Not Whitelisted ❌\n╚══════════════════╝✦ 𝗧𝗼𝘁𝗮𝗹 𝗪𝗵𝗶𝘁𝗲𝗹𝗶𝘀𝘁𝗲𝗱: %3`,
+
       turnedOn: "✅ | Whitelist-only mode: **ENABLED**",
       turnedOff: "❎ | Whitelist-only mode: **DISABLED**",
       turnedOnNoti: "🔔 | Non-whitelist notifications: **ENABLED**",
@@ -53,14 +60,14 @@ module.exports = {
       cleared: "🗑️ | Whitelist has been cleared successfully",
       confirmClear: "⚠️ | Are you sure you want to clear ALL whitelisted users? Reply 'yes' to confirm.",
       count: `📊 | Total whitelisted users: **%1**`,
-      modeStatus: `📊 | Whitelist Status\n├─ Mode: %1\n├─ Total Users: %2\n└─ Notifications: %3`
+      modeStatus: `📊 | Whitelist Status\n╠══════════════════╣ Mode: %1\n╠══════════════════╣ Total Users: %2\n└─ Notifications: %3`
     },
   },
 
   onStart: async function ({ message, args, usersData, event, getLang, api, commandName }) {
     const permission = global.noobCore.ncsetting.adminBot;
     if (!permission.includes(event.senderID)) {
-      return api.sendMessage("╭─── 𝐈𝐍𝐅𝐎 ───╮\n│ ⚠️ | You don't have permission to use this command!\n╰──────────────╯", event.threadID, event.messageID);
+      return api.sendMessage("╔═══ 𝐈𝐍𝐅𝐎 ═══╗\n║ ⚠️ | You don't have permission to use this command!\n╚══════════════════╝", event.threadID, event.messageID);
     }
 
     // Initialize whitelist if not exists
@@ -155,8 +162,8 @@ module.exports = {
             "added",
             newUsersInfo.length,
             newUsersInfo.map(user => 
-              `│ ├─ #${user.index} ${user.name}\n│ └─ UID: ${user.uid}`
-            ).join("\n│\n"),
+              `║ ╠══════════════════╣ #${user.index} ${user.name}\n║ └─ UID: ${user.uid}`
+            ).join("\n║\n"),
             totalUsers
           );
         }
@@ -167,8 +174,8 @@ module.exports = {
             "alreadyAdded",
             existingUsersInfo.length,
             existingUsersInfo.map(user => 
-              `│ ├─ #${user.index} ${user.name}\n│ └─ UID: ${user.uid}`
-            ).join("\n│\n"),
+              `║ ╠══════════════════╣ #${user.index} ${user.name}\n║ └─ UID: ${user.uid}`
+            ).join("\n║\n"),
             totalUsers
           );
         }
@@ -250,8 +257,8 @@ module.exports = {
             "removed",
             removedUsersInfo.length,
             removedUsersInfo.map(user => 
-              `│ ├─ #${user.originalIndex} ${user.name}\n│ └─ UID: ${user.uid}`
-            ).join("\n│\n"),
+              `║ ╠══════════════════╣ #${user.originalIndex} ${user.name}\n║ └─ UID: ${user.uid}`
+            ).join("\n║\n"),
             totalUsers
           );
         }
@@ -262,8 +269,8 @@ module.exports = {
             "notInList",
             notFoundUsersInfo.length,
             notFoundUsersInfo.map(user => 
-              `│ ├─ ${user.name}\n│ └─ UID: ${user.uid}`
-            ).join("\n│\n"),
+              `║ ╠══════════════════╣ ${user.name}\n║ └─ UID: ${user.uid}`
+            ).join("\n║\n"),
             totalUsers
           );
         }
@@ -285,9 +292,9 @@ module.exports = {
           config.whiteListMode.whiteListIds.map(async (uid, index) => {
             try {
               const name = await usersData.getName(uid);
-              return `│ ├─ #${index + 1} ${name || "Unknown User"}\n│ └─ UID: ${uid}`;
+              return `║ ╠══════════════════╣ #${index + 1} ${name || "Unknown User"}\n║ └─ UID: ${uid}`;
             } catch {
-              return `│ ├─ #${index + 1} Unknown User\n│ └─ UID: ${uid}`;
+              return `║ ╠══════════════════╣ #${index + 1} Unknown User\n║ └─ UID: ${uid}`;
             }
           })
         );
@@ -296,7 +303,7 @@ module.exports = {
           getLang(
             "listHeader",
             config.whiteListMode.whiteListIds.length,
-            userInfos.join("\n│\n"),
+            userInfos.join("\n║\n"),
             modeStatus
           )
         );
@@ -305,7 +312,7 @@ module.exports = {
       case "check":
       case "verify": {
         if (args.length < 2) {
-          return message.reply("╭─── 𝐈𝐍𝐅𝐎 ───╮\n│ ⚠️ | Please enter UID or tag user to check\n╰──────────────╯");
+          return message.reply("╔═══ 𝐈𝐍𝐅𝐎 ═══╗\n║ ⚠️ | Please enter UID or tag user to check\n╚══════════════════╝");
         }
 
         let targetUid;
@@ -322,7 +329,7 @@ module.exports = {
         else {
           targetUid = args[1];
           if (isNaN(targetUid)) {
-            return message.reply("╭─── 𝐈𝐍𝐅𝐎 ───╮\n│ ⚠️ | Please enter a valid UID or tag user\n╰──────────────╯");
+            return message.reply("╔═══ 𝐈𝐍𝐅𝐎 ═══╗\n║ ⚠️ | Please enter a valid UID or tag user\n╚══════════════════╝");
           }
         }
 
@@ -341,7 +348,7 @@ module.exports = {
             );
           }
         } catch {
-          return message.reply("╭─── 𝐄𝐑𝐑𝐎𝐑 ───╮\n│ ⚠️ | Failed to retrieve user information\n╰──────────────╯");
+          return message.reply("╔═══ 𝐄𝐑𝐑𝐎𝐑 ═══╗\n║ ⚠️ | Failed to retrieve user information\n╚══════════════════╝");
         }
       }
 
@@ -349,7 +356,7 @@ module.exports = {
       case "-m":
       case "toggle": {
         if (args.length < 2 || !["on", "off"].includes(args[1].toLowerCase())) {
-          return message.reply("╭─── 𝐈𝐍𝐅𝐎 ───╮\n│ ⚠️ | Usage: wl mode [on/off]\n╰──────────────╯");
+          return message.reply("╔═══ 𝐈𝐍𝐅𝐎 ═══╗\n║ ⚠️ | Usage: wl mode [on/off]\n╚══════════════════╝");
         }
 
         const value = args[1].toLowerCase() === "on";
@@ -364,7 +371,7 @@ module.exports = {
       case "notification":
       case "-n": {
         if (args.length < 2 || !["on", "off"].includes(args[1].toLowerCase())) {
-          return message.reply("╭─── 𝐈𝐍𝐅𝐎 ───╮\n│ ⚠️ | Usage: wl noti [on/off]\n╰──────────────╯");
+          return message.reply("╔═══ 𝐈𝐍𝐅𝐎 ═══╗\n║ ⚠️ | Usage: wl noti [on/off]\n╚══════════════════╝");
         }
 
         const value = args[1].toLowerCase() === "on";
@@ -378,7 +385,7 @@ module.exports = {
       case "clear":
       case "reset": {
         if (config.whiteListMode.whiteListIds.length === 0) {
-          return message.reply("╭─── 𝐈𝐍𝐅𝐎 ───╮\n│ ✅ | Whitelist is already empty\n╰──────────────╯");
+          return message.reply("╔═══ 𝐈𝐍𝐅𝐎 ═══╗\n║ ✅ | Whitelist is already empty\n╚══════════════════╝");
         }
 
         // Check for confirmation
@@ -412,11 +419,11 @@ module.exports = {
         const notiStatus = config.hideNotiMessage.whiteListMode === false ? "🔔 ENABLED" : "🔕 DISABLED";
 
         const statusMessage = 
-          `╭✦📊 𝗪𝗛𝗜𝗧𝗘𝗟𝗜𝗦𝗧 𝗦𝗧𝗔𝗧𝗨𝗦\n` +
-          `│✦ 𝗠𝗼𝗱𝗲: ${modeStatus}\n` +
-          `│✦ 𝗡𝗼𝘁𝗶𝗳𝗶𝗰𝗮𝘁𝗶𝗼𝗻𝘀: ${notiStatus}\n` +
-          `│✦ 𝗧𝗼𝘁𝗮𝗹 𝗨𝘀𝗲𝗿𝘀: ${total}\n` +
-          `╰✦ 𝗟𝗮𝘀𝘁 𝗨𝗽𝗱𝗮𝘁𝗲: ${new Date().toLocaleString()}`;
+          `╔═══ 📊 𝗪𝗛𝗜𝗧𝗘𝗟𝗜𝗦𝗧 𝗦𝗧𝗔𝗧𝗨𝗦\n`
+          `║✦ 𝗠𝗼𝗱𝗲: ${modeStatus}\n` +
+          `║✦ 𝗡𝗼𝘁𝗶𝗳𝗶𝗰𝗮𝘁𝗶𝗼𝗻𝘀: ${notiStatus}\n` +
+          `║✦ 𝗧𝗼𝘁𝗮𝗹 𝗨𝘀𝗲𝗿𝘀: ${total}\n` +
+          `╚══════════════════╝✦ 𝗟𝗮𝘀𝘁 𝗨𝗽𝗱𝗮𝘁𝗲: ${new Date().toLocaleString()}`;
 
         return message.reply(statusMessage);
       }

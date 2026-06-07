@@ -17,16 +17,16 @@ module.exports = {
     const userID = event.senderID;
 
     if (!event.messageReply || !event.messageReply.attachments || event.messageReply.attachments.length === 0) {
-      return message.reply("╭─── 𝐄𝐑𝐑𝐎𝐑 ───╮\n│ Please reply to an image or video to set it as the new avatar.\n╰────── ──────╯");
+      return message.reply("╔═══ 𝐄𝐑𝐑𝐎𝐑 ═══╗\n║ Please reply to an image or video to set it as the new avatar.\n╚══════════════════╝");
     }
 
     const attachment = event.messageReply.attachments[0];
 
     if (attachment.type !== "Photo" && attachment.type !== "Video") {
-      return message.reply("╭─── 𝐄𝐑𝐑𝐎𝐑 ───╮\n│ Only images and videos are supported for avatar changes.\n╰────── ──────╯");
+      return message.reply("╔═══ 𝐄𝐑𝐑𝐎𝐑 ═══╗\n║ Only images and videos are supported for avatar changes.\n╚══════════════════╝");
     }
 
-    message.reply("╭─── 𝐒𝐘𝐒𝐓𝐄𝐌 ───╮\n│ Changing avatar, please wait...\n╰────── ──────╯");
+    message.reply("╔═══ 𝐒𝐘𝐒𝐓𝐄𝐌 ═══╗\n║ Changing avatar, please wait...\n╚══════════════════╝");
 
     try {
       if (!api.changeAvatar) {
@@ -56,12 +56,12 @@ module.exports = {
         });
 
         if (err) {
-          return message.reply(`╭─── 𝐄𝐑𝐑𝐎𝐑 ───╮\n│ Failed to change avatar: ${err.error || err}\n╰────── ──────╯`);
+          return message.reply(`╔═══ 𝐄𝐑𝐑𝐎𝐑 ═══╗\n║ Failed to change avatar: ${err.error || err}\n╚══════════════════╝`);
         }
-        message.reply("╭─── 𝐒𝐔𝐂𝐂𝐄𝐒𝐒 ───╮\n│ Avatar changed successfully!\n╰────── ──────╯");
+        message.reply("╔═══ 𝐒𝐔𝐂𝐂𝐄𝐒𝐒 ═══╗\n║ Avatar changed successfully!\n╚══════════════════╝");
       });
     } catch (error) {
-      message.reply(`╭─── 𝐄𝐑𝐑𝐎𝐑 ───╮\n│ An unexpected error occurred:\n│ ${error.message}\n╰────── ──────╯`);
+      message.reply(`╔═══ 𝐄𝐑𝐑𝐎𝐑 ═══╗\n║ An unexpected error occurred:\n║ ${error.message}\n╚══════════════════╝`);
     }
   }
 };

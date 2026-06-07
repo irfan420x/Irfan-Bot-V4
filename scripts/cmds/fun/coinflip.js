@@ -56,7 +56,7 @@ module.exports = {
         if (newBalance < 0) newBalance = 0;
       }
 
-      const line = "━━━━━━━━━━━━━━━━━━━";
+      const line = "";
       const msg =
 `${line}
 🎲  𝗖𝗢𝗜𝗡 𝗙𝗟𝗜𝗣

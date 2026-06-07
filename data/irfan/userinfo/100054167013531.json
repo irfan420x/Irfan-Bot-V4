@@ -1,0 +1,17 @@
+{
+  "permanent": {
+    "name": "Irfan Ahmmed",
+    "age": null,
+    "favorites": []
+  },
+  "history": [
+    {
+      "role": "user",
+      "content": "hi"
+    },
+    {
+      "role": "assistant",
+      "content": "আরে ভাই Irfan! কী অবস্থা মামা? কোত্থেকে উদয় হইলি হঠাৎ? 😂 পুরাই chill scene মনে হচ্ছে তোর! 😉 বল, কী খবর?"
+    }
+  ]
+}

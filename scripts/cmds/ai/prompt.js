@@ -23,7 +23,7 @@ module.exports = {
       messageReply.attachments.length === 0 ||
       !messageReply.attachments[0].url
     ) {
-      return api.sendMessage("╭─── 𝐈𝐍𝐅𝐎 ───╮\n│ ⚠️ Please reply to an image to generate a prompt.\n╰──────────────╯", threadID, messageID);
+      return api.sendMessage("╔═══ 𝐈𝐍𝐅𝐎 ═══╗\n║ ⚠️ Please reply to an image to generate a prompt.\n╚══════════════════╝", threadID, messageID);
     }
 
     try {

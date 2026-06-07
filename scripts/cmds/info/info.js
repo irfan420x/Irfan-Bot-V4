@@ -22,22 +22,22 @@ module.exports = {
   langs: {
     en: {
       infoMessage:
-`╭─╼━━━━━━━━━━━━╾─╮
-│  🌟  ${"ＢＯＴ  ＩＮＦＯ"}  🌟  
-├─╼━━━━━━━━━━━━╾─╯
-│ 🤖 Name: NoobCore-v3
-│ ⚡ Version: 3.0
-│ 👨‍💻 Dev: Noob Programmer
-│ 🌐 Platform: Messenger
-│ 🧠 System: Modular
-│ 🔄 Multi-State: Enabled
-├─╼━━━━━━━━━━━━╾─╮
-│      ${"ＲＥＰＬＹ  ＷＩＴＨ"}      
-├─╼━━━━━━━━━━━━╾─╯
-│ 1️⃣ Prefix
-│ 2️⃣ Admin List
-│ 3️⃣ Creator ID
-╰─╼━━━━━━━━━━━━╾─╯
+`╔══════════════════╗
+║  🌟  ${"ＢＯＴ  ＩＮＦＯ"}  🌟  
+╠══════════════════╣
+║ 🤖 Name: NoobCore-v3
+║ ⚡ Version: 3.0
+║ 👨‍💻 Dev: Noob Programmer
+║ 🌐 Platform: Messenger
+║ 🧠 System: Modular
+║ 🔄 Multi-State: Enabled
+╠══════════════════╣
+║      ${"ＲＥＰＬＹ  ＷＩＴＨ"}      
+╠══════════════════╣
+║ 1️⃣ Prefix
+║ 2️⃣ Admin List
+║ 3️⃣ Creator ID
+╚══════════════════╝
 💡 React ❤️ for Uptime status.`
     }
   },

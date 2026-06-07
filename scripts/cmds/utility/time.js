@@ -17,7 +17,7 @@ module.exports = {
 
   onStart: async ({ message }) => {
     try {
-      const wait = await message.reply("╭─── 𝐈𝐍𝐅𝐎 ───╮\n│ ⚡ Fetching time card...\n╰──────────────╯");
+      const wait = await message.reply("╔═══ 𝐈𝐍𝐅𝐎 ═══╗\n║ ⚡ Fetching time card...\n╚══════════════════╝");
 
       const noobcore = "https://raw.githubusercontent.com/noobcore404/NC-STORE/main/NCApiUrl.json";
       const rawRes = await axios.get(noobcore);
@@ -43,7 +43,7 @@ module.exports = {
 
     } catch (err) {
       console.error("Time command error:", err.message);
-      return message.reply("╭─── 𝐄𝐑𝐑𝐎𝐑 ───╮\n│ ❌ Failed to fetch time card. Please try again later\n╰──────────────╯");
+      return message.reply("╔═══ 𝐄𝐑𝐑𝐎𝐑 ═══╗\n║ ❌ Failed to fetch time card. Please try again later\n╚══════════════════╝");
     }
   }
 };

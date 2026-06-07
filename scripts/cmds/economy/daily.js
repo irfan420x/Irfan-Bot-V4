@@ -51,7 +51,7 @@ module.exports = {
 			weeklyBonus: "🎉 CHÚC MỪNG! Bạn đã nhận được bonus tuần: %1 coin và %2 exp!",
 			streakLost: "⚠️ Streak của bạn đã bị reset vì nhận quà trễ!",
 			newStreak: "🆕 Bắt đầu streak mới!",
-			leaderboard: "🏆 BẢNG XẾP HẠNG STREAK 🏆\n\n%1\n━━━━━━━━━━━━━",
+			leaderboard: "🏆 BẢNG XẾP HẠNG STREAK 🏆\n\n%1\n",
 			lbEntry: "%1. %2 - %3 ngày 🔥",
 			noStreakData: "Chưa có dữ liệu streak nào!",
 			yourPosition: "Vị trí của bạn: #%1",
@@ -75,7 +75,7 @@ module.exports = {
 			weeklyBonus: "🎉 CONGRATULATIONS! You received weekly bonus: %1 coin and %2 exp!",
 			streakLost: "⚠️ Your streak has been reset for claiming late!",
 			newStreak: "🆕 Starting new streak!",
-			leaderboard: "🏆 STREAK LEADERBOARD 🏆\n\n%1\n━━━━━━━━━━━━━",
+			leaderboard: "🏆 STREAK LEADERBOARD 🏆\n\n%1\n",
 			lbEntry: "%1. %2 - %3 days 🔥",
 			noStreakData: "No streak data yet!",
 			yourPosition: "Your position: #%1",
@@ -105,13 +105,13 @@ module.exports = {
 										getLang("monday");
 				msg += `${day}: ${getCoin} coin, ${getExp} exp\n`;
 			}
-			msg += "\n━━━━━━━━━━━━━\n";
+			msg += "\n\n";
 			msg += "🌟 STREAK BONUS SYSTEM 🌟\n";
 			msg += "1-7 days: x1.0 - x1.2 bonus\n";
 			msg += "8-14 days: x1.3 - x1.5 bonus\n";
 			msg += "15-30 days: x1.6 - x2.0 bonus\n";
 			msg += "Weekly bonus every 7 days!\n";
-			msg += "━━━━━━━━━━━━━";
+			msg += "";
 			return message.reply(msg);
 		}
 

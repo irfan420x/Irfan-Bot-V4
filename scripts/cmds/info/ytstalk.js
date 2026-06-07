@@ -55,20 +55,20 @@ module.exports = {
       const info = data.channelInfo;
 
       const message =
-        `╭─╼━━━━━━━━━━━━╾─╮\n` +
-        `│  📺  ${applyFont("ＹＴ  ＳＴＡＬＫ")}  │\n` +
-        `├─╼━━━━━━━━━━━━╾─╯\n` +
-        `│ 🏷️ Channel: ${applyFont(info.title)}\n` +
-        `│ 🌍 Country: ${info.country}\n` +
-        `│ 📅 Joined: ${info.publishedAt}\n` +
-        `│ 👥 Subs: ${applyFont(info.subscribers)}\n` +
-        `│ 👁️ Views: ${applyFont(info.views)}\n` +
-        `│ 🎬 Videos: ${applyFont(info.videos)}\n` +
-        `├─╼━━━━━━━━━━━━╾─╮\n` +
-        `│      ${applyFont("ＤＥＳＣＲＩＰＴＩＯＮ")}      │\n` +
-        `├─╼━━━━━━━━━━━━╾─╯\n` +
-        `│ ${applyFont(info.description.substring(0, 200))}${info.description.length > 200 ? "..." : ""}\n` +
-        `╰─╼━━━━━━━━━━━━╾─╯`;
+        `╔══════════════════╗\n` +
+        `║  📺  ${applyFont("ＹＴ  ＳＴＡＬＫ")}  ║\n` +
+        `╠══════════════════╣\n` +
+        `║ 🏷️ Channel: ${applyFont(info.title)}\n` +
+        `║ 🌍 Country: ${info.country}\n` +
+        `║ 📅 Joined: ${info.publishedAt}\n` +
+        `║ 👥 Subs: ${applyFont(info.subscribers)}\n` +
+        `║ 👁️ Views: ${applyFont(info.views)}\n` +
+        `║ 🎬 Videos: ${applyFont(info.videos)}\n` +
+        `╠══════════════════╣\n` +
+        `║      ${applyFont("ＤＥＳＣＲＩＰＴＩＯＮ")}      ║\n` +
+        `╠══════════════════╣\n` +
+        `║ ${applyFont(info.description.substring(0, 200))}${info.description.length > 200 ? "..." : ""}\n` +
+        `╚══════════════════╝`;
 
       if (info.thumbnail) {
         const imgPath = path.join(__dirname, `yt_${data.channelId}.jpg`);

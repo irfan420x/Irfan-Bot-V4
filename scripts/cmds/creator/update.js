@@ -55,7 +55,7 @@ module.exports = {
 		if (fs.existsSync(dirBootLogTemp)) {
 			const threadID = fs.readFileSync(dirBootLogTemp, "utf-8");
 			fs.removeSync(dirBootLogTemp);
-			api.sendMessage("╭─── 𝐈𝐍𝐅𝐎 ───╮\n│ The chatbot has been restarted.\n╰──────────────╯", threadID);
+			api.sendMessage("╔═══ 𝐈𝐍𝐅𝐎 ═══╗\n║ The chatbot has been restarted.\n╚══════════════════╝", threadID);
 		}
 	},
 

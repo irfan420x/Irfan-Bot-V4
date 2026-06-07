@@ -46,28 +46,28 @@ module.exports = {
     // ========== INFO COMMAND ==========
     if (command === 'info') {
       const infoMessage = `
-🎡 ━━━━━━━━━━━━━━━━━━━━━ 🎡
+🎡  🎡
        WHEEL OF FORTUNE
            v5.0 PREMIUM
-🎡 ━━━━━━━━━━━━━━━━━━━━━ 🎡
+🎡  🎡
 
 💰 BET RANGE: ${MIN_BET.toLocaleString()} - ${MAX_BET.toLocaleString()}
 🎯 MAX SPINS: ${MAX_PLAYS} every ${LIMIT_INTERVAL_HOURS} hours
 🎊 PROGRESSIVE JACKPOT: Grows with every spin!
 
-━━━━━━ WHEEL SEGMENTS ━━━━━━
+══════════════════════════════ WHEEL SEGMENTS 
 ${WHEEL_SEGMENTS.map(seg => 
   `• ${seg.emoji} ${seg.label.padEnd(15)} x${seg.multiplier} (${(seg.probability * 100).toFixed(1)}%)`
 ).join('\n')}
 
-━━━━━━ SPECIAL FEATURES ━━━━━━
+══════════════════════════════ SPECIAL FEATURES 
 • 🎰 Random Multipliers (2x-3x)
 • 🔥 Win Streak Bonuses
 • 🏆 Progressive Jackpot Pool
 • ⚡ Daily Bonus Spins
 • 🎁 Mystery Box Rewards
 
-━━━━━━ COMMANDS ━━━━━━
+══════════════════════════════ COMMANDS 
 • ${commandName} <amount>   - Spin the wheel
 • ${commandName} info       - Show this info
 • ${commandName} stats      - Your statistics
@@ -97,7 +97,7 @@ ${WHEEL_SEGMENTS.map(seg =>
         : 0;
 
       const statsMessage = `
-📊 ━━━━━━━ YOUR WHEEL STATS ━━━━━━ 📊
+📊  YOUR WHEEL STATS  📊
 
 🎡 TOTAL SPINS: ${stats.totalSpins}
 💰 TOTAL WON: ${stats.totalWon.toLocaleString()}
@@ -108,7 +108,7 @@ ${WHEEL_SEGMENTS.map(seg =>
 ⚡ HIGHEST STREAK: ${stats.highestStreak}
 🎰 JACKPOTS WON: ${stats.jackpotsWon || 0}
 
-━━━━━━ RECENT ACTIVITY ━━━━━━
+══════════════════════════════ RECENT ACTIVITY 
 ${stats.lastSpins?.slice(-5).map((spin, i) => 
   `• Spin ${i+1}: ${spin.result || "N/A"}`
 ).join('\n') || "No recent spins"}
@@ -137,7 +137,7 @@ ${stats.lastSpins?.slice(-5).map((spin, i) =>
         .sort((a, b) => b.netProfit - a.netProfit)
         .slice(0, 10);
 
-      let leaderboardMsg = "🏆 ━━━━━━━ WHEEL LEADERBOARD ━━━━━━ 🏆\n\n";
+      let leaderboardMsg = "🏆  WHEEL LEADERBOARD  🏆\n\n";
       leaderboardData.forEach((user, index) => {
         const medals = ["🥇", "🥈", "🥉"];
         const medal = medals[index] || `▫️`;
@@ -166,13 +166,13 @@ ${stats.lastSpins?.slice(-5).map((spin, i) =>
       });
 
       const jackpotMessage = `
-🎰 ━━━━━━━ PROGRESSIVE JACKPOT ━━━━━━ 🎰
+🎰  PROGRESSIVE JACKPOT  🎰
 
 🏆 CURRENT JACKPOT: ${totalJackpot.toLocaleString()}
 💰 MINIMUM WIN: ${(totalJackpot * 0.5).toLocaleString()}
 💎 MAXIMUM WIN: ${(totalJackpot * 2).toLocaleString()}
 
-━━━━━━ HOW TO WIN ━━━━━━
+══════════════════════════════ HOW TO WIN 
 • Land on 🏆 JACKPOT segment
 • Win the entire progressive pool
 • Jackpot resets after win
@@ -275,7 +275,7 @@ ${stats.lastSpins?.slice(-5).map((spin, i) =>
     // ========== SPIN ANIMATION ==========
     let spinMessage;
     try {
-      spinMessage = await api.sendMessage("╭─── 𝐈𝐍𝐅𝐎 ───╮\n│ 🎡 Initializing Premium Wheel...\n╰──────────────╯", threadID);
+      spinMessage = await api.sendMessage("╔═══ 𝐈𝐍𝐅𝐎 ═══╗\n║ 🎡 Initializing Premium Wheel...\n╚══════════════════╝", threadID);
     } catch (e) {
       console.error("Failed to send initial message:", e);
       return;
@@ -388,12 +388,12 @@ ${stats.lastSpins?.slice(-5).map((spin, i) =>
 
     // ========== RESULT MESSAGE ==========
     const resultLines = [
-      `🎡 ━━━━━━━ WHEEL RESULT ━━━━━━ 🎡`,
+      `🎡  WHEEL RESULT  🎡`,
       ``,
       `🎯 SEGMENT: ${result.emoji} ${result.label}`,
       `💰 BET AMOUNT: ${bet.toLocaleString()}`,
       `📈 MULTIPLIER: ${result.multiplier.toFixed(2)}x`,
-      `━━━━━━━━━━━━━━━━━━━━`
+      ``
     ];
 
     if (baseWinnings > 0) {
@@ -417,7 +417,7 @@ ${stats.lastSpins?.slice(-5).map((spin, i) =>
     }
 
     resultLines.push(
-      `━━━━━━━━━━━━━━━━━━━━`,
+      ``,
       `💵 TOTAL WINNINGS: ${totalWinnings > 0 ? '+' : ''}${totalWinnings.toLocaleString()}`,
       `💰 NEW BALANCE: ${finalBalance.toLocaleString()}`,
       `🎡 SPINS LEFT: ${MAX_PLAYS - validSpins.length}/${MAX_PLAYS}`,
@@ -438,7 +438,7 @@ ${stats.lastSpins?.slice(-5).map((spin, i) =>
         );
       } else if (totalWinnings > bet * 3) {
         await new Promise(resolve => setTimeout(resolve, 1000));
-        await api.sendMessage("╭─── 𝐈𝐍𝐅𝐎 ───╮\n│ 🎉 INCREDIBLE WIN! THE WHEEL FAVORS YOU! 🎉\n╰──────────────╯", threadID);
+        await api.sendMessage("╔═══ 𝐈𝐍𝐅𝐎 ═══╗\n║ 🎉 INCREDIBLE WIN! THE WHEEL FAVORS YOU! 🎉\n╚══════════════════╝", threadID);
       }
     } catch (e) {
       console.error("Failed to edit message:", e);

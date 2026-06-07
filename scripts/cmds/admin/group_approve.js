@@ -28,17 +28,17 @@ module.exports = {
         const targetID = args[1];
 
         if (!action || !["approve", "deny"].includes(action) || !targetID) {
-            return message.reply(`╭─── 𝐒𝐘𝐒𝐓𝐄𝐌 ───╮\n│ ⚠️ Invalid usage!\n│ Guide: {pn} approve/deny <userID>\n╰────── ───╯`);
+            return message.reply(`╔═══ 𝐒𝐘𝐒𝐓𝐄𝐌 ═══╗\n║ ⚠️ Invalid usage!\n║ Guide: {pn} approve/deny <userID>\n╚══════════════════╝`);
         }
 
-        message.reply(`╭─── 𝐒𝐘𝐒𝐓𝐄𝐌 ───╮\n│ ⏳ Processing ${action} for ${targetID}...\n╰────── ───╯`);
+        message.reply(`╔═══ 𝐒𝐘𝐒𝐓𝐄𝐌 ═══╗\n║ ⏳ Processing ${action} for ${targetID}...\n╚══════════════════╝`);
 
         try {
             await api.handleGroupPendingMember(threadID, targetID, action);
-            return message.reply(`╭─── 𝐒𝐔𝐂𝐂𝐄𝐒𝐒 ───╮\n│ ✅ Successfully ${action}ed user ${targetID}!\n╰────── ───╯`);
+            return message.reply(`╔═══ 𝐒𝐔𝐂𝐂𝐄𝐒𝐒 ═══╗\n║ ✅ Successfully ${action}ed user ${targetID}!\n╚══════════════════╝`);
         } catch (err) {
             console.error(err);
-            return message.reply(`╭─── 𝐄𝐑𝐑𝐎𝐑 ───╮\n│ ❌ Failed to ${action} user.\n│ Error: ${err.errorDescription || err.message || "Unknown error"}\n╰────── ───╯`);
+            return message.reply(`╔═══ 𝐄𝐑𝐑𝐎𝐑 ═══╗\n║ ❌ Failed to ${action} user.\n║ Error: ${err.errorDescription || err.message || "Unknown error"}\n╚══════════════════╝`);
         }
     }
 };

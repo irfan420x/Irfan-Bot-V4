@@ -57,7 +57,7 @@ module.exports = {
 
 				if (args[0] === "-e") {
 					const eventFile = args[1];
-					if (!eventFile) return api.sendMessage("╭─── 𝐈𝐍𝐅𝐎 ───╮\n│ ⚠ | Please provide a filename after -e.\n╰──────────────╯", event.threadID, event.messageID);
+					if (!eventFile) return api.sendMessage("╔═══ 𝐈𝐍𝐅𝐎 ═══╗\n║ ⚠ | Please provide a filename after -e.\n╚══════════════════╝", event.threadID, event.messageID);
 					fileName = eventFile.endsWith(".js") ? eventFile : `${eventFile}.js`;
 					filePath = xfind(eventsPath, fileName);
 				} else if (args.length >= 2) {
@@ -82,7 +82,7 @@ module.exports = {
 				code = await fs.promises.readFile(filePath, "utf-8");
 			}
 			else {
-				return api.sendMessage("╭─── 𝐈𝐍𝐅𝐎 ───╮\n│ ⚠ | Please reply with code OR provide a file name.\n╰──────────────╯", event.threadID, event.messageID);
+				return api.sendMessage("╔═══ 𝐈𝐍𝐅𝐎 ═══╗\n║ ⚠ | Please reply with code OR provide a file name.\n╚══════════════════╝", event.threadID, event.messageID);
 			}
 
 			const encoded = encodeURIComponent(code);

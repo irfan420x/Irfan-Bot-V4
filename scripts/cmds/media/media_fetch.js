@@ -19,14 +19,14 @@ module.exports = {
     const mediaType = args[1] ? args[1].toLowerCase() : null; // 'image' or 'video'
 
     if (isNaN(limit) || limit <= 0) {
-      return message.reply("╭─── 𝐄𝐑𝐑𝐎𝐑 ───╮\n│ Please provide a valid limit (a positive number).\n╰────── ──────╯");
+      return message.reply("╔═══ 𝐄𝐑𝐑𝐎𝐑 ═══╗\n║ Please provide a valid limit (a positive number).\n╚══════════════════╝");
     }
 
     if (mediaType && mediaType !== "image" && mediaType !== "video") {
-      return message.reply("╭─── 𝐄𝐑𝐑𝐎𝐑 ───╮\n│ Invalid media type. Please use 'image' or 'video'.\n╰────── ──────╯");
+      return message.reply("╔═══ 𝐄𝐑𝐑𝐎𝐑 ═══╗\n║ Invalid media type. Please use 'image' or 'video'.\n╚══════════════════╝");
     }
 
-    message.reply("╭─── 𝐒𝐘𝐒𝐓𝐄𝐌 ───╮\n│ Fetching shared media, please wait...\n╰────── ──────╯");
+    message.reply("╔═══ 𝐒𝐘𝐒𝐓𝐄𝐌 ═══╗\n║ Fetching shared media, please wait...\n╚══════════════════╝");
 
     try {
       if (!api.getThreadMedia) {
@@ -36,11 +36,11 @@ module.exports = {
       api.getThreadMedia(threadID, limit, (err, data) => {
         if (err) {
           console.error("Error fetching thread media:", err);
-          return message.reply(`╭─── 𝐄𝐑𝐑𝐎𝐑 ───╮\n│ Failed to fetch media: ${err.error || err.message || err}\n╰────── ──────╯`);
+          return message.reply(`╔═══ 𝐄𝐑𝐑𝐎𝐑 ═══╗\n║ Failed to fetch media: ${err.error || err.message || err}\n╚══════════════════╝`);
         }
 
         if (!data || !data.thread || !data.thread.message_shared_media) {
-          return message.reply("╭─── 𝐈𝐍𝐅𝐎 ───╮\n│ No shared media found in this thread.\n╰────── ──────╯");
+          return message.reply("╔═══ 𝐈𝐍𝐅𝐎 ═══╗\n║ No shared media found in this thread.\n╚══════════════════╝");
         }
 
         const mediaEdges = data.thread.message_shared_media.edges;
@@ -62,20 +62,20 @@ module.exports = {
         }
 
         if (filteredMedia.length === 0) {
-          return message.reply(`╭─── 𝐈𝐍𝐅𝐎 ───╮\n│ No ${mediaType || ""} media found matching your criteria.\n╰────── ──────╯`);
+          return message.reply(`╔═══ 𝐈𝐍𝐅𝐎 ═══╗\n║ No ${mediaType || ""} media found matching your criteria.\n╚══════════════════╝`);
         }
 
-        let responseMsg = `╭─── 𝐒𝐇𝐀𝐑𝐄𝐃 𝐌𝐄𝐃𝐈𝐀 (${mediaType || "All"}) ───╮\n`;
+        let responseMsg = `╔═══ 𝐒𝐇𝐀𝐑𝐄𝐃 𝐌𝐄𝐃𝐈𝐀 (${mediaType || "All"}) ═══╗\n`;
         filteredMedia.forEach((url, index) => {
-          responseMsg += `│ ${index + 1}. ${url}\n`;
+          responseMsg += `║ ${index + 1}. ${url}\n`;
         });
-        responseMsg += `╰────── ───────╯`;
+        responseMsg += `╚══════════════════╝`;
 
         message.reply(responseMsg);
       });
     } catch (error) {
       console.error("Unexpected error in mediafetch command:", error);
-      message.reply(`╭─── 𝐄𝐑𝐑𝐎𝐑 ───╮\n│ An unexpected error occurred:\n│ ${error.message}\n╰────── ──────╯`);
+      message.reply(`╔═══ 𝐄𝐑𝐑𝐎𝐑 ═══╗\n║ An unexpected error occurred:\n║ ${error.message}\n╚══════════════════╝`);
     }
   }
 };

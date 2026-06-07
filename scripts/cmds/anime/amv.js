@@ -75,12 +75,12 @@ module.exports = {
       if (stats.size === 0) throw new Error("Empty file");
 
       
-      const styledBody = `┏━━━━━━━━━━━━━┓
+      const styledBody = `┏┓
 🎬 Anime Edit Incoming!
 💠 Title: ${data.title || "Unknown"}
 📊 Size: ${data.size || "Unknown"}
 💖 Watch & feel the hype!
-┗━━━━━━━━━━━━━┛`;
+┗┛`;
 
       api.sendMessage(
         {

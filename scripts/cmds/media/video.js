@@ -28,7 +28,7 @@ module.exports = {
   },
 
   onStart: async function({ api, event, args }) {
-    if (!args.length) return api.sendMessage("╭─── 𝐈𝐍𝐅𝐎 ───╮\n│ ❌ Missing video name\n╰──────────────╯", event.threadID, event.messageID);
+    if (!args.length) return api.sendMessage("╔═══ 𝐈𝐍𝐅𝐎 ═══╗\n║ ❌ Missing video name\n╚══════════════════╝", event.threadID, event.messageID);
     const G = args.join(" ");
     try {
       const H = await D(G);
@@ -68,7 +68,7 @@ module.exports = {
     
     const R = parseInt(event.body.trim());
     if (isNaN(R) || R < 1 || R > Reply.videos.length) {
-      return api.sendMessage("╭─── 𝐈𝐍𝐅𝐎 ───╮\n│ ❌ Invalid selection. Choose 1-6.\n╰──────────────╯", event.threadID, event.messageID);
+      return api.sendMessage("╔═══ 𝐈𝐍𝐅𝐎 ═══╗\n║ ❌ Invalid selection. Choose 1-6.\n╚══════════════════╝", event.threadID, event.messageID);
     }
 
     if (Reply.listMessageID) {

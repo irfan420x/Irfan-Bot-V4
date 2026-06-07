@@ -32,9 +32,9 @@ const sendPage = async (
 
   const body =
 `📦 GROUP CHATS LIST
-━━━━━━━━━━━━━━━━━━
+══════════════════════════════
 ${msg}
-━━━━━━━━━━━━━━━━━━
+══════════════════════════════
 
 📄 Page: ${page}/${totalPages}
 

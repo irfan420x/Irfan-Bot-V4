@@ -58,7 +58,7 @@ module.exports = {
 			const BASE_API = rawData.ncazad;
 
 			if (!BASE_API) {
-				return message.reply("╭─── 𝐈𝐍𝐅𝐎 ───╮\n│ ❌ base API not found in RAW JSON\n╰──────────────╯");
+				return message.reply("╔═══ 𝐈𝐍𝐅𝐎 ═══╗\n║ ❌ base API not found in RAW JSON\n╚══════════════════╝");
 			}
 
 			const apiUrl =
@@ -90,15 +90,15 @@ module.exports = {
 			writer.on("finish", async () => {
 				await message.reply({
 					body:
-`━━━━━━━━━━━━━━━━━━━━━
+`
 ✅ TikTok Video Fetched!
-━━━━━━━━━━━━━━━━━━━━━
+══════════════════════════════
 🔍 Search : ${query}
 🎞️ Title  : ${title}
 🗣️ Creator: ${author}
 
 👤 Made by: Team noobCore
-━━━━━━━━━━━━━━━━━━━━━`,
+══════════════════════════════`,
 					attachment: fs.createReadStream(filePath)
 				});
 

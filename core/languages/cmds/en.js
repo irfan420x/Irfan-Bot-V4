@@ -345,10 +345,10 @@ module.exports = {
 		description: "View command usage",
 		guide: "{pn} [empty | <page number> | <command name>]",
 		text: {
-			help: "╭─────────────⭓\n%1\n├─────⭔\n│ Page [ %2/%3 ]\n│ Currently, the bot has %4 commands that can be used\n│ » Type %5help <page> to view the command list\n│ » Type %5help to view the details of how to use that command\n├────────⭔\n│ %6\n╰─────────────⭓",
-			help2: "%1├───────⭔\n│ » Currently, the bot has %2 commands that can be used\n│ » Type %3help <command name> to view the details of how to use that command\n│ %4\n╰─────────────⭓",
+			help: "╔─────────────⭓\n%1\n╠══════════════════╣⭔\n║ Page [ %2/%3 ]\n║ Currently, the bot has %4 commands that can be used\n║ » Type %5help <page> to view the command list\n║ » Type %5help to view the details of how to use that command\n╠══════════════════╣⭔\n║ %6\n╚══════════════════╝⭓",
+			help2: "%1╠══════════════════╣⭔\n║ » Currently, the bot has %2 commands that can be used\n║ » Type %3help <command name> to view the details of how to use that command\n║ %4\n╚══════════════════╝⭓",
 			commandNotFound: "Command \"%1\" does not exist",
-			getInfoCommand: "╭── NAME ────⭓\n│ %1\n├── INFO\n│ Description: %2\n│ Other names: %3\n│ Other names in your group: %4\n│ Version: %5\n│ Role: %6\n│ Time per command: %7s\n│ Author: %8\n├── Usage\n%9\n├── Notes\n│ The content inside <XXXXX> can be changed\n│ The content inside [a|b|c] is a or b or c\n╰──────⭔",
+			getInfoCommand: "╔── NAME ────⭓\n║ %1\n╠══════════════════╣ INFO\n║ Description: %2\n║ Other names: %3\n║ Other names in your group: %4\n║ Version: %5\n║ Role: %6\n║ Time per command: %7s\n║ Author: %8\n╠══════════════════╣ Usage\n%9\n╠══════════════════╣ Notes\n║ The content inside <XXXXX> can be changed\n║ The content inside [a|b|c] is a or b or c\n╚══════════════════╝⭔",
 			doNotHave: "Do not have",
 			roleText0: "0 (All users)",
 			roleText1: "1 (Group administrators)",

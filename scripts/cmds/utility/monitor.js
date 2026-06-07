@@ -4,9 +4,9 @@ const API_BASE = "https://sakura-uptime-monitor.onrender.com/api";
 const WEBSITE_URL = "https://sakura-uptime-monitor.onrender.com";
 
 /*
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+══════════════════════════════
 🔑 HOW TO GET YOUR API KEY
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+══════════════════════════════
 
 1. Visit:
    https://sakura-uptime-monitor.onrender.com
@@ -18,7 +18,7 @@ const WEBSITE_URL = "https://sakura-uptime-monitor.onrender.com";
 4. Copy your API Key (example: su_xxxxxxxxxxxxxxxxx)
 
 5. Paste it below.
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+══════════════════════════════
 */
 
 const API_KEY = "PASTE_YOUR_API_KEY_HERE";
@@ -117,7 +117,7 @@ module.exports = {
 
     if (action === "add") {
       if (!args[1])
-        return api.sendMessage("╭─── 𝐈𝐍𝐅𝐎 ───╮\n│ ⚠ URL is required.\n╰──────────────╯", threadID, messageID);
+        return api.sendMessage("╔═══ 𝐈𝐍𝐅𝐎 ═══╗\n║ ⚠ URL is required.\n╚══════════════════╝", threadID, messageID);
 
       const res = await request("/add", { url: args[1] });
       if (!res.success)
@@ -160,18 +160,18 @@ module.exports = {
 
     if (action === "delete") {
       if (!args[1])
-        return api.sendMessage("╭─── 𝐈𝐍𝐅𝐎 ───╮\n│ ⚠ Monitor ID is required.\n╰──────────────╯", threadID, messageID);
+        return api.sendMessage("╔═══ 𝐈𝐍𝐅𝐎 ═══╗\n║ ⚠ Monitor ID is required.\n╚══════════════════╝", threadID, messageID);
 
       const res = await request("/delete", { id: args[1] });
       if (!res.success)
         return api.sendMessage(res.message, threadID, messageID);
 
-      return api.sendMessage("╭─── 𝐒𝐔𝐂𝐂𝐄𝐒𝐒 ───╮\n│ 🗑 Monitor removed successfully.\n╰──────────────╯", threadID, messageID);
+      return api.sendMessage("╔═══ 𝐒𝐔𝐂𝐂𝐄𝐒𝐒 ═══╗\n║ 🗑 Monitor removed successfully.\n╚══════════════════╝", threadID, messageID);
     }
 
     if (action === "logs") {
       if (!args[1])
-        return api.sendMessage("╭─── 𝐈𝐍𝐅𝐎 ───╮\n│ ⚠ Monitor ID is required.\n╰──────────────╯", threadID, messageID);
+        return api.sendMessage("╔═══ 𝐈𝐍𝐅𝐎 ═══╗\n║ ⚠ Monitor ID is required.\n╚══════════════════╝", threadID, messageID);
 
       const res = await request("/logs", { id: args[1] });
       if (!res.success || !res.data.length)
@@ -195,6 +195,6 @@ module.exports = {
       return api.sendMessage(msg.trim(), threadID, messageID);
     }
 
-    return api.sendMessage("╭─── 𝐈𝐍𝐅𝐎 ───╮\n│ ❌ Invalid command usage.\n╰──────────────╯", threadID, messageID);
+    return api.sendMessage("╔═══ 𝐈𝐍𝐅𝐎 ═══╗\n║ ❌ Invalid command usage.\n╚══════════════════╝", threadID, messageID);
   }
 };

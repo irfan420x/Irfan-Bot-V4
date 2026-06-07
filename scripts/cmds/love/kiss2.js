@@ -26,7 +26,7 @@ module.exports = {
             mentionID = args[0];
         }
 
-        if (!mentionID) return api.sendMessage("╭─── 𝐈𝐍𝐅𝐎 ───╮\n│ Please mention someone, reply to a message, or provide a UID! 🌧️\n╰──────────────╯", threadID, messageID);
+        if (!mentionID) return api.sendMessage("╔═══ 𝐈𝐍𝐅𝐎 ═══╗\n║ Please mention someone, reply to a message, or provide a UID! 🌧️\n╚══════════════════╝", threadID, messageID);
 
         try {
             const senderInfo = await usersData.get(senderID);
@@ -87,7 +87,7 @@ module.exports = {
 
         } catch (error) {
             console.error(error);
-            return api.sendMessage("╭─── 𝐄𝐑𝐑𝐎𝐑 ───╮\n│ An error occurred while processing the image.\n╰──────────────╯", threadID, messageID);
+            return api.sendMessage("╔═══ 𝐄𝐑𝐑𝐎𝐑 ═══╗\n║ An error occurred while processing the image.\n╚══════════════════╝", threadID, messageID);
         }
     }
 };
