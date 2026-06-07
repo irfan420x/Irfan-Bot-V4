@@ -11,7 +11,7 @@ const CONFIG = {
     avatarCache: {},
     avatarCacheDuration: 5 * 60 * 1000, 
     facebookTokens: ["6628568379|c1e620fa708a1d5696fb991c1bde5662"],
-    defaultAvatar: require("path").join(__dirname, "../../assets/images/rank_avatar.png"),
+    defaultAvatar: require("path").join(__dirname, "../../../assets/images/rank_avatar.png"),
 };
 function ensureDir(dirPath) {
     if (!fs.existsSync(dirPath)) {

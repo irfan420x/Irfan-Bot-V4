@@ -35,25 +35,22 @@ module.exports = {
 (Reply দাও A, B, C বা D) 
 ╚══════════════════╝`;
 
-      api.sendMessage(
+      const info = await api.sendMessage(
         { body },
         event.threadID,
-        async (err, info) => {
-          if (err) return;
-
-          global.irfbot.ncReply.set(info.messageID, {
-            commandName: this.config.name,
-            type: "reply",
-            messageID: info.messageID,
-            author: event.senderID,
-            correctAnswer: answer.trim(),
-            chances: 3,
-            answered: false,
-            options
-          });
-        },
         event.messageID
       );
+
+      global.irfbot.ncReply.set(info.messageID, {
+        commandName: this.config.name,
+        type: "reply",
+        messageID: info.messageID,
+        author: event.senderID,
+        correctAnswer: answer.trim(),
+        chances: 3,
+        answered: false,
+        options
+      });
     } catch (err) {
       console.error(err);
       api.sendMessage("╔═══ 𝐈𝐍𝐅𝐎 ═══╗\n║ ❌ কুইজ ডাটা আনতে সমস্যা হয়েছে!\n╚══════════════════╝", event.threadID, event.messageID);

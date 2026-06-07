@@ -31,8 +31,8 @@ module.exports = {
 					+ "\n   + {userID}: ID của thành viên"
 					+ "\n\n   Ví dụ: (xem ảnh)",
 				attachment: {
-					[`${__dirname}/assets/guide/setname_1.png`]: require("path").join(__dirname, "../../assets/images/guide_setname.png"),
-					[`${__dirname}/assets/guide/setname_2.png`]: require("path").join(__dirname, "../../assets/images/guide_setname.png")
+					[`${__dirname}/assets/guide/setname_1.png`]: require("path").join(__dirname, "../../../assets/images/guide_setname.png"),
+					[`${__dirname}/assets/guide/setname_2.png`]: require("path").join(__dirname, "../../../assets/images/guide_setname.png")
 				}
 			},
 			en: {
@@ -44,8 +44,8 @@ module.exports = {
 					+ "\n   + {userID}: ID of member"
 					+ "\n\n   Example: (see image)",
 				attachment: {
-					[`${__dirname}/assets/guide/setname_1.png`]: require("path").join(__dirname, "../../assets/images/guide_setname.png"),
-					[`${__dirname}/assets/guide/setname_2.png`]: require("path").join(__dirname, "../../assets/images/guide_setname.png")
+					[`${__dirname}/assets/guide/setname_1.png`]: require("path").join(__dirname, "../../../assets/images/guide_setname.png"),
+					[`${__dirname}/assets/guide/setname_2.png`]: require("path").join(__dirname, "../../../assets/images/guide_setname.png")
 				}
 			}
 		}
@@ -66,7 +66,8 @@ module.exports = {
 		let nickname = args.join(" ");
 
 		if (args[0] === "all" || mentions.includes(event.threadID)) {
-			uids = (await api.getThreadInfo(event.threadID)).participantIDs;
+			const threadInfo = await api.getThreadInfo(event.threadID);
+uids = threadInfo.participantIDs || (threadInfo.userInfo || []).map(u => u.id);
 			nickname = args[0] === "all" ? args.slice(1).join(" ") : nickname.replace(event.mentions[event.threadID], "").trim();
 		}
 		else if (mentions.length) {

@@ -51,35 +51,32 @@ module.exports = {
 ⏳ You have 1 minute 30 seconds!
 💡 You have 3 chances! Reply with A, B, C or D.`);
 
-      api.sendMessage(
+      const info = await api.sendMessage(
         { body, attachment: imageStream.data },
         event.threadID,
-        async (err, info) => {
-          if (err) return;
-
-          global.irfbot.ncReply.set(info.messageID, {
-            commandName: this.config.name,
-            type: "reply",
-            messageID: info.messageID,
-            author: event.senderID,
-            correctAnswer: answer,
-            chances: 3,
-            answered: false
-          });
-
-          setTimeout(async () => {
-            const quizData = global.irfbot.ncReply.get(info.messageID);
-            if (quizData && !quizData.answered) {
-              await api.unsendMessage(info.messageID);
-              const msg = await toFont(`⏰ Time's up!
-✅ The correct option was: ${answer}`);
-              api.sendMessage(msg, event.threadID);
-              global.GoatBot.onReply.delete(info.messageID);
-            }
-          }, 90000);
-        },
         event.messageID
       );
+
+      global.irfbot.ncReply.set(info.messageID, {
+        commandName: this.config.name,
+        type: "reply",
+        messageID: info.messageID,
+        author: event.senderID,
+        correctAnswer: answer,
+        chances: 3,
+        answered: false
+      });
+
+      setTimeout(async () => {
+        const quizData = global.irfbot.ncReply.get(info.messageID);
+        if (quizData && !quizData.answered) {
+          await api.unsendMessage(info.messageID);
+          const msg = await toFont(`⏰ Time's up!
+✅ The correct option was: ${answer}`);
+          api.sendMessage(msg, event.threadID);
+          global.irfbot.ncReply.delete(info.messageID);
+        }
+      }, 90000);
     } catch (err) {
       console.error(err);
       const failMsg = await toFont("❌ Failed to fetch flag data.");

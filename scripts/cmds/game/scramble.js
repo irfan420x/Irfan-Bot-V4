@@ -50,8 +50,7 @@ module.exports = {
 				`║ ⏱️ Time: 30 Seconds\n` +
 				`╚══════════════════╝`;
 
-			api.sendMessage(body, event.threadID, (err, info) => {
-				if (err) return;
+			const info = await api.sendMessage(body, event.threadID, event.messageID);
 
 				if (!global.irfbot) global.irfbot = {};
 				if (!global.irfbot.ncReply) global.irfbot.ncReply = new Map();
@@ -69,10 +68,10 @@ module.exports = {
 					const gameState = global.irfbot.ncReply.get(info.messageID);
 					if (gameState && !gameState.isEnded) {
 						gameState.isEnded = true;
-						api.sendMessage(`╔═══ 𝐓𝐈𝐌𝐄'𝐒 𝐔𝐏 ═══╗\\n║ ⏰ Game Over!\\n║ ✅ Word: **${originalWord}**\\n╚══════════════════╝`, event.threadID, () => { global.irfbot.ncReply.delete(info.messageID); });
+						api.sendMessage(`╔═══ 𝐓𝐈𝐌𝐄'𝐒 𝐔𝐏 ═══╗\n║ ⏰ Game Over!\n║ ✅ Word: **${originalWord}**\n╚══════════════════╝`, event.threadID);
+						global.irfbot.ncReply.delete(info.messageID);
 					}
 				}, 30000);
-			}, event.messageID);
 
 		} catch (error) {
 			api.sendMessage("╔═══ 𝐄𝐑𝐑𝐎𝐑 ═══╗\n║ ❌ Game failed\n╚══════════════════╝", event.threadID, event.messageID);

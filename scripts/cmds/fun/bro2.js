@@ -48,7 +48,7 @@ module.exports = {
       ]);
 
       const bgURL =
-        require("path").join(__dirname, "../../assets/images/bro2.png");
+        require("path").join(__dirname, "../../../assets/images/bro2.png");
 
       const [senderAvatar, targetAvatar, baseImage] = await Promise.all([
         loadImage(senderAvatarUrl),

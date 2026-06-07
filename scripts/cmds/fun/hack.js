@@ -31,7 +31,7 @@ module.exports = {
 
       const id = Object.keys(event.mentions)[0] || event.senderID;
       const userInfo = await api.getUserInfo(id);
-      const name = userInfo[id].name;
+      const name = userInfo[id]?.name || "Unknown";
 
       const finalImage = await axios.get(
         `${baseApi}/api/hack?id=${encodeURIComponent(id)}&name=${encodeURIComponent(name)}`,

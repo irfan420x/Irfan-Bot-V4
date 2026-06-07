@@ -192,12 +192,11 @@ module.exports = {
 		else if (["remove", "reset", "-r", "-rm"].includes(type)) {
 			if (role < 1)
 				return message.reply(getLang("noPermissionRemove"));
-			message.reply(getLang("confirmRemove"), (err, info) => {
-				global.irfbot.onReaction.set(info.messageID, {
-					commandName: "rules",
-					messageID: info.messageID,
-					author: senderID
-				});
+			const info4 = await message.reply(getLang("confirmRemove"));
+			global.irfbot.onReaction.set(info4.messageID, {
+				commandName: "rules",
+				messageID: info4.messageID,
+				author: senderID
 			});
 		}
 		else if (!isNaN(type)) {
@@ -226,7 +225,8 @@ module.exports = {
 		const totalRules = rulesOfThread.length;
 		if (num > totalRules)
 			return message.reply(`${getLang("rulesNotExist", num)}, ${totalRules == 0 ? getLang("noRules") : getLang("numberRules", totalRules)}`);
-		message.reply(`${num}. ${rulesOfThread[num - 1]}`, () => message.unsend(Reply.messageID));
+		message.reply(`${num}. ${rulesOfThread[num - 1]}`);
+		message.unsend(Reply.messageID);
 	},
 
 	onReaction: async ({ threadsData, message, Reaction, event, getLang }) => {

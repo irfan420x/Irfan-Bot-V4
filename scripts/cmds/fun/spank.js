@@ -49,7 +49,7 @@ module.exports = {
         loadImage(senderAvatarUrl),
         loadImage(targetAvatarUrl),
         loadImage(
-          require("path").join(__dirname, "../../assets/images/spank.png")
+          require("path").join(__dirname, "../../../assets/images/spank.png")
         )
       ]);
 

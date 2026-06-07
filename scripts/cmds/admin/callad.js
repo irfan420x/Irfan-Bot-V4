@@ -138,9 +138,8 @@ module.exports = {
 					)
 				};
 
-				api.sendMessage(formMessage, threadID, (err, info) => {
-					if (err)
-						return message.err(err);
+				try {
+					const info = await api.sendMessage(formMessage, threadID, messageIDSender);
 					message.reply(getLang("replyUserSuccess"));
 					global.irfbot.ncReply.set(info.messageID, {
 						commandName,
@@ -149,7 +148,9 @@ module.exports = {
 						threadID: event.threadID,
 						type: "adminReply"
 					});
-				}, messageIDSender);
+				} catch (err) {
+					return message.err(err);
+				}
 				break;
 			}
 			case "adminReply": {
@@ -169,9 +170,8 @@ module.exports = {
 					)
 				};
 
-				api.sendMessage(formMessage, threadID, (err, info) => {
-					if (err)
-						return message.err(err);
+				try {
+					const info = await api.sendMessage(formMessage, threadID, messageIDSender);
 					message.reply(getLang("replySuccess"));
 					global.irfbot.ncReply.set(info.messageID, {
 						commandName,
@@ -180,7 +180,9 @@ module.exports = {
 						threadID: event.threadID,
 						type: "userCallAdmin"
 					});
-				}, messageIDSender);
+				} catch (err) {
+					return message.err(err);
+				}
 				break;
 			}
 			default: {

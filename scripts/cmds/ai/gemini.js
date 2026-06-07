@@ -66,12 +66,12 @@ module.exports = {
 
       api.setMessageReaction("✅", event.messageID, event.threadID, () => {}, true);
 
-      api.sendMessage(reply, event.threadID, (err, i) => {
-        if (!i) return;
+      const info = await api.sendMessage(reply, event.threadID, event.messageID);
+      if (info) {
         if (!imageUrl) {
-          global.irfbot.ncReply.set(i.messageID, { commandName: this.config.name, author: event.senderID });
+          global.irfbot.ncReply.set(info.messageID, { commandName: this.config.name, author: event.senderID });
         }
-      }, event.messageID);
+      }
 
     } catch (e) {
       console.error("Gemini Command Error:", e.message);
@@ -106,10 +106,10 @@ module.exports = {
 
       api.setMessageReaction("✅", event.messageID, event.threadID, () => {}, true);
 
-      api.sendMessage(reply, event.threadID, (err, i) => {
-        if (!i) return;
-        global.GoatBot.onReply.set(i.messageID, { commandName: this.config.name, author: event.senderID });
-      }, event.messageID);
+      const info = await api.sendMessage(reply, event.threadID, event.messageID);
+      if (info) {
+        global.irfbot.ncReply.set(info.messageID, { commandName: this.config.name, author: event.senderID });
+      }
 
     } catch (e) {
       api.setMessageReaction("❌", event.messageID, event.threadID, () => {}, true);

@@ -34,13 +34,13 @@ module.exports = {
 
       api.setMessageReaction("✅", messageID, threadID, () => {}, true);
       
-      api.sendMessage(reply, threadID, (err, info) => {
-        if (!info) return;
+      const info = await api.sendMessage(reply, threadID, messageID);
+      if (info) {
         global.irfbot.ncReply.set(info.messageID, {
           commandName: this.config.name,
           author: senderID
         });
-      }, messageID);
+      }
 
     } catch (error) {
       console.error("[DeepSeek Error]", error.message);
@@ -65,13 +65,13 @@ module.exports = {
 
       api.setMessageReaction("✅", event.messageID, event.threadID, () => {}, true);
       
-      api.sendMessage(reply, event.threadID, (err, info) => {
-        if (!info) return;
+      const info = await api.sendMessage(reply, event.threadID, event.messageID);
+      if (info) {
         global.irfbot.ncReply.set(info.messageID, {
           commandName: this.config.name,
           author: event.senderID
         });
-      }, event.messageID);
+      }
 
     } catch (error) {
       api.setMessageReaction("❌", event.messageID, event.threadID, () => {}, true);

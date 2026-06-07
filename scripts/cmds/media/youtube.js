@@ -57,21 +57,19 @@ module.exports = {
 
       const w = await Promise.all(r.map(x => f(x.thumbnail)));
 
-      i.sendMessage(
+      const info = await i.sendMessage(
         { body: s + "\nReply 1-6", attachment: w },
         k.threadID,
-        (err, y) => {
-          global.irfbot.ncReply.set(y.messageID, {
-            commandName: l,
-            messageID: y.messageID,
-            author: k.senderID,
-            results: r,
-            type: n,
-            baseApi: e
-          });
-        },
         k.messageID
       );
+      global.irfbot.ncReply.set(info.messageID, {
+        commandName: l,
+        messageID: info.messageID,
+        author: k.senderID,
+        results: r,
+        type: n,
+        baseApi: e
+      });
     } catch {
       i.sendMessage("❌ YouTube search failed.", k.threadID, k.messageID);
     }

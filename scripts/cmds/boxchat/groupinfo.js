@@ -17,7 +17,7 @@ module.exports = {
   onStart: async function ({ api, event }) {
     try {
       const threadInfo = await api.getThreadInfo(event.threadID);
-      const memCount = threadInfo.participantIDs.length;
+      const memCount = (threadInfo.userInfo || []).length || (threadInfo.participantIDs || []).length || 0;
       const genderMale = [];
       const genderFemale = [];
       const genderUnknown = [];
@@ -31,8 +31,8 @@ module.exports = {
       }
 
       for (const admin of threadInfo.adminIDs) {
-        const info = await api.getUserInfo(admin.id);
-        adminList.push(info[admin.id].name);
+        const info = await api.getUserInfo(admin.id).catch(() => ({}));
+        adminList.push(info[admin.id]?.name || "Unknown");
       }
 
       const approvalMode = threadInfo.approvalMode ? "✅ On" : "❌ Off";
@@ -55,7 +55,7 @@ module.exports = {
 👑 𝗔𝗱𝗺𝗶𝗻𝘀:
 ${adminList.map(name => `• ${name}`).join("\n")}
 ══════════════════════════════
-🧠 𝗠𝗮𝗱𝗲 𝗯𝘆 𝐍𝐨𝐨𝐛𝐂𝐨𝐫𝐞 💙`;
+🧠 𝗠𝗮𝗱𝗲 𝗯𝘆 𝐈𝐑𝐅𝐁𝐎𝐓 💙`;
 
       const cachePath = path.join(__dirname, "cache", "groupinfo.jpg");
       fs.ensureDirSync(path.join(__dirname, "cache"));

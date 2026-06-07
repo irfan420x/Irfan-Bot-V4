@@ -196,20 +196,21 @@ async function sendPage(api, event, allResults, page, query) {
         attachment: attachments
       },
       event.threadID,
-      (err, info) => {
-        if (!err) {
-          global.irfbot.ncReply.set(info.messageID, {
-            commandName: "tiktok2",
-            author: event.senderID,
-            results: allResults,
-            query,
-            page,
-            resultMsgID: info.messageID
-          });
-        }
-        resolve();
-      },
       event.messageID
-    );
+    ).then((info) => {
+      if (info) {
+        global.irfbot.ncReply.set(info.messageID, {
+          commandName: "tiktok2",
+          author: event.senderID,
+          results: allResults,
+          query,
+          page,
+          resultMsgID: info.messageID
+        });
+      }
+      resolve();
+    }).catch(() => {
+      resolve();
+    });
   });
 }

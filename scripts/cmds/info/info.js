@@ -45,24 +45,21 @@ module.exports = {
   onStart: async function ({ api, event }) {
     const message = this.langs.en.infoMessage;
 
-    await api.sendMessage(message, event.threadID, (error, info) => {
-      if (error) return console.log(error);
+    const info = await api.sendMessage(message, event.threadID, event.messageID);
 
-      // Reply handler
-      global.irfbot.ncReply.set(info.messageID, {
-        commandName: this.config.name,
-        messageID: info.messageID,
-        author: event.senderID
-      });
+    // Reply handler
+    global.irfbot.ncReply.set(info.messageID, {
+      commandName: this.config.name,
+      messageID: info.messageID,
+      author: event.senderID
+    });
 
-      // Reaction handler
-      global.irfbot.ncReaction.set(info.messageID, {
-        commandName: this.config.name,
-        messageID: info.messageID,
-        author: event.senderID
-      });
-
-    }, event.messageID);
+    // Reaction handler
+    global.irfbot.ncReaction.set(info.messageID, {
+      commandName: this.config.name,
+      messageID: info.messageID,
+      author: event.senderID
+    });
   },
 
   // Handle Reply

@@ -196,15 +196,14 @@ module.exports = {
 		const messageData = message.reply(`${getLang("created")}\n\n${getLang("gameGuide", row)}\n\n${getLang("gameNote")}\n\n${getLang("replyToPlayGame", col)}`);
 		gameData.messageData = messageData;
 
-		message.reply({
+		const info1 = await message.reply({
 			attachment: gameData.imageStream
-		}, (err, info) => {
-			global.irfbot.ncReply.set(info.messageID, {
-				commandName,
-				messageID: info.messageID,
-				author: event.senderID,
-				gameData
-			});
+		});
+		global.irfbot.ncReply.set(info1.messageID, {
+			commandName,
+			messageID: info1.messageID,
+			author: event.senderID,
+			gameData
 		});
 	},
 
@@ -222,16 +221,15 @@ module.exports = {
 		const gameData = guessNumberGame(oldGameData);
 
 		if (gameData.isWin == null) {
-			message.reply({
+			const info2 = await message.reply({
 				attachment: gameData.imageStream
-			}, (err, info) => {
-				message.unsend(Reply.messageID);
-				global.irfbot.ncReply.set(info.messageID, {
-					commandName,
-					messageID: info.messageID,
-					author: event.senderID,
-					gameData
-				});
+			});
+			message.unsend(Reply.messageID);
+			global.irfbot.ncReply.set(info2.messageID, {
+				commandName,
+				messageID: info2.messageID,
+				author: event.senderID,
+				gameData
 			});
 		}
 		else {

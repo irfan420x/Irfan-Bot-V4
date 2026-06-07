@@ -28,9 +28,9 @@ async function downloadSong(baseApi, url, api, event, title = null) {
     await api.sendMessage(
       { body: `• ${songTitle}`, attachment: b.createReadStream(filePath) },
       event.threadID,
-      () => b.unlinkSync(filePath),
       event.messageID
     );
+    b.unlinkSync(filePath);
   } catch (err) {
     console.error(err);
     api.sendMessage(`❌ Failed to download song: ${err.message}`, event.threadID, event.messageID);
@@ -83,8 +83,9 @@ module.exports = {
       e.sendMessage(
         { body: msg + "Reply with number (1-6) to download song", attachment: thumbs },
         f.threadID,
-        (err, info) => {
-          if (err) return console.error(err);
+        f.messageID
+      ).then((info) => {
+        if (info) {
           global.irfbot.ncReply.set(info.messageID, {
             results,
             messageID: info.messageID,
@@ -92,9 +93,8 @@ module.exports = {
             commandName: cmd,
             baseApi
           });
-        },
-        f.messageID
-      );
+        }
+      }).catch((err) => console.error(err));
     } catch (err) {
       console.error(err);
       e.sendMessage("❌ Failed to search YouTube.", f.threadID, f.messageID);

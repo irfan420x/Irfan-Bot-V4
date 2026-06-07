@@ -41,7 +41,7 @@ module.exports = {
 
       // Download sanda image if missing
       if (!fs.existsSync(bgPath)) {
-        const imgUrl = require("path").join(__dirname, "../../assets/images/sanda.png");
+        const imgUrl = require("path").join(__dirname, "../../../assets/images/sanda.png");
         const res = await axios.get(imgUrl, { responseType: "arraybuffer" });
         fs.writeFileSync(bgPath, res.data);
       }

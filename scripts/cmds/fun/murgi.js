@@ -30,7 +30,7 @@ module.exports = {
       const cacheDir = path.join(__dirname, "cache");
       if (!fs.existsSync(cacheDir)) fs.mkdirSync(cacheDir);
       const templatePath = path.join(cacheDir, "murgi_base.png");
-      const imgUrl = require("path").join(__dirname, "../../assets/images/murgi.png");
+      const imgUrl = require("path").join(__dirname, "../../../assets/images/murgi.png");
       if (!fs.existsSync(templatePath)) {
         const res = await axios.get(imgUrl, { responseType: "arraybuffer" });
         fs.outputFileSync(templatePath, res.data);

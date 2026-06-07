@@ -44,7 +44,7 @@ module.exports = {
       const [kickerAvatar, kickedAvatar, baseImage] = await Promise.all([
         loadImage(kickerAvatarUrl),
         loadImage(kickedAvatarUrl),
-        loadImage(require("path").join(__dirname, "../../assets/images/punch.png"))
+        loadImage(require("path").join(__dirname, "../../../assets/images/punch.png"))
       ]);
 
       const canvas = createCanvas(baseImage.width, baseImage.height);

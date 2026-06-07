@@ -148,7 +148,7 @@ ${top.map((u, i) =>
       "data.colorAll": allStats
     });
 
-    api.sendMessage(
+    const info = await api.sendMessage(
 `
 🎨 COLOR PICK
 ══════════════════════════════
@@ -161,17 +161,15 @@ ${top.map((u, i) =>
 • Limit : ${todayStats.play}/${dailyLimit}
 • Reply 1 / 2 / 3
 ══════════════════════════════`,
-      threadID,
-      (err, info) => {
-        global.irfbot.ncReply.set(info.messageID, {
-          commandName: this.config.name,
-          author: senderID,
-          bet,
-          options,
-          correct
-        });
-      }
+      threadID
     );
+    global.irfbot.ncReply.set(info.messageID, {
+      commandName: this.config.name,
+      author: senderID,
+      bet,
+      options,
+      correct
+    });
   },
 
   ncReply: async function ({ Reply, api, event, usersData }) {

@@ -55,14 +55,14 @@ module.exports = {
         onStart: async function ({ message, event, args, threadsData, getLang, commandName }) {
                 if (["-r", "-react", "-reaction"].includes(args[0])) {
                         if (args[1] == "set") {
-                                return message.reply(getLang("inputEmoji"), (err, info) =>
-                                        global.irfbot.onReaction.set(info.messageID, {
-                                                type: "setEmoji",
-                                                commandName,
-                                                messageID: info.messageID,
-                                                authorID: event.senderID
-                                        })
-                                );
+                                const info = await message.reply(getLang("inputEmoji"));
+                                global.irfbot.onReaction.set(info.messageID, {
+                                        type: "setEmoji",
+                                        commandName,
+                                        messageID: info.messageID,
+                                        authorID: event.senderID
+                                });
+                                return;
                         }
                         const isEnable = args[1] == "on" ? true : args[1] == "off" ? false : null;
                         if (isEnable == null)

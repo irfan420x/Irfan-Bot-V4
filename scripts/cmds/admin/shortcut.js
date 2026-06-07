@@ -115,18 +115,17 @@ module.exports = {
 
 				const alreadyExists = shortCutData.find(item => item.key == key);
 				if (alreadyExists) {
-					if (alreadyExists.author == senderID)
-						return message.reply(getLang('shortcutExists', key), async (err, info) => {
-							if (err)
-								return;
-							global.irfbot.onReaction.set(info.messageID, {
-								commandName,
-								messageID: info.messageID,
-								author: senderID,
-								type: 'replaceContent',
-								newShortcut: await createShortcut(key, content, attachments, threadID, senderID)
-							});
+					if (alreadyExists.author == senderID) {
+						const info = await message.reply(getLang('shortcutExists', key));
+						global.irfbot.onReaction.set(info.messageID, {
+							commandName,
+							messageID: info.messageID,
+							author: senderID,
+							type: 'replaceContent',
+							newShortcut: await createShortcut(key, content, attachments, threadID, senderID)
 						});
+						return;
+					}
 					else
 						return message.reply(getLang('shortcutExistsByOther'));
 				}
@@ -216,16 +215,13 @@ module.exports = {
 			case 'rm': {
 				if (threadID != senderID && role < 1)
 					return message.reply(getLang('onlyAdminRemoveAll'));
-				message.reply(getLang('confirmRemoveAll'), (err, info) => {
-					if (err)
-						return;
-					global.irfbot.onReaction.set(info.messageID, {
-						commandName,
-						messageID: info.messageID,
-						author: senderID,
-						type: 'removeAll'
-					});
-				});
+				const info3 = await message.reply(getLang('confirmRemoveAll'));
+			global.irfbot.onReaction.set(info3.messageID, {
+				commandName,
+				messageID: info3.messageID,
+				author: senderID,
+				type: 'removeAll'
+			});
 				break;
 			}
 			default:

@@ -42,19 +42,18 @@ module.exports = {
 		const datagame = (await axios.get("https://goatbotserver.onrender.com/api/duoihinhbatchu")).data;
 		const { wordcomplete, casi, image1, image2 } = datagame.data;
 
-		message.reply({
+		const info = await message.reply({
 			body: getLang("reply", wordcomplete.replace(/\S/g, "█ ")) + (casi ? getLang("isSong", casi) : ''),
 			attachment: [
 				await getStreamFromURL(image1),
 				await getStreamFromURL(image2)
 			]
-		}, (err, info) => {
-			global.irfbot.ncReply.set(info.messageID, {
-				commandName,
-				messageID: info.messageID,
-				author: event.senderID,
-				wordcomplete
-			});
+		});
+		global.irfbot.ncReply.set(info.messageID, {
+			commandName,
+			messageID: info.messageID,
+			author: event.senderID,
+			wordcomplete
 		});
 	},
 

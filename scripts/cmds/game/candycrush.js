@@ -230,7 +230,7 @@ async function getTopPlayers(api, usersData) {
   const res=[];
   for(const u of top){
     const info = await new Promise(r =>
-      api.getUserInfo(u.userID,(e,d)=>r(d?.[u.userID]))
+      api.getUserInfo(u.userID).then(d=>r(d?.[u.userID]))
     );
     if(info) res.push({ username: info.name, coins: u.money });
   }

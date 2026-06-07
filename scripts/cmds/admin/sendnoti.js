@@ -195,18 +195,19 @@ module.exports = {
 									threadID: tid,
 									threadName
 								});
-							api.sendMessage(formSend, tid, (err) => {
-								if (err)
-									reject({
-										...err,
-										threadID: tid,
-										threadName
-									});
+							try {
+								await api.sendMessage(formSend, tid);
 								resolve({
 									threadID: tid,
 									threadName
 								});
-							});
+							} catch (err) {
+								reject({
+									...err,
+									threadID: tid,
+									threadName
+								});
+							}
 						})
 					);
 				}

@@ -21,7 +21,7 @@ module.exports = {
 
       const info = await api.getThreadInfo(supportGroupThreadID);
 
-      const isMember = info.participantIDs.includes(event.senderID);
+      const isMember = (info.participantIDs || []).includes(event.senderID);
 
       if (isMember) {
         return message.reply(

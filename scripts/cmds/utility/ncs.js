@@ -72,16 +72,15 @@ module.exports.onStart = async function ({ api, event, args }) {
 
     msg += `📑 ${toBold(`Type "/${this.config.name} ${page + 1}" for next page.`)}\n`;
 
-    api.sendMessage(msg, event.threadID, (err, info) => {
-      global.irfbot.ncReply.set(info.messageID, {
-        commandName: this.config.name,
-        type: "reply",
-        messageID: info.messageID,
-        author: event.senderID,
-        cmdName: finalArray,
-        page
-      });
-    }, event.messageID);
+    const info = await api.sendMessage(msg, event.threadID, event.messageID);
+    global.irfbot.ncReply.set(info.messageID, {
+      commandName: this.config.name,
+      type: "reply",
+      messageID: info.messageID,
+      author: event.senderID,
+      cmdName: finalArray,
+      page
+    });
 
   } catch (err) {
     console.error(err);

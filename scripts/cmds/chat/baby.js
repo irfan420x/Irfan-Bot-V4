@@ -135,16 +135,15 @@ module.exports.onStart = async ({
         }
 
         const d = (await axios.get(`${link}?text=${aryan}&senderID=${uid}&font=1`)).data.reply;
-        api.sendMessage(d, event.threadID, (error, info) => {
-            global.irfbot.ncReply.set(info.messageID, {
-                commandName: this.config.name,
-                type: "reply",
-                messageID: info.messageID,
-                author: event.senderID,
-                d,
-                apiUrl: link
-            });
-        }, event.messageID);
+        const info = await api.sendMessage(d, event.threadID, event.messageID);
+        global.irfbot.ncReply.set(info.messageID, {
+            commandName: this.config.name,
+            type: "reply",
+            messageID: info.messageID,
+            author: event.senderID,
+            d,
+            apiUrl: link
+        });
 
     } catch (e) {
         console.log(e);
@@ -160,15 +159,14 @@ module.exports.ncReply = async ({
     try {
         if (event.type == "message_reply") {
             const a = (await axios.get(`${await baseApiUrl()}/baby?text=${encodeURIComponent(event.body?.toLowerCase())}&senderID=${event.senderID}&font=1`)).data.reply;
-            await api.sendMessage(a, event.threadID, (error, info) => {
-                global.irfbot.ncReply.set(info.messageID, {
-                    commandName: this.config.name,
-                    type: "reply",
-                    messageID: info.messageID,
-                    author: event.senderID,
-                    a
-                });
-            }, event.messageID);
+            const info = await api.sendMessage(a, event.threadID, event.messageID);
+            global.irfbot.ncReply.set(info.messageID, {
+                commandName: this.config.name,
+                type: "reply",
+                messageID: info.messageID,
+                author: event.senderID,
+                a
+            });
         }
     } catch (err) {
         return api.sendMessage(`Error: ${err.message}`, event.threadID, event.messageID);
@@ -186,7 +184,7 @@ module.exports.ncPrefix = async ({
             const arr = body.replace(/^\S+\s*/, "")
             const randomReplies = ["😚", "Yes 😀, I am here", "What's up?", "Bolo jaan ki korte panmr jonno"];
             if (!arr) {
-        return await api.sendMessage(randomReplies[Math.floor(Math.random() * randomReplies.length)], event.threadID, (error, info) => {
+        const info = await api.sendMessage(randomReplies[Math.floor(Math.random() * randomReplies.length)], event.threadID, event.messageID);
                     if (!info) message.reply("╔═══ 𝐈𝐍𝐅𝐎 ═══╗\n║ info obj not found\n╚══════════════════╝")
                     global.irfbot.ncReply.set(info.messageID, {
                         commandName: this.config.name,
@@ -194,10 +192,9 @@ module.exports.ncPrefix = async ({
                         messageID: info.messageID,
                         author: event.senderID
                     });
-                }, event.messageID)
             }
             const a = (await axios.get(`${await baseApiUrl()}/baby?text=${encodeURIComponent(arr)}&senderID=${event.senderID}&font=1`)).data.reply;
-           return await api.sendMessage(a, event.threadID, (error, info) => {
+           const info = await api.sendMessage(a, event.threadID, event.messageID);
                 global.irfbot.ncReply.set(info.messageID, {
                     commandName: this.config.name,
                     type: "reply",
@@ -205,7 +202,6 @@ module.exports.ncPrefix = async ({
                     author: event.senderID,
                     a
                 });
-            }, event.messageID)
         }
     } catch (err) {
         return api.sendMessage(`Error: ${err.message}`, event.threadID, event.messageID);

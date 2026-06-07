@@ -28,7 +28,7 @@ module.exports = {
 					+ "\n\n   Ví dụ:"
 					+ "\n    {pn} file reset: xóa gửi file",
 				attachment: {
-					[`${__dirname}/assets/guide/setwelcome/setwelcome_vi_1.png`]: require("path").join(__dirname, "../../assets/images/guide_setwelcome.png")
+					[`${__dirname}/assets/guide/setwelcome/setwelcome_vi_1.png`]: require("path").join(__dirname, "../../../assets/images/guide_setwelcome.png")
 				}
 			},
 			en: {
@@ -45,7 +45,7 @@ module.exports = {
 					+ "\n\n   Example:"
 					+ "\n    {pn} file reset: delete file attachments",
 				attachment: {
-					[`${__dirname}/assets/guide/setwelcome/setwelcome_en_1.png`]: require("path").join(__dirname, "../../assets/images/guide_setwelcome.png")
+					[`${__dirname}/assets/guide/setwelcome/setwelcome_en_1.png`]: require("path").join(__dirname, "../../../assets/images/guide_setwelcome.png")
 				}
 			}
 		}

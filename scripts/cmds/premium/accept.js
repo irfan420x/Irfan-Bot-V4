@@ -129,17 +129,16 @@ module.exports = {
       msg += "⏳ 𝐓𝐡𝐢𝐬 𝐦𝐞𝐧𝐮 𝐰𝐢𝐥𝐥 𝐚𝐮𝐭𝐨-𝐝𝐞𝐥𝐞𝐭𝐞 𝐢𝐧 2 𝐦𝐢𝐧𝐮𝐭𝐞s.\n";
       msg += "╚═══════════════════╝";
 
-      api.sendMessage(msg, event.threadID, (e, info) => {
-        global.irfbot.ncReply.set(info.messageID, {
-          commandName,
-          messageID: info.messageID,
-          listRequest,
-          author: event.senderID,
-          unsendTimeout: setTimeout(() => {
-            api.unsendMessage(info.messageID);
-          }, 2 * 60 * 1000)
-        });
-      }, event.messageID);
+      const info = await api.sendMessage(msg, event.threadID, event.messageID);
+      global.irfbot.ncReply.set(info.messageID, {
+        commandName,
+        messageID: info.messageID,
+        listRequest,
+        author: event.senderID,
+        unsendTimeout: setTimeout(() => {
+          api.unsendMessage(info.messageID);
+        }, 2 * 60 * 1000)
+      });
 
     } catch (error) {
       console.error(error);
