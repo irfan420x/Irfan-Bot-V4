@@ -36,7 +36,7 @@ module.exports = {
       
       api.sendMessage(reply, threadID, (err, info) => {
         if (!info) return;
-        global.noobCore.ncReply.set(info.messageID, {
+        global.irfbot.ncReply.set(info.messageID, {
           commandName: this.config.name,
           author: senderID
         });
@@ -67,7 +67,7 @@ module.exports = {
       
       api.sendMessage(reply, event.threadID, (err, info) => {
         if (!info) return;
-        global.noobCore.ncReply.set(info.messageID, {
+        global.irfbot.ncReply.set(info.messageID, {
           commandName: this.config.name,
           author: event.senderID
         });

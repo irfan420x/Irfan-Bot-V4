@@ -281,7 +281,7 @@ module.exports = {
           // If sending with attachments failed, retry without them
           message.reply(replyMessage, (retryErr, retryInfo) => {
             if (retryErr) return;
-            global.noobCore.ncReply.set(retryInfo.messageID, {
+            global.irfbot.ncReply.set(retryInfo.messageID, {
               commandName,
               messageID: retryInfo.messageID,
               author: event.senderID,
@@ -292,7 +292,7 @@ module.exports = {
           return;
         }
         
-        global.noobCore.ncReply.set(info.messageID, {
+        global.irfbot.ncReply.set(info.messageID, {
           commandName,
           messageID: info.messageID,
           author: event.senderID,

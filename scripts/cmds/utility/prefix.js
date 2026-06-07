@@ -7,7 +7,7 @@ module.exports = {
     version: "1.3",
     modify: ["NC-Saimx69x & NC-Fahad"],
     author: "Irfan Ahmmed",
-    team: "NoobCore",
+    team: "IRFBOT",
     countDown: 10,
     role: 0,
     description: "Change the bot prefix in this chat or globally",
@@ -26,12 +26,12 @@ module.exports = {
         "   ↪ Refresh prefix cache for this chat\n" +
         "╚══════════════════╝‣ Just type: prefix\n" +
         "   ↪ Shows current prefix info\n" +
-        "🤖 I'm NoobCore V3, ready to help!"
+        "🤖 I'm IRFBOT V3, ready to help!"
     }
   },
 
   onStart: async function ({ message, role, args, commandName, event, threadsData, usersData }) {
-    const globalPrefix = global.noobCore.ncsetting.prefix;
+    const globalPrefix = global.irfbot.ncsetting.prefix;
     const userName = await usersData.getName(event.senderID) || "there";
 
     if (!args[0]) {
@@ -40,7 +40,7 @@ module.exports = {
         `👋 Hey ${userName}, did you ask for my prefix?\n` +
         `╔‣ 🌐 Global: ${globalPrefix}\n` +
         `╚══════════════════╝‣ 💬 This Chat: ${threadPrefix}\n` +
-        `🤖 I'm NoobCore V3\n📂 try "${threadPrefix}help" to see all commands.`
+        `🤖 I'm IRFBOT V3\n📂 try "${threadPrefix}help" to see all commands.`
       );
     }
 
@@ -50,7 +50,7 @@ module.exports = {
         `✅ Hey ${userName}, chat prefix has been reset!\n` +
         `╔‣ 🌐 Global: ${globalPrefix}\n` +
         `╚══════════════════╝‣ 💬 This Chat: ${globalPrefix}\n` +
-        `🤖 I'm NoobCore V3\n📂 try "${globalPrefix}help" to see all commands.`
+        `🤖 I'm IRFBOT V3\n📂 try "${globalPrefix}help" to see all commands.`
       );
     }
 
@@ -65,7 +65,7 @@ module.exports = {
           `🔄 Hey ${userName}, prefix cache has been refreshed!\n` +
           `╔‣ 🌐 Global: ${globalPrefix}\n` +
           `╚══════════════════╝‣ 💬 This Chat: ${refreshedPrefix}\n` +
-          `🤖 I'm NoobCore V3\n📂 try "${refreshedPrefix}help" to see all commands.`
+          `🤖 I'm IRFBOT V3\n📂 try "${refreshedPrefix}help" to see all commands.`
         );
       } catch (error) {
         return message.reply(`❌ Hey ${userName}, I couldn't refresh the prefix!`);
@@ -86,7 +86,7 @@ module.exports = {
     
     return message.reply(confirmMessage, (err, info) => {
       if (err) return;
-      global.noobCore.ncReaction.set(info.messageID, {
+      global.irfbot.ncReaction.set(info.messageID, {
         author: event.senderID,
         newPrefix,
         setGlobal,
@@ -102,9 +102,9 @@ module.exports = {
 
     if (setGlobal) {
       try {
-        global.noobCore.ncsetting.prefix = newPrefix;
+        global.irfbot.ncsetting.prefix = newPrefix;
         const configPath = global.client.dirConfig || path.join(process.cwd(), "config.json");
-        fs.writeFileSync(configPath, JSON.stringify(global.noobCore.ncsetting, null, 2));
+        fs.writeFileSync(configPath, JSON.stringify(global.irfbot.ncsetting, null, 2));
         return message.reply(`✅ Hey ${userName}, global prefix updated to: ${newPrefix}`);
       } catch (error) {
         return message.reply(`❌ Failed to save global prefix config.`);
@@ -126,14 +126,14 @@ module.exports = {
     if (!isTrigger) return;
     
     const userName = await usersData.getName(event.senderID) || "there";
-    const globalPrefix = global.noobCore.ncsetting.prefix;
+    const globalPrefix = global.irfbot.ncsetting.prefix;
     const threadPrefix = await threadsData.get(event.threadID, "data.prefix") || globalPrefix;
     
     return message.reply(
       `👋 Hey ${userName}, did you ask for my prefix?\n` +
       `╔‣ 🌐 Global: ${globalPrefix}\n` +
       `╚══════════════════╝‣ 💬 This Chat: ${threadPrefix}\n` +
-      `🤖 I'm NoobCore V3\n📂 try "${threadPrefix}help" to see all commands.`
+      `🤖 I'm IRFBOT V3\n📂 try "${threadPrefix}help" to see all commands.`
     );
   }
 };

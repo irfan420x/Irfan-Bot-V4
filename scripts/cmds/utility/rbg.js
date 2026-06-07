@@ -1,10 +1,10 @@
 const axios = require("axios");
 
-const noobcore =
+const apiConfig =
   "https://raw.githubusercontent.com/noobcore404/NC-STORE/main/NCApiUrl.json";
 
 async function getFahimApi() {
-  const res = await axios.get(noobcore, { timeout: 10000 });
+  const res = await axios.get(apiConfig, { timeout: 10000 });
   if (!res.data?.fahim) {
     throw new Error("fahim API not found");
   }
@@ -16,7 +16,7 @@ module.exports = {
     name: "rbg",
     version: "1.0",
     author: "Irfan Ahmmed", //Api by Fahim
-    team: "NoobCore", 
+    team: "IRFBOT", 
     shortDescription: "Remove background from image",
     longDescription: "Removes background from replied  image",
     guide: "{pn} (reply to image)",

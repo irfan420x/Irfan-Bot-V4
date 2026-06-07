@@ -6,7 +6,7 @@ module.exports = {
     aliases: ["qz"],
     version: "1.0",
     author: "Irfan Ahmmed",
-    team: "NoobCore",
+    team: "IRFBOT",
     countDown: 10,
     role: 0,
     guide: { en: "{pn} — Answer quiz questions and earn rewards!" }
@@ -14,8 +14,8 @@ module.exports = {
 
   onStart: async function ({ api, event }) {
     try {
-      const noobcore = "https://raw.githubusercontent.com/noobcore404/NC-STORE/main/NCApiUrl.json";
-      const rawRes = await axios.get(noobcore);
+      const apiConfig = "https://raw.githubusercontent.com/noobcore404/NC-STORE/main/NCApiUrl.json";
+      const rawRes = await axios.get(apiConfig);
       const quizApiBase = rawRes.data.apiv1;
 
       const { data } = await axios.get(`${quizApiBase}/api/quiz`);
@@ -41,7 +41,7 @@ module.exports = {
         async (err, info) => {
           if (err) return;
 
-          global.noobCore.ncReply.set(info.messageID, {
+          global.irfbot.ncReply.set(info.messageID, {
             commandName: this.config.name,
             type: "reply",
             messageID: info.messageID,
@@ -94,13 +94,13 @@ module.exports = {
 ║ 🏆 তুমি দুর্দান্ত করেছো!
 ╚══════════════════╝`;
 
-      global.noobCore.ncReply.delete(messageID);
+      global.irfbot.ncReply.delete(messageID);
       return api.sendMessage(correctMsg, event.threadID, event.messageID);
     } else {
       chances--;
 
       if (chances > 0) {
-        global.noobCore.ncReply.set(messageID, { ...Reply, chances });
+        global.irfbot.ncReply.set(messageID, { ...Reply, chances });
         const wrongTryMsg = `❌ ভুল উত্তর!
 🔁 তোমার হাতে আছে ${chances} বার সুযোগ! আবার চেষ্টা করো!`;
         return api.sendMessage(wrongTryMsg, event.threadID, event.messageID);

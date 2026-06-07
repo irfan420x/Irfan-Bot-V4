@@ -69,12 +69,12 @@ module.exports = {
                                         global.language[head] = {};
                                 global.language[head][key] = value;
                         }
-                        global.noobCore.ncsetting.language = langCode;
-                        fs.writeFileSync(global.client.dirConfig, JSON.stringify(global.noobCore.ncsetting, null, 2));
+                        global.irfbot.ncsetting.language = langCode;
+                        fs.writeFileSync(global.client.dirConfig, JSON.stringify(global.irfbot.ncsetting, null, 2));
                         return message.reply(getLang("setLangForAll", langCode));
                 }
 
                 await threadsData.set(event.threadID, langCode, "data.lang");
-                return message.reply((global.noobCore.commands.get("setlang")?.langs[langCode]?.setLangForCurrent || "Set default language for current chat: %1").replace("%1", langCode));
+                return message.reply((global.irfbot.commands.get("setlang")?.langs[langCode]?.setLangForCurrent || "Set default language for current chat: %1").replace("%1", langCode));
         }
 };

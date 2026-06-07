@@ -2,11 +2,11 @@ const axios = require("axios");
 const fs = require("fs-extra");
 const path = require("path");
 
-const noobcore =
+const apiConfig =
   "https://raw.githubusercontent.com/noobcore404/NC-STORE/main/NCApiUrl.json";
 
 async function getRenzApi() {
-  const res = await axios.get(noobcore, { timeout: 10000 });
+  const res = await axios.get(apiConfig, { timeout: 10000 });
   if (!res.data?.renz) {
     throw new Error("Renz API not found in JSON");
   }
@@ -19,7 +19,7 @@ module.exports = {
     aliases: ["fpu"],
     version: "1.0",
     author: "Irfan Ahmmed", // API by Renz
-    team: "NoobCore",
+    team: "IRFBOT",
     premium: true,
     countDown: 5,
     role: 0,
@@ -34,7 +34,7 @@ module.exports = {
   onStart: async function ({ message, event, args, api, commandName }) {
     const prefix = global.utils?.getPrefix
       ? global.utils.getPrefix(event.threadID)
-      : global.noobCore?.config?.prefix || "/";
+      : global.irfbot?.config?.prefix || "/";
 
     const prompt = args.join(" ").trim();
     if (!prompt) {

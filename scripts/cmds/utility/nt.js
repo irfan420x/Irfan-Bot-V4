@@ -58,7 +58,7 @@ module.exports = {
         (err, info) => {
           if (err) return;
 
-          global.noobCore.ncReply.set(info.messageID, {
+          global.irfbot.ncReply.set(info.messageID, {
             commandName: this.config.name,
             type: "reply",
             messageID: info.messageID,

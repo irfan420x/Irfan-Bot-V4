@@ -130,7 +130,7 @@ module.exports = {
       msg += "╚═══════════════════╝";
 
       api.sendMessage(msg, event.threadID, (e, info) => {
-        global.noobCore.ncReply.set(info.messageID, {
+        global.irfbot.ncReply.set(info.messageID, {
           commandName,
           messageID: info.messageID,
           listRequest,

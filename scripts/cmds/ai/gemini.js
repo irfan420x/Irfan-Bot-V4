@@ -69,7 +69,7 @@ module.exports = {
       api.sendMessage(reply, event.threadID, (err, i) => {
         if (!i) return;
         if (!imageUrl) {
-          global.noobCore.ncReply.set(i.messageID, { commandName: this.config.name, author: event.senderID });
+          global.irfbot.ncReply.set(i.messageID, { commandName: this.config.name, author: event.senderID });
         }
       }, event.messageID);
 

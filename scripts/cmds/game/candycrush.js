@@ -44,10 +44,10 @@ module.exports = {
 
     const board = generateBoard();
 
-    global.noobCoreCandy ??= {};
-    global.noobCore.ncReply ??= new Map();
+    global.irfbotCandy ??= {};
+    global.irfbot.ncReply ??= new Map();
 
-    global.noobCoreCandy[event.threadID] = {
+    global.irfbotCandy[event.threadID] = {
       board,
       initiator: event.senderID,
       lastTime: Date.now(),
@@ -63,13 +63,13 @@ module.exports = {
     );
 
     // ⭐ VERY IMPORTANT
-    global.noobCore.ncReply.set(sent.messageID, {
+    global.irfbot.ncReply.set(sent.messageID, {
       commandName: this.config.name, // 🔥 FIX
       author: event.senderID,
       threadID: event.threadID
     });
 
-    global.noobCoreCandy[event.threadID].messageID = sent.messageID;
+    global.irfbotCandy[event.threadID].messageID = sent.messageID;
 
     startInactivityTimer(api, event.threadID);
   },
@@ -78,13 +78,13 @@ module.exports = {
   ncReply: async function ({ event, message, api, usersData }) {
     if (!event.messageReply) return;
 
-    const replyData = global.noobCore.ncReply?.get(
+    const replyData = global.irfbot.ncReply?.get(
       event.messageReply.messageID
     );
     if (!replyData) return;
     if (replyData.author !== event.senderID) return;
 
-    const game = global.noobCoreCandy?.[event.threadID];
+    const game = global.irfbotCandy?.[event.threadID];
     if (!game) return;
 
     game.lastTime = Date.now();
@@ -143,8 +143,8 @@ module.exports = {
     );
 
     // 🔄 UPDATE REPLY TARGET
-    global.noobCore.ncReply.delete(event.messageReply.messageID);
-    global.noobCore.ncReply.set(sent.messageID, {
+    global.irfbot.ncReply.delete(event.messageReply.messageID);
+    global.irfbot.ncReply.set(sent.messageID, {
       commandName: this.config.name, // 🔥 FIX
       author: event.senderID,
       threadID: event.threadID
@@ -240,7 +240,7 @@ async function getTopPlayers(api, usersData) {
 // ================= END =================
 
 function endGame(api, tid, message, usersData) {
-  const g = global.noobCoreCandy?.[tid];
+  const g = global.irfbotCandy?.[tid];
   if (!g) return;
 
   removeCoins(g.initiator, g.bet, usersData);
@@ -251,13 +251,13 @@ function endGame(api, tid, message, usersData) {
 
   setTimeout(() => {
     api.unsendMessage(g.messageID);
-    delete global.noobCoreCandy[tid];
+    delete global.irfbotCandy[tid];
   }, 60000);
 }
 
 function startInactivityTimer(api, tid) {
   setTimeout(() => {
-    const g = global.noobCoreCandy?.[tid];
+    const g = global.irfbotCandy?.[tid];
     if (!g) return;
     if (Date.now() - g.lastTime >= 60000)
       endGame(api, tid, { reply: ()=>{} }, null);

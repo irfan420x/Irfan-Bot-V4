@@ -1,5 +1,5 @@
 const fs = require("fs-extra");
-const { config } = global.noobCore;
+const { config } = global.irfbot;
 const { client } = global;
 
 module.exports = {

@@ -1,5 +1,5 @@
 const fs = require("fs-extra");
-const { ncsetting } = global.noobCore;
+const { ncsetting } = global.irfbot;
 const { client } = global;
 const config = ncsetting;
 

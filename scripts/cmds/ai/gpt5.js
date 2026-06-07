@@ -34,7 +34,7 @@ module.exports = {
 
       message.reply(Ans, (err, info) => {
         api.setMessageReaction("✅", event.messageID, event.threadID);
-        global.noobCore.ncReply.set(info.messageID, {
+        global.irfbot.ncReply.set(info.messageID, {
           commandName: "gpt",
           author: event.senderID
         });
@@ -67,7 +67,7 @@ module.exports = {
 
       message.reply(Ans, (err, info) => {
         api.setMessageReaction("✅", event.messageID, event.threadID);
-        global.noobCore.ncReply.set(info.messageID, {
+        global.irfbot.ncReply.set(info.messageID, {
           commandName: "gpt",
           author: event.senderID
         });

@@ -49,7 +49,7 @@ module.exports = {
       ]);
 
       const bgURL =
-        "https://raw.githubusercontent.com/Toshiro6t9/Bzsb/refs/heads/main/6f676d2d9ecbb564f42e08a0196832e5.jpg";
+        require("path").join(__dirname, "../../assets/images/bro.png");
 
       const [senderAvatar, targetAvatar, baseImage] = await Promise.all([
         loadImage(senderAvatarUrl),
@@ -90,7 +90,7 @@ module.exports = {
         (err, info) => {
           if (err) return;
 
-          global.noobCore.ncReply.set(info.messageID, {
+          global.irfbot.ncReply.set(info.messageID, {
             commandName: "bro",
             author: senderID,
             targetID

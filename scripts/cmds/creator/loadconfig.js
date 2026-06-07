@@ -26,8 +26,8 @@ module.exports = {
         },
 
         onStart: async function ({ message, getLang }) {
-                global.noobCore.ncsetting = fs.readJsonSync(global.client.dirConfig);
-                global.noobCore.configCommands = fs.readJsonSync(global.client.dirConfigCommands);
+                global.irfbot.ncsetting = fs.readJsonSync(global.client.dirConfig);
+                global.irfbot.configCommands = fs.readJsonSync(global.client.dirConfigCommands);
                 message.reply(getLang("success"));
         }
 };

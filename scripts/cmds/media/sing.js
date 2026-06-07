@@ -43,7 +43,7 @@ module.exports = {
     aliases: ["music", "play"],
     version: "0.0.1",
     author: "Irfan Ahmmed",
-    team: "NoobCore", 
+    team: "IRFBOT", 
     countDown: 5,
     role: 0,
     shortDescription: "Sing tomake chai",
@@ -85,7 +85,7 @@ module.exports = {
         f.threadID,
         (err, info) => {
           if (err) return console.error(err);
-          global.noobCore.ncReply.set(info.messageID, {
+          global.irfbot.ncReply.set(info.messageID, {
             results,
             messageID: info.messageID,
             author: f.senderID,

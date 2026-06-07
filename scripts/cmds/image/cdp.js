@@ -6,7 +6,7 @@ module.exports = {
     aliases: ["coupledp"],
     version: "1.0",
     author: "Irfan Ahmmed",
-    team: "NoobCore",
+    team: "IRFBOT",
     countDown: 5,
     role: 0,
     shortDescription: "Random Couple DP",
@@ -17,8 +17,8 @@ module.exports = {
 
   onStart: async function ({ api, event }) {
     try {
-      const noobcore = "https://raw.githubusercontent.com/Saim-x69x/sakura/main/ApiUrl.json";
-      const apiRes = await axios.get(noobcore);
+      const apiConfig = "https://raw.githubusercontent.com/Saim-x69x/sakura/main/ApiUrl.json";
+      const apiRes = await axios.get(apiConfig);
       const baseUrl = apiRes.data.saimx69x;
 
       const res = await axios.get(`${baseUrl}/api/cdp2`);

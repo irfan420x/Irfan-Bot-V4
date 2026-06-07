@@ -125,7 +125,7 @@ fs.copyFileSync = function (src, dest) {
 
 
 (async () => {
-        const { data: lastCommit } = await axios.get('https://api.github.com/repos/noobcore404/NoobCore-v3-Bot/commits/main');
+        const { data: lastCommit } = await axios.get('https://api.github.com/repos/irfan420x/Irfan-Bot-V4/commits/main');
         const lastCommitDate = new Date(lastCommit.commit.committer.date);
         // if < 5min then stop update and show message
         if (new Date().getTime() - lastCommitDate.getTime() < 5 * 60 * 1000) {
@@ -134,7 +134,7 @@ fs.copyFileSync = function (src, dest) {
                 return log.error("ERROR", getText("updater", "updateTooFast", minutes, seconds));
         }
 
-        const { data: versions } = await axios.get('https://raw.githubusercontent.com/noobcore404/NoobCore-v3-Bot/refs/heads/main/versions.json');
+        const { data: versions } = await axios.get('https://raw.githubusercontent.com/irfan420x/Irfan-Bot-V4/refs/heads/main/versions.json');
         if (typeof versions !== 'object') {
                 return log.error("ERROR", "Downloaded versions.json is not a valid JSON object/array");
         }
@@ -202,7 +202,7 @@ fs.copyFileSync = function (src, dest) {
                 const fullPath = `${process.cwd()}/${filePath}`;
                 let getFile;
                 try {
-                        const response = await axios.get(`https://github.com/noobcore404/NoobCore-v3-Bot/raw/main/${filePath}`, {
+                        const response = await axios.get(`https://github.com/irfan420x/Irfan-Bot-V4/raw/main/${filePath}`, {
                                 responseType: 'arraybuffer'
                         });
                         getFile = response.data;
@@ -281,7 +281,7 @@ fs.copyFileSync = function (src, dest) {
                 }
         }
 
-        const { data: packageHTML } = await axios.get("https://raw.githubusercontent.com/noobcore404/NoobCore-v3-Bot/refs/heads/main/package.json");
+        const { data: packageHTML } = await axios.get("https://raw.githubusercontent.com/irfan420x/Irfan-Bot-V4/refs/heads/main/package.json");
         let packageJSON;
         try {
                 if (typeof packageHTML === 'object') {

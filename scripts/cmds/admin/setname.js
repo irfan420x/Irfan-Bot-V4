@@ -31,8 +31,8 @@ module.exports = {
 					+ "\n   + {userID}: ID của thành viên"
 					+ "\n\n   Ví dụ: (xem ảnh)",
 				attachment: {
-					[`${__dirname}/assets/guide/setname_1.png`]: "https://i.ibb.co/gFh23zb/guide1.png",
-					[`${__dirname}/assets/guide/setname_2.png`]: "https://i.ibb.co/BNWHKgj/guide2.png"
+					[`${__dirname}/assets/guide/setname_1.png`]: require("path").join(__dirname, "../../assets/images/guide_setname.png"),
+					[`${__dirname}/assets/guide/setname_2.png`]: require("path").join(__dirname, "../../assets/images/guide_setname.png")
 				}
 			},
 			en: {
@@ -44,8 +44,8 @@ module.exports = {
 					+ "\n   + {userID}: ID of member"
 					+ "\n\n   Example: (see image)",
 				attachment: {
-					[`${__dirname}/assets/guide/setname_1.png`]: "https://i.ibb.co/gFh23zb/guide1.png",
-					[`${__dirname}/assets/guide/setname_2.png`]: "https://i.ibb.co/BNWHKgj/guide2.png"
+					[`${__dirname}/assets/guide/setname_1.png`]: require("path").join(__dirname, "../../assets/images/guide_setname.png"),
+					[`${__dirname}/assets/guide/setname_2.png`]: require("path").join(__dirname, "../../assets/images/guide_setname.png")
 				}
 			}
 		}

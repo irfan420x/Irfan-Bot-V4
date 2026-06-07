@@ -11,7 +11,7 @@ module.exports = {
       en: "Show bot information"
     },
     description: {
-      en: "Display detailed information about NoobCore Bot"
+      en: "Display detailed information about IRFBOT Bot"
     },
     category: "utility",
     guide: {
@@ -25,7 +25,7 @@ module.exports = {
 `╔══════════════════╗
 ║  🌟  ${"ＢＯＴ  ＩＮＦＯ"}  🌟  
 ╠══════════════════╣
-║ 🤖 Name: NoobCore-v3
+║ 🤖 Name: IRFBOT V4
 ║ ⚡ Version: 3.0
 ║ 👨‍💻 Dev: Noob Programmer
 ║ 🌐 Platform: Messenger
@@ -49,14 +49,14 @@ module.exports = {
       if (error) return console.log(error);
 
       // Reply handler
-      global.noobCore.ncReply.set(info.messageID, {
+      global.irfbot.ncReply.set(info.messageID, {
         commandName: this.config.name,
         messageID: info.messageID,
         author: event.senderID
       });
 
       // Reaction handler
-      global.noobCore.ncReaction.set(info.messageID, {
+      global.irfbot.ncReaction.set(info.messageID, {
         commandName: this.config.name,
         messageID: info.messageID,
         author: event.senderID
@@ -68,7 +68,7 @@ module.exports = {
   // Handle Reply
   ncReply: async function ({ api, event }) {
     const { body, threadID, messageID } = event;
-    const ncsetting = global.noobCore.ncsetting;
+    const ncsetting = global.irfbot.ncsetting;
 
     if (body === "1") {
       return api.sendMessage(

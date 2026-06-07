@@ -46,7 +46,7 @@ module.exports = {
 		name: "system",
 		version: "1.1",
 		author: "Irfan Ahmmed",
-		team: "NoobCore", 
+		team: "IRFBOT", 
 		countDown: 10,
 		role: 0,
 		guide: { en: "Shows dynamic system and bot information." }
@@ -81,8 +81,8 @@ module.exports = {
 				`║ ⏰ Time: ${now.format("HH:mm:ss")}\n` +
 				`╚══════════════════╝`;
 
-			const noobcore = "https://raw.githubusercontent.com/noobcore404/NC-STORE/main/NCApiUrl.json";
-			const rawRes = await axios.get(noobcore);
+			const apiConfig = "https://raw.githubusercontent.com/noobcore404/NC-STORE/main/NCApiUrl.json";
+			const rawRes = await axios.get(apiConfig);
 			const apiBase = rawRes.data.apiv1;
 			const apiUrl = `${apiBase}/api/uptime?ramLoad=${ramLoad}&cpuLoad=${cpuLoad}&diskLoad=${diskLoad}&sysUptime=${sysUptime}&botUptime=${botUptime}&cpuCores=${cpuCores}&totalRam=${totalRam}&nodeVersion=${nodeVersion}&cpuModel=${encodeURIComponent(cpuModel)}`;
 

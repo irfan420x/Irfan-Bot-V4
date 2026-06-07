@@ -3,7 +3,7 @@ module.exports = {
     name: "pending",
     version: "1.0",
     author: "Irfan Ahmmed",
-    team: "NoobCore",
+    team: "IRFBOT",
     countDown: 5,
     role: 2,
     shortDescription: {
@@ -78,7 +78,7 @@ module.exports = {
 
       const targetThreadID = Reply.pending[i - 1].threadID;
       const prefix = global.utils.getPrefix(targetThreadID);
-      const nickNameBot = global.noobCore.ncsetting.nickNameBot || "NoobCore";
+      const nickNameBot = global.irfbot.ncsetting.nickNameBot || "IRFBOT";
 
       try {
         await api.changeNickname(nickNameBot, targetThreadID, BOT_UID);
@@ -118,7 +118,7 @@ module.exports = {
         getLang("returnListPending", list.length, msg),
         threadID,
         (err, info) => {
-          global.noobCore.ncReply.set(info.messageID, {
+          global.irfbot.ncReply.set(info.messageID, {
             commandName,
             messageID: info.messageID,
             author: event.senderID,

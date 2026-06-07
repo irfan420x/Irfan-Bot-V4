@@ -274,7 +274,7 @@ async function handleMessage(message, event, usersData, api, question) {
 
       if (!info) return;
 
-      global.noobCore.ncReply.set(info.messageID, {
+      global.irfbot.ncReply.set(info.messageID, {
         commandName: "irfan",
         author: event.senderID
       });

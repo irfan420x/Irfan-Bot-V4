@@ -22,8 +22,8 @@ app.get('/api/stats', (req, res) => {
 
     res.json({
         uptime: `${days}d ${hours}h ${minutes}m ${seconds}s`,
-        prefix: global.noobCore?.ncsetting?.prefix || "Not loaded",
-        uid: global.noobCore?.botID || "Not running"
+        prefix: global.irfbot?.ncsetting?.prefix || "Not loaded",
+        uid: global.irfbot?.botID || "Not running"
     });
 });
 
@@ -32,7 +32,7 @@ module.exports = async (api) => {
     await require("./connectDB.js")();
   }
 
-  const PORT = global.noobCore.ncsetting.port || 5000;
+  const PORT = global.irfbot.ncsetting.port || 5000;
   server.listen(PORT, () => {
     console.log(`Server is listening on port ${PORT}`);
   });

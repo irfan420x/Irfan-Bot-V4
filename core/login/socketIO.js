@@ -5,7 +5,7 @@
  */
 const { Server } = require("socket.io");
 const { log, getText } = global.utils;
-const { config } = global.noobCore;
+const { config } = global.irfbot;
 
 module.exports = async (server) => {
 	const { channelName, verifyToken } = config.serverUptime.socket;

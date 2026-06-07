@@ -20,7 +20,7 @@ module.exports = {
     author: "Irfan Ahmmed",
     countDown: 5,
     role: 0,
-    team: "NoobCore",
+    team: "IRFBOT",
     shortDescription: "Download YouTube video interactively",
     longDescription: "Search YouTube display a list of 6 videos and download the selected one",
     category: "MUSIC",
@@ -52,7 +52,7 @@ module.exports = {
 
       const P = await api.sendMessage({ body: J, attachment: L }, event.threadID);
       
-      global.noobCore.ncReply.set(P.messageID, {
+      global.irfbot.ncReply.set(P.messageID, {
         commandName: this.config.name,
         author: event.senderID,
         videos: K,
@@ -109,7 +109,7 @@ module.exports = {
         if (B.existsSync(filePath)) B.unlinkSync(filePath);
       }, event.messageID);
 
-      global.noobCore.ncReply.delete(event.messageReply.messageID);
+      global.irfbot.ncReply.delete(event.messageReply.messageID);
     } catch (err) {
       api.unsendMessage(waitMsg.messageID);
       api.sendMessage(`❌ Error: ${err.message}`, event.threadID, event.messageID);

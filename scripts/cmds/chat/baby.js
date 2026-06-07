@@ -136,7 +136,7 @@ module.exports.onStart = async ({
 
         const d = (await axios.get(`${link}?text=${aryan}&senderID=${uid}&font=1`)).data.reply;
         api.sendMessage(d, event.threadID, (error, info) => {
-            global.noobCore.ncReply.set(info.messageID, {
+            global.irfbot.ncReply.set(info.messageID, {
                 commandName: this.config.name,
                 type: "reply",
                 messageID: info.messageID,
@@ -161,7 +161,7 @@ module.exports.ncReply = async ({
         if (event.type == "message_reply") {
             const a = (await axios.get(`${await baseApiUrl()}/baby?text=${encodeURIComponent(event.body?.toLowerCase())}&senderID=${event.senderID}&font=1`)).data.reply;
             await api.sendMessage(a, event.threadID, (error, info) => {
-                global.noobCore.ncReply.set(info.messageID, {
+                global.irfbot.ncReply.set(info.messageID, {
                     commandName: this.config.name,
                     type: "reply",
                     messageID: info.messageID,
@@ -188,7 +188,7 @@ module.exports.ncPrefix = async ({
             if (!arr) {
         return await api.sendMessage(randomReplies[Math.floor(Math.random() * randomReplies.length)], event.threadID, (error, info) => {
                     if (!info) message.reply("╔═══ 𝐈𝐍𝐅𝐎 ═══╗\n║ info obj not found\n╚══════════════════╝")
-                    global.noobCore.ncReply.set(info.messageID, {
+                    global.irfbot.ncReply.set(info.messageID, {
                         commandName: this.config.name,
                         type: "reply",
                         messageID: info.messageID,
@@ -198,7 +198,7 @@ module.exports.ncPrefix = async ({
             }
             const a = (await axios.get(`${await baseApiUrl()}/baby?text=${encodeURIComponent(arr)}&senderID=${event.senderID}&font=1`)).data.reply;
            return await api.sendMessage(a, event.threadID, (error, info) => {
-                global.noobCore.ncReply.set(info.messageID, {
+                global.irfbot.ncReply.set(info.messageID, {
                     commandName: this.config.name,
                     type: "reply",
                     messageID: info.messageID,

@@ -3,10 +3,10 @@ const fs = require("fs-extra");
 const path = require("path");
 
 const ownerInfo = {
-  name: "NoobCore",
-  facebook: "https://facebook.com/NoobCore",
-  telegram: "@noobcore404",
-  supportGroup: "https://m.me/noobcore404"
+  name: "IRFBOT",
+  facebook: "https://facebook.com/IRFBOT",
+  telegram: "@irfan420x",
+  supportGroup: "https://m.me/irfan420x"
 };
 
 module.exports = {
@@ -27,7 +27,7 @@ module.exports = {
     const isBotAdded = addedUsers.some(u => u.userFbId === botID);
     if (!isBotAdded) return;
 
-    const nickNameBot = global.noobCore.ncsetting.nickNameBot || "Sakura Bot";
+    const nickNameBot = global.irfbot.ncsetting.nickNameBot || "Sakura Bot";
     const prefix = global.utils.getPrefix(threadID);
     const BOT_UID = botID;
 
@@ -38,8 +38,8 @@ module.exports = {
     }
 
     try {
-      const noobcore = "https://raw.githubusercontent.com/noobcore404/NC-STORE/main/NCApiUrl.json";
-      const apiRes = await axios.get(noobcore);
+      const apiConfig = "https://raw.githubusercontent.com/noobcore404/NC-STORE/main/NCApiUrl.json";
+      const apiRes = await axios.get(apiConfig);
       const baseUrl = apiRes.data.apiv1;
 
       const apiUrl =

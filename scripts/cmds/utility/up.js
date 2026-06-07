@@ -73,7 +73,7 @@ module.exports = {
 		ctx.font = "22px Roboto";
 		ctx.shadowColor = "#00d5ff";
 		ctx.shadowBlur = 18;
-		ctx.fillText("team_noobCore", 50, 40);
+		ctx.fillText("IRFBOT", 50, 40);
 		
 		const labels = [
 			"Bot Uptime", "System Uptime", "CPU", "RAM Usage",
@@ -90,7 +90,7 @@ module.exports = {
 			hostname,
 			`${ping} ms`,
 			`${botMemory} MB`,
-			"Team_NoobCore"
+			"Team_IRFBOT"
 		];
 
 		const labelColors = [

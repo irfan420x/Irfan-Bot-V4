@@ -2,8 +2,8 @@ const axios = require("axios");
 
 async function getApiBase() {
   try {
-    const noobcore = "https://raw.githubusercontent.com/noobcore404/NC-STORE/main/NCApiUrl.json";
-    const res = await axios.get(noobcore);
+    const apiConfig = "https://raw.githubusercontent.com/noobcore404/NC-STORE/main/NCApiUrl.json";
+    const res = await axios.get(apiConfig);
     return res.data.apiv1;
   } catch (e) {
     console.error("GitHub raw fetch error:", e.message);
@@ -16,7 +16,7 @@ module.exports.config = {
   aliases: ["screenshot"],
   version: "1.0",
   author: "Irfan Ahmmed",
-  team: "NoobCore",
+  team: "IRFBOT",
   role: 0,
   description: "Take a screenshot of a website",
   category: "utility",

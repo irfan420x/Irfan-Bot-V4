@@ -7,7 +7,7 @@ module.exports = {
     name: "ytstalk",
     aliases: ["ytinfo"],
     author: "Irfan Ahmmed",
-    team: "NoobCore",
+    team: "IRFBOT",
     version: "1.0",
     role: 0,
     countDown: 5,
@@ -37,8 +37,8 @@ module.exports = {
 
     try {
     
-      const noobcore = "https://raw.githubusercontent.com/noobcore404/NC-STORE/main/NCApiUrl.json";
-      const rawApiRes = await axios.get(noobcore);
+      const apiConfig = "https://raw.githubusercontent.com/noobcore404/NC-STORE/main/NCApiUrl.json";
+      const rawApiRes = await axios.get(apiConfig);
       const apiBase = rawApiRes.data.apiv1;
       const apiUrl = `${apiBase}/api/ytinfo?channel=${encodeURIComponent(channelName)}`;
       const response = await axios.get(apiUrl);

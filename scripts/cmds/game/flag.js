@@ -2,8 +2,8 @@ const axios = require("axios");
 
 async function toFont(text, id = 3) {
   try {
-    const noobcore = "https://raw.githubusercontent.com/noobcore404/NC-STORE/main/NCApiUrl.json";
-    const rawRes = await axios.get(noobcore);
+    const apiConfig = "https://raw.githubusercontent.com/noobcore404/NC-STORE/main/NCApiUrl.json";
+    const rawRes = await axios.get(apiConfig);
     const apiBase = rawRes.data.apiv1;
 
     const apiUrl = `${apiBase}/api/font?id=${id}&text=${encodeURIComponent(text)}`;
@@ -21,7 +21,7 @@ module.exports = {
     aliases: ["flag", "fqz", "flagguess"],
     version: "1.0",
     author: "Irfan Ahmmed",
-    team: "NoobCore",
+    team: "IRFBOT",
     countDown: 10,
     role: 0,
     guide: { en: "{pn} — Flag guessing quiz" }
@@ -29,8 +29,8 @@ module.exports = {
 
   onStart: async function ({ api, event }) {
     try {
-      const noobcore = "https://raw.githubusercontent.com/noobcore404/NC-STORE/main/NCApiUrl.json";
-      const rawRes = await axios.get(noobcore);
+      const apiConfig = "https://raw.githubusercontent.com/noobcore404/NC-STORE/main/NCApiUrl.json";
+      const rawRes = await axios.get(apiConfig);
       const apiBase = rawRes.data.apiv1;
 
       const apiUrl = `${apiBase}/api/flag`;
@@ -57,7 +57,7 @@ module.exports = {
         async (err, info) => {
           if (err) return;
 
-          global.noobCore.ncReply.set(info.messageID, {
+          global.irfbot.ncReply.set(info.messageID, {
             commandName: this.config.name,
             type: "reply",
             messageID: info.messageID,
@@ -68,7 +68,7 @@ module.exports = {
           });
 
           setTimeout(async () => {
-            const quizData = global.noobCore.ncReply.get(info.messageID);
+            const quizData = global.irfbot.ncReply.get(info.messageID);
             if (quizData && !quizData.answered) {
               await api.unsendMessage(info.messageID);
               const msg = await toFont(`⏰ Time's up!
@@ -119,9 +119,9 @@ module.exports = {
 
 🚩 You recognized the right flag, you are the true champion!`);
 
-      if (global.noobCore.ncReply.has(messageID)) {
-        global.noobCore.ncReply.get(messageID).answered = true;
-        global.noobCore.ncReply.delete(messageID);
+      if (global.irfbot.ncReply.has(messageID)) {
+        global.irfbot.ncReply.get(messageID).answered = true;
+        global.irfbot.ncReply.delete(messageID);
       }
 
       return api.sendMessage(correctMsg, event.threadID, event.messageID);
@@ -129,7 +129,7 @@ module.exports = {
       chances--;
 
       if (chances > 0) {
-        global.noobCore.ncReply.set(messageID, { ...Reply, chances });
+        global.irfbot.ncReply.set(messageID, { ...Reply, chances });
         const wrongTryMsg = await toFont(`❌ Wrong answer!
 ⏳ You still have ${chances} chance(s) left. Try again!`);
         return api.sendMessage(wrongTryMsg, event.threadID, event.messageID);

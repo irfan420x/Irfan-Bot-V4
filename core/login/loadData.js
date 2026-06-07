@@ -9,7 +9,7 @@ module.exports = async function (api, createLine) {
 	const { threadModel, userModel, dashBoardModel, globalModel, threadsData, usersData, dashBoardData, globalData, sequelize } = controller;
 	log.info('DATABASE', getText('loadData', 'loadThreadDataSuccess', global.db.allThreadData.filter(t => t.threadID.toString().length > 15).length));
 	log.info('DATABASE', getText('loadData', 'loadUserDataSuccess', global.db.allUserData.length));
-	if (api && global.noobCore.config.database.autoSyncWhenStart == true) {
+	if (api && global.irfbot.config.database.autoSyncWhenStart == true) {
 		console.log(chalk.hex("#f5ab00")(createLine("AUTO SYNC")));
 		const spin = createOraDots(getText('loadData', 'refreshingThreadData'));
 		try {
@@ -53,7 +53,7 @@ module.exports = async function (api, createLine) {
 		}
 		finally {
 			api.setOptions({
-				logLevel: global.noobCore.config.optionsFca.logLevel
+				logLevel: global.irfbot.config.optionsFca.logLevel
 			});
 		}
 	}

@@ -1,4 +1,4 @@
-const { ncsetting } = global.noobCore;
+const { ncsetting } = global.irfbot;
 const config = ncsetting;
 const { writeFileSync } = require("fs-extra");
 

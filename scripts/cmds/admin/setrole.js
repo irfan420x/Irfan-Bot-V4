@@ -62,7 +62,7 @@ module.exports = {
 	},
 
 	onStart: async function ({ message, event, args, role, threadsData, getLang }) {
-		const { commands, aliases } = global.noobCore;
+		const { commands, aliases } = global.irfbot;
 		const setRole = await threadsData.get(event.threadID, "data.setRole", {});
 
 		if (["view", "viewrole", "show"].includes(args[0])) {

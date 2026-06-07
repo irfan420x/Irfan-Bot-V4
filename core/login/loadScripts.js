@@ -9,8 +9,8 @@ const exec = (cmd, options) => new Promise((resolve, reject) => {
 });
 module.exports = async function (api, threadModel, userModel, dashBoardModel, globalModel, threadsData, usersData, dashBoardData, globalData, createLine) {
         const { log, loading, getText, colors, removeHomeDir } = global.utils;
-        const { noobCore } = global;
-        const { configCommands } = noobCore;
+        const { irfbot } = global;
+        const { configCommands } = irfbot;
         const regExpCheckPackage = /require(\s+|)\((\s+|)[`'"]([^`'"]+)[`'"](\s+|)\)/g;
         const packageAlready = [];
         const spinner = [
@@ -47,10 +47,10 @@ module.exports = async function (api, threadModel, userModel, dashBoardModel, gl
                 for (const data of aliasesData) {
                         const { aliases, commandName } = data;
                         for (const alias of aliases)
-                                if (noobCore.aliases.has(alias))
+                                if (irfbot.aliases.has(alias))
                                         throw new Error(`Alias "${alias}" already exists in command "${commandName}"`);
                                 else
-                                        noobCore.aliases.set(alias, commandName);
+                                        irfbot.aliases.set(alias, commandName);
                 }
         }
         const folders = ["cmds", "events"];
@@ -167,8 +167,8 @@ if (!configCommand.category) {
                                         throw new Error(`Start of ${text} undefined`);
                                 if (typeof command.onStart !== "function")
                                         throw new Error(`Start of ${text} must be a function`);
-                                if (noobCore[setMap].has(commandName))
-                                        throw new Error(`${text} "${commandName}" already exists with file "${removeHomeDir(noobCore[setMap].get(commandName).location || "")}"`);
+                                if (irfbot[setMap].has(commandName))
+                                        throw new Error(`${text} "${commandName}" already exists with file "${removeHomeDir(irfbot[setMap].get(commandName).location || "")}"`);
                                 const { ncFirstChat, ncPrefix, onLoad, ncEvent, ncAnyEvent } = command;
                                 const { envGlobal, envConfig } = configCommand;
                                 const { aliases } = configCommand;
@@ -180,12 +180,12 @@ if (!configCommand.category) {
                                         for (const alias of aliases) {
                                                 if (aliases.filter(item => item == alias).length > 1)
                                                         throw new Error(`alias "${alias}" duplicate in ${text} "${commandName}" with file "${removeHomeDir(pathCommand)}"`);
-                                                if (noobCore.aliases.has(alias))
-                                                        throw new Error(`alias "${alias}" already exists in ${text} "${noobCore.aliases.get(alias)}" with file "${removeHomeDir(noobCore[setMap].get(noobCore.aliases.get(alias))?.location || "")}"`);
+                                                if (irfbot.aliases.has(alias))
+                                                        throw new Error(`alias "${alias}" already exists in ${text} "${irfbot.aliases.get(alias)}" with file "${removeHomeDir(irfbot[setMap].get(irfbot.aliases.get(alias))?.location || "")}"`);
                                                 validAliases.push(alias);
                                         }
                                         for (const alias of validAliases)
-                                                noobCore.aliases.set(alias, commandName);
+                                                irfbot.aliases.set(alias, commandName);
                                 }
                                 // ——————————————— CHECK ENV GLOBAL ——————————————— //
                                 if (envGlobal) {
@@ -226,22 +226,22 @@ if (!configCommand.category) {
                                 }
                                 // ——————————————— CHECK RUN ANYTIME ——————————————— //
                                 if (ncPrefix)
-                                        noobCore.ncPrefix.push(commandName);
+                                        irfbot.ncPrefix.push(commandName);
                                 // ——————————————— CHECK ncFirstChat ——————————————— //
                                 if (ncFirstChat)
-                                        noobCore.ncFirstChat.push({ commandName, threadIDsChattedFirstTime: [] });
+                                        irfbot.ncFirstChat.push({ commandName, threadIDsChattedFirstTime: [] });
                                 // ————————————————— CHECK ncEvent ————————————————— //
                                 if (ncEvent)
-                                        noobCore.ncEvent.push(commandName);
+                                        irfbot.ncEvent.push(commandName);
                                 // ———————————————— CHECK ncAnyEvent ———————————————— //
                                 if (ncAnyEvent)
-                                        noobCore.ncAnyEvent.push(commandName);
+                                        irfbot.ncAnyEvent.push(commandName);
                                 // —————————————— IMPORT TO GLOBALGOAT —————————————— //
-                                noobCore[setMap].set(commandName.toLowerCase(), command);
+                                irfbot[setMap].set(commandName.toLowerCase(), command);
                                 commandLoadSuccess++;
                                 // ————————————————— COMPARE COMMAND (removed in open source) ————————————————— //
 
-                                global.noobCore[folderModules == "cmds" ? "commandFilesPath" : "eventCommandsFilesPath"].push({
+                                global.irfbot[folderModules == "cmds" ? "commandFilesPath" : "eventCommandsFilesPath"].push({
                                         // filePath: pathCommand,
                                         filePath: path.normalize(pathCommand),
                                         commandName: [commandName, ...validAliases]

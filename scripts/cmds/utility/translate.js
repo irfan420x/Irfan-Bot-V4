@@ -56,7 +56,7 @@ module.exports = {
                 if (["-r", "-react", "-reaction"].includes(args[0])) {
                         if (args[1] == "set") {
                                 return message.reply(getLang("inputEmoji"), (err, info) =>
-                                        global.noobCore.onReaction.set(info.messageID, {
+                                        global.irfbot.onReaction.set(info.messageID, {
                                                 type: "setEmoji",
                                                 commandName,
                                                 messageID: info.messageID,
@@ -73,7 +73,7 @@ module.exports = {
                 const { body = "" } = event;
                 let content;
                 let langCodeTrans;
-                const langOfThread = await threadsData.get(event.threadID, "data.lang") || global.noobCore.ncsetting.language;
+                const langOfThread = await threadsData.get(event.threadID, "data.lang") || global.irfbot.ncsetting.language;
 
                 if (event.messageReply) {
                         content = event.messageReply.body;
@@ -110,7 +110,7 @@ module.exports = {
         ncPrefix: async ({ event, threadsData }) => {
                 if (!await threadsData.get(event.threadID, "data.translate.autoTranslateWhenReaction"))
                         return;
-                global.noobCore.onReaction.set(event.messageID, {
+                global.irfbot.onReaction.set(event.messageID, {
                         commandName: 'translate',
                         messageID: event.messageID,
                         body: event.body,
@@ -132,7 +132,7 @@ module.exports = {
                         case "translate": {
                                 const emojiTrans = await threadsData.get(event.threadID, "data.translate.emojiTranslate") || "🌐";
                                 if (event.reaction == emojiTrans) {
-                                        const langCodeTrans = await threadsData.get(event.threadID, "data.lang") || global.noobCore.ncsetting.language;
+                                        const langCodeTrans = await threadsData.get(event.threadID, "data.lang") || global.irfbot.ncsetting.language;
                                         const content = Reaction.body;
                                         Reaction.delete();
                                         translateAndSendMessage(content, langCodeTrans, message, getLang);

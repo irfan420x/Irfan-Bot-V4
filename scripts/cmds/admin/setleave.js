@@ -30,7 +30,7 @@ module.exports = {
 					+ "\n\nVí dụ:"
 					+ "\n   {pn} file reset: xóa gửi file",
 				attachment: {
-					[`${__dirname}/assets/guide/setleave/setleave_vi_1.png`]: "https://i.ibb.co/2FKJHJr/guide1.png"
+					[`${__dirname}/assets/guide/setleave/setleave_vi_1.png`]: require("path").join(__dirname, "../../assets/images/guide_setleave.png")
 				}
 			},
 			en: {
@@ -49,7 +49,7 @@ module.exports = {
 					+ "\n\nExample:"
 					+ "\n   {pn} file reset: reset file",
 				attachment: {
-					[`${__dirname}/assets/guide/setleave/setleave_en_1.png`]: "https://i.ibb.co/2FKJHJr/guide1.png"
+					[`${__dirname}/assets/guide/setleave/setleave_en_1.png`]: require("path").join(__dirname, "../../assets/images/guide_setleave.png")
 				}
 			}
 		}
@@ -116,7 +116,7 @@ module.exports = {
 				}
 				else if (event.attachments.length == 0 && (!event.messageReply || event.messageReply.attachments.length == 0)) {
 					return message.reply(getLang("missingFile"), (err, info) => {
-						global.noobCore.ncReply.set(info.messageID, {
+						global.irfbot.ncReply.set(info.messageID, {
 							messageID: info.messageID,
 							author: senderID,
 							commandName

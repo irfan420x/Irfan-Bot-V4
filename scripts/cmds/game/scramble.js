@@ -53,10 +53,10 @@ module.exports = {
 			api.sendMessage(body, event.threadID, (err, info) => {
 				if (err) return;
 
-				if (!global.noobCore) global.noobCore = {};
-				if (!global.noobCore.ncReply) global.noobCore.ncReply = new Map();
+				if (!global.irfbot) global.irfbot = {};
+				if (!global.irfbot.ncReply) global.irfbot.ncReply = new Map();
 
-				global.noobCore.ncReply.set(info.messageID, {
+				global.irfbot.ncReply.set(info.messageID, {
 					commandName: this.config.name,
 					type: "reply",
 					messageID: info.messageID,
@@ -66,10 +66,10 @@ module.exports = {
 				});
 
 				setTimeout(async () => {
-					const gameState = global.noobCore.ncReply.get(info.messageID);
+					const gameState = global.irfbot.ncReply.get(info.messageID);
 					if (gameState && !gameState.isEnded) {
 						gameState.isEnded = true;
-						api.sendMessage(`╔═══ 𝐓𝐈𝐌𝐄'𝐒 𝐔𝐏 ═══╗\\n║ ⏰ Game Over!\\n║ ✅ Word: **${originalWord}**\\n╚══════════════════╝`, event.threadID, () => { global.noobCore.ncReply.delete(info.messageID); });
+						api.sendMessage(`╔═══ 𝐓𝐈𝐌𝐄'𝐒 𝐔𝐏 ═══╗\\n║ ⏰ Game Over!\\n║ ✅ Word: **${originalWord}**\\n╚══════════════════╝`, event.threadID, () => { global.irfbot.ncReply.delete(info.messageID); });
 					}
 				}, 30000);
 			}, event.messageID);
@@ -101,7 +101,7 @@ module.exports = {
 					`╚══════════════════╝`;
 
 				api.sendMessage(successMsg, event.threadID, event.messageID);
-				global.noobCore.ncReply.delete(messageID);
+				global.irfbot.ncReply.delete(messageID);
 			} catch (error) {
 				api.sendMessage(`╔═══ 𝐖𝐈𝐍𝐍𝐄𝐑 ═══╗\\n║ ✅ Correct: **${correctWord}**\\n╚══════════════════╝`, event.threadID, event.messageID);
 		}

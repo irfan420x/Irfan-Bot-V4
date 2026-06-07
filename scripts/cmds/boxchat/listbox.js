@@ -48,7 +48,7 @@ ${msg}
     event.threadID
   );
 
-  global.noobCore.ncReply.set(info.messageID, {
+  global.irfbot.ncReply.set(info.messageID, {
     commandName: "listbox",
     author,
     groups,

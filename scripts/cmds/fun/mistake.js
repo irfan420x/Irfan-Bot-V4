@@ -2,11 +2,11 @@ const axios = require("axios");
 const fs = require("fs-extra");
 const path = require("path");
 
-const noobcore =
+const apiConfig =
   "https://raw.githubusercontent.com/noobcore404/NC-STORE/main/NCApiUrl.json";
 
 async function getApiV1() {
-  const res = await axios.get(noobcore, { timeout: 10000 });
+  const res = await axios.get(apiConfig, { timeout: 10000 });
   if (!res.data?.apiv1) {
     throw new Error("apiv1 not found in API JSON");
   }
@@ -18,7 +18,7 @@ module.exports = {
     name: "mistake",
     version: "1.0",
     author: "Irfan Ahmmed",
-    team: "NoobCore",
+    team: "IRFBOT",
     countDown: 5,
     role: 0,
     shortDescription: "Funny mistake meme generator",

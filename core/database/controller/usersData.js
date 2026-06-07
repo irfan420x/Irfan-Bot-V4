@@ -1,4 +1,4 @@
-// fix by NOOBCORE TEAM
+// fix by IRFBOT TEAM
 
 const { existsSync, writeJsonSync, readJSONSync } = require("fs-extra");
 const moment = require("moment-timezone");

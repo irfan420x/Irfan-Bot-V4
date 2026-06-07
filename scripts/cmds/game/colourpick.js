@@ -163,7 +163,7 @@ ${top.map((u, i) =>
 ══════════════════════════════`,
       threadID,
       (err, info) => {
-        global.noobCore.ncReply.set(info.messageID, {
+        global.irfbot.ncReply.set(info.messageID, {
           commandName: this.config.name,
           author: senderID,
           bet,

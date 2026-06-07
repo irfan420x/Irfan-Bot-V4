@@ -23,7 +23,7 @@ function toBold(text) {
 
 module.exports.config = {
   name: "ncs",
-  aliases: ["ncstore", "noobcorestore"],
+  aliases: ["ncstore", "irfstore"],
   author: "Irfan Ahmmed",
   version: "2.0",
   role: 0,
@@ -73,7 +73,7 @@ module.exports.onStart = async function ({ api, event, args }) {
     msg += `📑 ${toBold(`Type "/${this.config.name} ${page + 1}" for next page.`)}\n`;
 
     api.sendMessage(msg, event.threadID, (err, info) => {
-      global.noobCore.ncReply.set(info.messageID, {
+      global.irfbot.ncReply.set(info.messageID, {
         commandName: this.config.name,
         type: "reply",
         messageID: info.messageID,

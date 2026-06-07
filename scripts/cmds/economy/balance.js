@@ -299,7 +299,7 @@ module.exports = {
         aliases: ["bal"],
         version: "2.1.0",
         author: "Irfan Ahmmed",
-        team: "NoobCore",
+        team: "IRFBOT",
         countDown: 3,
         role: 0,
         shortDescription: {

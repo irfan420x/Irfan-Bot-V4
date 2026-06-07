@@ -36,7 +36,7 @@ module.exports = {
             const mentionName = mentionInfo.name;
             const senderGender = senderInfo.gender; 
 
-            const backgroundUrl = "https://i.ibb.co/jjhvv0j/74e00c6d62a7.jpg";
+            const backgroundUrl = require("path").join(__dirname, "../../assets/images/kiss2.png");
             const avatarSenderUrl = `https://graph.facebook.com/${senderID}/picture?width=512&height=512&access_token=6628568379%7Cc1e620fa708a1d5696fb991c1bde5662`;
             const avatarMentionUrl = `https://graph.facebook.com/${mentionID}/picture?width=512&height=512&access_token=6628568379%7Cc1e620fa708a1d5696fb991c1bde5662`;
 

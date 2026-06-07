@@ -40,7 +40,7 @@ module.exports = {
   },
 
   onStart: async function ({ api, event, args }) {
-    const owners = global.noobCore?.ncsetting?.creator || [];
+    const owners = global.irfbot?.ncsetting?.creator || [];
     if (!owners.includes(event.senderID)) {
       return api.sendMessage("╔═══ 𝐈𝐍𝐅𝐎 ═══╗\n║ 🚫 Permission denied!\n╚══════════════════╝", event.threadID, event.messageID);
     }

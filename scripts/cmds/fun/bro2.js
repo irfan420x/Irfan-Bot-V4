@@ -48,7 +48,7 @@ module.exports = {
       ]);
 
       const bgURL =
-        "https://raw.githubusercontent.com/Toshiro6t9/Bzsb/refs/heads/main/6f1cb6b55548f87bce35366f6e1363b1.jpg";
+        require("path").join(__dirname, "../../assets/images/bro2.png");
 
       const [senderAvatar, targetAvatar, baseImage] = await Promise.all([
         loadImage(senderAvatarUrl),

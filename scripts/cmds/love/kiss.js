@@ -7,7 +7,7 @@ module.exports = {
     name: "kiss",
     version: "1.0",
     author: "Irfan Ahmmed",
-    team: "NoobCore", 
+    team: "IRFBOT", 
     countDown: 5,
     role: 0,
     description:
@@ -42,8 +42,8 @@ module.exports = {
         usersData.getAvatarUrl(uid2)
       ]);
 
-      const noobcore = "https://raw.githubusercontent.com/noobcore404/NC-STORE/main/NCApiUrl.json";
-      const rawRes = await axios.get(noobcore);
+      const apiConfig = "https://raw.githubusercontent.com/noobcore404/NC-STORE/main/NCApiUrl.json";
+      const rawRes = await axios.get(apiConfig);
       const apiBase = rawRes.data.apiv1;
 
       const apiURL = `${apiBase}/api/kiss?boy=${encodeURIComponent(avatar1)}&girl=${encodeURIComponent(avatar2)}`;

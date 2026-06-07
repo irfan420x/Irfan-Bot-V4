@@ -4,11 +4,11 @@ const fs = require("fs");
 
 async function getApiBase() {
   try {
-    const noobcore = "https://raw.githubusercontent.com/noobcore404/NC-STORE/main/NCApiUrl.json";
-    const res = await axios.get(noobcore);
+    const apiConfig = "https://raw.githubusercontent.com/noobcore404/NC-STORE/main/NCApiUrl.json";
+    const res = await axios.get(apiConfig);
     return res.data.apiv1;
   } catch (e) {
-    console.error("noobcore fetch error:", e.message);
+    console.error("apiConfig fetch error:", e.message);
     return null;
   }
 }
@@ -19,7 +19,7 @@ module.exports = {
     aliases: ["pin"],
     version: "1.0",
     author: "Irfan Ahmmed",
-    team: "NoobCore",
+    team: "IRFBOT",
     role: 0,
     countDown: 5,
     description: {

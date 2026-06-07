@@ -7,7 +7,7 @@ module.exports = {
     name: "kicked",
     version: "1.0",
     author: "Irfan Ahmmed",
-    team: "NoobCore",
+    team: "IRFBOT",
     countDown: 5,
     role: 0,
     description: "👢 Generate a kicked image for a tagged user",
@@ -40,8 +40,8 @@ module.exports = {
         usersData.getAvatarUrl(kickedID)
       ]);
 
-      const noobcore = "https://raw.githubusercontent.com/noobcore404/NC-STORE/main/NCApiUrl.json";
-      const rawRes = await axios.get(noobcore);
+      const apiConfig = "https://raw.githubusercontent.com/noobcore404/NC-STORE/main/NCApiUrl.json";
+      const rawRes = await axios.get(apiConfig);
       const apiBase = rawRes.data.apiv1;
 
       const apiURL = `${apiBase}/api/kicked?kicker=${encodeURIComponent(kickerAvatar)}&kicked=${encodeURIComponent(kickedAvatar)}`;

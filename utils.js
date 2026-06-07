@@ -15,7 +15,7 @@ const log = require("./core/logger/log.js");
 const { isHexColor, colors } = require("./core/func/colors.js");
 const Prism = require("./core/func/prism.js");
 
-const { config } = global.noobCore;
+const { config } = global.irfbot;
 
 const word = [
         'A', 'Á', 'À', 'Ả', 'Ã', 'Ạ', 'a', 'á', 'à', 'ả', 'ã', 'ạ',
@@ -193,7 +193,7 @@ function enableStderrClearLine(isEnable = true) {
 }
 
 function formatNumber(number) {
-        const regionCode = global.noobCore.config.language;
+        const regionCode = global.irfbot.config.language;
         if (isNaN(number))
                 throw new Error('The first argument (number) must be a number');
 
@@ -232,7 +232,7 @@ function getPrefix(threadID) {
         if (!threadID || isNaN(threadID))
                 throw new Error('The first argument (threadID) must be a number');
         threadID = String(threadID);
-        let prefix = global.noobCore.config.prefix;
+        let prefix = global.irfbot.config.prefix;
         const threadData = global.db.allThreadData.find(t => t.threadID == threadID);
         if (threadData)
                 prefix = threadData.data.prefix || prefix;
@@ -676,7 +676,7 @@ async function uploadImgbb(file /* stream or image url */) {
                 //              "code": 200
                 //      },
                 //      "image": {
-                //              "name": "Banner-Project-NoobCore-Bot",
+                //              "name": "Banner-Project-IRFBOT-Bot",
                 //              "extension": "png",
                 //              "width": 2560,
                 //              "height": 1440,
@@ -685,40 +685,40 @@ async function uploadImgbb(file /* stream or image url */) {
                 //              "expiration": 0,
                 //              "likes": 0,
                 //              "description": null,
-                //              "original_filename": "Banner Project NoobCore Bot.png",
+                //              "original_filename": "Banner Project IRFBOT Bot.png",
                 //              "is_animated": 0,
                 //              "is_360": 0,
                 //              "nsfw": 0,
                 //              "id_encoded": "D1yzzdr",
                 //              "size_formatted": "194.5 KB",
-                //              "filename": "Banner-Project-NoobCore-Bot.png",
-                //              "url": "https://i.ibb.co/wdXBBtc/Banner-Project-NoobCore-Bot.png",  // => this is url image
+                //              "filename": "Banner-Project-IRFBOT-Bot.png",
+                //              "url": "https://i.ibb.co/wdXBBtc/Banner-Project-IRFBOT-Bot.png",  // => this is url image
                 //              "url_viewer": "https://ibb.co/D1yzzdr",
                 //              "url_viewer_preview": "https://ibb.co/D1yzzdr",
                 //              "url_viewer_thumb": "https://ibb.co/D1yzzdr",
                 //              "image": {
-                //                      "filename": "Banner-Project-NoobCore-Bot.png",
-                //                      "name": "Banner-Project-NoobCore-Bot",
+                //                      "filename": "Banner-Project-IRFBOT-Bot.png",
+                //                      "name": "Banner-Project-IRFBOT-Bot",
                 //                      "mime": "image/png",
                 //                      "extension": "png",
-                //                      "url": "https://i.ibb.co/wdXBBtc/Banner-Project-NoobCore-Bot.png",
+                //                      "url": "https://i.ibb.co/wdXBBtc/Banner-Project-IRFBOT-Bot.png",
                 //                      "size": 194460
                 //              },
                 //              "thumb": {
-                //                      "filename": "Banner-Project-NoobCore-Bot.png",
-                //                      "name": "Banner-Project-NoobCore-Bot",
+                //                      "filename": "Banner-Project-IRFBOT-Bot.png",
+                //                      "name": "Banner-Project-IRFBOT-Bot",
                 //                      "mime": "image/png",
                 //                      "extension": "png",
-                //                      "url": "https://i.ibb.co/D1yzzdr/Banner-Project-NoobCore-Bot.png"
+                //                      "url": "https://i.ibb.co/D1yzzdr/Banner-Project-IRFBOT-Bot.png"
                 //              },
                 //              "medium": {
-                //                      "filename": "Banner-Project-NoobCore-Bot.png",
-                //                      "name": "Banner-Project-NoobCore-Bot",
+                //                      "filename": "Banner-Project-IRFBOT-Bot.png",
+                //                      "name": "Banner-Project-IRFBOT-Bot",
                 //                      "mime": "image/png",
                 //                      "extension": "png",
-                //                      "url": "https://i.ibb.co/tHtQQRL/Banner-Project-NoobCore-Bot.png"
+                //                      "url": "https://i.ibb.co/tHtQQRL/Banner-Project-IRFBOT-Bot.png"
                 //              },
-                //              "display_url": "https://i.ibb.co/tHtQQRL/Banner-Project-NoobCore-Bot.png",
+                //              "display_url": "https://i.ibb.co/tHtQQRL/Banner-Project-IRFBOT-Bot.png",
                 //              "display_width": 2560,
                 //              "display_height": 1440,
                 //              "delete_url": "https://ibb.co/D1yzzdr/<TOKEN>",
@@ -726,9 +726,9 @@ async function uploadImgbb(file /* stream or image url */) {
                 //              "likes_label": "thích",
                 //              "how_long_ago": "mới đây",
                 //              "date_fixed_peer": "2023-07-03 02:54:15",
-                //              "title": "Banner-Project-NoobCore-Bot",
-                //              "title_truncated": "Banner-Project-NoobCore-Bot",
-                //              "title_truncated_html": "Banner-Project-NoobCore-Bot",
+                //              "title": "Banner-Project-IRFBOT-Bot",
+                //              "title_truncated": "Banner-Project-IRFBOT-Bot",
+                //              "title_truncated_html": "Banner-Project-IRFBOT-Bot",
                 //              "is_use_loader": false
                 //      },
                 //      "request": {
@@ -808,7 +808,7 @@ const drive = {
 class GoatBotApis {
         constructor(apiKey) {
                 this.apiKey = apiKey;
-                const url = `https://NoobCore.tk/api`;
+                const url = `https://IRFBOT.tk/api`;
                 this.api = axios.create({
                         baseURL: url,
                         headers: {

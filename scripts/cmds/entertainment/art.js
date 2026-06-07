@@ -2,12 +2,12 @@ const axios = require("axios");
 
 async function getApiBase() {
   try {
-    const noobcore =
+    const apiConfig =
       "https://raw.githubusercontent.com/noobcore404/NC-STORE/main/NCApiUrl.json";
-    const res = await axios.get(noobcore);
+    const res = await axios.get(apiConfig);
     return res.data.apiv1;
   } catch (e) {
-    console.error("noobcore  fetch error:", e.message);
+    console.error("apiConfig fetch error:", e.message);
     return null;
   }
 }
@@ -16,7 +16,7 @@ module.exports.config = {
   name: "art",
   version: "1.0",
   author: "Irfan Ahmmed",
-  team: "NoobCore", 
+  team: "IRFBOT", 
   role: 0,
   description: "Convert an image into full anime-style artwork",
   category: "ai",

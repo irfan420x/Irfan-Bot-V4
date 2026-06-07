@@ -1,11 +1,11 @@
 const axios = require("axios");
 const path = require("path");
 
-const noobcore =
+const apiConfig =
   "https://raw.githubusercontent.com/noobcore404/NC-STORE/main/NCApiUrl.json";
 
 async function getFahimApi() {
-  const res = await axios.get(noobcore, { timeout: 10000 });
+  const res = await axios.get(apiConfig, { timeout: 10000 });
   if (!res.data?.fahim) {
     throw new Error("fahim API not found");
   }
@@ -18,7 +18,7 @@ module.exports = {
     aliases: ["upscale", "hd", "enhance"],
     version: "1.0",
     author: "Irfan Ahmmed", //Api by Fahim
-    team: "NoobCore",
+    team: "IRFBOT",
     shortDescription: "Upscale image to 4K quality",
     longDescription:
       "Upscales a replied  image to high-quality 4K resolution",

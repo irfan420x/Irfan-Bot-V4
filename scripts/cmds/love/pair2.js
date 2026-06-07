@@ -4,8 +4,8 @@ const path = require("path");
 
 async function getApiBase() {
   try {
-    const noobcore = "https://raw.githubusercontent.com/noobcore404/NoobCore/main/NCApiUrl.json";
-    const res = await axios.get(noobcore);
+    const apiConfig = "https://raw.githubusercontent.com/noobcore404/NC-STORE/main/NCApiUrl.json";
+    const res = await axios.get(apiConfig);
     return res.data.apiv1;
   } catch (e) {
     console.error("GitHub raw fetch error:", e.message);
@@ -31,7 +31,7 @@ module.exports = {
     name: "pair2",
     aliases: ["lovepair2", "match2"],
     author: "Irfan Ahmmed",
-    team: "NoobCore", 
+    team: "IRFBOT", 
     version: "2.0",
     role: 0,
     category: "love",

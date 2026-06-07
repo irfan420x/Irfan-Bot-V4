@@ -47,19 +47,19 @@ module.exports = {
         },
 
         onStart: async function ({ args, message, getLang }) {
-                const ignoreList = global.noobCore.ncsetting.adminOnly.ignoreCommand;
+                const ignoreList = global.irfbot.ncsetting.adminOnly.ignoreCommand;
                 switch (args[0]) {
                         case "add": {
                                 if (!args[1])
                                         return message.reply(getLang("missingCommandNameToAdd"));
                                 const commandName = args[1].toLowerCase();
-                                const command = global.noobCore.commands.get(commandName);
+                                const command = global.irfbot.commands.get(commandName);
                                 if (!command)
                                         return message.reply(getLang("commandNotFound", commandName));
                                 if (ignoreList.includes(commandName))
                                         return message.reply(getLang("commandAlreadyInList", commandName));
                                 ignoreList.push(commandName);
-                                fs.writeFileSync(global.client.dirConfig, JSON.stringify(global.noobCore.ncsetting, null, 2));
+                                fs.writeFileSync(global.client.dirConfig, JSON.stringify(global.irfbot.ncsetting, null, 2));
                                 return message.reply(getLang("commandAdded", commandName));
                         }
                         case "del":
@@ -70,13 +70,13 @@ module.exports = {
                                 if (!args[1])
                                         return message.reply(getLang("missingCommandNameToDelete"));
                                 const commandName = args[1].toLowerCase();
-                                const command = global.noobCore.commands.get(commandName);
+                                const command = global.irfbot.commands.get(commandName);
                                 if (!command)
                                         return message.reply(getLang("commandNotFound", commandName));
                                 if (!ignoreList.includes(commandName))
                                         return message.reply(getLang("commandNotInList", commandName));
                                 ignoreList.splice(ignoreList.indexOf(commandName), 1);
-                                fs.writeFileSync(global.client.dirConfig, JSON.stringify(global.noobCore.ncsetting, null, 2));
+                                fs.writeFileSync(global.client.dirConfig, JSON.stringify(global.irfbot.ncsetting, null, 2));
                                 return message.reply(getLang("commandDeleted", commandName));
                         }
                         case "list": {

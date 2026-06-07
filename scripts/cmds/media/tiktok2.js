@@ -20,7 +20,7 @@ module.exports = {
     aliases: ["tt2"],
     version: "2.1",
     author: "Irfan Ahmmed",
-    team: "NoobCore",
+    team: "IRFBOT",
     role: 0,
     usePrefix: true,
     shortDescription: "Search & download TikTok videos",
@@ -198,7 +198,7 @@ async function sendPage(api, event, allResults, page, query) {
       event.threadID,
       (err, info) => {
         if (!err) {
-          global.noobCore.ncReply.set(info.messageID, {
+          global.irfbot.ncReply.set(info.messageID, {
             commandName: "tiktok2",
             author: event.senderID,
             results: allResults,

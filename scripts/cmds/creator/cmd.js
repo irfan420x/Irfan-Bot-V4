@@ -8,7 +8,7 @@ const path = require("path");
 const cheerio = require("cheerio");
 const { client } = global;
 
-const { configCommands } = global.noobCore;
+const { configCommands } = global.irfbot;
 const { log, loading, removeHomeDir } = global.utils;
 
 function getAllCommandFiles(dir) {
@@ -278,7 +278,7 @@ module.exports = {
 
                         if (fs.existsSync(commandPath) || fs.existsSync(path.join(cmdsPath, fileName)))
                                 return message.reply(getLang("alreadExist"), (err, info) => {
-                                        global.noobCore.ncReaction.set(info.messageID, {
+                                        global.irfbot.ncReaction.set(info.messageID, {
                                                 commandName,
                                                 messageID: info.messageID,
                                                 type: "install",
@@ -348,11 +348,11 @@ const spinner = "\\|/-";
 let count = 0;
 
 function loadScripts(folder, fileName, log, configCommands, api, threadModel, userModel, dashBoardModel, globalModel, threadsData, usersData, dashBoardData, globalData, getLang, rawCode, category) {
-        // global.noobCore[folderModules == "cmds" ? "commandFilesPath" : "eventCommandsFilesPath"].push({
+        // global.irfbot[folderModules == "cmds" ? "commandFilesPath" : "eventCommandsFilesPath"].push({
         //      filePath: pathCommand,
         //      commandName: [commandName, ...validAliases]
         // });
-        const storageCommandFilesPath = global.noobCore[folder == "cmds" ? "commandFilesPath" : "eventCommandsFilesPath"];
+        const storageCommandFilesPath = global.irfbot[folder == "cmds" ? "commandFilesPath" : "eventCommandsFilesPath"];
 
         try {
                 if (rawCode) {
@@ -365,8 +365,8 @@ function loadScripts(folder, fileName, log, configCommands, api, threadModel, us
                         fs.writeFileSync(path.normalize(savePath), rawCode);
                 }
                 const regExpCheckPackage = /require(\s+|)\((\s+|)[`'"]([^`'"]+)[`'"](\s+|)\)/g;
-                const { noobCore } = global;
-                const { ncFirstChat: allncFirstChat, ncPrefix: allOnChat, ncEvent: allncEvent, ncAnyEvent: allncAnyEvent } = noobCore;
+                const { irfbot } = global;
+                const { ncFirstChat: allncFirstChat, ncPrefix: allOnChat, ncEvent: allncEvent, ncAnyEvent: allncAnyEvent } = irfbot;
                 let setMap, typeEnvCommand, commandType;
                 if (folder == "cmds") {
                         typeEnvCommand = "envCommands";
@@ -495,8 +495,8 @@ else {
                 const oldCommandName = oldCommand?.config?.name;
                 // —————————————— CHECK COMMAND EXIST ——————————————— //
                 if (!oldCommandName) {
-                        if (noobCore[setMap].get(oldCommandName)?.location != pathCommand)
-                                throw new Error(`${commandType} name "${oldCommandName}" is already exist in command "${removeHomeDir(noobCore[setMap].get(oldCommandName)?.location || "")}"`);
+                        if (irfbot[setMap].get(oldCommandName)?.location != pathCommand)
+                                throw new Error(`${commandType} name "${oldCommandName}" is already exist in command "${removeHomeDir(irfbot[setMap].get(oldCommandName)?.location || "")}"`);
                 }
                 // ————————————————— CHECK ALIASES ————————————————— //
                 if (oldCommand.config.aliases) {
@@ -504,7 +504,7 @@ else {
                         if (typeof oldAliases == "string")
                                 oldAliases = [oldAliases];
                         for (const alias of oldAliases)
-                                noobCore.aliases.delete(alias);
+                                irfbot.aliases.delete(alias);
                 }
                 // ——————————————— DELETE OLD COMMAND ——————————————— //
                 delete require.cache[require.resolve(pathCommand)];
@@ -566,9 +566,9 @@ command.location = pathCommand;
                         for (const alias of aliases) {
                                 if (aliases.filter(item => item == alias).length > 1)
                                         throw new Error(`alias "${alias}" duplicate in ${commandType} "${scriptName}" with file name "${removeHomeDir(pathCommand || "")}"`);
-                                if (noobCore.aliases.has(alias))
-                                        throw new Error(`alias "${alias}" is already exist in ${commandType} "${noobCore.aliases.get(alias)}" with file name "${removeHomeDir(noobCore[setMap].get(noobCore.aliases.get(alias))?.location || "")}"`);
-                                noobCore.aliases.set(alias, scriptName);
+                                if (irfbot.aliases.has(alias))
+                                        throw new Error(`alias "${alias}" is already exist in ${commandType} "${irfbot.aliases.get(alias)}" with file name "${removeHomeDir(irfbot[setMap].get(irfbot.aliases.get(alias))?.location || "")}"`);
+                                irfbot.aliases.set(alias, scriptName);
                         }
                 }
                 // ————————————————— CHECK ENVCONFIG ————————————————— //
@@ -585,8 +585,8 @@ command.location = pathCommand;
                                 configCommands[typeEnvCommand][scriptName] = {};
                         configCommands[typeEnvCommand][scriptName] = envConfig;
                 }
-                noobCore[setMap].delete(oldCommandName);
-                noobCore[setMap].set(scriptName, command);
+                irfbot[setMap].delete(oldCommandName);
+                irfbot[setMap].set(scriptName, command);
                 fs.writeFileSync(client.dirConfigCommands, JSON.stringify(configCommands, null, 2));
                 const keyUnloadCommand = folder == "cmds" ? "commandUnload" : "commandEventUnload";
                 const findIndex = (configCommands[keyUnloadCommand] || []).indexOf(`${fileName}.js`);
@@ -640,10 +640,10 @@ command.location = pathCommand;
 
 function unloadScripts(folder, fileName, configCommands, getLang) {
 
-  const { noobCore } = global;
+  const { irfbot } = global;
   const setMap = folder === "cmds"
-    ? noobCore.commands
-    : noobCore.eventCommands;
+    ? irfbot.commands
+    : irfbot.eventCommands;
 
   let command = null;
   let commandName = null;
@@ -677,7 +677,7 @@ function unloadScripts(folder, fileName, configCommands, getLang) {
     ncEvent,
     ncAnyEvent,
     aliases
-  } = noobCore;
+  } = irfbot;
   const remove = (arr) => {
     const i = arr.indexOf(commandName);
     if (i !== -1) arr.splice(i, 1);

@@ -1,5 +1,5 @@
 const { getPrefix } = global.utils;
-const { commands, aliases } = global.noobCore;
+const { commands, aliases } = global.irfbot;
 const axios = require("axios");
 const fs = require("fs");
 const path = require("path");
@@ -272,7 +272,7 @@ module.exports = {
       msg += `╔═══ 𝐒𝐓𝐀𝐓𝐔𝐒 ═══╗\n`;
       msg += `║ 💡 Total: ${all.length}\n`;
       msg += `║ 📖 Page: ${page} / ${totalPages}\n`;
-      msg += `║ 🤖 Nick: ${global.noobCore.ncsetting.nickNameBot}\n`;
+      msg += `║ 🤖 Nick: ${global.irfbot.ncsetting.nickNameBot}\n`;
       msg += `╚══════════════════╝\n`;
 
       const buttons = [

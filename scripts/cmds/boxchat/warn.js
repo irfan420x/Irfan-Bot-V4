@@ -263,7 +263,7 @@ module.exports = {
 									return message.reply(getLang("userNotInGroup", userName));
 								else
 									return message.reply(getLang("noPermission5"), (e, info) => {
-										const { onEvent } = global.noobCore;
+										const { onEvent } = global.irfbot;
 										onEvent.push({
 											messageID: info.messageID,
 											onStart: async ({ event }) => {
@@ -272,9 +272,9 @@ module.exports = {
 													if (TARGET_ID == api.getCurrentUserID()) {
 														const warnList = await threadsData.get(event.threadID, "data.warn", []);
 														if ((warnList.find(user => user.uid == uid)?.list.length ?? 0) <= 3)
-															global.noobCore.onEvent = onEvent.filter(item => item.messageID != info.messageID);
+															global.irfbot.onEvent = onEvent.filter(item => item.messageID != info.messageID);
 														else
-															api.removeUserFromGroup(uid, event.threadID, () => global.noobCore.onEvent = onEvent.filter(item => item.messageID != info.messageID));
+															api.removeUserFromGroup(uid, event.threadID, () => global.irfbot.onEvent = onEvent.filter(item => item.messageID != info.messageID));
 													}
 												}
 											}
@@ -320,7 +320,7 @@ module.exports = {
 					await message.send(getLang("hasBanned", hasBanned.map(item => `  - ${item.name} (uid: ${item.uid})`).join("\n")));
 					if (!adminIDs.includes(api.getCurrentUserID()))
 						message.reply(getLang("noPermission5"), (e, info) => {
-							const { onEvent } = global.noobCore;
+							const { onEvent } = global.irfbot;
 							onEvent.push({
 								messageID: info.messageID,
 								onStart: async ({ event }) => {
@@ -333,7 +333,7 @@ module.exports = {
 										const warnList = threadData.data.warn;
 										const members = threadData.members;
 										removeUsers(hasBanned, warnList, api, event, message, getLang, members);
-										global.noobCore.onEvent = onEvent.filter(item => item.messageID != info.messageID);
+										global.irfbot.onEvent = onEvent.filter(item => item.messageID != info.messageID);
 									}
 								}
 							});

@@ -1,4 +1,4 @@
-const { ncsetting } = global.noobCore;
+const { ncsetting } = global.irfbot;
 const { client } = global;
 const { writeFileSync } = require("fs-extra");
 const config = ncsetting;
@@ -65,7 +65,7 @@ module.exports = {
   },
 
   onStart: async function ({ message, args, usersData, event, getLang, api, commandName }) {
-    const permission = global.noobCore.ncsetting.adminBot;
+    const permission = global.irfbot.ncsetting.adminBot;
     if (!permission.includes(event.senderID)) {
       return api.sendMessage("╔═══ 𝐈𝐍𝐅𝐎 ═══╗\n║ ⚠️ | You don't have permission to use this command!\n╚══════════════════╝", event.threadID, event.messageID);
     }

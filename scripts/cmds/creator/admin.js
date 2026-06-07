@@ -1,11 +1,11 @@
-const { ncsetting } = global.noobCore;
+const { ncsetting } = global.irfbot;
 const { writeFileSync } = require("fs-extra");
 
 module.exports = {
   config: {
     name: "admin",
     version: "1.8",
-    author: "Irfan Ahmmed • Pro Styled by NoobCore",
+    author: "Irfan Ahmmed • Pro Styled by IRFBOT",
     countDown: 5,
     role: 3,
     description: {

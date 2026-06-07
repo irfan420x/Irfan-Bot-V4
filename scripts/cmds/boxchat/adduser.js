@@ -6,7 +6,7 @@ module.exports = {
 		name: "adduser",
 		version: "2.0",
 		author: "Irfan Ahmmed", // author NC-FAHAD
-       team: " NoobCore",
+       team: " IRFBOT",
 		countDown: 5,
 		role: 1,
 		description: {

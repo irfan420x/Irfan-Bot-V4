@@ -9,7 +9,7 @@ module.exports = {
         name: "count",
         version: "3.0",
         author: "Irfan Ahmmed",
-        team: "NoobCore",
+        team: "IRFBOT",
         countDown: 5,
         role: 0,
         description: {
@@ -388,9 +388,9 @@ module.exports = {
 
                 return message.reply({ attachment: createReadStream(path) }, (err, info) => {
                     if (err) return;
-                    if (!global.noobCore) global.noobCore = {};
-                    if (!global.noobCore.ncReply) global.noobCore.ncReply = new Map();
-                    global.noobCore.ncReply.set(info.messageID, { commandName: this.config.name, messageID: info.messageID, author: senderID, threadID, type: 'leaderboard', page });
+                    if (!global.irfbot) global.irfbot = {};
+                    if (!global.irfbot.ncReply) global.irfbot.ncReply = new Map();
+                    global.irfbot.ncReply.set(info.messageID, { commandName: this.config.name, messageID: info.messageID, author: senderID, threadID, type: 'leaderboard', page });
                 });
 
             } else {
@@ -592,7 +592,7 @@ module.exports = {
         }
     },
         ncReply: async function ({ event, message, getLang, api, threadsData }) {
-        const replyData = global.noobCore?.ncReply?.get(event.messageReply?.messageID);
+        const replyData = global.irfbot?.ncReply?.get(event.messageReply?.messageID);
         
         if (!replyData || replyData.type !== 'leaderboard') return;
         if (replyData.author !== event.senderID) {

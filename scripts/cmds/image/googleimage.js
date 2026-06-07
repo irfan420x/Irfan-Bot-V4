@@ -8,7 +8,7 @@ module.exports = {
     aliases: ["gimg", "googleimg", "gimage"],
     version: "1.0",
     author: "Irfan Ahmmed",
-    team: "NoobCore", 
+    team: "IRFBOT", 
     role: 0,
     countDown: 5,
     description: { en: "Search or get images from Google Images." },
@@ -35,8 +35,8 @@ module.exports = {
       }
       if (count > 25) count = 25;
 
-      const noobcore = "https://raw.githubusercontent.com/noobcore404/NC-STORE/main/NCApiUrl.json";
-      const rawRes = await axios.get(noobcore);
+      const apiConfig = "https://raw.githubusercontent.com/noobcore404/NC-STORE/main/NCApiUrl.json";
+      const rawRes = await axios.get(apiConfig);
       const apiBase = rawRes.data.apiv1;
 
       const apiUrl = `${apiBase}/api/googleimage?query=${encodeURIComponent(query)}`;

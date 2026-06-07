@@ -44,7 +44,7 @@ module.exports = {
       const [kickerAvatar, kickedAvatar, baseImage] = await Promise.all([
         loadImage(kickerAvatarUrl),
         loadImage(kickedAvatarUrl),
-        loadImage("https://raw.githubusercontent.com/X-nil143/XGbal/refs/heads/main/Messenger_creation_25995716493353919.jpeg")
+        loadImage(require("path").join(__dirname, "../../assets/images/punch.png"))
       ]);
 
       const canvas = createCanvas(baseImage.width, baseImage.height);

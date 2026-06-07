@@ -1,5 +1,5 @@
 const axios = require("axios");
-async function noobCore() {
+async function fetchApi() {
   const x = await axios.get( "https://raw.githubusercontent.com/noobcore404/NC-STORE/refs/heads/main/NCApiUrl.json",
     { timeout: 10000 }
   );
@@ -31,7 +31,7 @@ module.exports = {
     }
     try {
       api.setMessageReaction("⌛", event.messageID, event.threadID, (err) => {}, true);
-      const API_BASE = await noobCore();
+      const API_BASE = await fetchApi();
       const res = await axios.get(
         `${API_BASE}/imagine?prompt=${encodeURIComponent(prompt)}`,
         { timeout: 600000 }
@@ -45,8 +45,8 @@ module.exports = {
       if (!Array.isArray(urls) || urls.length < 4) {
         return message.reply("╔═══ 𝐈𝐍𝐅𝐎 ═══╗\n║ ❌ Invalid image response\n╚══════════════════╝");
       }
-      if (!global.noobCore) global.noobCore = {};
-      if (!global.noobCore.ncReply) global.noobCore.ncReply = new Map();
+      if (!global.irfbot) global.irfbot = {};
+      if (!global.irfbot.ncReply) global.irfbot.ncReply = new Map();
       return message.reply(
         {
           body: `🎨 AI Image Generated\n\n🆔 Task ID: ${taskId}\n\nReply with:\nU1 / U2 / U3 / U4`,
@@ -55,13 +55,13 @@ module.exports = {
         (err, info) => {
           if (err) return;
           api.setMessageReaction("✅", event.messageID, event.threadID, (err) => {}, true);
-          global.noobCore.ncReply.set(info.messageID, {
+          global.irfbot.ncReply.set(info.messageID, {
             commandName: this.config.name,
             author: event.senderID,
             urls
           });
           setTimeout(() => {
-            global.noobCore.ncReply.delete(info.messageID);
+            global.irfbot.ncReply.delete(info.messageID);
           }, 5 * 60 * 1000);
         }
       );
@@ -74,7 +74,7 @@ module.exports = {
   ncReply: async function ({ event, message, api }) {
     const replyMsgID = event.messageReply?.messageID;
     if (!replyMsgID) return;
-    const replyData = global.noobCore?.ncReply?.get(replyMsgID);
+    const replyData = global.irfbot?.ncReply?.get(replyMsgID);
     if (!replyData) return;
     if (replyData.author !== event.senderID) return;
     const text = event.body.trim().toLowerCase();

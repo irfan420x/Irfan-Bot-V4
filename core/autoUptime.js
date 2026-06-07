@@ -1,5 +1,5 @@
 const axios = require('axios');
-const { config } = global.noobCore;
+const { config } = global.irfbot;
 const { log, getText } = global.utils;
 if (global.timeOutUptime != undefined)
 	clearTimeout(global.timeOutUptime);

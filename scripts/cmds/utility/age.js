@@ -7,7 +7,7 @@ module.exports = {
     aliases: ["agecalc", "agecalculator"],
     version: "1.0",
     author: "Irfan Ahmmed",
-    team: "NoobCore",
+    team: "IRFBOT",
     countDown: 5,
     role: 0,
     shortDescription: { en: "Calculate age from birth date" },
@@ -36,8 +36,8 @@ module.exports = {
         return message.reply(`${bold("❌ Invalid date format!")} \n${bold("Please use: DD-MM-YYYY")} \n${bold("Example: /age 15-03-2008")}`);
       }
 
-      const noobcore = "https://raw.githubusercontent.com/noobcore404/NC-STORE/main/NCApiUrl.json"; 
-      const apiRes = await axios.get(noobcore);
+      const apiConfig = "https://raw.githubusercontent.com/noobcore404/NC-STORE/main/NCApiUrl.json"; 
+      const apiRes = await axios.get(apiConfig);
       const baseUrl = apiRes.data.apiv1;
       const apiBirthDate = birthDate.format("YYYY-MM-DD");
 

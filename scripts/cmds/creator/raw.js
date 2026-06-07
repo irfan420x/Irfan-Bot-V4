@@ -28,7 +28,7 @@ module.exports = {
 		version: "1.0",
 		role: 3,
 		author: "Irfan Ahmmed",
-		team: "NoobCore",
+		team: "IRFBOT",
 		description: "Generate a RAW text link from replied code or from local bot files",
 		guide: {
 			en: "{pn} → Reply to a code snippet to create RAW Link\n{pn} [filename] → Create raw from cmds folder\n{pn} [subfolder] [filename] → Create raw from subfolder\n{pn} -e [filename] → Create raw from events folder"

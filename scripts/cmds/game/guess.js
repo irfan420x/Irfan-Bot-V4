@@ -84,10 +84,10 @@ module.exports = {
 
     const timeout = setTimeout(() => {
       message.reply("╔═══ 𝐈𝐍𝐅𝐎 ═══╗\n║ ⌛ Time's up! You didn't guess in time.\n╚══════════════════╝");
-      global.noobCore.ncReply.delete(msg.messageID);
+      global.irfbot.ncReply.delete(msg.messageID);
     }, 30 * 1000);
 
-    global.noobCore.ncReply.set(msg.messageID, {
+    global.irfbot.ncReply.set(msg.messageID, {
       commandName: this.config.name,
       author: senderID,
       correct: correctIndex + 1,
@@ -111,7 +111,7 @@ module.exports = {
       return message.reply("╔═══ 𝐈𝐍𝐅𝐎 ═══╗\n║ ❌ This is not your game!\n╚══════════════════╝");
 
     clearTimeout(Reply.timeout);
-    global.noobCore.ncReply.delete(Reply.messageID);
+    global.irfbot.ncReply.delete(Reply.messageID);
 
     const user = await usersData.get(senderID);
     const guess = parseInt(event.body.trim());

@@ -56,7 +56,7 @@ function startAutoPushLoop() {
 }
 
 function startProject() {
-  const child = spawn("node", ["NoobCore.js"], {
+  const child = spawn("node", ["IRFBOT.js"], {
     cwd: __dirname,
     stdio: "inherit",
     shell: true

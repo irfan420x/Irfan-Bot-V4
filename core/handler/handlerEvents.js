@@ -1,6 +1,6 @@
 const fs = require("fs-extra");
 const nullAndUndefined = [undefined, null];
-// const { config } = global.noobCore;
+// const { config } = global.irfbot;
 // const { utils } = global;
 
 function getType(obj) {
@@ -8,8 +8,8 @@ function getType(obj) {
 }
 
 function getRole(threadData, senderID) {
-        const adminBot = (global.noobCore.ncsetting.adminBot || []).map(String);
-        const creator = (global.noobCore.ncsetting.creator || []).map(String);
+        const adminBot = (global.irfbot.ncsetting.adminBot || []).map(String);
+        const creator = (global.irfbot.ncsetting.creator || []).map(String);
         const sID = String(senderID);
 
         if (!senderID) return 0;
@@ -80,7 +80,7 @@ function getRoleConfig(utils, command, isGroup, threadData, commandName) {
 }
 
 function isBannedOrOnlyAdmin(userData, threadData, senderID, threadID, isGroup, commandName, message, lang) {
-        const ncsetting = global.noobCore.ncsetting;
+        const ncsetting = global.irfbot.ncsetting;
         const adminBot = (ncsetting.adminBot || []).map(String);
         const creator = (ncsetting.creator || []).map(String);
         const sID = String(senderID);
@@ -248,9 +248,9 @@ module.exports = function (api, threadModel, userModel, dashBoardModel, globalMo
 
         return async function (event, message) {
 
-                const { utils, client, noobCore } = global;
+                const { utils, client, irfbot } = global;
                 const { getPrefix, removeHomeDir, log, getTime } = utils;
-                const { ncsetting, configCommands: { envGlobal, envCommands, envEvents } } = noobCore;
+                const { ncsetting, configCommands: { envGlobal, envCommands, envEvents } } = irfbot;
                 const { autoRefreshThreadInfoFirstTime } = ncsetting.database;
                 let { hideNotiMessage = {} } = ncsetting;
 
@@ -335,7 +335,7 @@ module.exports = function (api, threadModel, userModel, dashBoardModel, globalMo
                         if (body.startsWith(prefix)) {
                                 args = body.slice(prefix.length).trim().split(/ +/);
                                 commandName = args.shift().toLowerCase();
-                                command = noobCore.commands.get(commandName) || noobCore.commands.get(noobCore.aliases.get(commandName));
+                                command = irfbot.commands.get(commandName) || irfbot.commands.get(irfbot.aliases.get(commandName));
 
                                 if (command && command.config.usePrefix === false) {
                                         return await message.reply(`✨ The command "『 ${commandName} 』" does not require a prefix ✨`);
@@ -344,7 +344,7 @@ module.exports = function (api, threadModel, userModel, dashBoardModel, globalMo
                         else if (ncsetting.allowAdminNoPrefix === true && isAdminOrCreator) {
                                 args = body.trim().split(/ +/);
                                 const checkName = args.shift().toLowerCase();
-                                const foundCommand = noobCore.commands.get(checkName) || noobCore.commands.get(noobCore.aliases.get(checkName));
+                                const foundCommand = irfbot.commands.get(checkName) || irfbot.commands.get(irfbot.aliases.get(checkName));
                                 
                                 if (foundCommand) {
                                         command = foundCommand;
@@ -356,7 +356,7 @@ module.exports = function (api, threadModel, userModel, dashBoardModel, globalMo
                         else {
                                 args = body.trim().split(/ +/);
                                 commandName = args.shift().toLowerCase();
-                                command = Array.from(noobCore.commands.values()).find(cmd => 
+                                command = Array.from(irfbot.commands.values()).find(cmd => 
                                         (cmd.config.name === commandName || 
                                          (cmd.config.aliases || []).includes(commandName)) &&
                                         cmd.config.usePrefix === false
@@ -372,7 +372,7 @@ module.exports = function (api, threadModel, userModel, dashBoardModel, globalMo
                         const aliasesData = threadData.data.aliases || {};
                         for (const cmdName in aliasesData) {
                                 if (aliasesData[cmdName].includes(commandName)) {
-                                        command = noobCore.commands.get(cmdName);
+                                        command = irfbot.commands.get(cmdName);
                                         break;
                                 }
                         }
@@ -401,7 +401,7 @@ module.exports = function (api, threadModel, userModel, dashBoardModel, globalMo
                                 return;
                         if (!command)
                                 if (!hideNotiMessage.commandNotFound) {
-                                        const similarCommand = findSimilarCommand(commandName, noobCore.commands, noobCore.aliases);
+                                        const similarCommand = findSimilarCommand(commandName, irfbot.commands, irfbot.aliases);
                                         return await message.reply(
                                                 commandName ?
                                                         (similarCommand ?
@@ -557,10 +557,10 @@ module.exports = function (api, threadModel, userModel, dashBoardModel, globalMo
                  +------------------------------------------------+
                 */
                 async function ncPrefix() {
-                        const allOnChat = noobCore.ncPrefix || [];
+                        const allOnChat = irfbot.ncPrefix || [];
                         const args = body ? body.split(/ +/) : [];
                         for (const key of allOnChat) {
-                                const command = noobCore.commands.get(key);
+                                const command = irfbot.commands.get(key);
                                 if (!command)
                                         continue;
                                 const commandName = command.config.name;
@@ -616,7 +616,7 @@ module.exports = function (api, threadModel, userModel, dashBoardModel, globalMo
                  +------------------------------------------------+
                 */
                 async function ncAnyEvent() {
-                        const allncAnyEvent = noobCore.ncAnyEvent || [];
+                        const allncAnyEvent = irfbot.ncAnyEvent || [];
                         let args = [];
                         if (typeof event.body == "string" && event.body.startsWith(prefix))
                                 args = event.body.split(/ +/);
@@ -624,7 +624,7 @@ module.exports = function (api, threadModel, userModel, dashBoardModel, globalMo
                         for (const key of allncAnyEvent) {
                                 if (typeof key !== "string")
                                         continue;
-                                const command = noobCore.commands.get(key);
+                                const command = irfbot.commands.get(key);
                                 if (!command)
                                         continue;
                                 const commandName = command.config.name;
@@ -671,14 +671,14 @@ module.exports = function (api, threadModel, userModel, dashBoardModel, globalMo
                  +------------------------------------------------+
                 */
                 async function ncFirstChat() {
-                        const allncFirstChat = noobCore.ncFirstChat || [];
+                        const allncFirstChat = irfbot.ncFirstChat || [];
                         const args = body ? body.split(/ +/) : [];
 
                         for (const itemncFirstChat of allncFirstChat) {
                                 const { commandName, threadIDsChattedFirstTime } = itemncFirstChat;
                                 if (threadIDsChattedFirstTime.includes(threadID))
                                         continue;
-                                const command = noobCore.commands.get(commandName);
+                                const command = irfbot.commands.get(commandName);
                                 if (!command)
                                         continue;
 
@@ -729,7 +729,7 @@ module.exports = function (api, threadModel, userModel, dashBoardModel, globalMo
                 async function ncReply() {
                         if (!event.messageReply)
                                 return;
-                        const { ncReply } = noobCore;
+                        const { ncReply } = irfbot;
                         const Reply = ncReply.get(event.messageReply.messageID);
                         if (!Reply)
                                 return;
@@ -739,7 +739,7 @@ module.exports = function (api, threadModel, userModel, dashBoardModel, globalMo
                                 message.reply(utils.getText({ lang: langCode, head: "handlerEvents" }, "cannotFindCommandName"));
                                 return log.err("ncReply", `Can't find command name to execute this reply!`, Reply);
                         }
-                        const command = noobCore.commands.get(commandName);
+                        const command = irfbot.commands.get(commandName);
                         if (!command) {
                                 message.reply(utils.getText({ lang: langCode, head: "handlerEvents" }, "cannotFindCommand", commandName));
                                 return log.err("ncReply", `Command "${commandName}" not found`, Reply);
@@ -791,7 +791,7 @@ module.exports = function (api, threadModel, userModel, dashBoardModel, globalMo
                  +------------------------------------------------+
                 */
                 async function ncReaction() {
-                        const { ncReaction } = noobCore;
+                        const { ncReaction } = irfbot;
                         const Reaction = ncReaction.get(messageID);
                         if (!Reaction)
                                 return;
@@ -801,7 +801,7 @@ module.exports = function (api, threadModel, userModel, dashBoardModel, globalMo
                                 message.reply(utils.getText({ lang: langCode, head: "handlerEvents" }, "cannotFindCommandName"));
                                 return log.err("ncReaction", `Can't find command name to execute this reaction!`, Reaction);
                         }
-                        const command = noobCore.commands.get(commandName);
+                        const command = irfbot.commands.get(commandName);
                         if (!command) {
                                 message.reply(utils.getText({ lang: langCode, head: "handlerEvents" }, "cannotFindCommand", commandName));
                                 return log.err("ncReaction", `Command "${commandName}" not found`, Reaction);
@@ -855,9 +855,9 @@ module.exports = function (api, threadModel, userModel, dashBoardModel, globalMo
                 */
                 async function handlerEvent() {
                         const { author } = event;
-                        const allEventCommand = noobCore.eventCommands.entries();
+                        const allEventCommand = irfbot.eventCommands.entries();
                         for (const [key] of allEventCommand) {
-                                const getEvent = noobCore.eventCommands.get(key);
+                                const getEvent = irfbot.eventCommands.get(key);
                                 if (!getEvent)
                                         continue;
                                 const commandName = getEvent.config.name;
@@ -888,13 +888,13 @@ module.exports = function (api, threadModel, userModel, dashBoardModel, globalMo
                  +------------------------------------------------+
                 */
                 async function ncEvent() {
-                        const allncEvent = noobCore.ncEvent || [];
+                        const allncEvent = irfbot.ncEvent || [];
                         const args = [];
                         const { author } = event;
                         for (const key of allncEvent) {
                                 if (typeof key !== "string")
                                         continue;
-                                const command = noobCore.commands.get(key);
+                                const command = irfbot.commands.get(key);
                                 if (!command)
                                         continue;
                                 const commandName = command.config.name;

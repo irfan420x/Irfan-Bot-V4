@@ -1,7 +1,7 @@
 const { graphQlQueryToJson } = require("graphql-query-to-json");
 const ora = require("ora");
 const { log, getText } = global.utils;
-const { ncsetting } = global.noobCore;
+const { ncsetting } = global.irfbot;
 const databaseType = ncsetting.database.type;
 
 // with add null if not found data

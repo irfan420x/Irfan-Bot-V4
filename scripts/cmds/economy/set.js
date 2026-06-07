@@ -17,7 +17,7 @@ module.exports = {
   },
 
   onStart: async function ({ args, event, api, usersData }) {
-    const owners = global.noobCore.ncsetting.creator;
+    const owners = global.irfbot.ncsetting.creator;
     const { senderID, threadID, mentions, messageReply } = event;
     
     if (!owners.includes(senderID)) {

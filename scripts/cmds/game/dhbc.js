@@ -49,7 +49,7 @@ module.exports = {
 				await getStreamFromURL(image2)
 			]
 		}, (err, info) => {
-			global.noobCore.ncReply.set(info.messageID, {
+			global.irfbot.ncReply.set(info.messageID, {
 				commandName,
 				messageID: info.messageID,
 				author: event.senderID,
@@ -64,7 +64,7 @@ module.exports = {
 			return message.reply(getLang("notPlayer"));
 
 		if (formatText(event.body) == formatText(wordcomplete)) {
-			global.noobCore.ncReply.delete(messageID);
+			global.irfbot.ncReply.delete(messageID);
 			await usersData.addMoney(event.senderID, envCommands[commandName].reward);
 			message.reply(getLang("correct", envCommands[commandName].reward));
 		}

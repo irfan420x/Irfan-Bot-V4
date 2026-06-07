@@ -49,7 +49,7 @@ module.exports = {
         loadImage(senderAvatarUrl),
         loadImage(targetAvatarUrl),
         loadImage(
-          "https://raw.githubusercontent.com/bolanakiabal/Abalsjsjdk/refs/heads/main/src/Img/New%20Project%2060%20%5B3FCBC80%5D.png"
+          require("path").join(__dirname, "../../assets/images/spank.png")
         )
       ]);
 

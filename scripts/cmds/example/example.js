@@ -1,6 +1,6 @@
 /**
  * 📦 Example Command
- * Team: NoobCore
+ * Team: IRFBOT
  * Beginner today, core tomorrow
  */
 

@@ -53,7 +53,7 @@ function compareVersion(version1, version2) {
 const { writeFileSync, readFileSync, existsSync, watch } = require("fs-extra");
 const handlerWhenListenHasError = require("./handlerWhenListenHasError.js");
 const checkLiveCookie = require("./checkLiveCookie.js");
-const { callbackListenTime, storage5Message } = global.noobCore;
+const { callbackListenTime, storage5Message } = global.irfbot;
 const { log, logColor, getPrefix, createOraDots, jsonStringifyColor, getText, convertTime, colors, randomString } = global.utils;
 const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
 
@@ -80,7 +80,7 @@ const titles = [
 ],
 [
 "+-----------+",
-"| NoobCore |",
+"| IRFBOT |",
 "|  Bot V3  |",
 "+-----------+"
 ],
@@ -88,7 +88,7 @@ const titles = [
 "N O O B C O R E  B O T  V 3 @" + currentVersion
 ],
 [
-"NOOBCORE BOT V3"
+"IRFBOT V4"
 ]
 ];
 const maxWidth = process.stdout.columns;
@@ -106,7 +106,7 @@ for (const text of title) {
         const textColor = gradient("#FA8BFF", "#2BD2FF", "#2BFF88")(text);
         centerText(textColor, text.length);
 }
-let subTitle = `unofficial noobCore V3@${currentVersion}- A simple Bot chat messenger use personal account`;
+let subTitle = `unofficial IRFBOT V4@${currentVersion}- A simple Bot chat messenger use personal account`;
 const subTitleArray = [];
 if (subTitle.length > maxWidth) {
         while (subTitle.length > maxWidth) {
@@ -120,7 +120,7 @@ if (subTitle.length > maxWidth) {
 else {
         subTitleArray.push(subTitle);
 }
-const author = ("Created by Irfan Ahmmed modified by NoobCore Team");
+const author = ("Created by Irfan Ahmmed modified by IRFBOT Team");
 const srcUrl = ("Source code: https://github.com/noobcore404/NooCore-v3-Bot");
 const fakeRelease = ("ALL VERSIONS NOT RELEASED HERE ARE FAKE");
 for (const t of subTitleArray) {
@@ -201,7 +201,7 @@ qr.readQrCode = async function (filePath) {
 };
 
 const { dirAccount } = global.client;
-const { facebookAccount } = global.noobCore.ncsetting;
+const { facebookAccount } = global.irfbot.ncsetting;
 
 function responseUptimeSuccess(req, res) {
         res.type('json').send({
@@ -335,8 +335,8 @@ async function getAppStateFromEmail(spin = { _start: () => { }, _stop: () => { }
                 throw err;
         }
 
-        global.noobCore.ncsetting.facebookAccount['2FASecret'] = code2FATemp || "";
-        writeFileSync(global.client.dirConfig, JSON.stringify(global.noobCore.ncsetting, null, 2));
+        global.irfbot.ncsetting.facebookAccount['2FASecret'] = code2FATemp || "";
+        writeFileSync(global.client.dirConfig, JSON.stringify(global.irfbot.ncsetting, null, 2));
         return appState;
 }
 
@@ -439,13 +439,13 @@ async function getAppStateToLogin(loginWithEmail) {
                                 !splitAccountText.slice(0, 2).map(i => i.trim()).some(i => i.includes(' '))
                         ) {
                                 // bug if account.txt is "[]"
-                                global.noobCore.ncsetting.facebookAccount.email = splitAccountText[0]; // bug here=> email is "["
-                                global.noobCore.ncsetting.facebookAccount.password = splitAccountText[1]; // bug here=> password is "]"
+                                global.irfbot.ncsetting.facebookAccount.email = splitAccountText[0]; // bug here=> email is "["
+                                global.irfbot.ncsetting.facebookAccount.password = splitAccountText[1]; // bug here=> password is "]"
                                 if (splitAccountText[2]) {
                                         const code2FATemp = splitAccountText[2].replace(/ /g, "");
-                                        global.noobCore.ncsetting.facebookAccount['2FASecret'] = code2FATemp;
+                                        global.irfbot.ncsetting.facebookAccount['2FASecret'] = code2FATemp;
                                 }
-                                writeFileSync(global.client.dirConfig, JSON.stringify(global.noobCore.ncsetting, null, 2));
+                                writeFileSync(global.client.dirConfig, JSON.stringify(global.irfbot.ncsetting, null, 2));
                         }
                         // is json (cookies or appstate)
                         else {
@@ -559,7 +559,7 @@ async function getAppStateToLogin(loginWithEmail) {
                                 facebookAccount.email = email || '';
                                 facebookAccount.password = password || '';
                                 facebookAccount['2FASecret'] = twoFactorAuth || '';
-                                writeFileSync(global.client.dirConfig, JSON.stringify(global.noobCore.config, null, 2));
+                                writeFileSync(global.client.dirConfig, JSON.stringify(global.irfbot.config, null, 2));
                         }
                         else if (currentOption == 1) {
                                 const token = await input(getText('login', 'inputToken') + " ");
@@ -597,7 +597,7 @@ async function getAppStateToLogin(loginWithEmail) {
 function stopListening(keyListen) {
         keyListen = keyListen || Object.keys(callbackListenTime).pop();
         return new Promise((resolve) => {
-                global.noobCore.fcaApi.stopListening?.(() => {
+                global.irfbot.fcaApi.stopListening?.(() => {
                         if (callbackListenTime[keyListen]) {
                                 // callbackListenTime[keyListen || Object.keys(callbackListenTime).pop()]("Connection closed by user.");
                                 callbackListenTime[keyListen] = () => { };
@@ -640,7 +640,7 @@ async function startBot(loginWithEmail) {
         }
         /* { CHECK ORIGIN CODE } */
 
-        if (global.noobCore.Listening)
+        if (global.irfbot.Listening)
                 await stopListening();
 
         log.info("LOGIN FACEBOOK", `🔄 Trying to login with ${currentStateFile}...`);
@@ -663,13 +663,13 @@ async function startBot(loginWithEmail) {
         }
         // ——————————————————— LOGIN ———————————————————— //
         (function loginBot(appState) {
-                global.noobCore.commands = new Map();
-                global.noobCore.eventCommands = new Map();
-                global.noobCore.aliases = new Map();
-                global.noobCore.ncPrefix = [];
-                global.noobCore.ncEvent = [];
-                global.noobCore.ncReply = new Map();
-                global.noobCore.ncReaction = new Map();
+                global.irfbot.commands = new Map();
+                global.irfbot.eventCommands = new Map();
+                global.irfbot.aliases = new Map();
+                global.irfbot.ncPrefix = [];
+                global.irfbot.ncEvent = [];
+                global.irfbot.ncReply = new Map();
+                global.irfbot.ncReaction = new Map();
                 clearInterval(global.intervalRestartListenMqtt);
                 delete global.intervalRestartListenMqtt;
 
@@ -678,7 +678,7 @@ async function startBot(loginWithEmail) {
 
                 let isSendNotiErrorMessage = false;
 
-                login({ appState }, global.noobCore.ncsetting.optionsFca, async function (error, api) {
+                login({ appState }, global.irfbot.ncsetting.optionsFca, async function (error, api) {
                         // Handle error
                         if (error) {
                                 log.err("LOGIN FACEBOOK", `❌ Login failed with ${currentStateFile}: ${error.error || error.message || error}`);
@@ -688,7 +688,7 @@ async function startBot(loginWithEmail) {
                                 return startBot();
                         }
 
-                        api.setOptions(global.noobCore.ncsetting.optionsFca);
+                        api.setOptions(global.irfbot.ncsetting.optionsFca);
 
                         // In case the FCA doesn't support .on, we rely on the listener callback
                         // But we'll keep the current structure for now and just check if .on exists
@@ -702,7 +702,7 @@ async function startBot(loginWithEmail) {
                                                 (err.error && typeof err.error === "string" && err.error.includes("blocked"))
                                         ) {
                                                 log.warn("LOGIN", "Account issue detected during runtime, switching to next state...");
-                                                if (global.noobCore.Listening) {
+                                                if (global.irfbot.Listening) {
                                                         await stopListening();
                                                 }
                                                 currentStateIndex++;
@@ -711,8 +711,8 @@ async function startBot(loginWithEmail) {
                                 });
                         }
 
-                        global.noobCore.fcaApi = api;
-                        global.noobCore.botID = api.getCurrentUserID();
+                        global.irfbot.fcaApi = api;
+                        global.irfbot.botID = api.getCurrentUserID();
                         log.info("LOGIN FACEBOOK", getText('login', 'loginSuccess'));
                         let hasBanned = false;
                         global.botID = api.getCurrentUserID();
@@ -720,9 +720,9 @@ async function startBot(loginWithEmail) {
                         log.info("NODE VERSION", process.version);
                         log.info("PROJECT VERSION", currentVersion);
                         log.info("BOT ID", `${global.botID} - ${await getName(global.botID, api)}`);
-                        log.info("PREFIX", global.noobCore.ncsetting.prefix);
-                        log.info("LANGUAGE", global.noobCore.ncsetting.language);
-                        log.info("BOT NICK NAME", global.noobCore.ncsetting.nickNameBot || "GOAT BOT");
+                        log.info("PREFIX", global.irfbot.ncsetting.prefix);
+                        log.info("LANGUAGE", global.irfbot.ncsetting.language);
+                        log.info("BOT NICK NAME", global.irfbot.ncsetting.nickNameBot || "GOAT BOT");
                         // ———————————————————— GBAN ————————————————————— //
                         let dataGban;
 
@@ -747,7 +747,7 @@ async function startBot(loginWithEmail) {
                                         }
                                 }
                                 // ———————————————— CHECK ADMIN ———————————————— //
-                                const adminBot = global.noobCore.ncsetting.adminBot || [];
+                                const adminBot = global.irfbot.ncsetting.adminBot || [];
                                 for (const idad of adminBot) {
                                         const idStr = String(idad);
                                         if (dataGban.hasOwnProperty(idStr)) {
@@ -782,7 +782,7 @@ async function startBot(loginWithEmail) {
                                 log.err("ERROR", "Can't get notifications data");
                                 process.exit();
                         }
-                        if (global.noobCore.ncsetting.autoRefreshFbstate == true) {
+                        if (global.irfbot.ncsetting.autoRefreshFbstate == true) {
                                 changeFbStateByCode = true;
                                 try {
                                         writeFileSync(dirAccount, JSON.stringify(filterKeysAppState(api.getAppState()), null, 2));
@@ -805,9 +805,9 @@ async function startBot(loginWithEmail) {
                         await require(process.env.NODE_ENV === 'development' ? "./loadScripts.dev.js" : "./loadScripts.js")(api, threadModel, userModel, dashBoardModel, globalModel, threadsData, usersData, dashBoardData, globalData, createLine);
 
                         // ———————————— CHECK AUTO LOAD SCRIPTS ———————————— //
-                        if (global.noobCore.ncsetting.autoLoadScripts?.enable == true) {
-                                const ignoreCmds = global.noobCore.ncsetting.autoLoadScripts.ignoreCmds?.replace(/[ ,]+/g, ' ').trim().split(' ') || [];
-                                const ignoreEvents = global.noobCore.ncsetting.autoLoadScripts.ignoreEvents?.replace(/[ ,]+/g, ' ').trim().split(' ') || [];
+                        if (global.irfbot.ncsetting.autoLoadScripts?.enable == true) {
+                                const ignoreCmds = global.irfbot.ncsetting.autoLoadScripts.ignoreCmds?.replace(/[ ,]+/g, ' ').trim().split(' ') || [];
+                                const ignoreEvents = global.irfbot.ncsetting.autoLoadScripts.ignoreEvents?.replace(/[ ,]+/g, ' ').trim().split(' ') || [];
 
                                 watch(`${process.cwd()}/scripts/cmds`, async (event, filename) => {
                                         if (filename.endsWith('.js')) {
@@ -822,7 +822,7 @@ async function startBot(loginWithEmail) {
                                                                 global.temp.contentScripts.cmds[filename] = currentContent;
                                                                 filename = filename.replace('.js', '');
 
-                                                                const infoLoad = global.utils.loadScripts("cmds", filename, log, global.noobCore.configCommands, api, threadModel, userModel, dashBoardModel, globalModel, threadsData, usersData, dashBoardData, globalData);
+                                                                const infoLoad = global.utils.loadScripts("cmds", filename, log, global.irfbot.configCommands, api, threadModel, userModel, dashBoardModel, globalModel, threadsData, usersData, dashBoardData, globalData);
                                                                 if (infoLoad.status == "success")
                                                                         log.master("AUTO LOAD SCRIPTS", `Command ${filename}.js (${infoLoad.command.config.name}) has been reloaded`);
                                                                 else
@@ -848,7 +848,7 @@ async function startBot(loginWithEmail) {
                                                                 global.temp.contentScripts.events[filename] = currentContent;
                                                                 filename = filename.replace('.js', '');
 
-                                                                const infoLoad = global.utils.loadScripts("events", filename, log, global.noobCore.configCommands, api, threadModel, userModel, dashBoardModel, globalModel, threadsData, usersData, dashBoardData, globalData);
+                                                                const infoLoad = global.utils.loadScripts("events", filename, log, global.irfbot.configCommands, api, threadModel, userModel, dashBoardModel, globalModel, threadsData, usersData, dashBoardData, globalData);
                                                                 if (infoLoad.status == "success")
                                                                         log.master("AUTO LOAD SCRIPTS", `Event ${filename}.js (${infoLoad.command.config.name}) has been reloaded`);
                                                                 else
@@ -862,7 +862,7 @@ async function startBot(loginWithEmail) {
                                 });
                         }
                         // ——————————————————— DASHBOARD ——————————————————— //
-                        if (global.noobCore.ncsetting.dashBoard?.enable == true && dashBoardIsRunning == false) {
+                        if (global.irfbot.ncsetting.dashBoard?.enable == true && dashBoardIsRunning == false) {
                                 logColor('#f5ab00', createLine('DASHBOARD'));
                                 try {
                                         await require("../../public/app.js")(api);
@@ -876,7 +876,7 @@ async function startBot(loginWithEmail) {
                         // ———————————————————— ADMIN BOT ———————————————————— //
                         logColor('#f5ab00', character);
                         let i = 0;
-                        const adminBot = global.noobCore.ncsetting.adminBot
+                        const adminBot = global.irfbot.ncsetting.adminBot
                                 .filter(item => !isNaN(item))
                                 .map(item => item = item.toString());
                         for (const uid of adminBot) {
@@ -890,18 +890,18 @@ async function startBot(loginWithEmail) {
                         }
                         log.master("NOTIFICATION", (notification || "").trim());
                         log.master("SUCCESS", getText('login', 'runBot'));
-                        log.master("LOAD TIME", `${convertTime(Date.now() - global.noobCore.startTime)}`);
+                        log.master("LOAD TIME", `${convertTime(Date.now() - global.irfbot.startTime)}`);
                         logColor("#f5ab00", createLine("COPYRIGHT"));
                         // —————————————————— COPYRIGHT INFO —————————————————— //
-                        // console.log(`\x1b[1m\x1b[33mCOPYRIGHT:\x1b[0m\x1b[1m\x1b[37m \x1b[0m\x1b[1m\x1b[36mProject noobCore v2 created by ntkhang03 (https://github.com/ntkhang03), please do not sell this source code or claim it as your own. Thank you!\x1b[0m`);
-                        console.log(`\x1b[1m\x1b[33m${("COPYRIGHT:")}\x1b[0m\x1b[1m\x1b[37m \x1b[0m\x1b[1m\x1b[36m${("Project noobCore v2 created by ntkhang03 (https://github.com/ntkhang03), please do not sell this source code or claim it as your own. Thank you!")}\x1b[0m`);
+                        // console.log(`\x1b[1m\x1b[33mCOPYRIGHT:\x1b[0m\x1b[1m\x1b[37m \x1b[0m\x1b[1m\x1b[36mIRFBOT V4 — Created by Irfan Ahmmed\x1b[0m`);
+                        console.log(`\x1b[1m\x1b[33m${("COPYRIGHT:")}\x1b[0m\x1b[1m\x1b[37m \x1b[0m\x1b[1m\x1b[36m${("IRFBOT V4 — Created by Irfan Ahmmed")}\x1b[0m`);
                         logColor("#f5ab00", character);
-                        global.noobCore.ncsetting.adminBot = adminBot;
-                        writeFileSync(global.client.dirConfig, JSON.stringify(global.noobCore.ncsetting, null, 2));
-                        writeFileSync(global.client.dirConfigCommands, JSON.stringify(global.noobCore.configCommands, null, 2));
+                        global.irfbot.ncsetting.adminBot = adminBot;
+                        writeFileSync(global.client.dirConfig, JSON.stringify(global.irfbot.ncsetting, null, 2));
+                        writeFileSync(global.client.dirConfigCommands, JSON.stringify(global.irfbot.configCommands, null, 2));
 
                         // ——————————————————————————————————————————————————— //
-                        const { restartListenMqtt } = global.noobCore.ncsetting;
+                        const { restartListenMqtt } = global.irfbot.ncsetting;
                         let intervalCheckLiveCookieAndRelogin = false;
                         // —————————————————— CALLBACK LISTEN —————————————————— //
                         async function callBackListen(error, event) {
@@ -934,7 +934,7 @@ async function startBot(loginWithEmail) {
                                                         isSendNotiErrorMessage = true;
                                                 }
 
-                                                if (global.noobCore.ncsetting.autoRestartWhenListenMqttError)
+                                                if (global.irfbot.ncsetting.autoRestartWhenListenMqttError)
                                                         process.exit(2);
                                                 else {
                                                         // log.dev("ACCOUNT LOCKED, start relogin...");
@@ -967,7 +967,7 @@ async function startBot(loginWithEmail) {
                                                                                 intervalCheckLiveCookieAndRelogin = false;
                                                                                 const keyListen = Date.now();
                                                                                 isSendNotiErrorMessage = false;
-                                                                                global.noobCore.Listening = api.listenMqtt(createCallBackListen(keyListen));
+                                                                                global.irfbot.Listening = api.listenMqtt(createCallBackListen(keyListen));
                                                                         }
                                                                 }, 5000);
                                                         }
@@ -987,7 +987,7 @@ async function startBot(loginWithEmail) {
                                 }
                                 global.responseUptimeCurrent = responseUptimeSuccess;
                                 global.statusAccountBot = 'good';
-                                const configLog = global.noobCore.ncsetting.logEvents;
+                                const configLog = global.irfbot.ncsetting.logEvents;
                                 if (isSendNotiErrorMessage == true)
                                         isSendNotiErrorMessage = false;
 
@@ -1018,31 +1018,31 @@ async function startBot(loginWithEmail) {
                                 // }
 
                                 if (
-                                        global.noobCore.ncsetting.whiteListMode?.enable == true
-                                        && global.noobCore.ncsetting.whiteListModeThread?.enable == true
+                                        global.irfbot.ncsetting.whiteListMode?.enable == true
+                                        && global.irfbot.ncsetting.whiteListModeThread?.enable == true
                                         // admin
-                                        && !global.noobCore.ncsetting.adminBot.includes(event.senderID)
+                                        && !global.irfbot.ncsetting.adminBot.includes(event.senderID)
                                 ) {
                                         if (
-                                                !global.noobCore.ncsetting.whiteListMode.whiteListIds.includes(event.senderID)
-                                                && !global.noobCore.ncsetting.whiteListModeThread.whiteListThreadIds.includes(event.threadID)
+                                                !global.irfbot.ncsetting.whiteListMode.whiteListIds.includes(event.senderID)
+                                                && !global.irfbot.ncsetting.whiteListModeThread.whiteListThreadIds.includes(event.threadID)
                                                 // admin
-                                                && !global.noobCore.ncsetting.adminBot.includes(event.senderID)
+                                                && !global.irfbot.ncsetting.adminBot.includes(event.senderID)
                                         )
                                                 return;
                                 }
                                 else if (
-                                        global.noobCore.ncsetting.whiteListMode?.enable == true
-                                        && !global.noobCore.ncsetting.whiteListMode.whiteListIds.includes(event.senderID)
+                                        global.irfbot.ncsetting.whiteListMode?.enable == true
+                                        && !global.irfbot.ncsetting.whiteListMode.whiteListIds.includes(event.senderID)
                                         // admin
-                                        && !global.noobCore.ncsetting.adminBot.includes(event.senderID)
+                                        && !global.irfbot.ncsetting.adminBot.includes(event.senderID)
                                 )
                                         return;
                                 else if (
-                                        global.noobCore.ncsetting.whiteListModeThread?.enable == true
-                                        && !global.noobCore.ncsetting.whiteListModeThread.whiteListThreadIds.includes(event.threadID)
+                                        global.irfbot.ncsetting.whiteListModeThread?.enable == true
+                                        && !global.irfbot.ncsetting.whiteListModeThread.whiteListThreadIds.includes(event.threadID)
                                         // admin
-                                        && !global.noobCore.ncsetting.adminBot.includes(event.senderID)
+                                        && !global.irfbot.ncsetting.adminBot.includes(event.senderID)
                                 )
                                         return;
 
@@ -1098,16 +1098,16 @@ async function startBot(loginWithEmail) {
                         }
                         // ———————————————————— START BOT ———————————————————— //
                         await stopListening();
-                        global.noobCore.Listening = api.listenMqtt(createCallBackListen());
-                        global.noobCore.callBackListen = callBackListen;
+                        global.irfbot.Listening = api.listenMqtt(createCallBackListen());
+                        global.irfbot.callBackListen = callBackListen;
                         // ——————————————————— UPTIME ——————————————————— //
-                        if (global.noobCore.ncsetting.serverUptime.enable == true && !global.noobCore.ncsetting.dashBoard?.enable && !global.serverUptimeRunning) {
+                        if (global.irfbot.ncsetting.serverUptime.enable == true && !global.irfbot.ncsetting.dashBoard?.enable && !global.serverUptimeRunning) {
                                 const http = require('http');
                                 const express = require('express');
                                 const app = express();
                                 const server = http.createServer(app);
                                 const { data: html } = await axios.get("https://raw.githubusercontent.com/ntkhang03/resources-goat-bot/master/homepage/home.html");
-                                const PORT = global.noobCore.ncsetting.dashBoard?.port || (!isNaN(global.ncsetting.config.serverUptime.port) && global.noobCore.ncsetting.serverUptime.port) || 3001;
+                                const PORT = global.irfbot.ncsetting.dashBoard?.port || (!isNaN(global.ncsetting.config.serverUptime.port) && global.irfbot.ncsetting.serverUptime.port) || 3001;
                                 app.get('/', (req, res) => res.send(html));
                                 app.get('/uptime', global.responseUptimeCurrent);
                                 let nameUpTime;
@@ -1120,7 +1120,7 @@ async function startBot(loginWithEmail) {
                                         nameUpTime.includes('localhost') && (nameUpTime = nameUpTime.replace('https', 'http'));
                                         await server.listen(PORT);
                                         log.info("UPTIME", getText('login', 'openServerUptimeSuccess', nameUpTime));
-                                        if (global.noobCore.ncsetting.serverUptime.socket?.enable == true)
+                                        if (global.irfbot.ncsetting.serverUptime.socket?.enable == true)
                                                 require('./socketIO.js')(server);
                                         global.serverUptimeRunning = true;
                                 }
@@ -1146,7 +1146,7 @@ async function startBot(loginWithEmail) {
                                         try {
                                                 await stopListening();
                                                 await sleep(1000);
-                                                global.noobCore.Listening = api.listenMqtt(createCallBackListen());
+                                                global.irfbot.Listening = api.listenMqtt(createCallBackListen());
                                                 log.info("LISTEN_MQTT", getText('login', 'restartListenMessage2'));
                                         }
                                         catch (e) {
@@ -1159,7 +1159,7 @@ async function startBot(loginWithEmail) {
                 });
         })(appState);
 
-        if (global.noobCore.ncsetting.autoReloginWhenChangeAccount) {
+        if (global.irfbot.ncsetting.autoReloginWhenChangeAccount) {
                 setTimeout(function () {
                         watch(dirAccount, async (type) => {
                                 if (type == 'change' && changeFbStateByCode == false && latestChangeContentAccount != fs.statSync(dirAccount).mtimeMs) {
@@ -1175,5 +1175,5 @@ async function startBot(loginWithEmail) {
         }
 }
 
-global.noobCore.reLoginBot = startBot;
+global.irfbot.reLoginBot = startBot;
 startBot();

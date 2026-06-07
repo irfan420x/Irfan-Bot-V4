@@ -25,7 +25,7 @@ module.exports = {
       "🔴 Reply: No\n\n" +
       "⏳ Auto cancel in 20 seconds.",
       (err, info) => {
-        global.noobCore.ncReply.set(info.messageID, {
+        global.irfbot.ncReply.set(info.messageID, {
           commandName,
           author: event.senderID,
           messageID: info.messageID,

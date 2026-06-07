@@ -18,7 +18,7 @@ module.exports = {
     const { addedParticipants } = logMessageData;
     const hours = new Date().getHours();
     const prefix = getPrefix(threadID);
-    const nickNameBot = global.noobCore.config.nickNameBot;
+    const nickNameBot = global.irfbot.config.nickNameBot;
 
     const { settings } = await threadsData.get(threadID);
     if (settings.sendWelcomeMessage === false) return;

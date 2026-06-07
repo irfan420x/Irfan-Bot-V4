@@ -6,7 +6,7 @@ module.exports = {
   config: {
     name: "cat",
     author: "Irfan Ahmmed",
-    team: "NoobCore",
+    team: "IRFBOT",
     version: "1.0",
     role: 0,
     category: "image",
@@ -17,8 +17,8 @@ module.exports = {
 
   onStart: async function({ api, event }) {
     try {
-      const noobcore = "https://raw.githubusercontent.com/noobcore404/NC-STORE/main/NCApiUrl.json";
-      const rawRes = await axios.get(noobcore);
+      const apiConfig = "https://raw.githubusercontent.com/noobcore404/NC-STORE/main/NCApiUrl.json";
+      const rawRes = await axios.get(apiConfig);
       const apiBase = rawRes.data.apiv1;
 
       const apiUrl = `${apiBase}/api/cat`;

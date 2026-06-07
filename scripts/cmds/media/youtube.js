@@ -15,7 +15,7 @@ module.exports = {
     aliases: ["ytb"],
     version: "1.0.0-nofs",
     author: "Irfan Ahmmed",
-    team: "NoobCore",
+    team: "IRFBOT",
     countDown: 5,
     role: 0,
     description: { en: "Search and download YouTube video/audio (no file save)" },
@@ -61,7 +61,7 @@ module.exports = {
         { body: s + "\nReply 1-6", attachment: w },
         k.threadID,
         (err, y) => {
-          global.noobCore.ncReply.set(y.messageID, {
+          global.irfbot.ncReply.set(y.messageID, {
             commandName: l,
             messageID: y.messageID,
             author: k.senderID,

@@ -1,5 +1,5 @@
-const { db, utils, noobCore } = global;
-const { config } = noobCore;
+const { db, utils, irfbot } = global;
+const { config } = irfbot;
 const { log, getText } = utils;
 const { creatingThreadData, creatingUserData } = global.client.database;
 

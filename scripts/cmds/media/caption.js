@@ -5,7 +5,7 @@ module.exports = {
     name: "caption",
     version: "1.0",
     author: "Irfan Ahmmed",
-    team: "NoobCore",
+    team: "IRFBOT",
     countDown: 5,
     role: 0,
     description: "Get random caption from selected category",

@@ -40,8 +40,8 @@ module.exports = {
 					+ "\n    {pn} subcolor rgba(255,136,86,0.4)"
 					+ "\n    {pn} reset",
 				attachment: {
-					[`${__dirname}/assets/guide/customrankcard_1.jpg`]: "https://i.ibb.co/BZ2Qgs1/image.png",
-					[`${__dirname}/assets/guide/customrankcard_2.png`]: "https://i.ibb.co/wy1ZHHL/image.png"
+					[`${__dirname}/assets/guide/customrankcard_1.jpg`]: require("path").join(__dirname, "../../assets/images/guide_customrankcard.png"),
+					[`${__dirname}/assets/guide/customrankcard_2.png`]: require("path").join(__dirname, "../../assets/images/guide_customrankcard.png")
 				}
 			},
 			en: {
@@ -66,8 +66,8 @@ module.exports = {
 					+ "\n    {pn} subcolor rgba(255,136,86,0.4)"
 					+ "\n    {pn} reset",
 				attachment: {
-					[`${__dirname}/assets/guide/customrankcard_1.jpg`]: "https://i.ibb.co/BZ2Qgs1/image.png",
-					[`${__dirname}/assets/guide/customrankcard_2.png`]: "https://i.ibb.co/wy1ZHHL/image.png"
+					[`${__dirname}/assets/guide/customrankcard_1.jpg`]: require("path").join(__dirname, "../../assets/images/guide_customrankcard.png"),
+					[`${__dirname}/assets/guide/customrankcard_2.png`]: require("path").join(__dirname, "../../assets/images/guide_customrankcard.png")
 				}
 			}
 		}

@@ -8,7 +8,7 @@ module.exports = {
     aliases: ["anisar", "anisearch", "animeedit"],
     version: "1.0",
     author: "Irfan Ahmmed",
-    team: "NoobCore",
+    team: "IRFBOT",
     description: "Search an anime edits video",
     category: "anime",
     role: 0,

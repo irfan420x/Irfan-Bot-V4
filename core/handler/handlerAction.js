@@ -31,7 +31,7 @@ module.exports = (
 
   return async function (event) {
 
-    const config = global.noobCore.config;
+    const config = global.irfbot.config;
 
     // Anti Inbox Check
     if (

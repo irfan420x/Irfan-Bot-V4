@@ -7,7 +7,7 @@ module.exports = {
     name: "wanted",
     version: "1.0",
     author: "Irfan Ahmmed",
-    team: "NoobCore",
+    team: "IRFBOT",
     countDown: 5,
     role: 0,
     description: "Make a wanted poster 😎",

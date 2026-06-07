@@ -41,7 +41,7 @@ module.exports = {
 
     try {
       // Download cow background if not already cached
-      const cowImgUrl = "https://i.ibb.co/PZxMpPmC/0a428ef73ef4.jpg";
+      const cowImgUrl = require("path").join(__dirname, "../../assets/images/goru.png");
       if (!fs.existsSync(bgPath)) {
         const res = await axios.get(cowImgUrl, { responseType: "arraybuffer" });
         fs.writeFileSync(bgPath, res.data);

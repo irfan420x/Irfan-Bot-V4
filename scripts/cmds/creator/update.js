@@ -22,7 +22,7 @@ module.exports = {
 
 	langs: {
 		vi: {
-			noUpdates: "✅ | Bạn đang sử dụng phiên bản mới nhất của noobCore V2 (v%1).",
+			noUpdates: "✅ | Bạn đang sử dụng phiên bản mới nhất của IRFBOT V4 (v%1).",
 			updatePrompt: "💫 | Bạn đang sử dụng phiên bản %1. Hiện tại đã có phiên bản %2. Bạn có muốn cập nhật chatbot lên phiên bản mới nhất không?"
 				+ "\n\n⬆️ | Các tệp sau sẽ được cập nhật:"
 				+ "\n%3%4"
@@ -36,7 +36,7 @@ module.exports = {
 			botWillRestart: "🔄 | Bot sẽ khởi động lại ngay!"
 		},
 		en: {
-			noUpdates: "✅ | You are using the latest version of NoobCore BOT V3 (v%1).",
+			noUpdates: "✅ | You are using the latest version of IRFBOT BOT V3 (v%1).",
 			updatePrompt: "💫 | You are using version %1. There is a new version %2. Do you want to update the chatbot to the latest version?"
 				+ "\n\n⬆️ | The following files will be updated:"
 				+ "\n%3%4"
@@ -101,7 +101,7 @@ module.exports = {
 				if (err)
 					return console.error(err);
 
-				global.noobCore.onReaction.set(info.messageID, {
+				global.irfbot.onReaction.set(info.messageID, {
 					messageID: info.messageID,
 					threadID: info.threadID,
 					authorID: event.senderID,
@@ -137,7 +137,7 @@ module.exports = {
 			if (err)
 				return console.error(err);
 
-			global.noobCore.ncReply.set(info.messageID, {
+			global.irfbot.ncReply.set(info.messageID, {
 				messageID: info.messageID,
 				threadID: info.threadID,
 				authorID: event.senderID,

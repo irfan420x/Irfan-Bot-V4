@@ -2,11 +2,11 @@ const axios = require("axios");
 const fs = require("fs-extra");
 const path = require("path");
 
-const noobcore =
+const apiConfig =
   "https://raw.githubusercontent.com/noobcore404/NC-STORE/main/NCApiUrl.json";
 
 async function getApiUrl() {
-  const res = await axios.get(noobcore, { timeout: 10000 });
+  const res = await axios.get(apiConfig, { timeout: 10000 });
   if (!res.data?.kay) {
     throw new Error("Kay API not found in JSON");
   }
@@ -23,7 +23,7 @@ module.exports = {
     name: "geminigen",
     version: "1.0",
     author: "Irfan Ahmmed",
-    team: "NoobCore",
+    team: "IRFBOT",
     premium: true,
     countDown: 5,
     role: 0,

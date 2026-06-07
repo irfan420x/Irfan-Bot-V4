@@ -61,7 +61,7 @@ if (config.whiteListMode?.whiteListIds && Array.isArray(config.whiteListMode.whi
         config.whiteListMode.whiteListIds = config.whiteListMode.whiteListIds.map(id => id.toString());
 const configCommands = require(dirConfigCommands);
 
-global.noobCore = {
+global.irfbot = {
         startTime: Date.now() - process.uptime() * 1000,
         commands: new Map(),
         eventCommands: new Map(),
@@ -144,7 +144,7 @@ const watchAndReloadConfig = (dir, type, prop, logName) => {
         let isFirstModified = true;
         fs.watch(dir, (eventType) => {
                 if (eventType === type) {
-                        const oldConfig = global.noobCore[prop];
+                        const oldConfig = global.irfbot[prop];
                         setTimeout(() => {
                                 try {
                                         if (isFirstModified) {
@@ -152,12 +152,12 @@ const watchAndReloadConfig = (dir, type, prop, logName) => {
                                                 return;
                                         }
                                         if (lastModified === fs.statSync(dir).mtimeMs) return;
-                                        global.noobCore[prop] = JSON.parse(fs.readFileSync(dir, 'utf-8'));
+                                        global.irfbot[prop] = JSON.parse(fs.readFileSync(dir, 'utf-8'));
                                         log.success(logName, `Reloaded ${dir.replace(process.cwd(), "")}`);
                                 }
                                 catch (err) {
                                         log.warn(logName, `Can't reload ${dir.replace(process.cwd(), "")}`);
-                                        global.noobCore[prop] = oldConfig;
+                                        global.irfbot[prop] = oldConfig;
                                 }
                                 finally {
                                         lastModified = fs.statSync(dir).mtimeMs;
@@ -170,9 +170,9 @@ const watchAndReloadConfig = (dir, type, prop, logName) => {
 watchAndReloadConfig(dirConfigCommands, 'change', 'configCommands', 'CONFIG COMMANDS');
 watchAndReloadConfig(dirConfig, 'change', 'config', 'CONFIG');
 
-global.noobCore.envGlobal = global.noobCore.configCommands.envGlobal;
-global.noobCore.envCommands = global.noobCore.configCommands.envCommands;
-global.noobCore.envEvents = global.noobCore.configCommands.envEvents;
+global.irfbot.envGlobal = global.irfbot.configCommands.envGlobal;
+global.irfbot.envCommands = global.irfbot.configCommands.envCommands;
+global.irfbot.envEvents = global.irfbot.configCommands.envEvents;
 
 const getText = global.utils.getText;
 

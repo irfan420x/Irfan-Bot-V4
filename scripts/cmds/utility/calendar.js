@@ -9,7 +9,7 @@ module.exports = {
     name: "calendar",
     version: "1.0",
     author: "Irfan Ahmmed",
-    team: "NoobCore", 
+    team: "IRFBOT", 
     shortDescription: "🗓️ English Calendar",
     longDescription: "Fetches calendar image for Asia/Dhaka",
     guide: { en: "{p}calendar" }
@@ -17,8 +17,8 @@ module.exports = {
 
   onStart: async function ({ api, event }) {
     try {
-      const noobcore = "https://raw.githubusercontent.com/noobcore404/NC-STORE/main/NCApiUrl.json";
-      const rawRes = await axios.get(noobcore);
+      const apiConfig = "https://raw.githubusercontent.com/noobcore404/NC-STORE/main/NCApiUrl.json";
+      const rawRes = await axios.get(apiConfig);
       const apiBase = rawRes.data.apiv1;
 
       const response = await axios.get(`${apiBase}/api/calendar`, { responseType: "arraybuffer" });
